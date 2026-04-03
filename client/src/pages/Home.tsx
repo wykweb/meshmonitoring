@@ -222,6 +222,10 @@ const coreServices: ServiceCard[] = [
     badgeColor: "blue",
     icon: <FirehoseIcon className="w-6 h-6" />,
     tag: "yycmesh.meshmonitoring.com",
+    note: "Open Firehose Feed",
+    noteUrl: "https://yycmesh.meshmonitoring.com/firehose",
+    qrCode: "https://d2xsxph8kpxj0f.cloudfront.net/310519663459784497/HNPJdRREoZxPBHo4cuB8dc/yyc-zapp-qr_65981a83.png",
+    qrLink: "https://yycmesh.meshmonitoring.com/firehose",
   },
   {
     id: "wyk0-bot",
@@ -234,6 +238,10 @@ const coreServices: ServiceCard[] = [
     badgeColor: "cyan",
     icon: <BotIcon className="w-6 h-6" />,
     tag: "yyc.meshmonitoring.com",
+    note: "Open Firehose Feed",
+    noteUrl: "https://yyc.meshmonitoring.com/firehose",
+    qrCode: "https://d2xsxph8kpxj0f.cloudfront.net/310519663459784497/HNPJdRREoZxPBHo4cuB8dc/yyc-wyk0-qr_1f445bc9.png",
+    qrLink: "https://yyc.meshmonitoring.com/firehose",
   },
   {
     id: "canada-mesh",

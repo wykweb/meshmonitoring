@@ -509,7 +509,7 @@ const communityServices: ServiceCard[] = [
   {
     id: "salish-mesh",
     title: "Salish Mesh",
-    subtitle: "Salish Sea & Surrounding Area — Canada",
+    subtitle: "🇨🇦 Salish Sea & Surrounding Area — Canada",
     description:
       "Community mesh network covering the Salish Sea and surrounding region, connecting Meshtastic operators across coastal British Columbia and the Pacific Northwest border area.",
     url: "https://salishmesh.net/",
@@ -520,7 +520,7 @@ const communityServices: ServiceCard[] = [
   {
     id: "vancouver-mesh",
     title: "Vancouver MESH",
-    subtitle: "Vancouver, BC & South Island — Canada",
+    subtitle: "🇨🇦 Vancouver, BC & South Island — Canada",
     description:
       "Community group building a mesh network of solar-powered Meshtastic radios in Vancouver, BC and the South Island area. Focused on resilient, off-grid community communications.",
     url: "https://vancouvermesh.ca/",
@@ -531,7 +531,7 @@ const communityServices: ServiceCard[] = [
   {
     id: "yeg-mesh",
     title: "YEG MESH",
-    subtitle: "Edmonton, Alberta — Canada",
+    subtitle: "🇨🇦 Edmonton, Alberta — Canada",
     description:
       "Edmonton's core mesh community, following the Calgary community's lead and adopting the new \"Custom LongModTurbo\" settings for a fresh, high-performance Meshtastic network.",
     url: "https://yegmesh.ca/",
@@ -1302,7 +1302,7 @@ export default function Home() {
               <div className="h-px flex-1 bg-white/6" />
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-              {[communityServices[3], communityServices[6], communityServices[7], communityServices[9]].map((card, i) => (
+              {[communityServices[3], communityServices[6], communityServices[7], communityServices[9], communityServices[10], communityServices[11], communityServices[12]].map((card, i) => (
                 <ServiceCard key={card.id} card={card} index={i + 6} />
               ))}
             </div>

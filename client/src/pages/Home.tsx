@@ -1545,6 +1545,15 @@ export default function Home() {
               <span>🇺🇸</span>USA
               {newUSA > 0 && <span className="inline-flex items-center justify-center h-4 min-w-4 px-1 rounded-full bg-emerald-500/20 border border-emerald-500/30 text-emerald-400 text-[9px] font-bold leading-none">{newUSA}</span>}
             </a>
+            <a
+              href="https://relay.meshnard.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mono-label text-teal-400/70 hover:text-teal-300 text-xs uppercase tracking-widest px-3 py-1.5 rounded-lg hover:bg-teal-500/10 transition-all duration-200 flex items-center gap-1"
+            >
+              Mesh Web Relay
+              <svg className="w-3 h-3 opacity-60" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" /><polyline points="15 3 21 3 21 9" /><line x1="10" y1="14" x2="21" y2="3" /></svg>
+            </a>
           </nav>
 
           {/* Hamburger — visible on mobile only */}
@@ -1612,6 +1621,16 @@ export default function Home() {
             <a href="#usa" onClick={() => setMobileMenuOpen(false)} className="mono-label text-rose-400/80 hover:text-rose-300 text-xs uppercase tracking-widest px-3 py-2.5 rounded-lg hover:bg-rose-500/10 transition-all duration-200 flex items-center gap-1.5">
               <span>🇺🇸</span>USA
               {newUSA > 0 && <span className="inline-flex items-center justify-center h-4 min-w-4 px-1 rounded-full bg-emerald-500/20 border border-emerald-500/30 text-emerald-400 text-[9px] font-bold leading-none">{newUSA}</span>}
+            </a>
+            <a
+              href="https://relay.meshnard.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => setMobileMenuOpen(false)}
+              className="mono-label text-teal-400/80 hover:text-teal-300 text-xs uppercase tracking-widest px-3 py-2.5 rounded-lg hover:bg-teal-500/10 transition-all duration-200 flex items-center gap-1.5"
+            >
+              Mesh Web Relay
+              <svg className="w-3 h-3 opacity-60" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" /><polyline points="15 3 21 3 21 9" /><line x1="10" y1="14" x2="21" y2="3" /></svg>
             </a>
             <div className="h-px bg-white/6 my-1" />
             <a

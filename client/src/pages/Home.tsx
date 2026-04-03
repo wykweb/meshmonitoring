@@ -592,11 +592,12 @@ function ServiceCard({ card, index }: { card: ServiceCard; index: number }) {
   const delayClass = delays[index % delays.length];
 
   return (
-    <a
-      href={card.url}
-      target="_blank"
-      rel="noopener noreferrer"
-      className={`group block opacity-0 animate-fade-up ${delayClass}`}
+    <div
+      role="link"
+      tabIndex={0}
+      onClick={() => window.open(card.url, "_blank", "noopener,noreferrer")}
+      onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") window.open(card.url, "_blank", "noopener,noreferrer"); }}
+      className={`group block opacity-0 animate-fade-up ${delayClass} cursor-pointer`}
       aria-label={`Open ${card.title} — ${card.subtitle}`}
     >
       <div
@@ -714,7 +715,7 @@ function ServiceCard({ card, index }: { card: ServiceCard; index: number }) {
           </span>
         </div>
       </div>
-    </a>
+    </div>
   );
 }
 

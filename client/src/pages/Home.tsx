@@ -21,6 +21,9 @@ interface ServiceCard {
   icon: React.ReactNode;
   tag: string;
   note?: string;
+  noteUrl?: string;
+  qrCode?: string;
+  qrLink?: string;
 }
 
 const HERO_BG =
@@ -367,7 +370,10 @@ const communityServices: ServiceCard[] = [
     badgeColor: "sky",
     icon: <RadioIcon className="w-6 h-6" />,
     tag: "yycmesh.com",
-    note: "YYC Mesh Radio Settings — https://yycmesh.com/about",
+    note: "YYC Mesh Radio Settings",
+    noteUrl: "https://yycmesh.com/about",
+    qrCode: "https://d2xsxph8kpxj0f.cloudfront.net/310519663459784497/HNPJdRREoZxPBHo4cuB8dc/yycmesh-join_6c2de6ec.png",
+    qrLink: "https://meshtastic.org/e/#CgMSAQESGxAHGPQDIAsoCDgBQANIAVAeaAF1AKxhRMAGAQ",
   },
 ];
 
@@ -532,7 +538,49 @@ function ServiceCard({ card, index }: { card: ServiceCard; index: number }) {
         {/* Note (optional) */}
         {card.note && (
           <div className="mb-4 px-3 py-2 rounded-lg bg-white/4 border border-white/6">
-            <p className="mono-label text-white/40 text-xs">{card.note}</p>
+            {card.noteUrl ? (
+              <a
+                href={card.noteUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mono-label text-sky-400/70 hover:text-sky-300 text-xs underline underline-offset-2 transition-colors duration-150"
+                onClick={(e) => e.stopPropagation()}
+              >
+                {card.note}
+              </a>
+            ) : (
+              <p className="mono-label text-white/40 text-xs">{card.note}</p>
+            )}
+          </div>
+        )}
+
+        {/* QR code block (optional) */}
+        {card.qrCode && card.qrLink && (
+          <div className="mb-4 rounded-xl border border-white/8 bg-white/3 p-4 flex flex-col items-center gap-3">
+            <a
+              href={card.qrLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={(e) => e.stopPropagation()}
+              className="block"
+              title="Scan QR code or click to join YYCMesh radio settings"
+            >
+              <img
+                src={card.qrCode}
+                alt="YYCMesh radio settings QR code"
+                className="w-28 h-28 rounded-lg"
+              />
+            </a>
+            <p className="mono-label text-white/35 text-xs text-center">Scan the QR code or click below to join directly:</p>
+            <a
+              href={card.qrLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={(e) => e.stopPropagation()}
+              className="mono-label text-xs font-medium px-3 py-1.5 rounded-lg bg-sky-500/15 border border-sky-500/30 text-sky-300 hover:text-sky-200 hover:bg-sky-500/25 transition-all duration-150 tracking-widest uppercase"
+            >
+              YYCMESH RADIO SETTINGS
+            </a>
           </div>
         )}
 
@@ -560,7 +608,7 @@ function StatsBar() {
   const [count, setCount] = useState(0);
 
   useEffect(() => {
-    const target = 12;
+    const target = 13;
     let current = 0;
     const step = () => {
       current++;

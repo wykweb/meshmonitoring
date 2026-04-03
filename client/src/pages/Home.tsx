@@ -1037,9 +1037,35 @@ function SectionDivider({ label }: { label: string }) {
 
 // ─── Main Page ────────────────────────────────────────────────────────────────
 
+// ─── Search helpers ───────────────────────────────────────────────────────────
+
+function matchesQuery(card: ServiceCard, q: string): boolean {
+  if (!q) return true;
+  const lower = q.toLowerCase();
+  return (
+    card.title.toLowerCase().includes(lower) ||
+    card.subtitle.toLowerCase().includes(lower) ||
+    card.description.toLowerCase().includes(lower) ||
+    card.badge.toLowerCase().includes(lower) ||
+    card.tag.toLowerCase().includes(lower) ||
+    (card.note?.toLowerCase().includes(lower) ?? false)
+  );
+}
+
 export default function Home() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [showBackToTop, setShowBackToTop] = useState(false);
+  const [searchQuery, setSearchQuery] = useState("");
+
+  // Derived filtered arrays
+  const filteredCore      = coreServices.filter(c => matchesQuery(c, searchQuery));
+  const filteredCommunity = communityServices.filter(c => matchesQuery(c, searchQuery));
+  const filteredResources = resourceServices.filter(c => matchesQuery(c, searchQuery));
+  const filteredUSA       = usaServices.filter(c => matchesQuery(c, searchQuery));
+
+  const totalVisible =
+    filteredCore.length + filteredCommunity.length + filteredResources.length + filteredUSA.length;
+  const isFiltering = searchQuery.trim().length > 0;
 
   useEffect(() => {
     const onScroll = () => setShowBackToTop(window.scrollY > 600);
@@ -1229,7 +1255,52 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ── Search Bar ── */}
+      <div className="sticky top-16 z-40 border-b border-white/6" style={{ background: "oklch(0.10 0.008 265 / 0.92)", backdropFilter: "blur(16px)" }}>
+        <div className="container py-3">
+          <div className="flex items-center gap-3">
+            <div className="relative flex-1 max-w-xl">
+              <svg
+                className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-white/30 pointer-events-none"
+                viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"
+                strokeLinecap="round" strokeLinejoin="round"
+              >
+                <circle cx="11" cy="11" r="8" />
+                <path d="m21 21-4.35-4.35" />
+              </svg>
+              <input
+                type="text"
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                placeholder='Filter by name, region, type... (e.g. "map", "YYC", "firehose")'
+                className="w-full pl-9 pr-9 py-2 rounded-xl text-sm text-white/80 placeholder-white/25 bg-white/5 border border-white/10 focus:border-blue-500/40 focus:bg-white/8 focus:outline-none transition-all duration-200"
+                style={{ fontFamily: "'Fira Code', monospace" }}
+                aria-label="Filter services"
+              />
+              {isFiltering && (
+                <button
+                  type="button"
+                  onClick={() => setSearchQuery("")}
+                  className="absolute right-2.5 top-1/2 -translate-y-1/2 w-5 h-5 flex items-center justify-center rounded-full text-white/30 hover:text-white/70 hover:bg-white/10 transition-all duration-150"
+                  aria-label="Clear filter"
+                >
+                  <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M18 6 6 18M6 6l12 12" />
+                  </svg>
+                </button>
+              )}
+            </div>
+            {isFiltering && (
+              <span className="mono-label text-white/30 text-xs whitespace-nowrap">
+                {totalVisible} result{totalVisible !== 1 ? "s" : ""}
+              </span>
+            )}
+          </div>
+        </div>
+      </div>
+
       {/* ── Core Services ── */}
+      {(!isFiltering || filteredCore.length > 0) && (
       <section id="services" className="py-20 relative">
         <div className="container">
           <div className="mb-10 text-center">
@@ -1248,19 +1319,23 @@ export default function Home() {
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-            {coreServices.slice(0, 3).map((card, i) => (
+            {filteredCore.slice(0, 3).map((card, i) => (
               <ServiceCard key={card.id} card={card} index={i} />
             ))}
           </div>
+          {filteredCore.length > 3 && (
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 mt-5 lg:max-w-[calc(66.666%+1.25rem)] lg:mx-auto">
-            {coreServices.slice(3).map((card, i) => (
+            {filteredCore.slice(3).map((card, i) => (
               <ServiceCard key={card.id} card={card} index={i + 3} />
             ))}
           </div>
+          )}
         </div>
       </section>
+      )}
 
       {/* ── Community Services ── */}
+      {(!isFiltering || filteredCommunity.length > 0) && (
       <section id="community" className="pb-20 relative">
         <div className="container">
           <SectionDivider label="Community Resources" />
@@ -1280,6 +1355,15 @@ export default function Home() {
             </p>
           </div>
 
+          {/* When filtering, show all matching community cards in one flat grid */}
+          {isFiltering ? (
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+              {filteredCommunity.map((card, i) => (
+                <ServiceCard key={card.id} card={card} index={i} />
+              ))}
+            </div>
+          ) : (
+            <>
           {/* ── Canadaverse Network sub-group ── */}
           <div className="mb-8">
             <div className="flex items-center gap-3 mb-5">
@@ -1326,6 +1410,8 @@ export default function Home() {
               ))}
             </div>
           </div>
+            </>
+          )}
 
           {/* ── Submit a Resource CTA ── */}
           <div className="flex flex-col items-center gap-4 pt-6 border-t border-white/6">
@@ -1353,8 +1439,10 @@ export default function Home() {
           </div>
         </div>
       </section>
+      )}
 
       {/* ── Resources ── */}
+      {(!isFiltering || filteredResources.length > 0) && (
       <section id="resources" className="pb-20 relative">
         <div className="container">
           <SectionDivider label="Resources" />
@@ -1375,19 +1463,23 @@ export default function Home() {
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-            {resourceServices.slice(0, 3).map((card, i) => (
+            {filteredResources.slice(0, 3).map((card, i) => (
               <ServiceCard key={card.id} card={card} index={i} />
             ))}
           </div>
+          {filteredResources.length > 3 && (
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 mt-5 lg:max-w-[calc(66.666%+1.25rem)] lg:mx-auto">
-            {resourceServices.slice(3).map((card, i) => (
+            {filteredResources.slice(3).map((card, i) => (
               <ServiceCard key={card.id} card={card} index={i + 3} />
             ))}
           </div>
+          )}
         </div>
       </section>
+      )}
 
       {/* ── USA Meshtastic Networks ── */}
+      {(!isFiltering || filteredUSA.length > 0) && (
       <section id="usa" className="py-16 border-t border-white/6">
         <div className="container">
           <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-3 mb-10">
@@ -1411,19 +1503,38 @@ export default function Home() {
             </div>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-            {usaServices.slice(0, 12).map((card, i) => (
+            {filteredUSA.slice(0, 12).map((card, i) => (
               <ServiceCard key={card.id} card={card} index={i} />
             ))}
           </div>
-          {usaServices.length > 12 && (
+          {filteredUSA.length > 12 && (
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 mt-5 lg:max-w-[calc(66.666%+1.25rem)] lg:mx-auto">
-              {usaServices.slice(12).map((card, i) => (
+              {filteredUSA.slice(12).map((card, i) => (
                 <ServiceCard key={card.id} card={card} index={i + 12} />
               ))}
             </div>
           )}
         </div>
       </section>
+      )}
+
+      {/* ── No results state ── */}
+      {isFiltering && totalVisible === 0 && (
+        <div className="py-24 flex flex-col items-center gap-4 text-center">
+          <svg className="w-12 h-12 text-white/15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+            <circle cx="11" cy="11" r="8" />
+            <path d="m21 21-4.35-4.35" />
+          </svg>
+          <p className="text-white/40 text-sm">No services match <span className="text-white/70 font-medium">&ldquo;{searchQuery}&rdquo;</span></p>
+          <button
+            type="button"
+            onClick={() => setSearchQuery("")}
+            className="mono-label text-xs px-4 py-2 rounded-lg border border-white/10 bg-white/5 text-white/40 hover:text-white/70 hover:bg-white/8 transition-all duration-200"
+          >
+            Clear filter
+          </button>
+        </div>
+      )}
 
       {/* ── About ── */}
       <section className="py-16 border-t border-white/6">

@@ -154,6 +154,16 @@ function LinkIcon({ className }: { className?: string }) {
   );
 }
 
+function MapIcon({ className }: { className?: string }) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+      <polygon points="3 6 9 3 15 6 21 3 21 18 15 21 9 18 3 21" />
+      <line x1="9" y1="3" x2="9" y2="18" />
+      <line x1="15" y1="6" x2="15" y2="21" />
+    </svg>
+  );
+}
+
 // ─── Badge / style maps ───────────────────────────────────────────────────────
 
 const badgeStyles: Record<ServiceCard["badgeColor"], string> = {
@@ -498,6 +508,179 @@ const communityServices: ServiceCard[] = [
   },
 ];
 
+// ─── USA Meshtastic Networks ────────────────────────────────────────────────────
+
+const usaServices: ServiceCard[] = [
+  {
+    id: "sf-bay-area",
+    title: "SF Bay Area Mesh",
+    subtitle: "San Francisco Bay Area — USA",
+    description:
+      "Meshtastic mesh network viewer for the San Francisco Bay Area. Explore active nodes, signal reports, and network activity across the Bay Area mesh community.",
+    url: "https://meshview.bayme.sh",
+    badge: "MeshView",
+    badgeColor: "sky",
+    icon: <MapIcon className="w-6 h-6" />,
+    tag: "meshview.bayme.sh",
+  },
+  {
+    id: "sacramento-valley",
+    title: "Sacramento Valley Mesh",
+    subtitle: "Sacramento Valley — USA",
+    description:
+      "Meshtastic mesh network viewer for the Sacramento Valley region. Monitor local nodes, trace routes, and track network coverage across the Sacramento Valley mesh.",
+    url: "https://www.svme.sh",
+    badge: "MeshView",
+    badgeColor: "sky",
+    icon: <MapIcon className="w-6 h-6" />,
+    tag: "svme.sh",
+  },
+  {
+    id: "new-york-mesh",
+    title: "New York Mesh",
+    subtitle: "New York — USA",
+    description:
+      "Meshtastic mesh network viewer for the New York area. Explore active nodes, message traffic, and signal coverage across the New York Meshtastic community.",
+    url: "https://meshview.nyme.sh",
+    badge: "MeshView",
+    badgeColor: "sky",
+    icon: <MapIcon className="w-6 h-6" />,
+    tag: "meshview.nyme.sh",
+  },
+  {
+    id: "los-angeles-mesh",
+    title: "SoCal Mesh",
+    subtitle: "Los Angeles — USA",
+    description:
+      "Meshtastic mesh network viewer for the Southern California / Los Angeles area. Track nodes, signal reports, and mesh activity across the SoCal Meshtastic network.",
+    url: "https://meshview.socalmesh.org",
+    badge: "MeshView",
+    badgeColor: "sky",
+    icon: <MapIcon className="w-6 h-6" />,
+    tag: "meshview.socalmesh.org",
+  },
+  {
+    id: "western-pa-mesh",
+    title: "Western PA Mesh",
+    subtitle: "Western Pennsylvania — USA",
+    description:
+      "Interactive map and node viewer for the Western Pennsylvania Meshtastic mesh network. Monitor local nodes and network coverage across the WPA mesh community.",
+    url: "https://map.wpamesh.net",
+    badge: "Map",
+    badgeColor: "violet",
+    icon: <MapIcon className="w-6 h-6" />,
+    tag: "map.wpamesh.net",
+  },
+  {
+    id: "chicago-mesh",
+    title: "Chicagoland Mesh",
+    subtitle: "Chicago — USA",
+    description:
+      "Meshtastic mesh network viewer for the Chicagoland area. Explore active nodes, signal reports, and network activity across the Chicago and surrounding area mesh community.",
+    url: "https://meshview.chicagolandmesh.org",
+    badge: "MeshView",
+    badgeColor: "sky",
+    icon: <MapIcon className="w-6 h-6" />,
+    tag: "meshview.chicagolandmesh.org",
+  },
+  {
+    id: "salt-lake-city-mesh",
+    title: "Freq51 Mesh",
+    subtitle: "Salt Lake City — USA",
+    description:
+      "Meshtastic mesh network viewer for the Salt Lake City area. Monitor nodes, signal coverage, and mesh activity across the Freq51 Meshtastic community in Utah.",
+    url: "https://meshview.freq51.net/",
+    badge: "MeshView",
+    badgeColor: "sky",
+    icon: <MapIcon className="w-6 h-6" />,
+    tag: "meshview.freq51.net",
+  },
+  {
+    id: "north-georgia-mesh",
+    title: "Mountain Mesh",
+    subtitle: "North Georgia / East Tennessee — USA",
+    description:
+      "Meshtastic mesh network viewer for the North Georgia and East Tennessee mountain region. Explore nodes and signal coverage across the mtnme.sh mesh community.",
+    url: "https://view.mtnme.sh",
+    badge: "MeshView",
+    badgeColor: "sky",
+    icon: <MapIcon className="w-6 h-6" />,
+    tag: "view.mtnme.sh",
+  },
+  {
+    id: "pioneer-valley-mesh",
+    title: "Pioneer Valley Mesh",
+    subtitle: "Massachusetts — USA",
+    description:
+      "Meshtastic mesh network viewer for the Pioneer Valley region of Massachusetts. Track active nodes and network coverage across the PV Mesh community.",
+    url: "https://meshview.pvmesh.org",
+    badge: "MeshView",
+    badgeColor: "sky",
+    icon: <MapIcon className="w-6 h-6" />,
+    tag: "meshview.pvmesh.org",
+  },
+  {
+    id: "louisiana-mesh",
+    title: "Louisiana Mesh",
+    subtitle: "Louisiana — USA",
+    description:
+      "Meshtastic mesh network viewer for Louisiana. Monitor active nodes, signal reports, and mesh activity across the Louisiana Meshtastic community.",
+    url: "https://meshview.louisianamesh.org",
+    badge: "MeshView",
+    badgeColor: "sky",
+    icon: <MapIcon className="w-6 h-6" />,
+    tag: "meshview.louisianamesh.org",
+  },
+  {
+    id: "sw-louisiana-mesh",
+    title: "SW Louisiana Mesh",
+    subtitle: "Southwest Louisiana — USA",
+    description:
+      "Meshtastic mesh network hub for Southwest Louisiana. Connect with local mesh operators and explore the SWLA mesh network coverage and community resources.",
+    url: "https://www.swlamesh.com",
+    badge: "Community",
+    badgeColor: "green",
+    icon: <GlobeIcon className="w-6 h-6" />,
+    tag: "swlamesh.com",
+  },
+  {
+    id: "oregon-mesh",
+    title: "Oregon Mesh",
+    subtitle: "Oregon — USA",
+    description:
+      "Meshtastic mesh network viewer for Oregon. Explore active nodes, signal reports, and network coverage across the Oregon Meshtastic community.",
+    url: "https://meshview.meshoregon.com",
+    badge: "MeshView",
+    badgeColor: "sky",
+    icon: <MapIcon className="w-6 h-6" />,
+    tag: "meshview.meshoregon.com",
+  },
+  {
+    id: "georgia-mesh",
+    title: "Georgia Mesh",
+    subtitle: "Georgia — USA",
+    description:
+      "Meshtastic mesh network viewer for Georgia. Monitor active nodes, signal coverage, and mesh activity across the GA Mesh Meshtastic community.",
+    url: "https://meshview.gamesh.net",
+    badge: "MeshView",
+    badgeColor: "sky",
+    icon: <MapIcon className="w-6 h-6" />,
+    tag: "meshview.gamesh.net",
+  },
+  {
+    id: "meshsense",
+    title: "MeshSense",
+    subtitle: "Network Monitor & Visualizer",
+    description:
+      "A simple, open-source application that monitors, maps, and graphically displays all the vital stats of your area's Meshtastic network — including connected nodes, signal reports, trace routes, and more.",
+    url: "https://meshsense.affirmatech.com/",
+    badge: "Software",
+    badgeColor: "amber",
+    icon: <AnalyzerIcon className="w-6 h-6" />,
+    tag: "meshsense.affirmatech.com",
+  },
+];
+
 // ─── Animated mesh canvas ─────────────────────────────────────────────────────
 
 function MeshCanvas() {
@@ -742,7 +925,7 @@ function StatsBar() {
   const [count, setCount] = useState(0);
 
   useEffect(() => {
-    const target = 21;
+    const target = 35;
     let current = 0;
     const step = () => {
       current++;
@@ -832,6 +1015,7 @@ export default function Home() {
             <a href="#services" className="mono-label text-white/40 hover:text-white/80 text-xs uppercase tracking-widest px-3 py-1.5 rounded-lg hover:bg-white/6 transition-all duration-200">Services</a>
             <a href="#community" className="mono-label text-white/40 hover:text-white/80 text-xs uppercase tracking-widest px-3 py-1.5 rounded-lg hover:bg-white/6 transition-all duration-200">Community</a>
             <a href="#resources" className="mono-label text-white/40 hover:text-white/80 text-xs uppercase tracking-widest px-3 py-1.5 rounded-lg hover:bg-white/6 transition-all duration-200">Resources</a>
+            <a href="#usa" className="mono-label text-white/40 hover:text-white/80 text-xs uppercase tracking-widest px-3 py-1.5 rounded-lg hover:bg-white/6 transition-all duration-200">USA</a>
           </nav>
 
           {/* Hamburger — visible on mobile only */}
@@ -892,6 +1076,7 @@ export default function Home() {
             <a href="#services" onClick={() => setMobileMenuOpen(false)} className="mono-label text-white/60 hover:text-white text-xs uppercase tracking-widest px-3 py-2.5 rounded-lg hover:bg-white/8 transition-all duration-200">Services</a>
             <a href="#community" onClick={() => setMobileMenuOpen(false)} className="mono-label text-white/60 hover:text-white text-xs uppercase tracking-widest px-3 py-2.5 rounded-lg hover:bg-white/8 transition-all duration-200">Community</a>
             <a href="#resources" onClick={() => setMobileMenuOpen(false)} className="mono-label text-white/60 hover:text-white text-xs uppercase tracking-widest px-3 py-2.5 rounded-lg hover:bg-white/8 transition-all duration-200">Resources</a>
+            <a href="#usa" onClick={() => setMobileMenuOpen(false)} className="mono-label text-white/60 hover:text-white text-xs uppercase tracking-widest px-3 py-2.5 rounded-lg hover:bg-white/8 transition-all duration-200">USA</a>
             <div className="h-px bg-white/6 my-1" />
             <a
               href="https://discord.gg/CznDhsRWnJ"
@@ -1142,6 +1327,44 @@ export default function Home() {
               <ServiceCard key={card.id} card={card} index={i + 3} />
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* ── USA Meshtastic Networks ── */}
+      <section id="usa" className="py-16 border-t border-white/6">
+        <div className="container">
+          <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-3 mb-10">
+            <div>
+              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-rose-500/20 bg-rose-500/8 mb-4">
+                <span className="relative flex h-1.5 w-1.5">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-rose-400 opacity-60"></span>
+                  <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-rose-400"></span>
+                </span>
+                <span className="mono-label text-rose-400/80 text-xs uppercase tracking-widest">USA Meshtastic Networks</span>
+              </div>
+              <h2
+                className="text-2xl sm:text-3xl font-700 text-white"
+                style={{ fontFamily: "'Outfit', sans-serif", fontWeight: 700 }}
+              >
+                US Regional Mesh Communities
+              </h2>
+              <p className="text-white/40 text-sm mt-2">
+                Regional Meshtastic mesh network viewers, maps, and community hubs across the United States.
+              </p>
+            </div>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+            {usaServices.slice(0, 12).map((card, i) => (
+              <ServiceCard key={card.id} card={card} index={i} />
+            ))}
+          </div>
+          {usaServices.length > 12 && (
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 mt-5 lg:max-w-[calc(66.666%+1.25rem)] lg:mx-auto">
+              {usaServices.slice(12).map((card, i) => (
+                <ServiceCard key={card.id} card={card} index={i + 12} />
+              ))}
+            </div>
+          )}
         </div>
       </section>
 

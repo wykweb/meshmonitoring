@@ -356,6 +356,19 @@ const communityServices: ServiceCard[] = [
     icon: <LinkIcon className="w-6 h-6" />,
     tag: "canadaverse.org",
   },
+  {
+    id: "yyc-custom-mesh",
+    title: "YYC Custom Mesh",
+    subtitle: "YYCMesh Community",
+    description:
+      "Local HAMs and hobbyists running a public, off-grid communications mesh in Southern Alberta using Meshtastic. Come test the new YYC Mesh radio settings and participate in a fresh Meshtastic network!",
+    url: "https://yycmesh.com/",
+    badge: "Community",
+    badgeColor: "sky",
+    icon: <RadioIcon className="w-6 h-6" />,
+    tag: "yycmesh.com",
+    note: "YYC Mesh Radio Settings — https://yycmesh.com/about",
+  },
 ];
 
 // ─── Animated mesh canvas ─────────────────────────────────────────────────────
@@ -807,8 +820,8 @@ export default function Home() {
       </section>
 
       {/* ── Footer ── */}
-      <footer className="border-t border-white/6 py-8">
-        <div className="container flex flex-col sm:flex-row items-center justify-between gap-4">
+      <footer className="border-t border-white/6 pt-8 pb-6">
+        <div className="container flex flex-col sm:flex-row items-center justify-between gap-4 mb-6">
           <div className="flex items-center gap-2">
             <NetworkIcon className="w-4 h-4 text-blue-400" />
             <span className="mono-label text-white/30 text-xs">meshmonitoring.com</span>
@@ -822,6 +835,17 @@ export default function Home() {
               <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-emerald-500"></span>
             </span>
             <span className="mono-label text-emerald-500/60 text-xs">Operational</span>
+          </div>
+        </div>
+        {/* Legal disclaimer */}
+        <div className="container">
+          <div className="border-t border-white/6 pt-5">
+            <p className="mono-label text-white/20 text-xs text-center leading-relaxed max-w-3xl mx-auto">
+              <span className="text-white/30 font-medium">Note:</span> We are not affiliated with Meshtastic or Meshcore.{" "}
+              &copy; 2026 MeshMonitoring.com. MeshMonitoring.com is not affiliated with Meshtastic or Meshcore.{" "}
+              Meshtastic and Meshcore are registered trademarks of the Meshtastic respective Meshcore Projects.{" "}
+              MeshMonitoring.com makes reference to Meshtastic &amp; Meshcore under the M Powered community fair&#8209;use guidelines.
+            </p>
           </div>
         </div>
       </footer>

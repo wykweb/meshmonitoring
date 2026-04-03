@@ -256,6 +256,10 @@ const coreServices: ServiceCard[] = [
     badgeColor: "green",
     icon: <RadioIcon className="w-6 h-6" />,
     tag: "ca.meshmonitoring.com",
+    note: "Open Firehose Feed",
+    noteUrl: "https://ca.meshmonitoring.com/firehose",
+    qrCode: "https://d2xsxph8kpxj0f.cloudfront.net/310519663459784497/HNPJdRREoZxPBHo4cuB8dc/ca-firehose-qr_f2368f49.png",
+    qrLink: "https://ca.meshmonitoring.com/firehose",
   },
   {
     id: "meshmapper",
@@ -280,6 +284,69 @@ const coreServices: ServiceCard[] = [
     badgeColor: "amber",
     icon: <AnalyzerIcon className="w-6 h-6" />,
     tag: "analyzer.letsmesh.net",
+  },
+];
+
+const resourceServices: ServiceCard[] = [
+  {
+    id: "mt-mc-relay",
+    title: "Meshtastic\u2194MeshCore Relay",
+    subtitle: "Protocol Bridge",
+    description:
+      "A relay bridge enabling seamless message passing between Meshtastic and MeshCore networks, allowing operators on both protocols to communicate across the mesh.",
+    url: "https://meshnard.com/mesh/mt-mc_relay",
+    badge: "Tool",
+    badgeColor: "violet",
+    icon: <NetworkIcon className="w-6 h-6" />,
+    tag: "meshnard.com",
+  },
+  {
+    id: "canadian-mesh-links",
+    title: "Canadian Mesh Links",
+    subtitle: "by MeshNard",
+    description:
+      "Curated directory of Canadian mesh network resources, tools, communities, and reference links compiled by MeshNard for Meshtastic and MeshCore operators across Canada.",
+    url: "https://meshnard.com/meshlinks",
+    badge: "Directory",
+    badgeColor: "cyan",
+    icon: <LinkIcon className="w-6 h-6" />,
+    tag: "meshnard.com",
+  },
+  {
+    id: "mesh-web-relay",
+    title: "Mesh Web Relay",
+    subtitle: "Northern BC",
+    description:
+      "A secure message relay bridging the internet, local Meshtastic and MeshCore networks in Northern BC, and the Canadaverse MQTT network \u2014 enabling cross-network communication.",
+    url: "https://relay.meshnard.com/",
+    badge: "Relay",
+    badgeColor: "teal",
+    icon: <RadioIcon className="w-6 h-6" />,
+    tag: "relay.meshnard.com",
+  },
+  {
+    id: "meshnard-software",
+    title: "MeshNard Mesh Software",
+    subtitle: "Open Source Tools",
+    description:
+      "A collection of open source mesh networking software tools developed by MeshNard for Meshtastic and MeshCore operators, including utilities, scripts, and integrations.",
+    url: "https://meshnard.com/mesh/software",
+    badge: "Software",
+    badgeColor: "amber",
+    icon: <AnalyzerIcon className="w-6 h-6" />,
+    tag: "meshnard.com",
+  },
+  {
+    id: "meshing-around",
+    title: "Meshing Around",
+    subtitle: "Mesh Bot",
+    description:
+      "An open source bot for Meshtastic network testing and BBS activities. Supports automated network health checks, message relay, and bulletin board system features for mesh operators.",
+    url: "https://github.com/SpudGunMan/meshing-around",
+    badge: "Bot",
+    badgeColor: "rose",
+    icon: <BotIcon className="w-6 h-6" />,
+    tag: "github.com/SpudGunMan",
   },
 ];
 
@@ -949,6 +1016,39 @@ export default function Home() {
             <p className="mono-label text-white/20 text-xs text-center max-w-sm">
               Open a GitHub issue or pull request to propose a new community service, tool, or regional hub to be listed on this page.
             </p>
+          </div>
+        </div>
+      </section>
+
+      {/* ── Resources ── */}
+      <section id="resources" className="pb-20 relative">
+        <div className="container">
+          <SectionDivider label="Resources" />
+
+          <div className="mb-10 text-center">
+            <p className="mono-label text-amber-400 uppercase tracking-widest text-xs mb-3">
+              Tools &amp; Software
+            </p>
+            <h2
+              className="text-3xl sm:text-4xl font-700 text-white"
+              style={{ fontFamily: "'Outfit', sans-serif", fontWeight: 700 }}
+            >
+              Mesh Tools &amp; Resources
+            </h2>
+            <p className="text-white/50 mt-3 max-w-xl mx-auto text-sm leading-relaxed">
+              Open source tools, protocol bridges, relays, and software for Meshtastic &amp; MeshCore operators.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+            {resourceServices.slice(0, 3).map((card, i) => (
+              <ServiceCard key={card.id} card={card} index={i} />
+            ))}
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 mt-5 lg:max-w-[calc(66.666%+1.25rem)] lg:mx-auto">
+            {resourceServices.slice(3).map((card, i) => (
+              <ServiceCard key={card.id} card={card} index={i + 3} />
+            ))}
           </div>
         </div>
       </section>

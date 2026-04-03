@@ -1481,7 +1481,7 @@ export default function Home() {
             { label: "🇨🇦 Canada", href: "#services",  id: "services",  count: coreServices.length,      active: "text-blue-300 bg-blue-500/15 border border-blue-500/30",   hover: "hover:text-blue-300 hover:bg-blue-500/10" },
             { label: "Community", href: "#community", id: "community", count: communityServices.length,  active: "text-cyan-300 bg-cyan-500/15 border border-cyan-500/30",   hover: "hover:text-cyan-300 hover:bg-cyan-500/10" },
             { label: "Resources", href: "#resources", id: "resources", count: resourceServices.length,   active: "text-amber-300 bg-amber-500/15 border border-amber-500/30", hover: "hover:text-amber-300 hover:bg-amber-500/10" },
-            { label: "USA",       href: "#usa",       id: "usa",       count: usaServices.length,        active: "text-rose-300 bg-rose-500/15 border border-rose-500/30",   hover: "hover:text-rose-300 hover:bg-rose-500/10" },
+            { label: "🇺🇸 USA",    href: "#usa",       id: "usa",       count: usaServices.length,        active: "text-rose-300 bg-rose-500/15 border border-rose-500/30",   hover: "hover:text-rose-300 hover:bg-rose-500/10" },
           ] as const).map(({ label, href, id, count, active, hover }) => (
             <a
               key={href}
@@ -1523,7 +1523,7 @@ export default function Home() {
             <a href="#services" className="mono-label text-blue-400/70 hover:text-blue-300 text-xs uppercase tracking-widest px-3 py-1.5 rounded-lg hover:bg-blue-500/10 transition-all duration-200 flex items-center gap-1"><span>🇨🇦</span>Canada</a>
             <a href="#community" className="mono-label text-white/40 hover:text-white/80 text-xs uppercase tracking-widest px-3 py-1.5 rounded-lg hover:bg-white/6 transition-all duration-200">Community</a>
             <a href="#resources" className="mono-label text-white/40 hover:text-white/80 text-xs uppercase tracking-widest px-3 py-1.5 rounded-lg hover:bg-white/6 transition-all duration-200">Resources</a>
-            <a href="#usa" className="mono-label text-white/40 hover:text-white/80 text-xs uppercase tracking-widest px-3 py-1.5 rounded-lg hover:bg-white/6 transition-all duration-200">USA</a>
+            <a href="#usa" className="mono-label text-rose-400/70 hover:text-rose-300 text-xs uppercase tracking-widest px-3 py-1.5 rounded-lg hover:bg-rose-500/10 transition-all duration-200 flex items-center gap-1"><span>🇺🇸</span>USA</a>
           </nav>
 
           {/* Hamburger — visible on mobile only */}
@@ -1585,7 +1585,7 @@ export default function Home() {
             <a href="#services" onClick={() => setMobileMenuOpen(false)} className="mono-label text-blue-400/80 hover:text-blue-300 text-xs uppercase tracking-widest px-3 py-2.5 rounded-lg hover:bg-blue-500/10 transition-all duration-200 flex items-center gap-1.5"><span>🇨🇦</span>Canada</a>
             <a href="#community" onClick={() => setMobileMenuOpen(false)} className="mono-label text-white/60 hover:text-white text-xs uppercase tracking-widest px-3 py-2.5 rounded-lg hover:bg-white/8 transition-all duration-200">Community</a>
             <a href="#resources" onClick={() => setMobileMenuOpen(false)} className="mono-label text-white/60 hover:text-white text-xs uppercase tracking-widest px-3 py-2.5 rounded-lg hover:bg-white/8 transition-all duration-200">Resources</a>
-            <a href="#usa" onClick={() => setMobileMenuOpen(false)} className="mono-label text-white/60 hover:text-white text-xs uppercase tracking-widest px-3 py-2.5 rounded-lg hover:bg-white/8 transition-all duration-200">USA</a>
+            <a href="#usa" onClick={() => setMobileMenuOpen(false)} className="mono-label text-rose-400/80 hover:text-rose-300 text-xs uppercase tracking-widest px-3 py-2.5 rounded-lg hover:bg-rose-500/10 transition-all duration-200 flex items-center gap-1.5"><span>🇺🇸</span>USA</a>
             <div className="h-px bg-white/6 my-1" />
             <a
               href="https://discord.gg/CznDhsRWnJ"

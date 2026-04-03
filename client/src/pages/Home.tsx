@@ -371,6 +371,18 @@ const resourceServices: ServiceCard[] = [
     icon: <BotIcon className="w-6 h-6" />,
     tag: "github.com/agessaman",
   },
+  {
+    id: "meshmonitor-org",
+    title: "MeshMonitor",
+    subtitle: "Your mesh. Your data.",
+    description:
+      "Self-hosted Meshtastic monitoring with real-time maps, alerts, and full network awareness.",
+    url: "https://meshmonitor.org/",
+    badge: "MeshMonitor",
+    badgeColor: "rose",
+    icon: <MapIcon className="w-6 h-6" />,
+    tag: "meshmonitor.org",
+  },
 ];
 
 const communityServices: ServiceCard[] = [
@@ -1072,7 +1084,7 @@ function StatsBar() {
       ([entry]) => {
         if (!entry.isIntersecting) return;
         observer.disconnect();
-        const target = 38;
+        const target = 47;
         let current = 0;
         const step = () => {
           current++;
@@ -1159,16 +1171,24 @@ export default function Home() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [showBackToTop, setShowBackToTop] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
+  const [activeType, setActiveType] = useState<string>("All");
+
+  const TYPE_PILLS = ["All", "Firehose", "Map", "MeshView", "MeshMonitor", "Community", "Dashboard", "Bot", "Tool"];
+
+  function matchesType(card: ServiceCard): boolean {
+    if (activeType === "All") return true;
+    return card.badge === activeType;
+  }
 
   // Derived filtered arrays
-  const filteredCore      = coreServices.filter(c => matchesQuery(c, searchQuery));
-  const filteredCommunity = communityServices.filter(c => matchesQuery(c, searchQuery));
-  const filteredResources = resourceServices.filter(c => matchesQuery(c, searchQuery));
-  const filteredUSA       = usaServices.filter(c => matchesQuery(c, searchQuery));
+  const filteredCore      = coreServices.filter(c => matchesQuery(c, searchQuery) && matchesType(c));
+  const filteredCommunity = communityServices.filter(c => matchesQuery(c, searchQuery) && matchesType(c));
+  const filteredResources = resourceServices.filter(c => matchesQuery(c, searchQuery) && matchesType(c));
+  const filteredUSA       = usaServices.filter(c => matchesQuery(c, searchQuery) && matchesType(c));
 
   const totalVisible =
     filteredCore.length + filteredCommunity.length + filteredResources.length + filteredUSA.length;
-  const isFiltering = searchQuery.trim().length > 0;
+  const isFiltering = searchQuery.trim().length > 0 || activeType !== "All";
 
   useEffect(() => {
     const onScroll = () => setShowBackToTop(window.scrollY > 600);
@@ -1399,6 +1419,25 @@ export default function Home() {
               </span>
             )}
           </div>
+          {/* Type filter pills */}
+          <div className="flex items-center gap-2 mt-2.5 flex-wrap">
+            {TYPE_PILLS.map((pill) => (
+              <button
+                key={pill}
+                type="button"
+                onClick={() => setActiveType(pill)}
+                className={`mono-label text-xs px-3 py-1 rounded-full border transition-all duration-150 ${
+                  activeType === pill
+                    ? pill === "MeshMonitor"
+                      ? "border-rose-500/60 bg-rose-500/15 text-rose-300"
+                      : "border-blue-500/60 bg-blue-500/15 text-blue-300"
+                    : "border-white/10 bg-white/4 text-white/35 hover:text-white/60 hover:bg-white/8 hover:border-white/20"
+                }`}
+              >
+                {pill}
+              </button>
+            ))}
+          </div>
         </div>
       </div>
 
@@ -1605,18 +1644,56 @@ export default function Home() {
               </p>
             </div>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-            {filteredUSA.slice(0, 12).map((card, i) => (
-              <ServiceCard key={card.id} card={card} index={i} />
-            ))}
-          </div>
-          {filteredUSA.length > 12 && (
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 mt-5 lg:max-w-[calc(66.666%+1.25rem)] lg:mx-auto">
-              {filteredUSA.slice(12).map((card, i) => (
-                <ServiceCard key={card.id} card={card} index={i + 12} />
-              ))}
-            </div>
-          )}
+{(() => {
+            const meshViewCards = filteredUSA.filter(c => c.badge !== "MeshMonitor");
+            const meshMonitorCards = filteredUSA.filter(c => c.badge === "MeshMonitor");
+            return (
+              <>
+                {/* MeshView / Map sub-group */}
+                {meshViewCards.length > 0 && (
+                  <div className="mb-10">
+                    <div className="flex items-center gap-3 mb-5">
+                      <div className="h-px flex-1 bg-white/6" />
+                      <div className="flex items-center gap-2 px-3 py-1.5 rounded-full border border-sky-500/20 bg-sky-500/8">
+                        <span className="relative flex h-1.5 w-1.5">
+                          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-sky-400 opacity-60"></span>
+                          <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-sky-400"></span>
+                        </span>
+                        <span className="mono-label text-sky-400/80 text-xs uppercase tracking-widest">MeshView &amp; Map Viewers</span>
+                      </div>
+                      <div className="h-px flex-1 bg-white/6" />
+                    </div>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+                      {meshViewCards.map((card, i) => (
+                        <ServiceCard key={card.id} card={card} index={i} />
+                      ))}
+                    </div>
+                  </div>
+                )}
+                {/* MeshMonitor sub-group */}
+                {meshMonitorCards.length > 0 && (
+                  <div>
+                    <div className="flex items-center gap-3 mb-5">
+                      <div className="h-px flex-1 bg-white/6" />
+                      <div className="flex items-center gap-2 px-3 py-1.5 rounded-full border border-rose-500/20 bg-rose-500/8">
+                        <span className="relative flex h-1.5 w-1.5">
+                          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-rose-400 opacity-60"></span>
+                          <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-rose-400"></span>
+                        </span>
+                        <span className="mono-label text-rose-400/80 text-xs uppercase tracking-widest">MeshMonitor Instances</span>
+                      </div>
+                      <div className="h-px flex-1 bg-white/6" />
+                    </div>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+                      {meshMonitorCards.map((card, i) => (
+                        <ServiceCard key={card.id} card={card} index={i} />
+                      ))}
+                    </div>
+                  </div>
+                )}
+              </>
+            );
+          })()}
         </div>
       </section>
       )}

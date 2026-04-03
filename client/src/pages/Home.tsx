@@ -946,7 +946,7 @@ function StatsBar() {
       <div className="w-px h-10 bg-white/10 hidden sm:block" />
       <div className="text-center">
         <div className="text-3xl font-800 gradient-text" style={{ fontFamily: "'Outfit', sans-serif", fontWeight: 800 }}>
-          5+
+          15+
         </div>
         <div className="mono-label text-white/40 mt-1">Regions</div>
       </div>
@@ -1126,8 +1126,9 @@ export default function Home() {
           {/* Sub */}
           <p className="text-lg sm:text-xl text-white/60 max-w-2xl mx-auto leading-relaxed mb-10 opacity-0 animate-fade-up animation-delay-300">
             Real-time firehose feeds, interactive maps, and network analyzers for the{" "}
-            <span className="text-white/80">YYC</span> and{" "}
-            <span className="text-white/80">Canada</span> Meshtastic &amp; Meshcore mesh communities.
+             <span className="text-white/80">YYC</span>,{" "}
+             <span className="text-white/80">Canada</span>, and{" "}
+             <span className="text-white/80">USA</span> Meshtastic &amp; Meshcore mesh communities.
           </p>
 
           {/* CTAs — now three buttons */}
@@ -1183,7 +1184,7 @@ export default function Home() {
               className="text-3xl sm:text-4xl font-700 text-white"
               style={{ fontFamily: "'Outfit', sans-serif", fontWeight: 700 }}
             >
-              YYC &amp; Canada Mesh Monitoring
+              🇨🇦 YYC &amp; Canada Mesh Monitoring
             </h2>
             <p className="text-white/50 mt-3 max-w-xl mx-auto text-sm leading-relaxed">
               Live firehose feeds, mesh maps, and analyzers for the Calgary and national Meshtastic &amp; Meshcore networks.
@@ -1346,7 +1347,7 @@ export default function Home() {
                 className="text-2xl sm:text-3xl font-700 text-white"
                 style={{ fontFamily: "'Outfit', sans-serif", fontWeight: 700 }}
               >
-                US Regional Mesh Communities
+                🇺🇸 US Regional Mesh Communities
               </h2>
               <p className="text-white/40 text-sm mt-2">
                 Regional Meshtastic mesh network viewers, maps, and community hubs across the United States.

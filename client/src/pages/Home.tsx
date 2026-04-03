@@ -26,6 +26,7 @@ interface ServiceCard {
   note2Url?: string;
   qrCode?: string;
   qrLink?: string;
+  qrCaption?: string;
 }
 
 const HERO_BG =
@@ -228,6 +229,7 @@ const coreServices: ServiceCard[] = [
     noteUrl: "https://yycmesh.meshmonitoring.com/firehose",
     qrCode: "https://d2xsxph8kpxj0f.cloudfront.net/310519663459784497/HNPJdRREoZxPBHo4cuB8dc/yyc-zapp-qr_65981a83.png",
     qrLink: "https://meshtastic.org/e/#CgMSAQESGxAHGPQDIAsoCDgBQANIAVAeaAF1AKxhRMAGAQ",
+    qrCaption: "Scan to join the YYC Mesh Custom channel",
   },
   {
     id: "wyk0-bot",
@@ -244,6 +246,7 @@ const coreServices: ServiceCard[] = [
     noteUrl: "https://yyc.meshmonitoring.com/firehose",
     qrCode: "https://d2xsxph8kpxj0f.cloudfront.net/310519663459784497/HNPJdRREoZxPBHo4cuB8dc/yyc-wyk0-qr_1f445bc9.png",
     qrLink: "https://meshtastic.org/e/#CgMSAQESGxAHGPQDIAsoCDgBQANIAVAeaAF1AKxhRMAGAQ",
+    qrCaption: "Scan to join the YYC Mesh Custom channel",
   },
   {
     id: "canada-mesh",
@@ -686,7 +689,7 @@ function ServiceCard({ card, index }: { card: ServiceCard; index: number }) {
                 style={{ filter: "invert(1)" }}
               />
             </button>
-            <p className="mono-label text-white/35 text-xs text-center">Scan the QR code or click below to join directly:</p>
+            <p className="mono-label text-white/35 text-xs text-center">{card.qrCaption ?? "Scan the QR code or click below to join directly:"}</p>
             <button
               type="button"
               onClick={(e) => { e.preventDefault(); e.stopPropagation(); window.open(card.qrLink, "_blank", "noopener,noreferrer"); }}

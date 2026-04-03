@@ -1430,7 +1430,7 @@ export default function Home() {
 
   // IntersectionObserver: track which section is in view for the mini-nav highlight
   useEffect(() => {
-    const sectionIds = ["services", "community", "resources", "usa"];
+    const sectionIds = ["services", "canada", "community", "resources", "usa"];
     const observers: IntersectionObserver[] = [];
     sectionIds.forEach(id => {
       const el = document.getElementById(id);
@@ -1478,7 +1478,7 @@ export default function Home() {
       >
         <div className="container flex items-center justify-center gap-2 h-9">
           {([
-            { label: "🇨🇦 Canada", href: "#services",  id: "services",  count: coreServices.length,      active: "text-blue-300 bg-blue-500/15 border border-blue-500/30",   hover: "hover:text-blue-300 hover:bg-blue-500/10" },
+            { label: "🇨🇦 Canada", href: "#canada",   id: "canada",   count: coreServices.length,      active: "text-blue-300 bg-blue-500/15 border border-blue-500/30",   hover: "hover:text-blue-300 hover:bg-blue-500/10" },
             { label: "Community", href: "#community", id: "community", count: communityServices.length,  active: "text-cyan-300 bg-cyan-500/15 border border-cyan-500/30",   hover: "hover:text-cyan-300 hover:bg-cyan-500/10" },
             { label: "Resources", href: "#resources", id: "resources", count: resourceServices.length,   active: "text-amber-300 bg-amber-500/15 border border-amber-500/30", hover: "hover:text-amber-300 hover:bg-amber-500/10" },
             { label: "🇺🇸 USA",    href: "#usa",       id: "usa",       count: usaServices.length,        active: "text-rose-300 bg-rose-500/15 border border-rose-500/30",   hover: "hover:text-rose-300 hover:bg-rose-500/10" },
@@ -1504,23 +1504,23 @@ export default function Home() {
       {/* ── Header ── */}
       <header className="fixed top-0 left-0 right-0 z-50 border-b border-white/6" style={{ background: "oklch(0.11 0.008 265 / 0.85)", backdropFilter: "blur(16px)" }}>
         <div className="container flex items-center justify-between h-16">
-          <div className="flex items-center gap-3">
+          <a href="#" className="flex items-center gap-3 group" aria-label="MeshMonitoring.com — back to top">
             <div className="relative w-8 h-8">
-              <div className="absolute inset-0 rounded-lg bg-blue-500/20 border border-blue-500/30 flex items-center justify-center">
+              <div className="absolute inset-0 rounded-lg bg-blue-500/20 border border-blue-500/30 flex items-center justify-center group-hover:bg-blue-500/30 transition-colors duration-200">
                 <NetworkIcon className="w-4 h-4 text-blue-400" />
               </div>
             </div>
             <div>
-              <span className="text-sm font-700 text-white" style={{ fontFamily: "'Outfit', sans-serif", fontWeight: 700 }}>
+              <span className="text-sm font-700 text-white group-hover:text-blue-100 transition-colors duration-200" style={{ fontFamily: "'Outfit', sans-serif", fontWeight: 700 }}>
                 Mesh<span className="text-blue-400">Monitoring</span>
               </span>
               <span className="mono-label text-white/30 block leading-none">.com</span>
             </div>
-          </div>
+          </a>
           {/* Section nav — hidden on mobile, visible md+ */}
           <nav className="hidden md:flex items-center gap-1">
             <a href="#services" className="mono-label text-white/40 hover:text-white/80 text-xs uppercase tracking-widest px-3 py-1.5 rounded-lg hover:bg-white/6 transition-all duration-200">Services</a>
-            <a href="#services" className="mono-label text-blue-400/70 hover:text-blue-300 text-xs uppercase tracking-widest px-3 py-1.5 rounded-lg hover:bg-blue-500/10 transition-all duration-200 flex items-center gap-1"><span>🇨🇦</span>Canada</a>
+            <a href="#canada" className="mono-label text-blue-400/70 hover:text-blue-300 text-xs uppercase tracking-widest px-3 py-1.5 rounded-lg hover:bg-blue-500/10 transition-all duration-200 flex items-center gap-1"><span>🇨🇦</span>Canada</a>
             <a href="#community" className="mono-label text-white/40 hover:text-white/80 text-xs uppercase tracking-widest px-3 py-1.5 rounded-lg hover:bg-white/6 transition-all duration-200">Community</a>
             <a href="#resources" className="mono-label text-white/40 hover:text-white/80 text-xs uppercase tracking-widest px-3 py-1.5 rounded-lg hover:bg-white/6 transition-all duration-200">Resources</a>
             <a href="#usa" className="mono-label text-rose-400/70 hover:text-rose-300 text-xs uppercase tracking-widest px-3 py-1.5 rounded-lg hover:bg-rose-500/10 transition-all duration-200 flex items-center gap-1"><span>🇺🇸</span>USA</a>
@@ -1582,7 +1582,7 @@ export default function Home() {
         {mobileMenuOpen && (
           <div className="md:hidden border-t border-white/8 px-4 py-3 flex flex-col gap-1" style={{ background: "oklch(0.11 0.008 265 / 0.97)" }}>
             <a href="#services" onClick={() => setMobileMenuOpen(false)} className="mono-label text-white/60 hover:text-white text-xs uppercase tracking-widest px-3 py-2.5 rounded-lg hover:bg-white/8 transition-all duration-200">Services</a>
-            <a href="#services" onClick={() => setMobileMenuOpen(false)} className="mono-label text-blue-400/80 hover:text-blue-300 text-xs uppercase tracking-widest px-3 py-2.5 rounded-lg hover:bg-blue-500/10 transition-all duration-200 flex items-center gap-1.5"><span>🇨🇦</span>Canada</a>
+            <a href="#canada" onClick={() => setMobileMenuOpen(false)} className="mono-label text-blue-400/80 hover:text-blue-300 text-xs uppercase tracking-widest px-3 py-2.5 rounded-lg hover:bg-blue-500/10 transition-all duration-200 flex items-center gap-1.5"><span>🇨🇦</span>Canada</a>
             <a href="#community" onClick={() => setMobileMenuOpen(false)} className="mono-label text-white/60 hover:text-white text-xs uppercase tracking-widest px-3 py-2.5 rounded-lg hover:bg-white/8 transition-all duration-200">Community</a>
             <a href="#resources" onClick={() => setMobileMenuOpen(false)} className="mono-label text-white/60 hover:text-white text-xs uppercase tracking-widest px-3 py-2.5 rounded-lg hover:bg-white/8 transition-all duration-200">Resources</a>
             <a href="#usa" onClick={() => setMobileMenuOpen(false)} className="mono-label text-rose-400/80 hover:text-rose-300 text-xs uppercase tracking-widest px-3 py-2.5 rounded-lg hover:bg-rose-500/10 transition-all duration-200 flex items-center gap-1.5"><span>🇺🇸</span>USA</a>
@@ -1755,7 +1755,8 @@ export default function Home() {
               Core Services
             </p>
             <h2
-              className="text-3xl sm:text-4xl font-700 text-white"
+              id="canada"
+              className="text-3xl sm:text-4xl font-700 text-white scroll-mt-28"
               style={{ fontFamily: "'Outfit', sans-serif", fontWeight: 700 }}
             >
               🇨🇦 YYC &amp; Canada Mesh Monitoring
@@ -2025,7 +2026,7 @@ export default function Home() {
                 <span className="mono-label text-rose-400/80 text-xs uppercase tracking-widest">USA Meshtastic Networks</span>
               </div>
               <h2
-                className="text-2xl sm:text-3xl font-700 text-white"
+                className="text-2xl sm:text-3xl font-700 text-white scroll-mt-28"
                 style={{ fontFamily: "'Outfit', sans-serif", fontWeight: 700 }}
               >
                 🇺🇸 US Regional Mesh Communities

@@ -17,7 +17,7 @@ interface ServiceCard {
   description: string;
   url: string;
   badge: string;
-  badgeColor: "blue" | "cyan" | "green" | "violet" | "amber" | "rose" | "sky" | "teal";
+  badgeColor: "blue" | "cyan" | "green" | "emerald" | "violet" | "amber" | "rose" | "sky" | "teal";
   icon?: React.ReactNode;
   tag: string;
   note?: string;
@@ -167,58 +167,63 @@ function MapIcon({ className }: { className?: string }) {
 // ─── Badge / style maps ───────────────────────────────────────────────────────
 
 const badgeStyles: Record<ServiceCard["badgeColor"], string> = {
-  blue:   "bg-blue-500/15 text-blue-300 border border-blue-500/25",
-  cyan:   "bg-cyan-500/15 text-cyan-300 border border-cyan-500/25",
-  green:  "bg-emerald-500/15 text-emerald-300 border border-emerald-500/25",
-  violet: "bg-violet-500/15 text-violet-300 border border-violet-500/25",
-  amber:  "bg-amber-500/15 text-amber-300 border border-amber-500/25",
-  rose:   "bg-rose-500/15 text-rose-300 border border-rose-500/25",
-  sky:    "bg-sky-500/15 text-sky-300 border border-sky-500/25",
-  teal:   "bg-teal-500/15 text-teal-300 border border-teal-500/25",
+  blue:    "bg-blue-500/15 text-blue-300 border border-blue-500/25",
+  cyan:    "bg-cyan-500/15 text-cyan-300 border border-cyan-500/25",
+  green:   "bg-emerald-500/15 text-emerald-300 border border-emerald-500/25",
+  emerald: "bg-emerald-500/15 text-emerald-300 border border-emerald-500/25",
+  violet:  "bg-violet-500/15 text-violet-300 border border-violet-500/25",
+  amber:   "bg-amber-500/15 text-amber-300 border border-amber-500/25",
+  rose:    "bg-rose-500/15 text-rose-300 border border-rose-500/25",
+  sky:     "bg-sky-500/15 text-sky-300 border border-sky-500/25",
+  teal:    "bg-teal-500/15 text-teal-300 border border-teal-500/25",
 };
 
 const iconBgStyles: Record<ServiceCard["badgeColor"], string> = {
-  blue:   "bg-blue-500/15 text-blue-400",
-  cyan:   "bg-cyan-500/15 text-cyan-400",
-  green:  "bg-emerald-500/15 text-emerald-400",
-  violet: "bg-violet-500/15 text-violet-400",
-  amber:  "bg-amber-500/15 text-amber-400",
-  rose:   "bg-rose-500/15 text-rose-400",
-  sky:    "bg-sky-500/15 text-sky-400",
-  teal:   "bg-teal-500/15 text-teal-400",
+  blue:    "bg-blue-500/15 text-blue-400",
+  cyan:    "bg-cyan-500/15 text-cyan-400",
+  green:   "bg-emerald-500/15 text-emerald-400",
+  emerald: "bg-emerald-500/15 text-emerald-400",
+  violet:  "bg-violet-500/15 text-violet-400",
+  amber:   "bg-amber-500/15 text-amber-400",
+  rose:    "bg-rose-500/15 text-rose-400",
+  sky:     "bg-sky-500/15 text-sky-400",
+  teal:    "bg-teal-500/15 text-teal-400",
 };
 
 const glowStyles: Record<ServiceCard["badgeColor"], string> = {
-  blue:   "group-hover:shadow-[0_0_30px_oklch(0.6_0.2_250/0.2)]",
-  cyan:   "group-hover:shadow-[0_0_30px_oklch(0.72_0.18_210/0.2)]",
-  green:  "group-hover:shadow-[0_0_30px_oklch(0.7_0.18_160/0.2)]",
-  violet: "group-hover:shadow-[0_0_30px_oklch(0.65_0.2_290/0.2)]",
-  amber:  "group-hover:shadow-[0_0_30px_oklch(0.75_0.18_80/0.2)]",
-  rose:   "group-hover:shadow-[0_0_30px_oklch(0.65_0.2_15/0.2)]",
-  sky:    "group-hover:shadow-[0_0_30px_oklch(0.7_0.18_230/0.2)]",
-  teal:   "group-hover:shadow-[0_0_30px_oklch(0.7_0.15_185/0.2)]",
+  blue:    "group-hover:shadow-[0_0_30px_oklch(0.6_0.2_250/0.2)]",
+  cyan:    "group-hover:shadow-[0_0_30px_oklch(0.72_0.18_210/0.2)]",
+  green:   "group-hover:shadow-[0_0_30px_oklch(0.7_0.18_160/0.2)]",
+  emerald: "group-hover:shadow-[0_0_30px_oklch(0.7_0.18_160/0.2)]",
+  violet:  "group-hover:shadow-[0_0_30px_oklch(0.65_0.2_290/0.2)]",
+  amber:   "group-hover:shadow-[0_0_30px_oklch(0.75_0.18_80/0.2)]",
+  rose:    "group-hover:shadow-[0_0_30px_oklch(0.65_0.2_15/0.2)]",
+  sky:     "group-hover:shadow-[0_0_30px_oklch(0.7_0.18_230/0.2)]",
+  teal:    "group-hover:shadow-[0_0_30px_oklch(0.7_0.15_185/0.2)]",
 };
 
 const borderHoverStyles: Record<ServiceCard["badgeColor"], string> = {
-  blue:   "group-hover:border-blue-500/50",
-  cyan:   "group-hover:border-cyan-500/50",
-  green:  "group-hover:border-emerald-500/50",
-  violet: "group-hover:border-violet-500/50",
-  amber:  "group-hover:border-amber-500/50",
-  rose:   "group-hover:border-rose-500/50",
-  sky:    "group-hover:border-sky-500/50",
-  teal:   "group-hover:border-teal-500/50",
+  blue:    "group-hover:border-blue-500/50",
+  cyan:    "group-hover:border-cyan-500/50",
+  green:   "group-hover:border-emerald-500/50",
+  emerald: "group-hover:border-emerald-500/50",
+  violet:  "group-hover:border-violet-500/50",
+  amber:   "group-hover:border-amber-500/50",
+  rose:    "group-hover:border-rose-500/50",
+  sky:     "group-hover:border-sky-500/50",
+  teal:    "group-hover:border-teal-500/50",
 };
 
 const openTextStyles: Record<ServiceCard["badgeColor"], string> = {
-  blue:   "text-blue-400 group-hover:text-blue-300",
-  cyan:   "text-cyan-400 group-hover:text-cyan-300",
-  green:  "text-emerald-400 group-hover:text-emerald-300",
-  violet: "text-violet-400 group-hover:text-violet-300",
-  amber:  "text-amber-400 group-hover:text-amber-300",
-  rose:   "text-rose-400 group-hover:text-rose-300",
-  sky:    "text-sky-400 group-hover:text-sky-300",
-  teal:   "text-teal-400 group-hover:text-teal-300",
+  blue:    "text-blue-400 group-hover:text-blue-300",
+  cyan:    "text-cyan-400 group-hover:text-cyan-300",
+  green:   "text-emerald-400 group-hover:text-emerald-300",
+  emerald: "text-emerald-400 group-hover:text-emerald-300",
+  violet:  "text-violet-400 group-hover:text-violet-300",
+  amber:   "text-amber-400 group-hover:text-amber-300",
+  rose:    "text-rose-400 group-hover:text-rose-300",
+  sky:     "text-sky-400 group-hover:text-sky-300",
+  teal:    "text-teal-400 group-hover:text-teal-300",
 };
 
 // ─── Service data ─────────────────────────────────────────────────────────────
@@ -430,6 +435,30 @@ const resourceServices: ServiceCard[] = [
     badgeColor: "violet",
     icon: <NetworkIcon className="w-6 h-6" />,
     tag: "analyzer.letsmesh.net",
+  },
+  {
+    id: "meshinfo-lite",
+    title: "MeshInfo Lite",
+    subtitle: "MQTT Visualizer — Python + MariaDB",
+    description:
+      "A highly customized Python application that connects to an MQTT server receiving Meshtastic messages for visualizing and inspecting traffic. Uses MariaDB to persist content. Docker Compose support included for easy self-hosted deployment.",
+    url: "https://github.com/dadecoza/meshinfo-lite",
+    badge: "MeshInfo",
+    badgeColor: "emerald",
+    icon: <AnalyzerIcon className="w-6 h-6" />,
+    tag: "github.com/dadecoza",
+  },
+  {
+    id: "meshinfo",
+    title: "MeshInfo",
+    subtitle: "Real-time Mesh Web App",
+    description:
+      "A real-time web application for visualizing and monitoring Meshtastic mesh networks. Connects to one or more MQTT brokers, decodes protobuf and JSON messages in real time, stores everything in PostgreSQL, and serves it through a FastAPI backend and React frontend.",
+    url: "https://github.com/MeshAddicts/meshinfo",
+    badge: "MeshInfo",
+    badgeColor: "emerald",
+    icon: <AnalyzerIcon className="w-6 h-6" />,
+    tag: "github.com/MeshAddicts",
   },
 ];
 
@@ -875,6 +904,18 @@ const usaServices: ServiceCard[] = [
     tag: "tulsa-meshtastic.com",
     note: "Networks: Tulsa Meshtastic — tulsa-meshtastic.com | OKMesh — okmesh.org",
   },
+  {
+    id: "central-valley-mesh",
+    title: "Central Valley Mesh",
+    subtitle: "Central Valley, California — USA",
+    description:
+      "MeshInfo-powered map and monitoring dashboard for the Central Valley Meshtastic mesh network in California.",
+    url: "https://meshinfo.cvme.sh/map",
+    badge: "MeshInfo",
+    badgeColor: "emerald",
+    icon: <MapIcon className="w-6 h-6" />,
+    tag: "meshinfo.cvme.sh",
+  },
 ];
 
 // ─── Animated mesh canvas ─────────────────────────────────────────────────────
@@ -1234,8 +1275,9 @@ export default function Home() {
   const [showBackToTop, setShowBackToTop] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
   const [activeType, setActiveType] = useState<string>("All");
+  const searchRef = useRef<HTMLInputElement>(null);
 
-  const TYPE_PILLS = ["All", "Firehose", "Map", "MeshView", "MeshMonitor", "Community", "Dashboard", "Bot", "Tool", "Software"];
+  const TYPE_PILLS = ["All", "Firehose", "Map", "MeshView", "MeshMonitor", "MeshInfo", "Community", "Dashboard", "Bot", "Tool", "Software"];
 
   function matchesType(card: ServiceCard): boolean {
     if (activeType === "All") return true;
@@ -1256,6 +1298,20 @@ export default function Home() {
     const onScroll = () => setShowBackToTop(window.scrollY > 600);
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  // Press "/" anywhere to focus the search bar (skip if already in an input)
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key !== "/") return;
+      const tag = (e.target as HTMLElement).tagName;
+      if (tag === "INPUT" || tag === "TEXTAREA" || tag === "SELECT") return;
+      e.preventDefault();
+      searchRef.current?.focus();
+      searchRef.current?.scrollIntoView({ behavior: "smooth", block: "center" });
+    };
+    document.addEventListener("keydown", onKey);
+    return () => document.removeEventListener("keydown", onKey);
   }, []);
 
   return (
@@ -1454,10 +1510,11 @@ export default function Home() {
                 <path d="m21 21-4.35-4.35" />
               </svg>
               <input
+                ref={searchRef}
                 type="text"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                placeholder='Filter by name, region, type... (e.g. "map", "YYC", "firehose")'
+                placeholder='Filter by name, region, type... press "/" to focus'
                 className="w-full pl-9 pr-9 py-2 rounded-xl text-sm text-white/80 placeholder-white/25 bg-white/5 border border-white/10 focus:border-blue-500/40 focus:bg-white/8 focus:outline-none transition-all duration-200"
                 style={{ fontFamily: "'Fira Code', monospace" }}
                 aria-label="Filter services"
@@ -1522,18 +1579,57 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-            {filteredCore.slice(0, 3).map((card, i) => (
-              <ServiceCard key={card.id} card={card} index={i} />
-            ))}
-          </div>
-          {filteredCore.length > 3 && (
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 mt-5 lg:max-w-[calc(66.666%+1.25rem)] lg:mx-auto">
-            {filteredCore.slice(3).map((card, i) => (
-              <ServiceCard key={card.id} card={card} index={i + 3} />
-            ))}
-          </div>
-          )}
+{(() => {
+            const yycCards      = filteredCore.filter(c => c.badge === 'Firehose' || c.badge === 'Map');
+            const nationalCards = filteredCore.filter(c => c.badge !== 'Firehose' && c.badge !== 'Map');
+
+            const CaSubGroup = ({ label, color, cards, startIdx }: { label: string; color: string; cards: typeof filteredCore; startIdx: number }) => {
+              if (cards.length === 0) return null;
+              const colorMap: Record<string, { border: string; bg: string; dot: string; text: string }> = {
+                blue:   { border: 'border-blue-500/20',   bg: 'bg-blue-500/8',   dot: 'bg-blue-400',   text: 'text-blue-400/80' },
+                cyan:   { border: 'border-cyan-500/20',   bg: 'bg-cyan-500/8',   dot: 'bg-cyan-400',   text: 'text-cyan-400/80' },
+                violet: { border: 'border-violet-500/20', bg: 'bg-violet-500/8', dot: 'bg-violet-400', text: 'text-violet-400/80' },
+              };
+              const c = colorMap[color] ?? colorMap.blue;
+              return (
+                <div className="mb-10">
+                  <div className="flex items-center gap-3 mb-5">
+                    <div className="h-px flex-1 bg-white/6" />
+                    <div className={`flex items-center gap-2 px-3 py-1.5 rounded-full border ${c.border} ${c.bg}`}>
+                      <span className="relative flex h-1.5 w-1.5">
+                        <span className={`animate-ping absolute inline-flex h-full w-full rounded-full ${c.dot} opacity-60`}></span>
+                        <span className={`relative inline-flex rounded-full h-1.5 w-1.5 ${c.dot}`}></span>
+                      </span>
+                      <span className={`mono-label ${c.text} text-xs uppercase tracking-widest`}>
+                        {label} <span className="opacity-50">&middot; {cards.length}</span>
+                      </span>
+                    </div>
+                    <div className="h-px flex-1 bg-white/6" />
+                  </div>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+                    {cards.map((card, i) => (
+                      <ServiceCard key={card.id} card={card} index={startIdx + i} />
+                    ))}
+                  </div>
+                </div>
+              );
+            };
+
+            if (isFiltering) {
+              return (
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+                  {filteredCore.map((card, i) => <ServiceCard key={card.id} card={card} index={i} />)}
+                </div>
+              );
+            }
+
+            return (
+              <>
+                <CaSubGroup label="YYC Firehose & Maps" color="blue"   cards={yycCards}      startIdx={0} />
+                <CaSubGroup label="National Coverage"   color="cyan"   cards={nationalCards} startIdx={yycCards.length} />
+              </>
+            );
+          })()}
         </div>
       </section>
       )}
@@ -1695,7 +1791,9 @@ export default function Home() {
                         <span className={`animate-ping absolute inline-flex h-full w-full rounded-full ${c.dot} opacity-60`}></span>
                         <span className={`relative inline-flex rounded-full h-1.5 w-1.5 ${c.dot}`}></span>
                       </span>
-                      <span className={`mono-label ${c.text} text-xs uppercase tracking-widest`}>{label}</span>
+                      <span className={`mono-label ${c.text} text-xs uppercase tracking-widest`}>
+                        {label} <span className="opacity-50">&middot; {cards.length}</span>
+                      </span>
                     </div>
                     <div className="h-px flex-1 bg-white/6" />
                   </div>
@@ -1760,7 +1858,9 @@ export default function Home() {
                           <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-sky-400 opacity-60"></span>
                           <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-sky-400"></span>
                         </span>
-                        <span className="mono-label text-sky-400/80 text-xs uppercase tracking-widest">MeshView &amp; Map Viewers</span>
+                        <span className="mono-label text-sky-400/80 text-xs uppercase tracking-widest">
+                          MeshView &amp; Map Viewers <span className="opacity-50">&middot; {meshViewCards.length}</span>
+                        </span>
                       </div>
                       <div className="h-px flex-1 bg-white/6" />
                     </div>
@@ -1787,7 +1887,7 @@ export default function Home() {
                           rel="noopener noreferrer"
                           className="mono-label text-rose-400/80 text-xs uppercase tracking-widest hover:text-rose-300 transition-colors duration-150 flex items-center gap-1"
                         >
-                          MeshMonitor Instances
+                          MeshMonitor Instances <span className="opacity-50">&middot; {meshMonitorCards.length}</span>
                           <svg className="w-3 h-3 opacity-60" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                             <path d="M7 7h10v10" />
                             <path d="M7 17 17 7" />

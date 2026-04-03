@@ -665,15 +665,15 @@ export default function Home() {
             className="text-5xl sm:text-6xl lg:text-7xl font-800 text-white leading-tight tracking-tight mb-6 opacity-0 animate-fade-up animation-delay-200"
             style={{ fontFamily: "'Outfit', sans-serif", fontWeight: 800 }}
           >
-            Monitor the{" "}
-            <span className="gradient-text">Mesh</span>
+            Monitoring the Canadian{" "}
+            <span className="gradient-text">Mesh Networks</span>
           </h1>
 
           {/* Sub */}
           <p className="text-lg sm:text-xl text-white/60 max-w-2xl mx-auto leading-relaxed mb-10 opacity-0 animate-fade-up animation-delay-300">
             Real-time firehose feeds, interactive maps, and network analyzers for the{" "}
             <span className="text-white/80">YYC</span> and{" "}
-            <span className="text-white/80">Canada</span> Meshtastic mesh communities.
+            <span className="text-white/80">Canada</span> Meshtastic &amp; Meshcore mesh communities.
           </p>
 
           {/* CTAs — now three buttons */}
@@ -729,10 +729,10 @@ export default function Home() {
               className="text-3xl sm:text-4xl font-700 text-white"
               style={{ fontFamily: "'Outfit', sans-serif", fontWeight: 700 }}
             >
-              YYC &amp; Canada Monitoring
+              YYC &amp; Canada Mesh Monitoring
             </h2>
             <p className="text-white/50 mt-3 max-w-xl mx-auto text-sm leading-relaxed">
-              Live firehose feeds, mesh maps, and analyzers for the Calgary and national Meshtastic networks.
+              Live firehose feeds, mesh maps, and analyzers for the Calgary and national Meshtastic &amp; Meshcore networks.
             </p>
           </div>
 

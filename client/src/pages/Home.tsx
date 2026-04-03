@@ -792,6 +792,13 @@ export default function Home() {
               <span className="mono-label text-white/30 block leading-none">.com</span>
             </div>
           </div>
+          {/* Section nav — hidden on mobile, visible md+ */}
+          <nav className="hidden md:flex items-center gap-1">
+            <a href="#services" className="mono-label text-white/40 hover:text-white/80 text-xs uppercase tracking-widest px-3 py-1.5 rounded-lg hover:bg-white/6 transition-all duration-200">Services</a>
+            <a href="#community" className="mono-label text-white/40 hover:text-white/80 text-xs uppercase tracking-widest px-3 py-1.5 rounded-lg hover:bg-white/6 transition-all duration-200">Community</a>
+            <a href="#resources" className="mono-label text-white/40 hover:text-white/80 text-xs uppercase tracking-widest px-3 py-1.5 rounded-lg hover:bg-white/6 transition-all duration-200">Resources</a>
+          </nav>
+
           <div className="flex items-center gap-4">
             <a
               href="https://github.com/wykweb/meshmonitoring"
@@ -925,7 +932,7 @@ export default function Home() {
       </section>
 
       {/* ── Community Services ── */}
-      <section className="pb-20 relative">
+      <section id="community" className="pb-20 relative">
         <div className="container">
           <SectionDivider label="Community Resources" />
 

@@ -6,7 +6,7 @@
  * Cards: Glassmorphism with hover glow, staggered fade-up entrance
  */
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
@@ -960,20 +960,32 @@ function ServiceCard({ card, index }: { card: ServiceCard; index: number }) {
 
 function StatsBar() {
   const [count, setCount] = useState(0);
+  const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const target = 38;
-    let current = 0;
-    const step = () => {
-      current++;
-      setCount(current);
-      if (current < target) setTimeout(step, 80);
-    };
-    setTimeout(step, 800);
+    const el = ref.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (!entry.isIntersecting) return;
+        observer.disconnect();
+        const target = 38;
+        let current = 0;
+        const step = () => {
+          current++;
+          setCount(current);
+          if (current < target) setTimeout(step, 50);
+        };
+        setTimeout(step, 300);
+      },
+      { threshold: 0.3 }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
   }, []);
 
   return (
-    <div className="flex flex-wrap items-center justify-center gap-8 py-6 opacity-0 animate-fade-up animation-delay-700">
+    <div ref={ref} className="flex flex-wrap items-center justify-center gap-8 py-6 opacity-0 animate-fade-up animation-delay-700">
       <div className="text-center">
         <div className="text-3xl font-800 gradient-text" style={{ fontFamily: "'Outfit', sans-serif", fontWeight: 800 }}>
           {count}
@@ -1027,6 +1039,13 @@ function SectionDivider({ label }: { label: string }) {
 
 export default function Home() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [showBackToTop, setShowBackToTop] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setShowBackToTop(window.scrollY > 600);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   return (
     <div className="min-h-screen bg-background text-foreground overflow-x-hidden">
@@ -1490,6 +1509,23 @@ export default function Home() {
           </div>
         </div>
       </footer>
+
+      {/* ── Back to top floating button ── */}
+      <button
+        onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+        aria-label="Back to top"
+        className="fixed bottom-6 right-6 z-50 p-3 rounded-full border border-white/15 bg-white/8 backdrop-blur-md text-white/60 hover:text-white hover:bg-white/15 hover:border-white/30 shadow-lg transition-all duration-300"
+        style={{
+          opacity: showBackToTop ? 1 : 0,
+          pointerEvents: showBackToTop ? "auto" : "none",
+          transform: showBackToTop ? "translateY(0)" : "translateY(16px)",
+        }}
+      >
+        <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+          <path strokeLinecap="round" strokeLinejoin="round" d="M5 15l7-7 7 7" />
+        </svg>
+      </button>
+
     </div>
   );
 }

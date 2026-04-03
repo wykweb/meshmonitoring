@@ -258,8 +258,6 @@ const coreServices: ServiceCard[] = [
     tag: "ca.meshmonitoring.com",
     note: "Open Firehose Feed",
     noteUrl: "https://ca.meshmonitoring.com/firehose",
-    qrCode: "https://d2xsxph8kpxj0f.cloudfront.net/310519663459784497/HNPJdRREoZxPBHo4cuB8dc/ca-firehose-qr_f2368f49.png",
-    qrLink: "https://ca.meshmonitoring.com/firehose",
   },
   {
     id: "meshmapper",

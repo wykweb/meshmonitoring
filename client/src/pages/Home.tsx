@@ -383,6 +383,54 @@ const resourceServices: ServiceCard[] = [
     icon: <MapIcon className="w-6 h-6" />,
     tag: "meshmonitor.org",
   },
+  {
+    id: "meshsense-app",
+    title: "MeshSense",
+    subtitle: "Desktop Network Monitor",
+    description:
+      "A simple, open-source application that monitors, maps and graphically displays all the vital stats of your area's Meshtastic network — including connected nodes, signal reports, trace routes and more.",
+    url: "https://affirmatech.com/meshsense",
+    badge: "Software",
+    badgeColor: "amber",
+    icon: <AnalyzerIcon className="w-6 h-6" />,
+    tag: "affirmatech.com",
+  },
+  {
+    id: "meshtastic-metrics-exporter",
+    title: "Meshtastic Metrics Exporter",
+    subtitle: "MQTT → TimescaleDB + Grafana",
+    description:
+      "Collects and stores comprehensive data from Meshtastic MQTT servers into TimescaleDB, with pre-configured Grafana dashboards for visualization and analysis of node telemetry and network activity.",
+    url: "https://github.com/tcivie/meshtastic-metrics-exporter",
+    badge: "Tool",
+    badgeColor: "violet",
+    icon: <AnalyzerIcon className="w-6 h-6" />,
+    tag: "github.com/tcivie",
+  },
+  {
+    id: "tc2-bbs-mesh",
+    title: "TC2-BBS-mesh",
+    subtitle: "Meshtastic BBS System",
+    description:
+      "The TC\u00b2-BBS system integrated with Meshtastic devices. Supports message handling, bulletin boards, mail systems, and a channel directory for mesh network operators.",
+    url: "https://github.com/TheCommsChannel/TC2-BBS-mesh",
+    badge: "Bot",
+    badgeColor: "rose",
+    icon: <BotIcon className="w-6 h-6" />,
+    tag: "github.com/TheCommsChannel",
+  },
+  {
+    id: "meshcore-observer-onboard",
+    title: "MeshCore Analyzer — Add an Observer",
+    subtitle: "Network Analysis Tool",
+    description:
+      "Observers are MQTT-connected MeshCore nodes that report the packets they hear to the MeshCore Analyzer service. By collecting data from multiple Observers across different locations, the service analyzes network reliability, packet routing, and coverage from many perspectives. Observers can be MeshCore repeaters, room servers, or companion devices.",
+    url: "https://analyzer.letsmesh.net/observer/onboard",
+    badge: "Tool",
+    badgeColor: "violet",
+    icon: <NetworkIcon className="w-6 h-6" />,
+    tag: "analyzer.letsmesh.net",
+  },
 ];
 
 const communityServices: ServiceCard[] = [
@@ -1098,7 +1146,7 @@ function StatsBar() {
             })
             .filter(r => !['Dashboard','Mesh Bot','Python Automation Bot','Open Source Tools','Protocol Bridge','Network Analysis Tool','Network Monitor & Visualizer','Node Information Portal','Community Knowledge Base','Resource Index','Observer Zapp Mobile','Observer WYK0 Bot','YYC MeshCore Map','YYCMesh Community','Ottawa Mesh Community','GTA+ Community Hub','KW / NEOSG2 Region','Northern BC','by MeshNard','Discord Community','map.mt.gt','Meshtastic Network','Your mesh. Your data.'].includes(r))
         );
-        const serviceTarget = 47;
+        const serviceTarget = 51;
         let svc = 0;
         const svcStep = () => { svc++; setCount(svc); if (svc < serviceTarget) setTimeout(svcStep, 50); };
         setTimeout(svcStep, 300);

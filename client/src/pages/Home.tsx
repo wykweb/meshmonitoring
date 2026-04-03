@@ -1075,6 +1075,7 @@ function ServiceCard({ card, index }: { card: ServiceCard; index: number }) {
 
 function StatsBar() {
   const [count, setCount] = useState(0);
+  const [regionCount, setRegionCount] = useState(0);
   const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -1084,14 +1085,27 @@ function StatsBar() {
       ([entry]) => {
         if (!entry.isIntersecting) return;
         observer.disconnect();
-        const target = 47;
-        let current = 0;
-        const step = () => {
-          current++;
-          setCount(current);
-          if (current < target) setTimeout(step, 50);
-        };
-        setTimeout(step, 300);
+        // Dynamically count unique geographic regions from all service arrays
+        const allCards = [...coreServices, ...communityServices, ...resourceServices, ...usaServices];
+        const geoRegions = new Set(
+          allCards
+            .map(c => c.subtitle)
+            .filter(s => s.includes('\u2014'))
+            .map(s => {
+              const parts = s.split('\u2014');
+              const region = parts[parts.length - 1].trim();
+              return region === 'USA' || region === 'Canada' ? parts[0].trim().replace(/^[^a-zA-Z]+/, '') : region;
+            })
+            .filter(r => !['Dashboard','Mesh Bot','Python Automation Bot','Open Source Tools','Protocol Bridge','Network Analysis Tool','Network Monitor & Visualizer','Node Information Portal','Community Knowledge Base','Resource Index','Observer Zapp Mobile','Observer WYK0 Bot','YYC MeshCore Map','YYCMesh Community','Ottawa Mesh Community','GTA+ Community Hub','KW / NEOSG2 Region','Northern BC','by MeshNard','Discord Community','map.mt.gt','Meshtastic Network','Your mesh. Your data.'].includes(r))
+        );
+        const serviceTarget = 47;
+        let svc = 0;
+        const svcStep = () => { svc++; setCount(svc); if (svc < serviceTarget) setTimeout(svcStep, 50); };
+        setTimeout(svcStep, 300);
+        const regionTarget = geoRegions.size;
+        let reg = 0;
+        const regStep = () => { reg++; setRegionCount(reg); if (reg < regionTarget) setTimeout(regStep, 60); };
+        setTimeout(regStep, 400);
       },
       { threshold: 0.3 }
     );
@@ -1110,7 +1124,7 @@ function StatsBar() {
       <div className="w-px h-10 bg-white/10 hidden sm:block" />
       <div className="text-center">
         <div className="text-3xl font-800 gradient-text" style={{ fontFamily: "'Outfit', sans-serif", fontWeight: 800 }}>
-          15+
+          {regionCount}
         </div>
         <div className="mono-label text-white/40 mt-1">Regions</div>
       </div>
@@ -1680,7 +1694,18 @@ export default function Home() {
                           <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-rose-400 opacity-60"></span>
                           <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-rose-400"></span>
                         </span>
-                        <span className="mono-label text-rose-400/80 text-xs uppercase tracking-widest">MeshMonitor Instances</span>
+                        <a
+                          href="https://meshmonitor.org/"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="mono-label text-rose-400/80 text-xs uppercase tracking-widest hover:text-rose-300 transition-colors duration-150 flex items-center gap-1"
+                        >
+                          MeshMonitor Instances
+                          <svg className="w-3 h-3 opacity-60" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                            <path d="M7 7h10v10" />
+                            <path d="M7 17 17 7" />
+                          </svg>
+                        </a>
                       </div>
                       <div className="h-px flex-1 bg-white/6" />
                     </div>
@@ -1714,6 +1739,49 @@ export default function Home() {
             Clear filter
           </button>
         </div>
+      )}
+
+      {/* ── Submit a Resource CTA ── */}
+      {!isFiltering && (
+      <section className="py-14 border-t border-white/6">
+        <div className="container">
+          <div className="max-w-2xl mx-auto text-center">
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-emerald-500/20 bg-emerald-500/8 mb-5">
+              <span className="relative flex h-1.5 w-1.5">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-60"></span>
+                <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-emerald-400"></span>
+              </span>
+              <span className="mono-label text-emerald-400/80 text-xs uppercase tracking-widest">Community Contributions</span>
+            </div>
+            <h2
+              className="text-xl sm:text-2xl font-700 text-white mb-3"
+              style={{ fontFamily: "'Outfit', sans-serif", fontWeight: 700 }}
+            >
+              Know a mesh resource we&apos;re missing?
+            </h2>
+            <p className="text-white/40 text-sm mb-6 leading-relaxed">
+              MeshMonitoring.com is community-maintained. If you operate or know of a mesh network tool,
+              regional map, firehose feed, or community hub that should be listed here, open a GitHub issue
+              and we&apos;ll review it for inclusion.
+            </p>
+            <a
+              href="https://github.com/wykweb/meshmonitoring/issues/new?template=submit-resource.yml"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl border border-emerald-500/30 bg-emerald-500/10 text-emerald-300 text-sm font-medium hover:bg-emerald-500/20 hover:border-emerald-500/50 hover:text-emerald-200 transition-all duration-200"
+            >
+              <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844a9.59 9.59 0 0 1 2.504.337c1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.02 10.02 0 0 0 22 12.017C22 6.484 17.522 2 12 2z" />
+              </svg>
+              Submit a Resource
+              <svg className="w-3.5 h-3.5 opacity-60" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M7 7h10v10" />
+                <path d="M7 17 17 7" />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </section>
       )}
 
       {/* ── About ── */}

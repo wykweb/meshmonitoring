@@ -1119,8 +1119,8 @@ export default function Home() {
             className="text-5xl sm:text-6xl lg:text-7xl font-800 text-white leading-tight tracking-tight mb-6 opacity-0 animate-fade-up animation-delay-200"
             style={{ fontFamily: "'Outfit', sans-serif", fontWeight: 800 }}
           >
-            Monitoring the Canadian{" "}
-            <span className="gradient-text">Mesh Networks</span>
+            Monitoring the Canadian &amp; USA{" "}
+             <span className="gradient-text">Mesh Networks</span>
           </h1>
 
           {/* Sub */}

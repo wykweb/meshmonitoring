@@ -735,6 +735,19 @@ const communityServices: ServiceCard[] = [
     noteUrl: "https://ottawamesh.ca/",
     addedAt: "2026-04-03",
   },
+  {
+    id: "interlink-radio-community",
+    title: "Interlink Radio",
+    subtitle: "Mesh Chat Groups & Resources",
+    description:
+      "A community hub sharing Telegram mesh chat groups, Discord mesh groups, and resources for Meshtastic and MeshCore enthusiasts worldwide. A great starting point for finding your local mesh community online.",
+    url: "https://interlinkradio.weebly.com/",
+    badge: "Directory",
+    badgeColor: "teal",
+    icon: <NetworkIcon className="w-6 h-6" />,
+    tag: "interlinkradio.weebly.com",
+    addedAt: "2026-04-03",
+  },
 ];
 
 // ─── USA Meshtastic Networks ────────────────────────────────────────────────────
@@ -1427,7 +1440,7 @@ export default function Home() {
   const [activeType, setActiveType] = useState<string>("All");
   const searchRef = useRef<HTMLInputElement>(null);
 
-  const TYPE_PILLS = ["All", "Firehose", "Map", "MeshView", "MeshMonitor", "MeshInfo", "Community", "Dashboard", "Bot", "Tool", "Software", "Wardriving", "Relay"];
+  const TYPE_PILLS = ["All", "Firehose", "Map", "MeshView", "MeshMonitor", "MeshInfo", "Community", "Dashboard", "Bot", "Tool", "Software", "Wardriving", "Relay", "Directory"];
 
   function matchesType(card: ServiceCard): boolean {
     if (activeType === "All") return true;

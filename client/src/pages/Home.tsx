@@ -302,6 +302,21 @@ const coreServices: ServiceCard[] = [
     icon: <AnalyzerIcon className="w-6 h-6" />,
     tag: "analyzer.letsmesh.net",
   },
+  {
+    id: "meshmapper-yyc-core",
+    title: "MeshMapper YYC",
+    subtitle: "RF Coverage Map — Calgary, AB",
+    description:
+      "Live MeshMapper instance visualizing real-world MeshCore RF coverage across Calgary. See where the mesh reaches, which repeaters provide the best coverage, and where the dead zones are in the YYC area.",
+    url: "https://yyc.meshmapper.net/",
+    badge: "Map",
+    badgeColor: "violet",
+    icon: <MapIcon className="w-6 h-6" />,
+    tag: "yyc.meshmapper.net",
+    note: "Powered by MeshMapper — wiki.meshmapper.net",
+    noteUrl: "https://wiki.meshmapper.net/",
+    addedAt: "2026-04-03",
+  },
 ];
 
 const resourceServices: ServiceCard[] = [
@@ -1446,23 +1461,26 @@ export default function Home() {
         }`}
         style={{ background: "oklch(0.10 0.008 265 / 0.75)", backdropFilter: "blur(12px)", borderBottom: "1px solid rgba(255,255,255,0.05)" }}
       >
-        <div className="container flex items-center justify-center gap-1 h-9">
+        <div className="container flex items-center justify-center gap-2 h-9">
           {([
-            { label: "Services",  href: "#services",  id: "services",  active: "text-blue-300 bg-blue-500/15 border border-blue-500/30",   hover: "hover:text-blue-300 hover:bg-blue-500/10" },
-            { label: "Community", href: "#community", id: "community", active: "text-cyan-300 bg-cyan-500/15 border border-cyan-500/30",   hover: "hover:text-cyan-300 hover:bg-cyan-500/10" },
-            { label: "Resources", href: "#resources", id: "resources", active: "text-amber-300 bg-amber-500/15 border border-amber-500/30", hover: "hover:text-amber-300 hover:bg-amber-500/10" },
-            { label: "USA",       href: "#usa",       id: "usa",       active: "text-rose-300 bg-rose-500/15 border border-rose-500/30",   hover: "hover:text-rose-300 hover:bg-rose-500/10" },
-          ] as const).map(({ label, href, id, active, hover }) => (
+            { label: "Canada",    href: "#services",  id: "services",  count: coreServices.length,      active: "text-blue-300 bg-blue-500/15 border border-blue-500/30",   hover: "hover:text-blue-300 hover:bg-blue-500/10" },
+            { label: "Community", href: "#community", id: "community", count: communityServices.length,  active: "text-cyan-300 bg-cyan-500/15 border border-cyan-500/30",   hover: "hover:text-cyan-300 hover:bg-cyan-500/10" },
+            { label: "Resources", href: "#resources", id: "resources", count: resourceServices.length,   active: "text-amber-300 bg-amber-500/15 border border-amber-500/30", hover: "hover:text-amber-300 hover:bg-amber-500/10" },
+            { label: "USA",       href: "#usa",       id: "usa",       count: usaServices.length,        active: "text-rose-300 bg-rose-500/15 border border-rose-500/30",   hover: "hover:text-rose-300 hover:bg-rose-500/10" },
+          ] as const).map(({ label, href, id, count, active, hover }) => (
             <a
               key={href}
               href={href}
-              className={`mono-label text-xs uppercase tracking-widest px-3 py-1 rounded-lg transition-all duration-200 ${
+              className={`mono-label text-xs uppercase tracking-widest px-3 py-1 rounded-lg transition-all duration-200 flex items-center gap-1.5 ${
                 activeSection === id
                   ? active
                   : `text-white/35 ${hover}`
               }`}
             >
               {label}
+              <span className={`text-[10px] font-mono px-1.5 py-0.5 rounded-full ${
+                activeSection === id ? "bg-white/15" : "bg-white/8 text-white/25"
+              }`}>{count}</span>
             </a>
           ))}
         </div>

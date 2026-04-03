@@ -470,11 +470,12 @@ const resourceServices: ServiceCard[] = [
     description:
       "Visualizes real-world MeshCore coverage using data collected by local mesh operators wardriving their area. Unlike simple node maps, MeshMapper shows actual RF coverage — answering 'Can I reach the mesh from here?', 'Which repeater gives the best coverage?', and 'Where are the dead zones?' Built with contributions from the Greater Ottawa Mesh Radio Enthusiasts.",
     url: "https://wiki.meshmapper.net/",
-    badge: "Tool",
+    badge: "Wardriving",
     badgeColor: "violet",
     icon: <MapIcon className="w-6 h-6" />,
     tag: "wiki.meshmapper.net",
-    note: "Community: Greater Ottawa Mesh Radio Enthusiasts — ottawamesh.ca",
+    note: "Community: Greater Ottawa Mesh Radio Enthusiasts",
+    noteUrl: "https://ottawamesh.ca/",
     addedAt: "2026-04-03",
   },
 ];
@@ -1336,7 +1337,7 @@ export default function Home() {
   const [activeType, setActiveType] = useState<string>("All");
   const searchRef = useRef<HTMLInputElement>(null);
 
-  const TYPE_PILLS = ["All", "Firehose", "Map", "MeshView", "MeshMonitor", "MeshInfo", "Community", "Dashboard", "Bot", "Tool", "Software"];
+  const TYPE_PILLS = ["All", "Firehose", "Map", "MeshView", "MeshMonitor", "MeshInfo", "Community", "Dashboard", "Bot", "Tool", "Software", "Wardriving"];
 
   function matchesType(card: ServiceCard): boolean {
     if (activeType === "All") return true;
@@ -1721,8 +1722,8 @@ export default function Home() {
 
             return (
               <>
-                <CaSubGroup label="YYC Firehose & Maps" color="blue"   cards={yycCards}      startIdx={0} />
-                <CaSubGroup label="National Coverage"   color="cyan"   cards={nationalCards} startIdx={yycCards.length} />
+                <CaSubGroup label="YYC Firehose & Maps" color="blue" cards={yycCards}      startIdx={0} />
+                <CaSubGroup label="National Coverage"   color="cyan" cards={nationalCards} startIdx={yycCards.length} />
               </>
             );
           })()}
@@ -1859,15 +1860,20 @@ export default function Home() {
           </div>
 
 {(() => {
-            const MONITORING_BADGES = new Set(["Software", "MeshMonitor", "Dashboard", "Info"]);
-            const BOT_BADGES = new Set(["Bot"]);
-            const PROTOCOL_BADGES = new Set(["Tool", "Relay", "Directory", "Firehose"]);
+            const MONITORING_BADGES  = new Set(["Software", "MeshMonitor", "Dashboard", "Info"]);
+            const BOT_BADGES         = new Set(["Bot"]);
+            const PROTOCOL_BADGES    = new Set(["Tool", "Relay", "Directory", "Firehose"]);
+            const WARDRIVING_BADGES  = new Set(["Wardriving"]);
 
-            const monitoringCards = filteredResources.filter(c => MONITORING_BADGES.has(c.badge));
-            const botCards        = filteredResources.filter(c => BOT_BADGES.has(c.badge));
-            const protocolCards   = filteredResources.filter(c => PROTOCOL_BADGES.has(c.badge));
+            const monitoringCards  = filteredResources.filter(c => MONITORING_BADGES.has(c.badge));
+            const botCards         = filteredResources.filter(c => BOT_BADGES.has(c.badge));
+            const protocolCards    = filteredResources.filter(c => PROTOCOL_BADGES.has(c.badge));
+            const wardrivingCards  = filteredResources.filter(c => WARDRIVING_BADGES.has(c.badge));
             // Catch-all for any badge not in the above groups
-            const otherCards      = filteredResources.filter(c => !MONITORING_BADGES.has(c.badge) && !BOT_BADGES.has(c.badge) && !PROTOCOL_BADGES.has(c.badge));
+            const otherCards       = filteredResources.filter(c =>
+              !MONITORING_BADGES.has(c.badge) && !BOT_BADGES.has(c.badge) &&
+              !PROTOCOL_BADGES.has(c.badge) && !WARDRIVING_BADGES.has(c.badge)
+            );
 
             const SubGroup = ({ label, color, cards, startIdx }: { label: string; color: string; cards: typeof filteredResources; startIdx: number }) => {
               if (cards.length === 0) return null;
@@ -1904,10 +1910,11 @@ export default function Home() {
 
             return (
               <>
-                <SubGroup label="Monitoring Software" color="amber"  cards={monitoringCards} startIdx={0} />
-                <SubGroup label="Bots &amp; Automation"  color="rose"   cards={botCards}        startIdx={monitoringCards.length} />
-                <SubGroup label="Protocol Tools"       color="violet" cards={protocolCards}   startIdx={monitoringCards.length + botCards.length} />
-                <SubGroup label="Other Resources"      color="teal"   cards={otherCards}      startIdx={monitoringCards.length + botCards.length + protocolCards.length} />
+                <SubGroup label="Monitoring Software"  color="amber"  cards={monitoringCards} startIdx={0} />
+                <SubGroup label="Bots &amp; Automation"   color="rose"   cards={botCards}        startIdx={monitoringCards.length} />
+                <SubGroup label="Protocol Tools"        color="violet" cards={protocolCards}   startIdx={monitoringCards.length + botCards.length} />
+                <SubGroup label="MeshMapper Coverage"   color="violet" cards={wardrivingCards} startIdx={monitoringCards.length + botCards.length + protocolCards.length} />
+                <SubGroup label="Other Resources"       color="teal"   cards={otherCards}      startIdx={monitoringCards.length + botCards.length + protocolCards.length + wardrivingCards.length} />
               </>
             );
           })()}

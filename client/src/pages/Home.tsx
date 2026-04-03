@@ -1146,7 +1146,7 @@ function StatsBar() {
             })
             .filter(r => !['Dashboard','Mesh Bot','Python Automation Bot','Open Source Tools','Protocol Bridge','Network Analysis Tool','Network Monitor & Visualizer','Node Information Portal','Community Knowledge Base','Resource Index','Observer Zapp Mobile','Observer WYK0 Bot','YYC MeshCore Map','YYCMesh Community','Ottawa Mesh Community','GTA+ Community Hub','KW / NEOSG2 Region','Northern BC','by MeshNard','Discord Community','map.mt.gt','Meshtastic Network','Your mesh. Your data.'].includes(r))
         );
-        const serviceTarget = 51;
+        const serviceTarget = allCards.length;
         let svc = 0;
         const svcStep = () => { svc++; setCount(svc); if (svc < serviceTarget) setTimeout(svcStep, 50); };
         setTimeout(svcStep, 300);
@@ -1235,7 +1235,7 @@ export default function Home() {
   const [searchQuery, setSearchQuery] = useState("");
   const [activeType, setActiveType] = useState<string>("All");
 
-  const TYPE_PILLS = ["All", "Firehose", "Map", "MeshView", "MeshMonitor", "Community", "Dashboard", "Bot", "Tool"];
+  const TYPE_PILLS = ["All", "Firehose", "Map", "MeshView", "MeshMonitor", "Community", "Dashboard", "Bot", "Tool", "Software"];
 
   function matchesType(card: ServiceCard): boolean {
     if (activeType === "All") return true;
@@ -1666,18 +1666,57 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-            {filteredResources.slice(0, 3).map((card, i) => (
-              <ServiceCard key={card.id} card={card} index={i} />
-            ))}
-          </div>
-          {filteredResources.length > 3 && (
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 mt-5 lg:max-w-[calc(66.666%+1.25rem)] lg:mx-auto">
-            {filteredResources.slice(3).map((card, i) => (
-              <ServiceCard key={card.id} card={card} index={i + 3} />
-            ))}
-          </div>
-          )}
+{(() => {
+            const MONITORING_BADGES = new Set(["Software", "MeshMonitor", "Dashboard", "Info"]);
+            const BOT_BADGES = new Set(["Bot"]);
+            const PROTOCOL_BADGES = new Set(["Tool", "Relay", "Directory", "Firehose"]);
+
+            const monitoringCards = filteredResources.filter(c => MONITORING_BADGES.has(c.badge));
+            const botCards        = filteredResources.filter(c => BOT_BADGES.has(c.badge));
+            const protocolCards   = filteredResources.filter(c => PROTOCOL_BADGES.has(c.badge));
+            // Catch-all for any badge not in the above groups
+            const otherCards      = filteredResources.filter(c => !MONITORING_BADGES.has(c.badge) && !BOT_BADGES.has(c.badge) && !PROTOCOL_BADGES.has(c.badge));
+
+            const SubGroup = ({ label, color, cards, startIdx }: { label: string; color: string; cards: typeof filteredResources; startIdx: number }) => {
+              if (cards.length === 0) return null;
+              const colorMap: Record<string, { border: string; bg: string; dot: string; text: string }> = {
+                amber:   { border: "border-amber-500/20",   bg: "bg-amber-500/8",   dot: "bg-amber-400",   text: "text-amber-400/80" },
+                rose:    { border: "border-rose-500/20",    bg: "bg-rose-500/8",    dot: "bg-rose-400",    text: "text-rose-400/80" },
+                violet:  { border: "border-violet-500/20",  bg: "bg-violet-500/8",  dot: "bg-violet-400",  text: "text-violet-400/80" },
+                teal:    { border: "border-teal-500/20",    bg: "bg-teal-500/8",    dot: "bg-teal-400",    text: "text-teal-400/80" },
+              };
+              const c = colorMap[color] ?? colorMap.amber;
+              return (
+                <div className="mb-10">
+                  <div className="flex items-center gap-3 mb-5">
+                    <div className="h-px flex-1 bg-white/6" />
+                    <div className={`flex items-center gap-2 px-3 py-1.5 rounded-full border ${c.border} ${c.bg}`}>
+                      <span className="relative flex h-1.5 w-1.5">
+                        <span className={`animate-ping absolute inline-flex h-full w-full rounded-full ${c.dot} opacity-60`}></span>
+                        <span className={`relative inline-flex rounded-full h-1.5 w-1.5 ${c.dot}`}></span>
+                      </span>
+                      <span className={`mono-label ${c.text} text-xs uppercase tracking-widest`}>{label}</span>
+                    </div>
+                    <div className="h-px flex-1 bg-white/6" />
+                  </div>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+                    {cards.map((card, i) => (
+                      <ServiceCard key={card.id} card={card} index={startIdx + i} />
+                    ))}
+                  </div>
+                </div>
+              );
+            };
+
+            return (
+              <>
+                <SubGroup label="Monitoring Software" color="amber"  cards={monitoringCards} startIdx={0} />
+                <SubGroup label="Bots &amp; Automation"  color="rose"   cards={botCards}        startIdx={monitoringCards.length} />
+                <SubGroup label="Protocol Tools"       color="violet" cards={protocolCards}   startIdx={monitoringCards.length + botCards.length} />
+                <SubGroup label="Other Resources"      color="teal"   cards={otherCards}      startIdx={monitoringCards.length + botCards.length + protocolCards.length} />
+              </>
+            );
+          })()}
         </div>
       </section>
       )}

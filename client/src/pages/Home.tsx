@@ -22,6 +22,8 @@ interface ServiceCard {
   tag: string;
   note?: string;
   noteUrl?: string;
+  note2?: string;
+  note2Url?: string;
   qrCode?: string;
   qrLink?: string;
 }
@@ -310,6 +312,8 @@ const communityServices: ServiceCard[] = [
     icon: <DashboardIcon className="w-6 h-6" />,
     tag: "dash.mt.gt",
     note: "Login: guest / guest — Maintainer: @tb0hdan",
+    note2: "Canadaverse Meshtastic Metrics Exporter",
+    note2Url: "https://dash.mt.gt/d/edqkge9mf7v28g/main-dashboard?orgId=1&refresh=5s&from=now-24h&to=now",
   },
   {
     id: "ottawa-mesh",
@@ -556,6 +560,23 @@ function ServiceCard({ card, index }: { card: ServiceCard; index: number }) {
               </button>
             ) : (
               <p className="mono-label text-white/40 text-xs">{card.note}</p>
+            )}
+          </div>
+        )}
+
+        {/* Second note (optional) */}
+        {card.note2 && (
+          <div className="mb-4 px-3 py-2 rounded-lg bg-white/4 border border-white/6">
+            {card.note2Url ? (
+              <button
+                type="button"
+                onClick={(e) => { e.preventDefault(); e.stopPropagation(); window.open(card.note2Url, "_blank", "noopener,noreferrer"); }}
+                className="mono-label text-sky-400/70 hover:text-sky-300 text-xs underline underline-offset-2 transition-colors duration-150 bg-transparent border-0 p-0"
+              >
+                {card.note2}
+              </button>
+            ) : (
+              <p className="mono-label text-white/40 text-xs">{card.note2}</p>
             )}
           </div>
         )}

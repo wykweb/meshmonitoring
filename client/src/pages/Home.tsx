@@ -1441,6 +1441,9 @@ export default function Home() {
         {/* Legal disclaimer */}
         <div className="container">
           <div className="border-t border-white/6 pt-5">
+            <p className="mono-label text-white/30 text-xs text-center mb-3">
+              Directory last updated: April 2026
+            </p>
             <p className="mono-label text-white/20 text-xs text-center leading-relaxed max-w-3xl mx-auto">
               <span className="text-white/30 font-medium">Note:</span> We are not affiliated with Meshtastic or Meshcore.{" "}
               &copy; 2026 MeshMonitoring.com. MeshMonitoring.com is not affiliated with Meshtastic or Meshcore.{" "}

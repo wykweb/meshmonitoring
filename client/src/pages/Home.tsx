@@ -1300,15 +1300,22 @@ export default function Home() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  // Press "/" anywhere to focus the search bar (skip if already in an input)
+  // Press "/" anywhere to focus the search bar; Escape to clear + blur it
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
-      if (e.key !== "/") return;
-      const tag = (e.target as HTMLElement).tagName;
-      if (tag === "INPUT" || tag === "TEXTAREA" || tag === "SELECT") return;
-      e.preventDefault();
-      searchRef.current?.focus();
-      searchRef.current?.scrollIntoView({ behavior: "smooth", block: "center" });
+      if (e.key === "/") {
+        const tag = (e.target as HTMLElement).tagName;
+        if (tag === "INPUT" || tag === "TEXTAREA" || tag === "SELECT") return;
+        e.preventDefault();
+        searchRef.current?.focus();
+        searchRef.current?.scrollIntoView({ behavior: "smooth", block: "center" });
+      } else if (e.key === "Escape") {
+        if (document.activeElement === searchRef.current) {
+          setSearchQuery("");
+          setActiveType("All");
+          searchRef.current?.blur();
+        }
+      }
     };
     document.addEventListener("keydown", onKey);
     return () => document.removeEventListener("keydown", onKey);
@@ -1844,65 +1851,56 @@ export default function Home() {
             </div>
           </div>
 {(() => {
-            const meshViewCards = filteredUSA.filter(c => c.badge !== "MeshMonitor");
+            const meshViewCards    = filteredUSA.filter(c => c.badge !== "MeshMonitor" && c.badge !== "MeshInfo");
             const meshMonitorCards = filteredUSA.filter(c => c.badge === "MeshMonitor");
+            const meshInfoCards    = filteredUSA.filter(c => c.badge === "MeshInfo");
+
+            const USASubGroup = ({ label, color, linkHref, cards, startIdx }: { label: string; color: string; linkHref?: string; cards: typeof filteredUSA; startIdx: number }) => {
+              if (cards.length === 0) return null;
+              const colorMap: Record<string, { border: string; bg: string; dot: string; text: string; hover: string }> = {
+                sky:     { border: "border-sky-500/20",     bg: "bg-sky-500/8",     dot: "bg-sky-400",     text: "text-sky-400/80",     hover: "hover:text-sky-300" },
+                rose:    { border: "border-rose-500/20",    bg: "bg-rose-500/8",    dot: "bg-rose-400",    text: "text-rose-400/80",    hover: "hover:text-rose-300" },
+                emerald: { border: "border-emerald-500/20", bg: "bg-emerald-500/8", dot: "bg-emerald-400", text: "text-emerald-400/80", hover: "hover:text-emerald-300" },
+              };
+              const c = colorMap[color] ?? colorMap.sky;
+              const labelEl = linkHref ? (
+                <a href={linkHref} target="_blank" rel="noopener noreferrer"
+                  className={`mono-label ${c.text} text-xs uppercase tracking-widest ${c.hover} transition-colors duration-150 flex items-center gap-1`}>
+                  {label} <span className="opacity-50">&middot; {cards.length}</span>
+                  <svg className="w-3 h-3 opacity-60" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M7 7h10v10" /><path d="M7 17 17 7" />
+                  </svg>
+                </a>
+              ) : (
+                <span className={`mono-label ${c.text} text-xs uppercase tracking-widest`}>
+                  {label} <span className="opacity-50">&middot; {cards.length}</span>
+                </span>
+              );
+              return (
+                <div className="mb-10">
+                  <div className="flex items-center gap-3 mb-5">
+                    <div className="h-px flex-1 bg-white/6" />
+                    <div className={`flex items-center gap-2 px-3 py-1.5 rounded-full border ${c.border} ${c.bg}`}>
+                      <span className="relative flex h-1.5 w-1.5">
+                        <span className={`animate-ping absolute inline-flex h-full w-full rounded-full ${c.dot} opacity-60`}></span>
+                        <span className={`relative inline-flex rounded-full h-1.5 w-1.5 ${c.dot}`}></span>
+                      </span>
+                      {labelEl}
+                    </div>
+                    <div className="h-px flex-1 bg-white/6" />
+                  </div>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+                    {cards.map((card, i) => <ServiceCard key={card.id} card={card} index={startIdx + i} />)}
+                  </div>
+                </div>
+              );
+            };
+
             return (
               <>
-                {/* MeshView / Map sub-group */}
-                {meshViewCards.length > 0 && (
-                  <div className="mb-10">
-                    <div className="flex items-center gap-3 mb-5">
-                      <div className="h-px flex-1 bg-white/6" />
-                      <div className="flex items-center gap-2 px-3 py-1.5 rounded-full border border-sky-500/20 bg-sky-500/8">
-                        <span className="relative flex h-1.5 w-1.5">
-                          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-sky-400 opacity-60"></span>
-                          <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-sky-400"></span>
-                        </span>
-                        <span className="mono-label text-sky-400/80 text-xs uppercase tracking-widest">
-                          MeshView &amp; Map Viewers <span className="opacity-50">&middot; {meshViewCards.length}</span>
-                        </span>
-                      </div>
-                      <div className="h-px flex-1 bg-white/6" />
-                    </div>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-                      {meshViewCards.map((card, i) => (
-                        <ServiceCard key={card.id} card={card} index={i} />
-                      ))}
-                    </div>
-                  </div>
-                )}
-                {/* MeshMonitor sub-group */}
-                {meshMonitorCards.length > 0 && (
-                  <div>
-                    <div className="flex items-center gap-3 mb-5">
-                      <div className="h-px flex-1 bg-white/6" />
-                      <div className="flex items-center gap-2 px-3 py-1.5 rounded-full border border-rose-500/20 bg-rose-500/8">
-                        <span className="relative flex h-1.5 w-1.5">
-                          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-rose-400 opacity-60"></span>
-                          <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-rose-400"></span>
-                        </span>
-                        <a
-                          href="https://meshmonitor.org/"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="mono-label text-rose-400/80 text-xs uppercase tracking-widest hover:text-rose-300 transition-colors duration-150 flex items-center gap-1"
-                        >
-                          MeshMonitor Instances <span className="opacity-50">&middot; {meshMonitorCards.length}</span>
-                          <svg className="w-3 h-3 opacity-60" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                            <path d="M7 7h10v10" />
-                            <path d="M7 17 17 7" />
-                          </svg>
-                        </a>
-                      </div>
-                      <div className="h-px flex-1 bg-white/6" />
-                    </div>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-                      {meshMonitorCards.map((card, i) => (
-                        <ServiceCard key={card.id} card={card} index={i} />
-                      ))}
-                    </div>
-                  </div>
-                )}
+                <USASubGroup label="MeshView &amp; Map Viewers" color="sky"     cards={meshViewCards}    startIdx={0} />
+                <USASubGroup label="MeshMonitor Instances"      color="rose"    linkHref="https://meshmonitor.org/" cards={meshMonitorCards} startIdx={meshViewCards.length} />
+                <USASubGroup label="MeshInfo Instances"         color="emerald" linkHref="https://github.com/MeshAddicts/meshinfo" cards={meshInfoCards} startIdx={meshViewCards.length + meshMonitorCards.length} />
               </>
             );
           })()}

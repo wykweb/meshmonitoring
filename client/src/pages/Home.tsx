@@ -693,6 +693,21 @@ const communityServices: ServiceCard[] = [
     badgeColor: "green",
     tag: "yegmesh.ca",
   },
+  {
+    id: "meshmapper-yow-community",
+    title: "MeshMapper YOW",
+    subtitle: "🇨🇦 Ottawa, Ontario — Canada",
+    description:
+      "Live MeshMapper instance visualizing real-world MeshCore RF coverage across Ottawa (YOW). Built and maintained by the Greater Ottawa Mesh Radio Enthusiasts.",
+    url: "https://yow.meshmapper.net/",
+    badge: "Community",
+    badgeColor: "violet",
+    icon: <MapIcon className="w-6 h-6" />,
+    tag: "yow.meshmapper.net",
+    note: "Community: Greater Ottawa Mesh Radio Enthusiasts",
+    noteUrl: "https://ottawamesh.ca/",
+    addedAt: "2026-04-03",
+  },
 ];
 
 // ─── USA Meshtastic Networks ────────────────────────────────────────────────────
@@ -1463,7 +1478,7 @@ export default function Home() {
       >
         <div className="container flex items-center justify-center gap-2 h-9">
           {([
-            { label: "Canada",    href: "#services",  id: "services",  count: coreServices.length,      active: "text-blue-300 bg-blue-500/15 border border-blue-500/30",   hover: "hover:text-blue-300 hover:bg-blue-500/10" },
+            { label: "🇨🇦 Canada", href: "#services",  id: "services",  count: coreServices.length,      active: "text-blue-300 bg-blue-500/15 border border-blue-500/30",   hover: "hover:text-blue-300 hover:bg-blue-500/10" },
             { label: "Community", href: "#community", id: "community", count: communityServices.length,  active: "text-cyan-300 bg-cyan-500/15 border border-cyan-500/30",   hover: "hover:text-cyan-300 hover:bg-cyan-500/10" },
             { label: "Resources", href: "#resources", id: "resources", count: resourceServices.length,   active: "text-amber-300 bg-amber-500/15 border border-amber-500/30", hover: "hover:text-amber-300 hover:bg-amber-500/10" },
             { label: "USA",       href: "#usa",       id: "usa",       count: usaServices.length,        active: "text-rose-300 bg-rose-500/15 border border-rose-500/30",   hover: "hover:text-rose-300 hover:bg-rose-500/10" },
@@ -1505,6 +1520,7 @@ export default function Home() {
           {/* Section nav — hidden on mobile, visible md+ */}
           <nav className="hidden md:flex items-center gap-1">
             <a href="#services" className="mono-label text-white/40 hover:text-white/80 text-xs uppercase tracking-widest px-3 py-1.5 rounded-lg hover:bg-white/6 transition-all duration-200">Services</a>
+            <a href="#services" className="mono-label text-blue-400/70 hover:text-blue-300 text-xs uppercase tracking-widest px-3 py-1.5 rounded-lg hover:bg-blue-500/10 transition-all duration-200 flex items-center gap-1"><span>🇨🇦</span>Canada</a>
             <a href="#community" className="mono-label text-white/40 hover:text-white/80 text-xs uppercase tracking-widest px-3 py-1.5 rounded-lg hover:bg-white/6 transition-all duration-200">Community</a>
             <a href="#resources" className="mono-label text-white/40 hover:text-white/80 text-xs uppercase tracking-widest px-3 py-1.5 rounded-lg hover:bg-white/6 transition-all duration-200">Resources</a>
             <a href="#usa" className="mono-label text-white/40 hover:text-white/80 text-xs uppercase tracking-widest px-3 py-1.5 rounded-lg hover:bg-white/6 transition-all duration-200">USA</a>
@@ -1566,6 +1582,7 @@ export default function Home() {
         {mobileMenuOpen && (
           <div className="md:hidden border-t border-white/8 px-4 py-3 flex flex-col gap-1" style={{ background: "oklch(0.11 0.008 265 / 0.97)" }}>
             <a href="#services" onClick={() => setMobileMenuOpen(false)} className="mono-label text-white/60 hover:text-white text-xs uppercase tracking-widest px-3 py-2.5 rounded-lg hover:bg-white/8 transition-all duration-200">Services</a>
+            <a href="#services" onClick={() => setMobileMenuOpen(false)} className="mono-label text-blue-400/80 hover:text-blue-300 text-xs uppercase tracking-widest px-3 py-2.5 rounded-lg hover:bg-blue-500/10 transition-all duration-200 flex items-center gap-1.5"><span>🇨🇦</span>Canada</a>
             <a href="#community" onClick={() => setMobileMenuOpen(false)} className="mono-label text-white/60 hover:text-white text-xs uppercase tracking-widest px-3 py-2.5 rounded-lg hover:bg-white/8 transition-all duration-200">Community</a>
             <a href="#resources" onClick={() => setMobileMenuOpen(false)} className="mono-label text-white/60 hover:text-white text-xs uppercase tracking-widest px-3 py-2.5 rounded-lg hover:bg-white/8 transition-all duration-200">Resources</a>
             <a href="#usa" onClick={() => setMobileMenuOpen(false)} className="mono-label text-white/60 hover:text-white text-xs uppercase tracking-widest px-3 py-2.5 rounded-lg hover:bg-white/8 transition-all duration-200">USA</a>
@@ -2210,7 +2227,10 @@ export default function Home() {
         <div className="container">
           <div className="border-t border-white/6 pt-5">
             <p className="mono-label text-white/30 text-xs text-center mb-3">
-              Directory last updated: April 2026
+              Directory last updated:{" "}
+              <span className="text-white/45">{new Date("2026-04-03").toLocaleDateString("en-CA", { year: "numeric", month: "long", day: "numeric" })}</span>
+              {" · "}
+              <span className="text-white/30">{coreServices.length + communityServices.length + resourceServices.length + usaServices.length} services listed</span>
             </p>
             <p className="mono-label text-white/20 text-xs text-center leading-relaxed max-w-3xl mx-auto">
               <span className="text-white/30 font-medium">Note:</span> We are not affiliated with Meshtastic or Meshcore.{" "}

@@ -227,7 +227,7 @@ const coreServices: ServiceCard[] = [
     note: "Open Firehose Feed",
     noteUrl: "https://yycmesh.meshmonitoring.com/firehose",
     qrCode: "https://d2xsxph8kpxj0f.cloudfront.net/310519663459784497/HNPJdRREoZxPBHo4cuB8dc/yyc-zapp-qr_65981a83.png",
-    qrLink: "https://yycmesh.meshmonitoring.com/firehose",
+    qrLink: "https://meshtastic.org/e/#CgMSAQESGxAHGPQDIAsoCDgBQANIAVAeaAF1AKxhRMAGAQ",
   },
   {
     id: "wyk0-bot",
@@ -243,7 +243,7 @@ const coreServices: ServiceCard[] = [
     note: "Open Firehose Feed",
     noteUrl: "https://yyc.meshmonitoring.com/firehose",
     qrCode: "https://d2xsxph8kpxj0f.cloudfront.net/310519663459784497/HNPJdRREoZxPBHo4cuB8dc/yyc-wyk0-qr_1f445bc9.png",
-    qrLink: "https://yyc.meshmonitoring.com/firehose",
+    qrLink: "https://meshtastic.org/e/#CgMSAQESGxAHGPQDIAsoCDgBQANIAVAeaAF1AKxhRMAGAQ",
   },
   {
     id: "canada-mesh",

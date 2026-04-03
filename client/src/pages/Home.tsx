@@ -463,6 +463,20 @@ const resourceServices: ServiceCard[] = [
     tag: "github.com/MeshAddicts",
     addedAt: "2026-04-03",
   },
+  {
+    id: "meshmapper-wardriving",
+    title: "MeshMapper for MeshCore Wardriving",
+    subtitle: "RF Coverage Visualizer — MeshCore",
+    description:
+      "Visualizes real-world MeshCore coverage using data collected by local mesh operators wardriving their area. Unlike simple node maps, MeshMapper shows actual RF coverage — answering 'Can I reach the mesh from here?', 'Which repeater gives the best coverage?', and 'Where are the dead zones?' Built with contributions from the Greater Ottawa Mesh Radio Enthusiasts.",
+    url: "https://wiki.meshmapper.net/",
+    badge: "Tool",
+    badgeColor: "violet",
+    icon: <MapIcon className="w-6 h-6" />,
+    tag: "wiki.meshmapper.net",
+    note: "Community: Greater Ottawa Mesh Radio Enthusiasts — ottawamesh.ca",
+    addedAt: "2026-04-03",
+  },
 ];
 
 const communityServices: ServiceCard[] = [

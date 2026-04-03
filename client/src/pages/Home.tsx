@@ -275,6 +275,22 @@ const coreServices: ServiceCard[] = [
 
 const communityServices: ServiceCard[] = [
   {
+    id: "yyc-custom-mesh",
+    title: "YYC Custom Mesh",
+    subtitle: "YYCMesh Community",
+    description:
+      "Local HAMs and hobbyists running a public, off-grid communications mesh in Southern Alberta using Meshtastic. Come test the new YYC Mesh radio settings and participate in a fresh Meshtastic network!",
+    url: "https://yycmesh.com/",
+    badge: "Community",
+    badgeColor: "sky",
+    icon: <RadioIcon className="w-6 h-6" />,
+    tag: "yycmesh.com",
+    note: "YYC Mesh Radio Settings",
+    noteUrl: "https://yycmesh.com/about",
+    qrCode: "https://d2xsxph8kpxj0f.cloudfront.net/310519663459784497/HNPJdRREoZxPBHo4cuB8dc/yycmesh-join_6c2de6ec.png",
+    qrLink: "https://meshtastic.org/e/#CgMSAQESGxAHGPQDIAsoCDgBQANIAVAeaAF1AKxhRMAGAQ",
+  },
+  {
     id: "canadaverse-dashboard",
     title: "Canadaverse",
     subtitle: "Dashboard",
@@ -358,22 +374,6 @@ const communityServices: ServiceCard[] = [
     badgeColor: "cyan",
     icon: <LinkIcon className="w-6 h-6" />,
     tag: "canadaverse.org",
-  },
-  {
-    id: "yyc-custom-mesh",
-    title: "YYC Custom Mesh",
-    subtitle: "YYCMesh Community",
-    description:
-      "Local HAMs and hobbyists running a public, off-grid communications mesh in Southern Alberta using Meshtastic. Come test the new YYC Mesh radio settings and participate in a fresh Meshtastic network!",
-    url: "https://yycmesh.com/",
-    badge: "Community",
-    badgeColor: "sky",
-    icon: <RadioIcon className="w-6 h-6" />,
-    tag: "yycmesh.com",
-    note: "YYC Mesh Radio Settings",
-    noteUrl: "https://yycmesh.com/about",
-    qrCode: "https://d2xsxph8kpxj0f.cloudfront.net/310519663459784497/HNPJdRREoZxPBHo4cuB8dc/yycmesh-join_6c2de6ec.png",
-    qrLink: "https://meshtastic.org/e/#CgMSAQESGxAHGPQDIAsoCDgBQANIAVAeaAF1AKxhRMAGAQ",
   },
 ];
 
@@ -539,15 +539,13 @@ function ServiceCard({ card, index }: { card: ServiceCard; index: number }) {
         {card.note && (
           <div className="mb-4 px-3 py-2 rounded-lg bg-white/4 border border-white/6">
             {card.noteUrl ? (
-              <a
-                href={card.noteUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mono-label text-sky-400/70 hover:text-sky-300 text-xs underline underline-offset-2 transition-colors duration-150"
-                onClick={(e) => e.stopPropagation()}
+              <button
+                type="button"
+                onClick={(e) => { e.preventDefault(); e.stopPropagation(); window.open(card.noteUrl, "_blank", "noopener,noreferrer"); }}
+                className="mono-label text-sky-400/70 hover:text-sky-300 text-xs underline underline-offset-2 transition-colors duration-150 bg-transparent border-0 p-0"
               >
                 {card.note}
-              </a>
+              </button>
             ) : (
               <p className="mono-label text-white/40 text-xs">{card.note}</p>
             )}
@@ -557,30 +555,27 @@ function ServiceCard({ card, index }: { card: ServiceCard; index: number }) {
         {/* QR code block (optional) */}
         {card.qrCode && card.qrLink && (
           <div className="mb-4 rounded-xl border border-white/8 bg-white/3 p-4 flex flex-col items-center gap-3">
-            <a
-              href={card.qrLink}
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={(e) => e.stopPropagation()}
-              className="block"
+            <button
+              type="button"
+              onClick={(e) => { e.preventDefault(); e.stopPropagation(); window.open(card.qrLink, "_blank", "noopener,noreferrer"); }}
+              className="block bg-transparent border-0 p-0"
               title="Scan QR code or click to join YYCMesh radio settings"
             >
               <img
                 src={card.qrCode}
                 alt="YYCMesh radio settings QR code"
                 className="w-28 h-28 rounded-lg"
+                style={{ filter: "invert(1)" }}
               />
-            </a>
+            </button>
             <p className="mono-label text-white/35 text-xs text-center">Scan the QR code or click below to join directly:</p>
-            <a
-              href={card.qrLink}
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={(e) => e.stopPropagation()}
+            <button
+              type="button"
+              onClick={(e) => { e.preventDefault(); e.stopPropagation(); window.open(card.qrLink, "_blank", "noopener,noreferrer"); }}
               className="mono-label text-xs font-medium px-3 py-1.5 rounded-lg bg-sky-500/15 border border-sky-500/30 text-sky-300 hover:text-sky-200 hover:bg-sky-500/25 transition-all duration-150 tracking-widest uppercase"
             >
               YYCMESH RADIO SETTINGS
-            </a>
+            </button>
           </div>
         )}
 

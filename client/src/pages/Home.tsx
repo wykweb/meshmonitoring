@@ -316,6 +316,18 @@ const communityServices: ServiceCard[] = [
     note2Url: "https://dash.mt.gt/d/edqkge9mf7v28g/main-dashboard?orgId=1&refresh=5s&from=now-24h&to=now",
   },
   {
+    id: "canadaverse-meshinfo",
+    title: "Canadaverse MeshInfo",
+    subtitle: "Node Information Portal",
+    description:
+      "Detailed node information portal for the Canadaverse mesh network. Look up node profiles, hardware details, telemetry history, and connectivity data for nodes seen on the Canadaverse MQTT server.",
+    url: "https://mi.mt.gt/",
+    badge: "Info",
+    badgeColor: "teal",
+    icon: <NetworkIcon className="w-6 h-6" />,
+    tag: "mi.mt.gt",
+  },
+  {
     id: "ottawa-mesh",
     title: "Greater Ottawa Mesh Enthusiasts",
     subtitle: "Ottawa Mesh Community",
@@ -632,7 +644,7 @@ function StatsBar() {
   const [count, setCount] = useState(0);
 
   useEffect(() => {
-    const target = 13;
+    const target = 14;
     let current = 0;
     const step = () => {
       current++;

@@ -917,7 +917,7 @@ export default function Home() {
           <div className="flex flex-col items-center gap-4 pt-6 border-t border-white/6">
             <p className="mono-label text-white/30 text-xs uppercase tracking-widest">Know a resource we're missing?</p>
             <a
-              href="https://github.com/"
+              href="https://github.com/wykweb/meshmonitoring/issues/new?template=submit-resource.yml"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl border border-white/12 bg-white/4 hover:bg-white/8 hover:border-white/20 text-white/60 hover:text-white/90 text-sm font-500 transition-all duration-200 group"

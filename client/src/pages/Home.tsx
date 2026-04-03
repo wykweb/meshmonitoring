@@ -8,7 +8,7 @@
 
 import { useEffect, useState } from "react";
 
-// ─── Service card data ────────────────────────────────────────────────────────
+// ─── Types ────────────────────────────────────────────────────────────────────
 
 interface ServiceCard {
   id: string;
@@ -17,9 +17,10 @@ interface ServiceCard {
   description: string;
   url: string;
   badge: string;
-  badgeColor: "blue" | "cyan" | "green" | "violet" | "amber";
+  badgeColor: "blue" | "cyan" | "green" | "violet" | "amber" | "rose" | "sky" | "teal";
   icon: React.ReactNode;
   tag: string;
+  note?: string;
 }
 
 const HERO_BG =
@@ -90,7 +91,64 @@ function BotIcon({ className }: { className?: string }) {
   );
 }
 
-// ─── Badge color map ──────────────────────────────────────────────────────────
+function DashboardIcon({ className }: { className?: string }) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+      <rect x="3" y="3" width="7" height="7" rx="1" />
+      <rect x="14" y="3" width="7" height="7" rx="1" />
+      <rect x="14" y="14" width="7" height="7" rx="1" />
+      <rect x="3" y="14" width="7" height="7" rx="1" />
+    </svg>
+  );
+}
+
+function GlobeIcon({ className }: { className?: string }) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+      <circle cx="12" cy="12" r="10" />
+      <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20" />
+      <path d="M2 12h20" />
+    </svg>
+  );
+}
+
+function BookIcon({ className }: { className?: string }) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20" />
+    </svg>
+  );
+}
+
+function HeartbeatIcon({ className }: { className?: string }) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M22 12h-2.5l-2 7-4-14-2 7H2" />
+    </svg>
+  );
+}
+
+function TreeIcon({ className }: { className?: string }) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M17 14c.83-1.17 1-2.5 1-3.5C18 6.91 15.31 4 12 4S6 6.91 6 10.5c0 1 .17 2.33 1 3.5" />
+      <path d="M12 14v8" />
+      <path d="M9 18h6" />
+      <path d="M14.5 10.5C14 12 13 13 12 13s-2-1-2.5-2.5" />
+    </svg>
+  );
+}
+
+function LinkIcon({ className }: { className?: string }) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
+      <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
+    </svg>
+  );
+}
+
+// ─── Badge / style maps ───────────────────────────────────────────────────────
 
 const badgeStyles: Record<ServiceCard["badgeColor"], string> = {
   blue:   "bg-blue-500/15 text-blue-300 border border-blue-500/25",
@@ -98,6 +156,9 @@ const badgeStyles: Record<ServiceCard["badgeColor"], string> = {
   green:  "bg-emerald-500/15 text-emerald-300 border border-emerald-500/25",
   violet: "bg-violet-500/15 text-violet-300 border border-violet-500/25",
   amber:  "bg-amber-500/15 text-amber-300 border border-amber-500/25",
+  rose:   "bg-rose-500/15 text-rose-300 border border-rose-500/25",
+  sky:    "bg-sky-500/15 text-sky-300 border border-sky-500/25",
+  teal:   "bg-teal-500/15 text-teal-300 border border-teal-500/25",
 };
 
 const iconBgStyles: Record<ServiceCard["badgeColor"], string> = {
@@ -106,6 +167,9 @@ const iconBgStyles: Record<ServiceCard["badgeColor"], string> = {
   green:  "bg-emerald-500/15 text-emerald-400",
   violet: "bg-violet-500/15 text-violet-400",
   amber:  "bg-amber-500/15 text-amber-400",
+  rose:   "bg-rose-500/15 text-rose-400",
+  sky:    "bg-sky-500/15 text-sky-400",
+  teal:   "bg-teal-500/15 text-teal-400",
 };
 
 const glowStyles: Record<ServiceCard["badgeColor"], string> = {
@@ -114,6 +178,9 @@ const glowStyles: Record<ServiceCard["badgeColor"], string> = {
   green:  "group-hover:shadow-[0_0_30px_oklch(0.7_0.18_160/0.2)]",
   violet: "group-hover:shadow-[0_0_30px_oklch(0.65_0.2_290/0.2)]",
   amber:  "group-hover:shadow-[0_0_30px_oklch(0.75_0.18_80/0.2)]",
+  rose:   "group-hover:shadow-[0_0_30px_oklch(0.65_0.2_15/0.2)]",
+  sky:    "group-hover:shadow-[0_0_30px_oklch(0.7_0.18_230/0.2)]",
+  teal:   "group-hover:shadow-[0_0_30px_oklch(0.7_0.15_185/0.2)]",
 };
 
 const borderHoverStyles: Record<ServiceCard["badgeColor"], string> = {
@@ -122,11 +189,25 @@ const borderHoverStyles: Record<ServiceCard["badgeColor"], string> = {
   green:  "group-hover:border-emerald-500/50",
   violet: "group-hover:border-violet-500/50",
   amber:  "group-hover:border-amber-500/50",
+  rose:   "group-hover:border-rose-500/50",
+  sky:    "group-hover:border-sky-500/50",
+  teal:   "group-hover:border-teal-500/50",
+};
+
+const openTextStyles: Record<ServiceCard["badgeColor"], string> = {
+  blue:   "text-blue-400 group-hover:text-blue-300",
+  cyan:   "text-cyan-400 group-hover:text-cyan-300",
+  green:  "text-emerald-400 group-hover:text-emerald-300",
+  violet: "text-violet-400 group-hover:text-violet-300",
+  amber:  "text-amber-400 group-hover:text-amber-300",
+  rose:   "text-rose-400 group-hover:text-rose-300",
+  sky:    "text-sky-400 group-hover:text-sky-300",
+  teal:   "text-teal-400 group-hover:text-teal-300",
 };
 
 // ─── Service data ─────────────────────────────────────────────────────────────
 
-const services: ServiceCard[] = [
+const coreServices: ServiceCard[] = [
   {
     id: "zapp-mobile",
     title: "YYC Mesh",
@@ -189,7 +270,95 @@ const services: ServiceCard[] = [
   },
 ];
 
-// ─── Animated mesh node background (canvas) ───────────────────────────────────
+const communityServices: ServiceCard[] = [
+  {
+    id: "canadaverse-dashboard",
+    title: "Canadaverse",
+    subtitle: "Dashboard",
+    description:
+      "Community mesh dashboard for the Canadaverse MQTT network. Explore node activity, message traffic, and network statistics. Guest access available with credentials guest / guest.",
+    url: "https://dash.mt.gt",
+    badge: "Dashboard",
+    badgeColor: "sky",
+    icon: <DashboardIcon className="w-6 h-6" />,
+    tag: "dash.mt.gt",
+    note: "Login: guest / guest — Maintainer: @tb0hdan",
+  },
+  {
+    id: "ottawa-mesh",
+    title: "Greater Ottawa Mesh Enthusiasts",
+    subtitle: "Ottawa Mesh Community",
+    description:
+      "Hub for the Greater Ottawa area Meshtastic mesh community. Find local node information, community resources, and connect with Ottawa-area mesh operators.",
+    url: "https://ottawamesh.ca/",
+    badge: "Community",
+    badgeColor: "green",
+    icon: <GlobeIcon className="w-6 h-6" />,
+    tag: "ottawamesh.ca",
+  },
+  {
+    id: "node-map",
+    title: "Meshtastic Node Map",
+    subtitle: "map.mt.gt",
+    description:
+      "A nearly live map of Meshtastic nodes seen by the Canadaverse MQTT server. Discover active nodes across Canada, their positions, and signal reach on an interactive map.",
+    url: "https://map.mt.gt/",
+    badge: "Map",
+    badgeColor: "violet",
+    icon: <MapPinIcon className="w-6 h-6" />,
+    tag: "map.mt.gt",
+  },
+  {
+    id: "canadaverse-wiki",
+    title: "Canadaverse Mesh Wiki",
+    subtitle: "Community Knowledge Base",
+    description:
+      "Comprehensive wiki covering Canadaverse mesh setup, configuration guides, node best practices, and community documentation for Canadian Meshtastic operators.",
+    url: "https://wiki.mt.gt/",
+    badge: "Wiki",
+    badgeColor: "teal",
+    icon: <BookIcon className="w-6 h-6" />,
+    tag: "wiki.mt.gt",
+  },
+  {
+    id: "meshmon-kw",
+    title: "MeshMonitor",
+    subtitle: "KW / NEOSG2 Region",
+    description:
+      "Regional mesh health monitoring and node status dashboard for the Kitchener-Waterloo and NEOSG2 areas. Track node uptime, signal quality, and network health in real time.",
+    url: "https://meshmon.canadaverse.org/#nodes",
+    badge: "Monitor",
+    badgeColor: "rose",
+    icon: <HeartbeatIcon className="w-6 h-6" />,
+    tag: "meshmon.canadaverse.org",
+  },
+  {
+    id: "cedarmesh",
+    title: "CedarMesh",
+    subtitle: "GTA+ Community Hub",
+    description:
+      "Greater Toronto Area and surrounding region community hub featuring tools, setup guides, local mesh resources, and a welcoming space for GTA+ Meshtastic enthusiasts.",
+    url: "https://cedarmesh.ca/",
+    badge: "Community",
+    badgeColor: "amber",
+    icon: <TreeIcon className="w-6 h-6" />,
+    tag: "cedarmesh.ca",
+  },
+  {
+    id: "canadaverse-links",
+    title: "Canadaverse Links Directory",
+    subtitle: "Resource Index",
+    description:
+      "Curated directory of Canadaverse mesh network resources, tools, community links, and external references. The central index for everything in the Canadian mesh ecosystem.",
+    url: "https://canadaverse.org/",
+    badge: "Directory",
+    badgeColor: "cyan",
+    icon: <LinkIcon className="w-6 h-6" />,
+    tag: "canadaverse.org",
+  },
+];
+
+// ─── Animated mesh canvas ─────────────────────────────────────────────────────
 
 function MeshCanvas() {
   useEffect(() => {
@@ -220,7 +389,6 @@ function MeshCanvas() {
       if (!ctx) return;
       ctx.clearRect(0, 0, w, h);
 
-      // Draw edges
       for (let i = 0; i < nodes.length; i++) {
         for (let j = i + 1; j < nodes.length; j++) {
           const dx = nodes[i].x - nodes[j].x;
@@ -238,14 +406,12 @@ function MeshCanvas() {
         }
       }
 
-      // Draw nodes
       nodes.forEach((n) => {
         ctx.beginPath();
         ctx.arc(n.x, n.y, n.r, 0, Math.PI * 2);
         ctx.fillStyle = "rgba(96, 165, 250, 0.7)";
         ctx.fill();
 
-        // Glow
         const grad = ctx.createRadialGradient(n.x, n.y, 0, n.x, n.y, n.r * 4);
         grad.addColorStop(0, "rgba(96, 165, 250, 0.3)");
         grad.addColorStop(1, "rgba(96, 165, 250, 0)");
@@ -255,7 +421,6 @@ function MeshCanvas() {
         ctx.fill();
       });
 
-      // Update positions
       nodes.forEach((n) => {
         n.x += n.vx;
         n.y += n.vy;
@@ -275,7 +440,6 @@ function MeshCanvas() {
       canvas.height = h;
     };
     window.addEventListener("resize", handleResize);
-
     return () => {
       cancelAnimationFrame(animId);
       window.removeEventListener("resize", handleResize);
@@ -290,16 +454,19 @@ function MeshCanvas() {
   );
 }
 
-// ─── Service Card Component ───────────────────────────────────────────────────
+// ─── Service Card ─────────────────────────────────────────────────────────────
 
 function ServiceCard({ card, index }: { card: ServiceCard; index: number }) {
-  const delayClass = [
+  const delays = [
     "animation-delay-100",
     "animation-delay-200",
     "animation-delay-300",
     "animation-delay-400",
     "animation-delay-500",
-  ][index] ?? "";
+    "animation-delay-600",
+    "animation-delay-700",
+  ];
+  const delayClass = delays[index % delays.length];
 
   return (
     <a
@@ -318,13 +485,12 @@ function ServiceCard({ card, index }: { card: ServiceCard; index: number }) {
           transition-all duration-300 ease-out
         `}
       >
-        {/* Top row: icon + badge */}
+        {/* Top row */}
         <div className="flex items-start justify-between mb-5">
           <div className={`p-3 rounded-xl ${iconBgStyles[card.badgeColor]}`}>
             {card.icon}
           </div>
           <div className="flex items-center gap-2">
-            {/* Live indicator */}
             <span className="relative flex h-2 w-2">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
               <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
@@ -335,7 +501,7 @@ function ServiceCard({ card, index }: { card: ServiceCard; index: number }) {
           </div>
         </div>
 
-        {/* Title block */}
+        {/* Title */}
         <div className="mb-3">
           <p className="mono-label text-white/40 uppercase tracking-widest text-xs mb-1">
             {card.title}
@@ -346,22 +512,23 @@ function ServiceCard({ card, index }: { card: ServiceCard; index: number }) {
         </div>
 
         {/* Description */}
-        <p className="text-sm text-white/55 leading-relaxed mb-5">
+        <p className="text-sm text-white/55 leading-relaxed mb-4">
           {card.description}
         </p>
 
-        {/* URL footer */}
+        {/* Note (optional) */}
+        {card.note && (
+          <div className="mb-4 px-3 py-2 rounded-lg bg-white/4 border border-white/6">
+            <p className="mono-label text-white/40 text-xs">{card.note}</p>
+          </div>
+        )}
+
+        {/* Footer */}
         <div className="flex items-center justify-between pt-4 border-t border-white/6">
           <span className="mono-label text-white/30 truncate max-w-[200px]">
             {card.tag}
           </span>
-          <span className={`flex items-center gap-1.5 text-xs font-medium transition-colors duration-200 ${
-            card.badgeColor === "blue" ? "text-blue-400 group-hover:text-blue-300" :
-            card.badgeColor === "cyan" ? "text-cyan-400 group-hover:text-cyan-300" :
-            card.badgeColor === "green" ? "text-emerald-400 group-hover:text-emerald-300" :
-            card.badgeColor === "violet" ? "text-violet-400 group-hover:text-violet-300" :
-            "text-amber-400 group-hover:text-amber-300"
-          }`}>
+          <span className={`flex items-center gap-1.5 text-xs font-medium transition-colors duration-200 ${openTextStyles[card.badgeColor]}`}>
             Open
             <svg className="w-3.5 h-3.5 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
               <path d="M7 7h10v10" />
@@ -380,13 +547,12 @@ function StatsBar() {
   const [count, setCount] = useState(0);
 
   useEffect(() => {
-    // Animate counter
-    const target = 5;
+    const target = 12;
     let current = 0;
     const step = () => {
       current++;
       setCount(current);
-      if (current < target) setTimeout(step, 120);
+      if (current < target) setTimeout(step, 80);
     };
     setTimeout(step, 800);
   }, []);
@@ -402,7 +568,7 @@ function StatsBar() {
       <div className="w-px h-10 bg-white/10 hidden sm:block" />
       <div className="text-center">
         <div className="text-3xl font-800 gradient-text" style={{ fontFamily: "'Outfit', sans-serif", fontWeight: 800 }}>
-          2
+          5+
         </div>
         <div className="mono-label text-white/40 mt-1">Regions</div>
       </div>
@@ -430,6 +596,18 @@ function StatsBar() {
   );
 }
 
+// ─── Section divider ──────────────────────────────────────────────────────────
+
+function SectionDivider({ label }: { label: string }) {
+  return (
+    <div className="flex items-center gap-4 mb-10">
+      <div className="flex-1 h-px bg-white/8" />
+      <span className="mono-label text-white/30 text-xs uppercase tracking-widest px-3">{label}</span>
+      <div className="flex-1 h-px bg-white/8" />
+    </div>
+  );
+}
+
 // ─── Main Page ────────────────────────────────────────────────────────────────
 
 export default function Home() {
@@ -440,7 +618,6 @@ export default function Home() {
       <header className="fixed top-0 left-0 right-0 z-50 border-b border-white/6" style={{ background: "oklch(0.11 0.008 265 / 0.85)", backdropFilter: "blur(16px)" }}>
         <div className="container flex items-center justify-between h-16">
           <div className="flex items-center gap-3">
-            {/* Logo mark */}
             <div className="relative w-8 h-8">
               <div className="absolute inset-0 rounded-lg bg-blue-500/20 border border-blue-500/30 flex items-center justify-center">
                 <NetworkIcon className="w-4 h-4 text-blue-400" />
@@ -458,26 +635,21 @@ export default function Home() {
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
               <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
             </span>
-            <span className="mono-label text-emerald-400 text-xs">All systems operational</span>
+            <span className="mono-label text-emerald-400 text-xs hidden sm:inline">All systems operational</span>
           </div>
         </div>
       </header>
 
-      {/* ── Hero Section ── */}
+      {/* ── Hero ── */}
       <section className="relative min-h-[80vh] flex flex-col items-center justify-center pt-16 overflow-hidden">
-        {/* Hero background image */}
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{ backgroundImage: `url(${HERO_BG})` }}
         />
-        {/* Dark overlay */}
         <div className="absolute inset-0 bg-gradient-to-b from-background/70 via-background/50 to-background" />
-        {/* Dot grid overlay */}
         <div className="absolute inset-0 dot-grid opacity-30" />
-        {/* Animated mesh canvas */}
         <MeshCanvas />
 
-        {/* Hero content */}
         <div className="relative z-10 container text-center px-4 py-20">
           {/* Eyebrow */}
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-blue-500/25 bg-blue-500/10 mb-8 opacity-0 animate-fade-up animation-delay-100">
@@ -497,14 +669,14 @@ export default function Home() {
             <span className="gradient-text">Mesh</span>
           </h1>
 
-          {/* Subheadline */}
+          {/* Sub */}
           <p className="text-lg sm:text-xl text-white/60 max-w-2xl mx-auto leading-relaxed mb-10 opacity-0 animate-fade-up animation-delay-300">
             Real-time firehose feeds, interactive maps, and network analyzers for the{" "}
             <span className="text-white/80">YYC</span> and{" "}
             <span className="text-white/80">Canada</span> Meshtastic mesh communities.
           </p>
 
-          {/* CTA */}
+          {/* CTAs — now three buttons */}
           <div className="flex flex-wrap items-center justify-center gap-4 opacity-0 animate-fade-up animation-delay-400">
             <a
               href="#services"
@@ -528,49 +700,89 @@ export default function Home() {
                 <path d="M7 7h10v10" /><path d="M7 17 17 7" />
               </svg>
             </a>
+            <a
+              href="https://meshcore.co.uk/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-xl border border-cyan-500/30 hover:border-cyan-400/60 bg-cyan-500/8 hover:bg-cyan-500/15 text-cyan-300 hover:text-cyan-200 font-500 text-sm transition-all duration-200 hover:shadow-[0_0_18px_rgba(6,182,212,0.2)]"
+              style={{ fontFamily: "'Outfit', sans-serif", fontWeight: 500 }}
+            >
+              About MeshCore
+              <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M7 7h10v10" /><path d="M7 17 17 7" />
+              </svg>
+            </a>
           </div>
 
-          {/* Stats */}
           <StatsBar />
         </div>
       </section>
 
-      {/* ── Services Section ── */}
+      {/* ── Core Services ── */}
       <section id="services" className="py-20 relative">
         <div className="container">
-          {/* Section header */}
-          <div className="mb-12 text-center">
+          <div className="mb-10 text-center">
             <p className="mono-label text-blue-400 uppercase tracking-widest text-xs mb-3">
-              Network Services
+              Core Services
             </p>
             <h2
               className="text-3xl sm:text-4xl font-700 text-white"
               style={{ fontFamily: "'Outfit', sans-serif", fontWeight: 700 }}
             >
-              Live Monitoring Tools
+              YYC &amp; Canada Monitoring
             </h2>
             <p className="text-white/50 mt-3 max-w-xl mx-auto text-sm leading-relaxed">
-              Five community-operated services providing real-time visibility into the YYC and Canada mesh networks.
+              Live firehose feeds, mesh maps, and analyzers for the Calgary and national Meshtastic networks.
             </p>
           </div>
 
-          {/* Cards grid — 2 columns on md, 3 on lg for first 3, then 2 centered */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-            {services.slice(0, 3).map((card, i) => (
+            {coreServices.slice(0, 3).map((card, i) => (
               <ServiceCard key={card.id} card={card} index={i} />
             ))}
           </div>
-
-          {/* Bottom 2 cards — centered */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 mt-5 lg:max-w-[calc(66.666%+1.25rem)] lg:mx-auto">
-            {services.slice(3).map((card, i) => (
+            {coreServices.slice(3).map((card, i) => (
               <ServiceCard key={card.id} card={card} index={i + 3} />
             ))}
           </div>
         </div>
       </section>
 
-      {/* ── About Section ── */}
+      {/* ── Community Services ── */}
+      <section className="pb-20 relative">
+        <div className="container">
+          <SectionDivider label="Community Resources" />
+
+          <div className="mb-10 text-center">
+            <p className="mono-label text-cyan-400 uppercase tracking-widest text-xs mb-3">
+              Community Network
+            </p>
+            <h2
+              className="text-3xl sm:text-4xl font-700 text-white"
+              style={{ fontFamily: "'Outfit', sans-serif", fontWeight: 700 }}
+            >
+              Canadaverse &amp; Regional Hubs
+            </h2>
+            <p className="text-white/50 mt-3 max-w-xl mx-auto text-sm leading-relaxed">
+              Dashboards, maps, wikis, and community hubs from across the Canadian mesh ecosystem.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+            {communityServices.slice(0, 3).map((card, i) => (
+              <ServiceCard key={card.id} card={card} index={i} />
+            ))}
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 mt-5">
+            {communityServices.slice(3).map((card, i) => (
+              <ServiceCard key={card.id} card={card} index={i + 3} />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── About ── */}
       <section className="py-16 border-t border-white/6">
         <div className="container">
           <div className="max-w-3xl mx-auto text-center">

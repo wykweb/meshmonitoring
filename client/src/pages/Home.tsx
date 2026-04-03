@@ -742,7 +742,7 @@ function StatsBar() {
   const [count, setCount] = useState(0);
 
   useEffect(() => {
-    const target = 20;
+    const target = 21;
     let current = 0;
     const step = () => {
       current++;
@@ -1079,7 +1079,7 @@ export default function Home() {
               <div className="h-px flex-1 bg-white/6" />
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-              {[communityServices[3], communityServices[6], communityServices[7]].map((card, i) => (
+              {[communityServices[3], communityServices[6], communityServices[7], communityServices[9]].map((card, i) => (
                 <ServiceCard key={card.id} card={card} index={i + 6} />
               ))}
             </div>

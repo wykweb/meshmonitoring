@@ -644,7 +644,7 @@ function StatsBar() {
   const [count, setCount] = useState(0);
 
   useEffect(() => {
-    const target = 14;
+    const target = 19;
     let current = 0;
     const step = () => {
       current++;

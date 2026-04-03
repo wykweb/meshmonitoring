@@ -866,15 +866,76 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-            {communityServices.slice(0, 3).map((card, i) => (
-              <ServiceCard key={card.id} card={card} index={i} />
-            ))}
+          {/* ── Canadaverse Network sub-group ── */}
+          <div className="mb-8">
+            <div className="flex items-center gap-3 mb-5">
+              <div className="h-px flex-1 bg-white/6" />
+              <div className="flex items-center gap-2 px-3 py-1.5 rounded-full border border-cyan-500/20 bg-cyan-500/8">
+                <span className="relative flex h-1.5 w-1.5">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-60"></span>
+                  <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-cyan-400"></span>
+                </span>
+                <span className="mono-label text-cyan-400/80 text-xs uppercase tracking-widest">Canadaverse Network</span>
+              </div>
+              <div className="h-px flex-1 bg-white/6" />
+            </div>
+            {/* First row: YYC Custom Mesh + Canadaverse Dashboard + Canadaverse MeshInfo */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+              {communityServices.slice(0, 3).map((card, i) => (
+                <ServiceCard key={card.id} card={card} index={i} />
+              ))}
+            </div>
+            {/* Second row: Node Map + Wiki + Links Directory */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 mt-5">
+              {[communityServices[4], communityServices[5], communityServices[8]].map((card, i) => (
+                <ServiceCard key={card.id} card={card} index={i + 3} />
+              ))}
+            </div>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 mt-5">
-            {communityServices.slice(3).map((card, i) => (
-              <ServiceCard key={card.id} card={card} index={i + 3} />
-            ))}
+
+          {/* ── Regional Communities sub-group ── */}
+          <div className="mb-10">
+            <div className="flex items-center gap-3 mb-5">
+              <div className="h-px flex-1 bg-white/6" />
+              <div className="flex items-center gap-2 px-3 py-1.5 rounded-full border border-emerald-500/20 bg-emerald-500/8">
+                <span className="relative flex h-1.5 w-1.5">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-60"></span>
+                  <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-emerald-400"></span>
+                </span>
+                <span className="mono-label text-emerald-400/80 text-xs uppercase tracking-widest">Regional Communities</span>
+              </div>
+              <div className="h-px flex-1 bg-white/6" />
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+              {[communityServices[3], communityServices[6], communityServices[7]].map((card, i) => (
+                <ServiceCard key={card.id} card={card} index={i + 6} />
+              ))}
+            </div>
+          </div>
+
+          {/* ── Submit a Resource CTA ── */}
+          <div className="flex flex-col items-center gap-4 pt-6 border-t border-white/6">
+            <p className="mono-label text-white/30 text-xs uppercase tracking-widest">Know a resource we're missing?</p>
+            <a
+              href="https://github.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl border border-white/12 bg-white/4 hover:bg-white/8 hover:border-white/20 text-white/60 hover:text-white/90 text-sm font-500 transition-all duration-200 group"
+            >
+              <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <circle cx="12" cy="12" r="10" />
+                <line x1="12" y1="8" x2="12" y2="16" />
+                <line x1="8" y1="12" x2="16" y2="12" />
+              </svg>
+              Submit a Resource
+              <svg className="w-3.5 h-3.5 opacity-50 group-hover:opacity-80 transition-opacity" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M7 7h10v10" />
+                <path d="M7 17 17 7" />
+              </svg>
+            </a>
+            <p className="mono-label text-white/20 text-xs text-center max-w-sm">
+              Open a GitHub issue or pull request to propose a new community service, tool, or regional hub to be listed on this page.
+            </p>
           </div>
         </div>
       </section>

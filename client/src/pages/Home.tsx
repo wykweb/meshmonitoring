@@ -1417,6 +1417,21 @@ export default function Home() {
     filteredCore.length + filteredCommunity.length + filteredResources.length + filteredUSA.length;
   const isFiltering = searchQuery.trim().length > 0 || activeType !== "All";
 
+  // "New this month" counts — cards added within the last 30 days
+  const thirtyDaysAgo = new Date();
+  thirtyDaysAgo.setDate(thirtyDaysAgo.getDate() - 30);
+  const isNew = (card: ServiceCard) => !!card.addedAt && new Date(card.addedAt) >= thirtyDaysAgo;
+  const newCanada    = coreServices.filter(isNew).length;
+  const newUSA       = usaServices.filter(isNew).length;
+
+  // Copy-link anchor state
+  const [copiedAnchor, setCopiedAnchor] = useState<string | null>(null);
+  function copyAnchor(hash: string) {
+    navigator.clipboard.writeText(window.location.origin + window.location.pathname + hash);
+    setCopiedAnchor(hash);
+    setTimeout(() => setCopiedAnchor(null), 2000);
+  }
+
   useEffect(() => {
     const onScroll = () => {
       const y = window.scrollY;
@@ -1520,10 +1535,16 @@ export default function Home() {
           {/* Section nav — hidden on mobile, visible md+ */}
           <nav className="hidden md:flex items-center gap-1">
             <a href="#services" className="mono-label text-white/40 hover:text-white/80 text-xs uppercase tracking-widest px-3 py-1.5 rounded-lg hover:bg-white/6 transition-all duration-200">Services</a>
-            <a href="#canada" className="mono-label text-blue-400/70 hover:text-blue-300 text-xs uppercase tracking-widest px-3 py-1.5 rounded-lg hover:bg-blue-500/10 transition-all duration-200 flex items-center gap-1"><span>🇨🇦</span>Canada</a>
+            <a href="#canada" className="mono-label text-blue-400/70 hover:text-blue-300 text-xs uppercase tracking-widest px-3 py-1.5 rounded-lg hover:bg-blue-500/10 transition-all duration-200 flex items-center gap-1.5">
+              <span>🇨🇦</span>Canada
+              {newCanada > 0 && <span className="inline-flex items-center justify-center h-4 min-w-4 px-1 rounded-full bg-emerald-500/20 border border-emerald-500/30 text-emerald-400 text-[9px] font-bold leading-none">{newCanada}</span>}
+            </a>
             <a href="#community" className="mono-label text-white/40 hover:text-white/80 text-xs uppercase tracking-widest px-3 py-1.5 rounded-lg hover:bg-white/6 transition-all duration-200">Community</a>
             <a href="#resources" className="mono-label text-white/40 hover:text-white/80 text-xs uppercase tracking-widest px-3 py-1.5 rounded-lg hover:bg-white/6 transition-all duration-200">Resources</a>
-            <a href="#usa" className="mono-label text-rose-400/70 hover:text-rose-300 text-xs uppercase tracking-widest px-3 py-1.5 rounded-lg hover:bg-rose-500/10 transition-all duration-200 flex items-center gap-1"><span>🇺🇸</span>USA</a>
+            <a href="#usa" className="mono-label text-rose-400/70 hover:text-rose-300 text-xs uppercase tracking-widest px-3 py-1.5 rounded-lg hover:bg-rose-500/10 transition-all duration-200 flex items-center gap-1.5">
+              <span>🇺🇸</span>USA
+              {newUSA > 0 && <span className="inline-flex items-center justify-center h-4 min-w-4 px-1 rounded-full bg-emerald-500/20 border border-emerald-500/30 text-emerald-400 text-[9px] font-bold leading-none">{newUSA}</span>}
+            </a>
           </nav>
 
           {/* Hamburger — visible on mobile only */}
@@ -1582,10 +1603,16 @@ export default function Home() {
         {mobileMenuOpen && (
           <div className="md:hidden border-t border-white/8 px-4 py-3 flex flex-col gap-1" style={{ background: "oklch(0.11 0.008 265 / 0.97)" }}>
             <a href="#services" onClick={() => setMobileMenuOpen(false)} className="mono-label text-white/60 hover:text-white text-xs uppercase tracking-widest px-3 py-2.5 rounded-lg hover:bg-white/8 transition-all duration-200">Services</a>
-            <a href="#canada" onClick={() => setMobileMenuOpen(false)} className="mono-label text-blue-400/80 hover:text-blue-300 text-xs uppercase tracking-widest px-3 py-2.5 rounded-lg hover:bg-blue-500/10 transition-all duration-200 flex items-center gap-1.5"><span>🇨🇦</span>Canada</a>
+            <a href="#canada" onClick={() => setMobileMenuOpen(false)} className="mono-label text-blue-400/80 hover:text-blue-300 text-xs uppercase tracking-widest px-3 py-2.5 rounded-lg hover:bg-blue-500/10 transition-all duration-200 flex items-center gap-1.5">
+              <span>🇨🇦</span>Canada
+              {newCanada > 0 && <span className="inline-flex items-center justify-center h-4 min-w-4 px-1 rounded-full bg-emerald-500/20 border border-emerald-500/30 text-emerald-400 text-[9px] font-bold leading-none">{newCanada}</span>}
+            </a>
             <a href="#community" onClick={() => setMobileMenuOpen(false)} className="mono-label text-white/60 hover:text-white text-xs uppercase tracking-widest px-3 py-2.5 rounded-lg hover:bg-white/8 transition-all duration-200">Community</a>
             <a href="#resources" onClick={() => setMobileMenuOpen(false)} className="mono-label text-white/60 hover:text-white text-xs uppercase tracking-widest px-3 py-2.5 rounded-lg hover:bg-white/8 transition-all duration-200">Resources</a>
-            <a href="#usa" onClick={() => setMobileMenuOpen(false)} className="mono-label text-rose-400/80 hover:text-rose-300 text-xs uppercase tracking-widest px-3 py-2.5 rounded-lg hover:bg-rose-500/10 transition-all duration-200 flex items-center gap-1.5"><span>🇺🇸</span>USA</a>
+            <a href="#usa" onClick={() => setMobileMenuOpen(false)} className="mono-label text-rose-400/80 hover:text-rose-300 text-xs uppercase tracking-widest px-3 py-2.5 rounded-lg hover:bg-rose-500/10 transition-all duration-200 flex items-center gap-1.5">
+              <span>🇺🇸</span>USA
+              {newUSA > 0 && <span className="inline-flex items-center justify-center h-4 min-w-4 px-1 rounded-full bg-emerald-500/20 border border-emerald-500/30 text-emerald-400 text-[9px] font-bold leading-none">{newUSA}</span>}
+            </a>
             <div className="h-px bg-white/6 my-1" />
             <a
               href="https://discord.gg/CznDhsRWnJ"
@@ -1756,10 +1783,22 @@ export default function Home() {
             </p>
             <h2
               id="canada"
-              className="text-3xl sm:text-4xl font-700 text-white scroll-mt-28"
+              className="text-3xl sm:text-4xl font-700 text-white scroll-mt-28 inline-flex items-center gap-3 justify-center"
               style={{ fontFamily: "'Outfit', sans-serif", fontWeight: 700 }}
             >
               🇨🇦 YYC &amp; Canada Mesh Monitoring
+              <button
+                onClick={() => copyAnchor('#canada')}
+                title="Copy link to this section"
+                className="opacity-0 group-hover:opacity-100 hover:opacity-100 focus:opacity-100 inline-flex items-center justify-center w-7 h-7 rounded-lg border border-white/10 bg-white/5 hover:bg-white/10 text-white/30 hover:text-white/70 transition-all duration-200 flex-shrink-0"
+                aria-label="Copy link to Canada section"
+              >
+                {copiedAnchor === '#canada' ? (
+                  <svg className="w-3.5 h-3.5 text-emerald-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M20 6 9 17l-5-5" /></svg>
+                ) : (
+                  <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="14" height="14" x="8" y="8" rx="2" ry="2" /><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2" /></svg>
+                )}
+              </button>
             </h2>
             <p className="text-white/50 mt-3 max-w-xl mx-auto text-sm leading-relaxed">
               Live firehose feeds, mesh maps, and analyzers for the Calgary and national Meshtastic &amp; Meshcore networks.
@@ -2026,10 +2065,22 @@ export default function Home() {
                 <span className="mono-label text-rose-400/80 text-xs uppercase tracking-widest">USA Meshtastic Networks</span>
               </div>
               <h2
-                className="text-2xl sm:text-3xl font-700 text-white scroll-mt-28"
+                className="text-2xl sm:text-3xl font-700 text-white scroll-mt-28 inline-flex items-center gap-3"
                 style={{ fontFamily: "'Outfit', sans-serif", fontWeight: 700 }}
               >
                 🇺🇸 US Regional Mesh Communities
+                <button
+                  onClick={() => copyAnchor('#usa')}
+                  title="Copy link to this section"
+                  className="inline-flex items-center justify-center w-7 h-7 rounded-lg border border-white/10 bg-white/5 hover:bg-white/10 text-white/30 hover:text-white/70 transition-all duration-200 flex-shrink-0"
+                  aria-label="Copy link to USA section"
+                >
+                  {copiedAnchor === '#usa' ? (
+                    <svg className="w-3.5 h-3.5 text-emerald-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M20 6 9 17l-5-5" /></svg>
+                  ) : (
+                    <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="14" height="14" x="8" y="8" rx="2" ry="2" /><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2" /></svg>
+                  )}
+                </button>
               </h2>
               <p className="text-white/40 text-sm mt-2">
                 Regional Meshtastic mesh network viewers, maps, and community hubs across the United States.

@@ -27,6 +27,7 @@ interface ServiceCard {
   qrCode?: string;
   qrLink?: string;
   qrCaption?: string;
+  addedAt?: string; // ISO date string e.g. "2026-04-03"
 }
 
 const HERO_BG =
@@ -447,6 +448,7 @@ const resourceServices: ServiceCard[] = [
     badgeColor: "emerald",
     icon: <AnalyzerIcon className="w-6 h-6" />,
     tag: "github.com/dadecoza",
+    addedAt: "2026-04-03",
   },
   {
     id: "meshinfo",
@@ -459,6 +461,7 @@ const resourceServices: ServiceCard[] = [
     badgeColor: "emerald",
     icon: <AnalyzerIcon className="w-6 h-6" />,
     tag: "github.com/MeshAddicts",
+    addedAt: "2026-04-03",
   },
 ];
 
@@ -812,6 +815,7 @@ const usaServices: ServiceCard[] = [
     badgeColor: "rose",
     icon: <MapIcon className="w-6 h-6" />,
     tag: "areyoumeshingwith.us",
+    addedAt: "2026-04-03",
     note: "Network: Are You Meshing With Us? — areyoumeshingwith.us",
   },
   {
@@ -825,6 +829,7 @@ const usaServices: ServiceCard[] = [
     badgeColor: "rose",
     icon: <MapIcon className="w-6 h-6" />,
     tag: "areyoumeshingwith.us",
+    addedAt: "2026-04-03",
     note: "Network: Are You Meshing With Us? — areyoumeshingwith.us",
   },
   {
@@ -838,6 +843,7 @@ const usaServices: ServiceCard[] = [
     badgeColor: "rose",
     icon: <MapIcon className="w-6 h-6" />,
     tag: "Central Oregon, US",
+    addedAt: "2026-04-03",
   },
   {
     id: "kansas-city-mesh",
@@ -850,6 +856,7 @@ const usaServices: ServiceCard[] = [
     badgeColor: "rose",
     icon: <MapIcon className="w-6 h-6" />,
     tag: "kansascitymesh.live",
+    addedAt: "2026-04-03",
     note: "Network: Kansas City Mesh",
   },
   {
@@ -863,6 +870,7 @@ const usaServices: ServiceCard[] = [
     badgeColor: "rose",
     icon: <MapIcon className="w-6 h-6" />,
     tag: "meshconsin.org",
+    addedAt: "2026-04-03",
     note: "Network: Meshconsin — meshconsin.org",
   },
   {
@@ -876,6 +884,7 @@ const usaServices: ServiceCard[] = [
     badgeColor: "rose",
     icon: <MapIcon className="w-6 h-6" />,
     tag: "nwimesh.net",
+    addedAt: "2026-04-03",
     note: "Network: NWIMesh.net — nwimesh.net",
   },
   {
@@ -889,6 +898,7 @@ const usaServices: ServiceCard[] = [
     badgeColor: "rose",
     icon: <MapIcon className="w-6 h-6" />,
     tag: "cimesh.net",
+    addedAt: "2026-04-03",
     note: "Network: CIMesh — cimesh.net",
   },
   {
@@ -902,6 +912,7 @@ const usaServices: ServiceCard[] = [
     badgeColor: "rose",
     icon: <MapIcon className="w-6 h-6" />,
     tag: "tulsa-meshtastic.com",
+    addedAt: "2026-04-03",
     note: "Networks: Tulsa Meshtastic — tulsa-meshtastic.com | OKMesh — okmesh.org",
   },
   {
@@ -915,6 +926,7 @@ const usaServices: ServiceCard[] = [
     badgeColor: "emerald",
     icon: <MapIcon className="w-6 h-6" />,
     tag: "meshinfo.cvme.sh",
+    addedAt: "2026-04-03",
   },
 ];
 
@@ -1028,6 +1040,11 @@ function ServiceCard({ card, index }: { card: ServiceCard; index: number }) {
   ];
   const delayClass = delays[index % delays.length];
 
+  // "New" if addedAt is within the last 30 days
+  const isNew = card.addedAt
+    ? (Date.now() - new Date(card.addedAt).getTime()) < 30 * 24 * 60 * 60 * 1000
+    : false;
+
   return (
     <div
       role="link"
@@ -1056,6 +1073,11 @@ function ServiceCard({ card, index }: { card: ServiceCard; index: number }) {
             )}
           </div>
           <div className="flex items-center gap-2">
+            {isNew && (
+              <span className="mono-label px-2 py-0.5 rounded-full text-xs font-semibold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 animate-pulse">
+                New
+              </span>
+            )}
             <span className="relative flex h-2 w-2">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
               <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
@@ -1204,11 +1226,33 @@ function StatsBar() {
 
   return (
     <div ref={ref} className="flex flex-wrap items-center justify-center gap-8 py-6 opacity-0 animate-fade-up animation-delay-700">
-      <div className="text-center">
+      <div className="text-center group relative cursor-default">
         <div className="text-3xl font-800 gradient-text" style={{ fontFamily: "'Outfit', sans-serif", fontWeight: 800 }}>
           {count}
         </div>
         <div className="mono-label text-white/40 mt-1">Active Services</div>
+        {/* Breakdown tooltip */}
+        <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-3 w-52 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-50">
+          <div className="rounded-xl border border-white/10 bg-[oklch(0.13_0.01_265)] shadow-2xl p-3 text-left">
+            <p className="mono-label text-white/30 text-xs uppercase tracking-widest mb-2">Breakdown</p>
+            {([
+              { label: 'Canada Core',  count: coreServices.length,      color: 'text-blue-400' },
+              { label: 'Community',    count: communityServices.length,  color: 'text-cyan-400' },
+              { label: 'Resources',    count: resourceServices.length,   color: 'text-amber-400' },
+              { label: 'USA',          count: usaServices.length,        color: 'text-rose-400' },
+            ] as const).map(row => (
+              <div key={row.label} className="flex items-center justify-between py-0.5">
+                <span className="text-white/50 text-xs">{row.label}</span>
+                <span className={`mono-label text-xs font-semibold ${row.color}`}>{row.count}</span>
+              </div>
+            ))}
+            <div className="mt-2 pt-2 border-t border-white/8 flex items-center justify-between">
+              <span className="text-white/30 text-xs">Total</span>
+              <span className="mono-label text-xs font-semibold text-white/70">{coreServices.length + communityServices.length + resourceServices.length + usaServices.length}</span>
+            </div>
+          </div>
+          <div className="w-2 h-2 bg-[oklch(0.13_0.01_265)] border-r border-b border-white/10 rotate-45 mx-auto -mt-1" />
+        </div>
       </div>
       <div className="w-px h-10 bg-white/10 hidden sm:block" />
       <div className="text-center">
@@ -1273,6 +1317,7 @@ function matchesQuery(card: ServiceCard, q: string): boolean {
 export default function Home() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [showBackToTop, setShowBackToTop] = useState(false);
+  const [showSectionNav, setShowSectionNav] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
   const [activeType, setActiveType] = useState<string>("All");
   const searchRef = useRef<HTMLInputElement>(null);
@@ -1295,7 +1340,12 @@ export default function Home() {
   const isFiltering = searchQuery.trim().length > 0 || activeType !== "All";
 
   useEffect(() => {
-    const onScroll = () => setShowBackToTop(window.scrollY > 600);
+    const onScroll = () => {
+      const y = window.scrollY;
+      setShowBackToTop(y > 600);
+      // Show the sticky section mini-nav once user scrolls past the hero (~500px)
+      setShowSectionNav(y > 480);
+    };
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
@@ -1323,6 +1373,31 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-background text-foreground overflow-x-hidden">
+
+      {/* ── Sticky section mini-nav (appears after hero) ── */}
+      <div
+        className={`fixed top-16 left-0 right-0 z-40 transition-all duration-300 ${
+          showSectionNav ? "opacity-100 translate-y-0 pointer-events-auto" : "opacity-0 -translate-y-2 pointer-events-none"
+        }`}
+        style={{ background: "oklch(0.10 0.008 265 / 0.75)", backdropFilter: "blur(12px)", borderBottom: "1px solid rgba(255,255,255,0.05)" }}
+      >
+        <div className="container flex items-center justify-center gap-1 h-9">
+          {([
+            { label: "Services",  href: "#services",  color: "hover:text-blue-300 hover:bg-blue-500/10" },
+            { label: "Community", href: "#community", color: "hover:text-cyan-300 hover:bg-cyan-500/10" },
+            { label: "Resources", href: "#resources", color: "hover:text-amber-300 hover:bg-amber-500/10" },
+            { label: "USA",       href: "#usa",       color: "hover:text-rose-300 hover:bg-rose-500/10" },
+          ] as const).map(({ label, href, color }) => (
+            <a
+              key={href}
+              href={href}
+              className={`mono-label text-white/35 ${color} text-xs uppercase tracking-widest px-3 py-1 rounded-lg transition-all duration-150`}
+            >
+              {label}
+            </a>
+          ))}
+        </div>
+      </div>
 
       {/* ── Header ── */}
       <header className="fixed top-0 left-0 right-0 z-50 border-b border-white/6" style={{ background: "oklch(0.11 0.008 265 / 0.85)", backdropFilter: "blur(16px)" }}>

@@ -18,7 +18,7 @@ interface ServiceCard {
   url: string;
   badge: string;
   badgeColor: "blue" | "cyan" | "green" | "violet" | "amber" | "rose" | "sky" | "teal";
-  icon: React.ReactNode;
+  icon?: React.ReactNode;
   tag: string;
   note?: string;
   noteUrl?: string;
@@ -506,6 +506,39 @@ const communityServices: ServiceCard[] = [
     tag: "discord.gg/CznDhsRWnJ",
     note: "Join the YYC MeshCore Network — open to all mesh enthusiasts",
   },
+  {
+    id: "salish-mesh",
+    title: "Salish Mesh",
+    subtitle: "Salish Sea & Surrounding Area — Canada",
+    description:
+      "Community mesh network covering the Salish Sea and surrounding region, connecting Meshtastic operators across coastal British Columbia and the Pacific Northwest border area.",
+    url: "https://salishmesh.net/",
+    badge: "Community",
+    badgeColor: "green",
+    tag: "salishmesh.net",
+  },
+  {
+    id: "vancouver-mesh",
+    title: "Vancouver MESH",
+    subtitle: "Vancouver, BC & South Island — Canada",
+    description:
+      "Community group building a mesh network of solar-powered Meshtastic radios in Vancouver, BC and the South Island area. Focused on resilient, off-grid community communications.",
+    url: "https://vancouvermesh.ca/",
+    badge: "Community",
+    badgeColor: "green",
+    tag: "vancouvermesh.ca",
+  },
+  {
+    id: "yeg-mesh",
+    title: "YEG MESH",
+    subtitle: "Edmonton, Alberta — Canada",
+    description:
+      "Edmonton's core mesh community, following the Calgary community's lead and adopting the new \"Custom LongModTurbo\" settings for a fresh, high-performance Meshtastic network.",
+    url: "https://yegmesh.ca/",
+    badge: "Community",
+    badgeColor: "green",
+    tag: "yegmesh.ca",
+  },
 ];
 
 // ─── USA Meshtastic Networks ────────────────────────────────────────────────────
@@ -812,7 +845,11 @@ function ServiceCard({ card, index }: { card: ServiceCard; index: number }) {
         {/* Top row */}
         <div className="flex items-start justify-between mb-5">
           <div className={`p-3 rounded-xl ${iconBgStyles[card.badgeColor]}`}>
-            {card.icon}
+            {card.icon ?? (
+              <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M12 21a9.004 9.004 0 0 0 8.716-6.747M12 21a9.004 9.004 0 0 1-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 0 1 7.843 4.582M12 3a8.997 8.997 0 0 0-7.843 4.582m15.686 0A11.953 11.953 0 0 1 12 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0 1 21 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0 1 12 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 0 1 3 12c0-1.605.42-3.113 1.157-4.418" />
+              </svg>
+            )}
           </div>
           <div className="flex items-center gap-2">
             <span className="relative flex h-2 w-2">
@@ -925,7 +962,7 @@ function StatsBar() {
   const [count, setCount] = useState(0);
 
   useEffect(() => {
-    const target = 35;
+    const target = 38;
     let current = 0;
     const step = () => {
       current++;

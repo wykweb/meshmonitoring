@@ -539,6 +539,19 @@ const resourceServices: ServiceCard[] = [
     note: "By meshnard",
     addedAt: "2026-04-03",
   },
+  {
+    id: "interlink-radio",
+    title: "Interlink Radio",
+    subtitle: "Mesh Resources & Chat Groups",
+    description:
+      "A community resource hub sharing Telegram mesh chat groups, Discord mesh groups, and much more for Meshtastic and MeshCore enthusiasts. Created to help the community discover and connect with mesh chat groups worldwide.",
+    url: "https://interlinkradio.weebly.com/",
+    badge: "Directory",
+    badgeColor: "teal",
+    icon: <NetworkIcon className="w-6 h-6" />,
+    tag: "interlinkradio.weebly.com",
+    addedAt: "2026-04-03",
+  },
 ];
 
 const communityServices: ServiceCard[] = [

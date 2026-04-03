@@ -525,6 +525,20 @@ const resourceServices: ServiceCard[] = [
     noteUrl: "https://ottawamesh.ca/",
     addedAt: "2026-04-03",
   },
+  {
+    id: "mesh-web-relay",
+    title: "Mesh Web Relay",
+    subtitle: "Web-based Meshtastic Relay",
+    description:
+      "A web-based relay for Meshtastic networks by meshnard. Connect to your local mesh from any browser — no app install required. Bridges Meshtastic MQTT traffic to a clean web interface for sending and receiving messages across the mesh.",
+    url: "https://relay.meshnard.com/",
+    badge: "Relay",
+    badgeColor: "teal",
+    icon: <MapIcon className="w-6 h-6" />,
+    tag: "relay.meshnard.com",
+    note: "By meshnard",
+    addedAt: "2026-04-03",
+  },
 ];
 
 const communityServices: ServiceCard[] = [
@@ -1400,7 +1414,7 @@ export default function Home() {
   const [activeType, setActiveType] = useState<string>("All");
   const searchRef = useRef<HTMLInputElement>(null);
 
-  const TYPE_PILLS = ["All", "Firehose", "Map", "MeshView", "MeshMonitor", "MeshInfo", "Community", "Dashboard", "Bot", "Tool", "Software", "Wardriving"];
+  const TYPE_PILLS = ["All", "Firehose", "Map", "MeshView", "MeshMonitor", "MeshInfo", "Community", "Dashboard", "Bot", "Tool", "Software", "Wardriving", "Relay"];
 
   function matchesType(card: ServiceCard): boolean {
     if (activeType === "All") return true;
@@ -1549,6 +1563,7 @@ export default function Home() {
               href="https://relay.meshnard.com/"
               target="_blank"
               rel="noopener noreferrer"
+              title="Web-based Meshtastic relay by meshnard — connect to your local mesh from any browser"
               className="mono-label text-teal-400/70 hover:text-teal-300 text-xs uppercase tracking-widest px-3 py-1.5 rounded-lg hover:bg-teal-500/10 transition-all duration-200 flex items-center gap-1"
             >
               Mesh Web Relay

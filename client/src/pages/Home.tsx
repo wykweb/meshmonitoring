@@ -476,6 +476,38 @@ const resourceServices: ServiceCard[] = [
     tag: "wiki.meshmapper.net",
     note: "Community: Greater Ottawa Mesh Radio Enthusiasts",
     noteUrl: "https://ottawamesh.ca/",
+    note2: "Live Coverage Map — YOW Ottawa",
+    note2Url: "https://yow.meshmapper.net/",
+    addedAt: "2026-04-03",
+  },
+  {
+    id: "meshmapper-yyc",
+    title: "MeshMapper YYC",
+    subtitle: "Calgary, Alberta — Canada",
+    description:
+      "Live MeshMapper instance visualizing real-world MeshCore RF coverage across Calgary (YYC). See where the mesh reaches, which repeaters provide the best coverage, and where the dead zones are.",
+    url: "https://yyc.meshmapper.net/",
+    badge: "Wardriving",
+    badgeColor: "violet",
+    icon: <MapIcon className="w-6 h-6" />,
+    tag: "yyc.meshmapper.net",
+    note: "Network: YYC MeshCore",
+    noteUrl: "https://yycmesh.com/",
+    addedAt: "2026-04-03",
+  },
+  {
+    id: "meshmapper-yow",
+    title: "MeshMapper YOW",
+    subtitle: "Ottawa, Ontario — Canada",
+    description:
+      "Live MeshMapper instance visualizing real-world MeshCore RF coverage across Ottawa (YOW). Built and maintained by the Greater Ottawa Mesh Radio Enthusiasts.",
+    url: "https://yow.meshmapper.net/",
+    badge: "Wardriving",
+    badgeColor: "violet",
+    icon: <MapIcon className="w-6 h-6" />,
+    tag: "yow.meshmapper.net",
+    note: "Community: Greater Ottawa Mesh Radio Enthusiasts",
+    noteUrl: "https://ottawamesh.ca/",
     addedAt: "2026-04-03",
   },
 ];
@@ -1333,6 +1365,7 @@ export default function Home() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [showBackToTop, setShowBackToTop] = useState(false);
   const [showSectionNav, setShowSectionNav] = useState(false);
+  const [activeSection, setActiveSection] = useState<string>("services");
   const [searchQuery, setSearchQuery] = useState("");
   const [activeType, setActiveType] = useState<string>("All");
   const searchRef = useRef<HTMLInputElement>(null);
@@ -1363,6 +1396,23 @@ export default function Home() {
     };
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  // IntersectionObserver: track which section is in view for the mini-nav highlight
+  useEffect(() => {
+    const sectionIds = ["services", "community", "resources", "usa"];
+    const observers: IntersectionObserver[] = [];
+    sectionIds.forEach(id => {
+      const el = document.getElementById(id);
+      if (!el) return;
+      const obs = new IntersectionObserver(
+        ([entry]) => { if (entry.isIntersecting) setActiveSection(id); },
+        { rootMargin: "-30% 0px -60% 0px", threshold: 0 }
+      );
+      obs.observe(el);
+      observers.push(obs);
+    });
+    return () => observers.forEach(o => o.disconnect());
   }, []);
 
   // Press "/" anywhere to focus the search bar; Escape to clear + blur it
@@ -1398,15 +1448,19 @@ export default function Home() {
       >
         <div className="container flex items-center justify-center gap-1 h-9">
           {([
-            { label: "Services",  href: "#services",  color: "hover:text-blue-300 hover:bg-blue-500/10" },
-            { label: "Community", href: "#community", color: "hover:text-cyan-300 hover:bg-cyan-500/10" },
-            { label: "Resources", href: "#resources", color: "hover:text-amber-300 hover:bg-amber-500/10" },
-            { label: "USA",       href: "#usa",       color: "hover:text-rose-300 hover:bg-rose-500/10" },
-          ] as const).map(({ label, href, color }) => (
+            { label: "Services",  href: "#services",  id: "services",  active: "text-blue-300 bg-blue-500/15 border border-blue-500/30",   hover: "hover:text-blue-300 hover:bg-blue-500/10" },
+            { label: "Community", href: "#community", id: "community", active: "text-cyan-300 bg-cyan-500/15 border border-cyan-500/30",   hover: "hover:text-cyan-300 hover:bg-cyan-500/10" },
+            { label: "Resources", href: "#resources", id: "resources", active: "text-amber-300 bg-amber-500/15 border border-amber-500/30", hover: "hover:text-amber-300 hover:bg-amber-500/10" },
+            { label: "USA",       href: "#usa",       id: "usa",       active: "text-rose-300 bg-rose-500/15 border border-rose-500/30",   hover: "hover:text-rose-300 hover:bg-rose-500/10" },
+          ] as const).map(({ label, href, id, active, hover }) => (
             <a
               key={href}
               href={href}
-              className={`mono-label text-white/35 ${color} text-xs uppercase tracking-widest px-3 py-1 rounded-lg transition-all duration-150`}
+              className={`mono-label text-xs uppercase tracking-widest px-3 py-1 rounded-lg transition-all duration-200 ${
+                activeSection === id
+                  ? active
+                  : `text-white/35 ${hover}`
+              }`}
             >
               {label}
             </a>

@@ -346,6 +346,18 @@ const resourceServices: ServiceCard[] = [
     icon: <BotIcon className="w-6 h-6" />,
     tag: "github.com/SpudGunMan",
   },
+  {
+    id: "meshcore-bot",
+    title: "MeshCore Bot",
+    subtitle: "Python Automation Bot",
+    description:
+      "A Python bot connecting to MeshCore networks via serial, BLE, or TCP/IP. Responds to keywords, executes plugin-based commands, and provides weather, solar conditions, and satellite pass data. Includes Discord bridge, MQTT packet capture, map uploader, rate limiting, user management, and scheduled messages.",
+    url: "https://github.com/agessaman/meshcore-bot",
+    badge: "Bot",
+    badgeColor: "sky",
+    icon: <BotIcon className="w-6 h-6" />,
+    tag: "github.com/agessaman",
+  },
 ];
 
 const communityServices: ServiceCard[] = [
@@ -709,7 +721,7 @@ function StatsBar() {
   const [count, setCount] = useState(0);
 
   useEffect(() => {
-    const target = 19;
+    const target = 20;
     let current = 0;
     const step = () => {
       current++;

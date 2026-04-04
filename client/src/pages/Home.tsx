@@ -17,7 +17,7 @@ interface ServiceCard {
   description: string;
   url: string;
   badge: string;
-  badgeColor: "blue" | "cyan" | "green" | "emerald" | "violet" | "amber" | "rose" | "sky" | "teal";
+  badgeColor: "blue" | "cyan" | "green" | "emerald" | "violet" | "amber" | "rose" | "sky" | "teal" | "orange";
   icon?: React.ReactNode;
   tag: string;
   note?: string;
@@ -177,6 +177,7 @@ const badgeStyles: Record<ServiceCard["badgeColor"], string> = {
   rose:    "bg-rose-500/15 text-rose-300 border border-rose-500/25",
   sky:     "bg-sky-500/15 text-sky-300 border border-sky-500/25",
   teal:    "bg-teal-500/15 text-teal-300 border border-teal-500/25",
+  orange:  "bg-orange-500/15 text-orange-300 border border-orange-500/25",
 };
 
 const iconBgStyles: Record<ServiceCard["badgeColor"], string> = {
@@ -189,6 +190,7 @@ const iconBgStyles: Record<ServiceCard["badgeColor"], string> = {
   rose:    "bg-rose-500/15 text-rose-400",
   sky:     "bg-sky-500/15 text-sky-400",
   teal:    "bg-teal-500/15 text-teal-400",
+  orange:  "bg-orange-500/15 text-orange-400",
 };
 
 const glowStyles: Record<ServiceCard["badgeColor"], string> = {
@@ -201,6 +203,7 @@ const glowStyles: Record<ServiceCard["badgeColor"], string> = {
   rose:    "group-hover:shadow-[0_0_30px_oklch(0.65_0.2_15/0.2)]",
   sky:     "group-hover:shadow-[0_0_30px_oklch(0.7_0.18_230/0.2)]",
   teal:    "group-hover:shadow-[0_0_30px_oklch(0.7_0.15_185/0.2)]",
+  orange:  "group-hover:shadow-[0_0_30px_oklch(0.72_0.18_55/0.2)]",
 };
 
 const borderHoverStyles: Record<ServiceCard["badgeColor"], string> = {
@@ -213,6 +216,7 @@ const borderHoverStyles: Record<ServiceCard["badgeColor"], string> = {
   rose:    "group-hover:border-rose-500/50",
   sky:     "group-hover:border-sky-500/50",
   teal:    "group-hover:border-teal-500/50",
+  orange:  "group-hover:border-orange-500/50",
 };
 
 const openTextStyles: Record<ServiceCard["badgeColor"], string> = {
@@ -225,6 +229,7 @@ const openTextStyles: Record<ServiceCard["badgeColor"], string> = {
   rose:    "text-rose-400 group-hover:text-rose-300",
   sky:     "text-sky-400 group-hover:text-sky-300",
   teal:    "text-teal-400 group-hover:text-teal-300",
+  orange:  "text-orange-400 group-hover:text-orange-300",
 };
 
 // ─── Service data ─────────────────────────────────────────────────────────────
@@ -1083,6 +1088,35 @@ const usaServices: ServiceCard[] = [
   },
 ];
 
+const articleServices: ServiceCard[] = [
+  {
+    id: "meshtastic-chatbots",
+    title: "Meshtastic: Getting Internet Info On The Trail",
+    subtitle: "Community Article · Rob Cathy",
+    description: "This article shows some interesting use cases for an AI-powered chat bot that can provide basic simple text information as long as there is a MQTT link configured correctly in the Meshtastic chain of radios. To try it yourself, you need to be able to see the node with your radio (e.g. WYK0 bot, WYK2 bot, WYK7 BBS, WYK8 AI bot and WYK10 BBS) or use MQTT to see the node in CanadaVerse network msh/CA on server mqtt.mt.gt, then send a direct message to that node with \"cmd\" as the only 3 letters.",
+    url: "https://yesretired.com/mesthtastic-chatbots",
+    badge: "Article",
+    badgeColor: "orange",
+    tag: "yesretired.com",
+    note: "By Rob Cathy",
+    noteUrl: "https://yesretired.com/author/rob",
+    addedAt: "2026-04-04",
+  },
+  {
+    id: "mesh-radio-emergency",
+    title: "Mesh Radio – Emergency Preparedness",
+    subtitle: "Community Article · Rob Cathy",
+    description: "For when no mobile phone service is available. An introduction to Meshtastic mesh radio as a resilient off-grid communication tool for emergency preparedness, hiking, and remote areas where cellular coverage fails.",
+    url: "https://yesretired.com/meshtastic",
+    badge: "Article",
+    badgeColor: "orange",
+    tag: "yesretired.com",
+    note: "By Rob Cathy",
+    noteUrl: "https://yesretired.com/author/rob",
+    addedAt: "2026-04-04",
+  },
+];
+
 // ─── Animated mesh canvas ─────────────────────────────────────────────────────
 
 function MeshCanvas() {
@@ -1350,7 +1384,7 @@ function StatsBar() {
         if (!entry.isIntersecting) return;
         observer.disconnect();
         // Dynamically count unique geographic regions from all service arrays
-        const allCards = [...coreServices, ...communityServices, ...resourceServices, ...usaServices];
+        const allCards = [...coreServices, ...communityServices, ...resourceServices, ...usaServices, ...articleServices];
         const geoRegions = new Set(
           allCards
             .map(c => c.subtitle)
@@ -1476,7 +1510,7 @@ export default function Home() {
   const [activeType, setActiveType] = useState<string>("All");
   const searchRef = useRef<HTMLInputElement>(null);
 
-  const TYPE_PILLS = ["All", "Firehose", "Map", "MeshView", "MeshMonitor", "MeshInfo", "Community", "Dashboard", "Bot", "Tool", "Software", "Wardriving", "Relay", "Directory", "Telegram", "Discord"];
+  const TYPE_PILLS = ["All", "Firehose", "Map", "MeshView", "MeshMonitor", "MeshInfo", "Community", "Dashboard", "Bot", "Tool", "Software", "Wardriving", "Relay", "Directory", "Telegram", "Discord", "Article"];
 
   function matchesType(card: ServiceCard): boolean {
     if (activeType === "All") return true;
@@ -1488,9 +1522,10 @@ export default function Home() {
   const filteredCommunity = communityServices.filter(c => matchesQuery(c, searchQuery) && matchesType(c));
   const filteredResources = resourceServices.filter(c => matchesQuery(c, searchQuery) && matchesType(c));
   const filteredUSA       = usaServices.filter(c => matchesQuery(c, searchQuery) && matchesType(c));
+  const filteredArticles  = articleServices.filter(c => matchesQuery(c, searchQuery) && matchesType(c));
 
   const totalVisible =
-    filteredCore.length + filteredCommunity.length + filteredResources.length + filteredUSA.length;
+    filteredCore.length + filteredCommunity.length + filteredResources.length + filteredUSA.length + filteredArticles.length;
   const isFiltering = searchQuery.trim().length > 0 || activeType !== "All";
 
   // "New this month" counts — cards added within the last 30 days
@@ -1500,6 +1535,7 @@ export default function Home() {
   const newCanada    = coreServices.filter(isNew).length;
   const newCommunity = communityServices.filter(isNew).length;
   const newUSA       = usaServices.filter(isNew).length;
+  const newArticles  = articleServices.filter(isNew).length;
 
   // Copy-link anchor state
   const [copiedAnchor, setCopiedAnchor] = useState<string | null>(null);
@@ -1574,6 +1610,7 @@ export default function Home() {
             { label: "Community", href: "#community", id: "community", count: communityServices.length,  active: "text-cyan-300 bg-cyan-500/15 border border-cyan-500/30",   hover: "hover:text-cyan-300 hover:bg-cyan-500/10" },
             { label: "Resources", href: "#resources", id: "resources", count: resourceServices.length,   active: "text-amber-300 bg-amber-500/15 border border-amber-500/30", hover: "hover:text-amber-300 hover:bg-amber-500/10" },
             { label: "🇺🇸 USA",    href: "#usa",       id: "usa",       count: usaServices.length,        active: "text-rose-300 bg-rose-500/15 border border-rose-500/30",   hover: "hover:text-rose-300 hover:bg-rose-500/10" },
+            { label: "Articles", href: "#articles", id: "articles", count: articleServices.length,    active: "text-orange-300 bg-orange-500/15 border border-orange-500/30", hover: "hover:text-orange-300 hover:bg-orange-500/10" },
           ] as const).map(({ label, href, id, count, active, hover }) => (
             <a
               key={href}
@@ -1622,6 +1659,11 @@ export default function Home() {
               {newCommunity > 0 && <span className="inline-flex items-center justify-center h-4 min-w-4 px-1 rounded-full bg-emerald-500/20 border border-emerald-500/30 text-emerald-400 text-[9px] font-bold leading-none">{newCommunity}</span>}
             </a>
             <a href="#resources" className="mono-label text-white/40 hover:text-white/80 text-xs uppercase tracking-widest px-3 py-1.5 rounded-lg hover:bg-white/6 transition-all duration-200">Resources</a>
+            <a href="#articles" className="mono-label text-orange-400/70 hover:text-orange-300 text-xs uppercase tracking-widest px-3 py-1.5 rounded-lg hover:bg-orange-500/10 transition-all duration-200 flex items-center gap-1.5">
+              Articles
+              <span className="inline-flex items-center justify-center h-4 min-w-4 px-1 rounded-full bg-white/8 text-white/40 text-[9px] font-bold leading-none">{articleServices.length}</span>
+              {newArticles > 0 && <span className="inline-flex items-center justify-center h-4 min-w-4 px-1 rounded-full bg-emerald-500/20 border border-emerald-500/30 text-emerald-400 text-[9px] font-bold leading-none">{newArticles}</span>}
+            </a>
             <a href="#usa" className="mono-label text-rose-400/70 hover:text-rose-300 text-xs uppercase tracking-widest px-3 py-1.5 rounded-lg hover:bg-rose-500/10 transition-all duration-200 flex items-center gap-1.5">
               <span>🇺🇸</span>USA
               {newUSA > 0 && <span className="inline-flex items-center justify-center h-4 min-w-4 px-1 rounded-full bg-emerald-500/20 border border-emerald-500/30 text-emerald-400 text-[9px] font-bold leading-none">{newUSA}</span>}
@@ -1726,6 +1768,11 @@ export default function Home() {
               {newCommunity > 0 && <span className="inline-flex items-center justify-center h-4 min-w-4 px-1 rounded-full bg-emerald-500/20 border border-emerald-500/30 text-emerald-400 text-[9px] font-bold leading-none">{newCommunity}</span>}
             </a>
             <a href="#resources" onClick={() => setMobileMenuOpen(false)} className="mono-label text-white/60 hover:text-white text-xs uppercase tracking-widest px-3 py-2.5 rounded-lg hover:bg-white/8 transition-all duration-200">Resources</a>
+            <a href="#articles" onClick={() => setMobileMenuOpen(false)} className="mono-label text-orange-400/80 hover:text-orange-300 text-xs uppercase tracking-widest px-3 py-2.5 rounded-lg hover:bg-orange-500/10 transition-all duration-200 flex items-center gap-1.5">
+              Articles
+              <span className="inline-flex items-center justify-center h-4 min-w-4 px-1 rounded-full bg-white/8 text-white/40 text-[9px] font-bold leading-none">{articleServices.length}</span>
+              {newArticles > 0 && <span className="inline-flex items-center justify-center h-4 min-w-4 px-1 rounded-full bg-emerald-500/20 border border-emerald-500/30 text-emerald-400 text-[9px] font-bold leading-none">{newArticles}</span>}
+            </a>
             <a href="#usa" onClick={() => setMobileMenuOpen(false)} className="mono-label text-rose-400/80 hover:text-rose-300 text-xs uppercase tracking-widest px-3 py-2.5 rounded-lg hover:bg-rose-500/10 transition-all duration-200 flex items-center gap-1.5">
               <span>🇺🇸</span>USA
               {newUSA > 0 && <span className="inline-flex items-center justify-center h-4 min-w-4 px-1 rounded-full bg-emerald-500/20 border border-emerald-500/30 text-emerald-400 text-[9px] font-bold leading-none">{newUSA}</span>}
@@ -2334,6 +2381,28 @@ export default function Home() {
             Clear filter
           </button>
         </div>
+      )}
+
+      {/* ── Community Articles section ── */}
+      {(!isFiltering || filteredArticles.length > 0) && (
+        <section id="articles" className="py-14 scroll-mt-28">
+          <div className="container">
+            <div className="flex items-center gap-3 mb-8">
+              <div className="w-1 h-8 rounded-full bg-orange-500/60"></div>
+              <div>
+                <div className="flex items-center gap-2">
+                  <h2 className="text-lg font-700 text-white" style={{ fontFamily: "'Outfit', sans-serif", fontWeight: 700 }}>Community Articles</h2>
+                  <span className="mono-label text-orange-400/60 text-xs uppercase tracking-widest">· {filteredArticles.length}</span>
+                  {newArticles > 0 && <span className="inline-flex items-center justify-center h-4 min-w-4 px-1 rounded-full bg-emerald-500/20 border border-emerald-500/30 text-emerald-400 text-[9px] font-bold leading-none">{newArticles}</span>}
+                </div>
+                <p className="text-white/30 text-xs mt-0.5">Guides, tutorials, and community write-ups about Meshtastic &amp; MeshCore</p>
+              </div>
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+              {filteredArticles.map((card, i) => <ServiceCard key={card.id} card={card} index={i} />)}
+            </div>
+          </div>
+        </section>
       )}
 
       {/* ── Submit a Resource CTA ── */}

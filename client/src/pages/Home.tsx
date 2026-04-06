@@ -1777,6 +1777,7 @@ export default function Home() {
             <a href="#community" className="mono-label text-white/40 hover:text-cyan-300 text-xs uppercase tracking-widest px-3 py-1.5 rounded-lg hover:bg-cyan-500/10 transition-all duration-200 flex items-center gap-1.5">
               Community
               <span className="inline-flex items-center justify-center h-4 min-w-4 px-1 rounded-full bg-white/8 text-white/40 text-[9px] font-bold leading-none">{communityServices.length}</span>
+              <span className="inline-flex items-center gap-0.5 h-4 px-1.5 rounded-full bg-blue-500/20 border border-blue-500/30 text-blue-300 text-[9px] font-bold leading-none" title="GTA+ CedarMesh entries">GTA+ {communityServices.filter(c => c.tag === 'cedarmesh.ca').length}</span>
               {newCommunity > 0 && <span className="inline-flex items-center justify-center h-4 min-w-4 px-1 rounded-full bg-emerald-500/20 border border-emerald-500/30 text-emerald-400 text-[9px] font-bold leading-none">{newCommunity}</span>}
             </a>
             <a href="#resources" className="mono-label text-white/40 hover:text-white/80 text-xs uppercase tracking-widest px-3 py-1.5 rounded-lg hover:bg-white/6 transition-all duration-200">Resources</a>
@@ -1886,6 +1887,7 @@ export default function Home() {
             <a href="#community" onClick={() => setMobileMenuOpen(false)} className="mono-label text-white/60 hover:text-cyan-300 text-xs uppercase tracking-widest px-3 py-2.5 rounded-lg hover:bg-cyan-500/10 transition-all duration-200 flex items-center gap-1.5">
               Community
               <span className="inline-flex items-center justify-center h-4 min-w-4 px-1 rounded-full bg-white/8 text-white/40 text-[9px] font-bold leading-none">{communityServices.length}</span>
+              <span className="inline-flex items-center gap-0.5 h-4 px-1.5 rounded-full bg-blue-500/20 border border-blue-500/30 text-blue-300 text-[9px] font-bold leading-none" title="GTA+ CedarMesh entries">GTA+ {communityServices.filter(c => c.tag === 'cedarmesh.ca').length}</span>
               {newCommunity > 0 && <span className="inline-flex items-center justify-center h-4 min-w-4 px-1 rounded-full bg-emerald-500/20 border border-emerald-500/30 text-emerald-400 text-[9px] font-bold leading-none">{newCommunity}</span>}
             </a>
             <a href="#resources" onClick={() => setMobileMenuOpen(false)} className="mono-label text-white/60 hover:text-white text-xs uppercase tracking-widest px-3 py-2.5 rounded-lg hover:bg-white/8 transition-all duration-200">Resources</a>
@@ -2214,7 +2216,7 @@ export default function Home() {
             const canadaverseExtIds = ["waterloo-meshview", "waterloo-meshsense", "canadaverse-adsb"];
             const socialIds      = ["discord-yyc-meshcore", "telegram-meshmonitoring-channel", "telegram-meshmonitoring-group"];
 
-            const SubGrp = ({ label, color, ids, startIdx }: { label: string; color: string; ids: string[]; startIdx: number }) => {
+            const SubGrp = ({ label, color, ids, startIdx, href }: { label: string; color: string; ids: string[]; startIdx: number; href?: string }) => {
               const cards = ids.map(id => communityServices.find(c => c.id === id)).filter(Boolean) as typeof communityServices;
               if (cards.length === 0) return null;
               const cm: Record<string, { border: string; bg: string; dot: string; text: string }> = {
@@ -2225,17 +2227,38 @@ export default function Home() {
                 sky:     { border: 'border-sky-500/20',     bg: 'bg-sky-500/8',     dot: 'bg-sky-400',     text: 'text-sky-400/80' },
               };
               const c = cm[color] ?? cm.cyan;
+              const labelContent = (
+                <>
+                  <span className={`mono-label ${c.text} text-xs uppercase tracking-widest`}>{label} <span className="opacity-50">&middot; {cards.length}</span></span>
+                  {href && (
+                    <svg className={`w-3 h-3 ${c.text} opacity-60`} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M7 7h10v10" /><path d="M7 17 17 7" />
+                    </svg>
+                  )}
+                </>
+              );
               return (
                 <div className="mb-8">
                   <div className="flex items-center gap-3 mb-5">
                     <div className="h-px flex-1 bg-white/6" />
-                    <div className={`flex items-center gap-2 px-3 py-1.5 rounded-full border ${c.border} ${c.bg}`}>
-                      <span className="relative flex h-1.5 w-1.5">
-                        <span className={`animate-ping absolute inline-flex h-full w-full rounded-full ${c.dot} opacity-60`}></span>
-                        <span className={`relative inline-flex rounded-full h-1.5 w-1.5 ${c.dot}`}></span>
-                      </span>
-                      <span className={`mono-label ${c.text} text-xs uppercase tracking-widest`}>{label} <span className="opacity-50">&middot; {cards.length}</span></span>
-                    </div>
+                    {href ? (
+                      <a href={href} target="_blank" rel="noopener noreferrer"
+                        className={`flex items-center gap-2 px-3 py-1.5 rounded-full border ${c.border} ${c.bg} hover:opacity-80 transition-opacity cursor-pointer`}>
+                        <span className="relative flex h-1.5 w-1.5">
+                          <span className={`animate-ping absolute inline-flex h-full w-full rounded-full ${c.dot} opacity-60`}></span>
+                          <span className={`relative inline-flex rounded-full h-1.5 w-1.5 ${c.dot}`}></span>
+                        </span>
+                        {labelContent}
+                      </a>
+                    ) : (
+                      <div className={`flex items-center gap-2 px-3 py-1.5 rounded-full border ${c.border} ${c.bg}`}>
+                        <span className="relative flex h-1.5 w-1.5">
+                          <span className={`animate-ping absolute inline-flex h-full w-full rounded-full ${c.dot} opacity-60`}></span>
+                          <span className={`relative inline-flex rounded-full h-1.5 w-1.5 ${c.dot}`}></span>
+                        </span>
+                        {labelContent}
+                      </div>
+                    )}
                     <div className="h-px flex-1 bg-white/6" />
                   </div>
                   <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
@@ -2249,8 +2272,8 @@ export default function Home() {
               <>
                 <SubGrp label="Canadaverse Network"    color="cyan"    ids={canadaverseIds}    startIdx={0} />
                 <SubGrp label="Regional Communities"  color="emerald" ids={regionalIds}       startIdx={canadaverseIds.length} />
-                <SubGrp label="CedarMesh — GTA+"      color="blue"    ids={cedarMeshIds}      startIdx={canadaverseIds.length + regionalIds.length} />
-                <SubGrp label="Canadaverse Extended"  color="violet"  ids={canadaverseExtIds} startIdx={canadaverseIds.length + regionalIds.length + cedarMeshIds.length} />
+                <SubGrp label="CedarMesh — GTA+"      color="blue"    ids={cedarMeshIds}      startIdx={canadaverseIds.length + regionalIds.length}                                                href="https://cedarmesh.ca" />
+                <SubGrp label="Canadaverse Extended"  color="violet"  ids={canadaverseExtIds} startIdx={canadaverseIds.length + regionalIds.length + cedarMeshIds.length}                        href="https://canadaverse.org" />
                 <SubGrp label="Social &amp; Chat"     color="sky"     ids={socialIds}         startIdx={canadaverseIds.length + regionalIds.length + cedarMeshIds.length + canadaverseExtIds.length} />
               </>
             );

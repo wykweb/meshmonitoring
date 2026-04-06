@@ -1630,10 +1630,11 @@ export default function Home() {
   const [activeType, setActiveType] = useState<string>("All");
   const searchRef = useRef<HTMLInputElement>(null);
 
-  const TYPE_PILLS = ["All", "Firehose", "Map", "MeshView", "MeshMonitor", "MeshInfo", "Community", "Dashboard", "Bot", "Tool", "Software", "Wardriving", "Relay", "Directory", "Telegram", "Discord", "Article"];
+  const TYPE_PILLS = ["All", "Firehose", "Map", "MeshView", "MeshMonitor", "MeshInfo", "Community", "Dashboard", "Bot", "Tool", "Software", "Wardriving", "Relay", "Directory", "Telegram", "Discord", "Article", "GTA+"];
 
   function matchesType(card: ServiceCard): boolean {
     if (activeType === "All") return true;
+    if (activeType === "GTA+") return card.tag === "cedarmesh.ca" || card.subtitle?.includes("Greater Toronto");
     return card.badge === activeType;
   }
 
@@ -2206,78 +2207,54 @@ export default function Home() {
                 <ServiceCard key={card.id} card={card} index={i} />
               ))}
             </div>
-          ) : (
-            <>
-          {/* ── Canadaverse Network sub-group ── */}
-          <div className="mb-8">
-            <div className="flex items-center gap-3 mb-5">
-              <div className="h-px flex-1 bg-white/6" />
-              <div className="flex items-center gap-2 px-3 py-1.5 rounded-full border border-cyan-500/20 bg-cyan-500/8">
-                <span className="relative flex h-1.5 w-1.5">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-60"></span>
-                  <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-cyan-400"></span>
-                </span>
-                <span className="mono-label text-cyan-400/80 text-xs uppercase tracking-widest">Canadaverse Network</span>
-              </div>
-              <div className="h-px flex-1 bg-white/6" />
-            </div>
-            {/* First row: YYC Custom Mesh + Canadaverse Dashboard + Canadaverse MeshInfo */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-              {communityServices.slice(0, 3).map((card, i) => (
-                <ServiceCard key={card.id} card={card} index={i} />
-              ))}
-            </div>
-            {/* Second row: Node Map + Wiki + Links Directory */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 mt-5">
-              {[communityServices[4], communityServices[5], communityServices[8]].map((card, i) => (
-                <ServiceCard key={card.id} card={card} index={i + 3} />
-              ))}
-            </div>
-          </div>
+          ) : (() => {
+            const canadaverseIds = ["yyc-custom-mesh", "canadaverse-dashboard", "canadaverse-meshinfo", "canadaverse-node-map", "canadaverse-wiki", "canadaverse-links"];
+            const regionalIds    = ["ottawa-mesh", "meshmon-kw", "cedarmesh", "salish-mesh", "vancouver-mesh", "yeg-mesh", "meshmapper-yow-community", "interlink-radio-community"];
+            const cedarMeshIds   = ["cedarmesh-discord", "gta-meshcore-map", "cedarmesh-battery-calc", "cedarmesh-rf-calc", "cedarmesh-blog"];
+            const canadaverseExtIds = ["waterloo-meshview", "waterloo-meshsense", "canadaverse-adsb"];
+            const socialIds      = ["discord-yyc-meshcore", "telegram-meshmonitoring-channel", "telegram-meshmonitoring-group"];
 
-          {/* ── Regional Communities sub-group ── */}
-          <div className="mb-8">
-            <div className="flex items-center gap-3 mb-5">
-              <div className="h-px flex-1 bg-white/6" />
-              <div className="flex items-center gap-2 px-3 py-1.5 rounded-full border border-emerald-500/20 bg-emerald-500/8">
-                <span className="relative flex h-1.5 w-1.5">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-60"></span>
-                  <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-emerald-400"></span>
-                </span>
-                <span className="mono-label text-emerald-400/80 text-xs uppercase tracking-widest">Regional Communities</span>
-              </div>
-              <div className="h-px flex-1 bg-white/6" />
-            </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-              {["ottawa-mesh", "meshmon-kw", "cedarmesh", "salish-mesh", "vancouver-mesh", "yeg-mesh", "meshmapper-yow-community", "interlink-radio-community"].map((id, i) => {
-                const card = communityServices.find(c => c.id === id)!;
-                return <ServiceCard key={card.id} card={card} index={i + 6} />;
-              })}
-            </div>
-          </div>
+            const SubGrp = ({ label, color, ids, startIdx }: { label: string; color: string; ids: string[]; startIdx: number }) => {
+              const cards = ids.map(id => communityServices.find(c => c.id === id)).filter(Boolean) as typeof communityServices;
+              if (cards.length === 0) return null;
+              const cm: Record<string, { border: string; bg: string; dot: string; text: string }> = {
+                cyan:    { border: 'border-cyan-500/20',    bg: 'bg-cyan-500/8',    dot: 'bg-cyan-400',    text: 'text-cyan-400/80' },
+                emerald: { border: 'border-emerald-500/20', bg: 'bg-emerald-500/8', dot: 'bg-emerald-400', text: 'text-emerald-400/80' },
+                blue:    { border: 'border-blue-500/20',    bg: 'bg-blue-500/8',    dot: 'bg-blue-400',    text: 'text-blue-400/80' },
+                violet:  { border: 'border-violet-500/20',  bg: 'bg-violet-500/8',  dot: 'bg-violet-400',  text: 'text-violet-400/80' },
+                sky:     { border: 'border-sky-500/20',     bg: 'bg-sky-500/8',     dot: 'bg-sky-400',     text: 'text-sky-400/80' },
+              };
+              const c = cm[color] ?? cm.cyan;
+              return (
+                <div className="mb-8">
+                  <div className="flex items-center gap-3 mb-5">
+                    <div className="h-px flex-1 bg-white/6" />
+                    <div className={`flex items-center gap-2 px-3 py-1.5 rounded-full border ${c.border} ${c.bg}`}>
+                      <span className="relative flex h-1.5 w-1.5">
+                        <span className={`animate-ping absolute inline-flex h-full w-full rounded-full ${c.dot} opacity-60`}></span>
+                        <span className={`relative inline-flex rounded-full h-1.5 w-1.5 ${c.dot}`}></span>
+                      </span>
+                      <span className={`mono-label ${c.text} text-xs uppercase tracking-widest`}>{label} <span className="opacity-50">&middot; {cards.length}</span></span>
+                    </div>
+                    <div className="h-px flex-1 bg-white/6" />
+                  </div>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+                    {cards.map((card, i) => <ServiceCard key={card.id} card={card} index={startIdx + i} />)}
+                  </div>
+                </div>
+              );
+            };
 
-          {/* ── Social & Chat sub-group ── */}
-          <div className="mb-10">
-            <div className="flex items-center gap-3 mb-5">
-              <div className="h-px flex-1 bg-white/6" />
-              <div className="flex items-center gap-2 px-3 py-1.5 rounded-full border border-sky-500/20 bg-sky-500/8">
-                <span className="relative flex h-1.5 w-1.5">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-sky-400 opacity-60"></span>
-                  <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-sky-400"></span>
-                </span>
-                <span className="mono-label text-sky-400/80 text-xs uppercase tracking-widest">Social &amp; Chat</span>
-              </div>
-              <div className="h-px flex-1 bg-white/6" />
-            </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-              {["discord-yyc-meshcore", "telegram-meshmonitoring-channel", "telegram-meshmonitoring-group"].map((id, i) => {
-                const card = communityServices.find(c => c.id === id)!;
-                return <ServiceCard key={card.id} card={card} index={i + 14} />;
-              })}
-            </div>
-          </div>
-            </>
-          )}
+            return (
+              <>
+                <SubGrp label="Canadaverse Network"    color="cyan"    ids={canadaverseIds}    startIdx={0} />
+                <SubGrp label="Regional Communities"  color="emerald" ids={regionalIds}       startIdx={canadaverseIds.length} />
+                <SubGrp label="CedarMesh — GTA+"      color="blue"    ids={cedarMeshIds}      startIdx={canadaverseIds.length + regionalIds.length} />
+                <SubGrp label="Canadaverse Extended"  color="violet"  ids={canadaverseExtIds} startIdx={canadaverseIds.length + regionalIds.length + cedarMeshIds.length} />
+                <SubGrp label="Social &amp; Chat"     color="sky"     ids={socialIds}         startIdx={canadaverseIds.length + regionalIds.length + cedarMeshIds.length + canadaverseExtIds.length} />
+              </>
+            );
+          })()}
 
           {/* ── Submit a Resource CTA ── */}
           <div className="flex flex-col items-center gap-4 pt-6 border-t border-white/6">

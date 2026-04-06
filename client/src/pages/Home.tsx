@@ -1433,8 +1433,49 @@ const usaServices: ServiceCard[] = [
     addedAt: "2026-04-06",
     verifiedAt: '2026-04-06',
   },
+  {
+    id: "nwimesh",
+    title: "NWIMesh",
+    subtitle: "Northwest Indiana — USA",
+    description:
+      "Community hub for the Northwest Indiana Meshtastic mesh network. Connects mesh operators across the NWI region and provides resources for building and expanding the local mesh.",
+    url: "https://nwimesh.net/",
+    badge: "Community",
+    badgeColor: "green",
+    icon: <GlobeIcon className="w-6 h-6" />,
+    tag: "nwimesh.net",
+    addedAt: "2026-04-06",
+    verifiedAt: '2026-04-06',
+  },
+  {
+    id: "cimesh",
+    title: "CIMesh",
+    subtitle: "Indiana — USA",
+    description:
+      "Community hub for the Central Indiana Meshtastic mesh network. Supports local mesh operators across Indiana and provides information on the CIMesh deployment and coverage.",
+    url: "https://cimesh.net/",
+    badge: "Community",
+    badgeColor: "green",
+    icon: <GlobeIcon className="w-6 h-6" />,
+    tag: "cimesh.net",
+    addedAt: "2026-04-06",
+    verifiedAt: '2026-04-06',
+  },
+  {
+    id: "kansas-city-mesh",
+    title: "Kansas City Mesh",
+    subtitle: "Kansas City, Missouri/Kansas — USA",
+    description:
+      "Community hub for the Kansas City Meshtastic mesh network spanning the Missouri/Kansas border. Provides resources, node maps, and information for mesh operators across the KC metro area.",
+    url: "https://kansascitymesh.live/",
+    badge: "Community",
+    badgeColor: "green",
+    icon: <GlobeIcon className="w-6 h-6" />,
+    tag: "kansascitymesh.live",
+    addedAt: "2026-04-06",
+    verifiedAt: '2026-04-06',
+  },
 ];
-
 const articleServices: ServiceCard[] = [
   {
     id: "meshtastic-chatbots",

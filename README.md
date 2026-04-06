@@ -128,6 +128,9 @@ All listed services are volunteer-run and community-maintained.
 | OKMesh | [okmesh.org](https://okmesh.org/) | Oklahoma |
 | Tulsa Meshtastic | [tulsa-meshtastic.com](https://www.tulsa-meshtastic.com/) | Tulsa, Oklahoma |
 | Meshconsin | [meshconsin.org](https://meshconsin.org/) | Wisconsin |
+| NWIMesh | [nwimesh.net](https://nwimesh.net/) | Northwest Indiana |
+| CIMesh | [cimesh.net](https://cimesh.net/) | Indiana |
+| Kansas City Mesh | [kansascitymesh.live](https://kansascitymesh.live/) | Kansas City, MO/KS |
 
 ### USA — MeshInfo Instances
 

@@ -27,7 +27,8 @@ interface ServiceCard {
   qrCode?: string;
   qrLink?: string;
   qrCaption?: string;
-  addedAt?: string; // ISO date string e.g. "2026-04-03"
+  addedAt?: string;    // ISO date string e.g. "2026-04-03"
+  verifiedAt?: string; // ISO date string e.g. "2026-04-06"
 }
 
 const HERO_BG =
@@ -237,8 +238,8 @@ const openTextStyles: Record<ServiceCard["badgeColor"], string> = {
 const coreServices: ServiceCard[] = [
   {
     id: "zapp-mobile",
-    title: "YYC Mesh",
-    subtitle: "Observer Zapp Mobile",
+    title: "YYC Mesh — Firehose (Zapp)",
+    subtitle: "Observer Zapp Mobile — Calgary, Alberta",
     description:
       "Live firehose data stream from the YYC Mesh network via the Zapp Mobile observer node. Monitor real-time packet activity, node telemetry, and message traffic across the Calgary mesh.",
     url: "https://yycmesh.meshmonitoring.com/firehose",
@@ -254,8 +255,8 @@ const coreServices: ServiceCard[] = [
   },
   {
     id: "wyk0-bot",
-    title: "YYC Mesh",
-    subtitle: "Observer WYK0 Bot",
+    title: "YYC Mesh — Firehose (WYK0)",
+    subtitle: "Observer WYK0 Bot — Calgary, Alberta",
     description:
       "Real-time firehose feed from the YYC Mesh network via the WYK0 bot observer. Track packet flow, signal quality, and node interactions across the YYC Meshtastic network.",
     url: "https://yyc.meshmonitoring.com/firehose",
@@ -283,6 +284,7 @@ const coreServices: ServiceCard[] = [
     note: "Open Chat Stream",
     noteUrl: "https://yycmesh.meshmonitoring.com/chat",
     addedAt: "2026-04-06",
+    verifiedAt: '2026-04-06',
   },
   {
     id: "wyk0-chats",
@@ -298,6 +300,7 @@ const coreServices: ServiceCard[] = [
     note: "Open Chat Stream",
     noteUrl: "https://yyc.meshmonitoring.com/chat",
     addedAt: "2026-04-06",
+    verifiedAt: '2026-04-06',
   },
   {
     id: "canada-mesh",
@@ -327,6 +330,7 @@ const coreServices: ServiceCard[] = [
     note: "Open Chat Stream",
     noteUrl: "https://ca.meshmonitoring.com/chat",
     addedAt: "2026-04-06",
+    verifiedAt: '2026-04-06',
   },
   {
     id: "meshmapper",
@@ -366,6 +370,7 @@ const coreServices: ServiceCard[] = [
     note: "Powered by MeshMapper — wiki.meshmapper.net",
     noteUrl: "https://wiki.meshmapper.net/",
     addedAt: "2026-04-03",
+    verifiedAt: '2026-04-06',
   },
   {
     id: "canada-meshview",
@@ -381,6 +386,7 @@ const coreServices: ServiceCard[] = [
     note: "Open MeshView",
     noteUrl: "https://ca.meshmonitoring.com/meshview",
     addedAt: "2026-04-06",
+    verifiedAt: '2026-04-06',
   },
   {
     id: "yyc-meshview",
@@ -396,6 +402,7 @@ const coreServices: ServiceCard[] = [
     note: "Open MeshView",
     noteUrl: "https://yycmesh.meshmonitoring.com/meshview",
     addedAt: "2026-04-06",
+    verifiedAt: '2026-04-06',
   },
   {
     id: "canada-meshinfo",
@@ -411,6 +418,7 @@ const coreServices: ServiceCard[] = [
     note: "Open MeshInfo",
     noteUrl: "https://ca.meshmonitoring.com/meshinfo",
     addedAt: "2026-04-06",
+    verifiedAt: '2026-04-06',
   },
   {
     id: "yyc-meshinfo",
@@ -426,6 +434,7 @@ const coreServices: ServiceCard[] = [
     note: "Open MeshInfo",
     noteUrl: "https://yycmesh.meshmonitoring.com/meshinfo",
     addedAt: "2026-04-06",
+    verifiedAt: '2026-04-06',
   },
   {
     id: "cedarmesh-hub",
@@ -440,6 +449,7 @@ const coreServices: ServiceCard[] = [
     tag: "cedarmesh.ca",
     note: "GTA+ Mesh Community",
     addedAt: "2026-04-06",
+    verifiedAt: '2026-04-06',
   },
 ];
 
@@ -588,6 +598,7 @@ const resourceServices: ServiceCard[] = [
     icon: <AnalyzerIcon className="w-6 h-6" />,
     tag: "github.com/dadecoza",
     addedAt: "2026-04-03",
+    verifiedAt: '2026-04-06',
   },
   {
     id: "meshinfo",
@@ -601,6 +612,7 @@ const resourceServices: ServiceCard[] = [
     icon: <AnalyzerIcon className="w-6 h-6" />,
     tag: "github.com/MeshAddicts",
     addedAt: "2026-04-03",
+    verifiedAt: '2026-04-06',
   },
   {
     id: "meshmapper-wardriving",
@@ -618,6 +630,7 @@ const resourceServices: ServiceCard[] = [
     note2: "Live Coverage Map — YOW Ottawa",
     note2Url: "https://yow.meshmapper.net/",
     addedAt: "2026-04-03",
+    verifiedAt: '2026-04-06',
   },
   {
     id: "meshmapper-yyc",
@@ -633,6 +646,7 @@ const resourceServices: ServiceCard[] = [
     note: "Network: YYC MeshCore",
     noteUrl: "https://yycmesh.com/",
     addedAt: "2026-04-03",
+    verifiedAt: '2026-04-06',
   },
   {
     id: "meshmapper-yow",
@@ -648,6 +662,7 @@ const resourceServices: ServiceCard[] = [
     note: "Community: Greater Ottawa Mesh Radio Enthusiasts",
     noteUrl: "https://ottawamesh.ca/",
     addedAt: "2026-04-03",
+    verifiedAt: '2026-04-06',
   },
   {
     id: "mesh-web-relay",
@@ -662,6 +677,7 @@ const resourceServices: ServiceCard[] = [
     tag: "relay.meshnard.com",
     note: "By meshnard",
     addedAt: "2026-04-03",
+    verifiedAt: '2026-04-06',
   },
   {
     id: "interlink-radio",
@@ -675,6 +691,7 @@ const resourceServices: ServiceCard[] = [
     icon: <NetworkIcon className="w-6 h-6" />,
     tag: "interlinkradio.weebly.com",
     addedAt: "2026-04-03",
+    verifiedAt: '2026-04-06',
   },
 ];
 
@@ -828,6 +845,7 @@ const communityServices: ServiceCard[] = [
     tag: "t.me/meshmonitoring",
     note: "Announcements & updates channel",
     addedAt: "2026-04-03",
+    verifiedAt: '2026-04-06',
   },
   {
     id: "telegram-meshmonitoring-group",
@@ -846,6 +864,7 @@ const communityServices: ServiceCard[] = [
     tag: "t.me/meshmonitoringgroup",
     note: "Community discussion group",
     addedAt: "2026-04-03",
+    verifiedAt: '2026-04-06',
   },
   {
     id: "salish-mesh",
@@ -894,6 +913,7 @@ const communityServices: ServiceCard[] = [
     note: "Community: Greater Ottawa Mesh Radio Enthusiasts",
     noteUrl: "https://ottawamesh.ca/",
     addedAt: "2026-04-03",
+    verifiedAt: '2026-04-06',
   },
   {
     id: "interlink-radio-community",
@@ -907,6 +927,7 @@ const communityServices: ServiceCard[] = [
     icon: <NetworkIcon className="w-6 h-6" />,
     tag: "interlinkradio.weebly.com",
     addedAt: "2026-04-03",
+    verifiedAt: '2026-04-06',
   },
   {
     id: "cedarmesh-discord",
@@ -922,6 +943,7 @@ const communityServices: ServiceCard[] = [
     note: "CedarMesh.ca",
     noteUrl: "https://cedarmesh.ca",
     addedAt: "2026-04-06",
+    verifiedAt: '2026-04-06',
   },
   {
     id: "gta-meshcore-map",
@@ -937,6 +959,7 @@ const communityServices: ServiceCard[] = [
     note: "CedarMesh.ca",
     noteUrl: "https://cedarmesh.ca",
     addedAt: "2026-04-06",
+    verifiedAt: '2026-04-06',
   },
   {
     id: "cedarmesh-battery-calc",
@@ -952,6 +975,7 @@ const communityServices: ServiceCard[] = [
     note: "CedarMesh.ca",
     noteUrl: "https://cedarmesh.ca",
     addedAt: "2026-04-06",
+    verifiedAt: '2026-04-06',
   },
   {
     id: "cedarmesh-rf-calc",
@@ -967,6 +991,7 @@ const communityServices: ServiceCard[] = [
     note: "CedarMesh.ca",
     noteUrl: "https://cedarmesh.ca",
     addedAt: "2026-04-06",
+    verifiedAt: '2026-04-06',
   },
   {
     id: "cedarmesh-blog",
@@ -982,6 +1007,7 @@ const communityServices: ServiceCard[] = [
     note: "CedarMesh.ca",
     noteUrl: "https://cedarmesh.ca",
     addedAt: "2026-04-06",
+    verifiedAt: '2026-04-06',
   },
   {
     id: "waterloo-meshview",
@@ -997,6 +1023,7 @@ const communityServices: ServiceCard[] = [
     note: "Canadaverse",
     noteUrl: "https://canadaverse.org",
     addedAt: "2026-04-06",
+    verifiedAt: '2026-04-06',
   },
   {
     id: "waterloo-meshsense",
@@ -1012,6 +1039,7 @@ const communityServices: ServiceCard[] = [
     note: "Canadaverse",
     noteUrl: "https://canadaverse.org",
     addedAt: "2026-04-06",
+    verifiedAt: '2026-04-06',
   },
   {
     id: "canadaverse-adsb",
@@ -1027,6 +1055,7 @@ const communityServices: ServiceCard[] = [
     note: "Canadaverse",
     noteUrl: "https://canadaverse.org",
     addedAt: "2026-04-06",
+    verifiedAt: '2026-04-06',
   },
 ];
 
@@ -1213,6 +1242,7 @@ const usaServices: ServiceCard[] = [
     icon: <MapIcon className="w-6 h-6" />,
     tag: "areyoumeshingwith.us",
     addedAt: "2026-04-03",
+    verifiedAt: '2026-04-06',
     note: "Network: Are You Meshing With Us? — areyoumeshingwith.us",
   },
   {
@@ -1227,6 +1257,7 @@ const usaServices: ServiceCard[] = [
     icon: <MapIcon className="w-6 h-6" />,
     tag: "areyoumeshingwith.us",
     addedAt: "2026-04-03",
+    verifiedAt: '2026-04-06',
     note: "Network: Are You Meshing With Us? — areyoumeshingwith.us",
   },
   {
@@ -1241,6 +1272,7 @@ const usaServices: ServiceCard[] = [
     icon: <MapIcon className="w-6 h-6" />,
     tag: "Central Oregon, US",
     addedAt: "2026-04-03",
+    verifiedAt: '2026-04-06',
   },
   {
     id: "kansas-city-mesh",
@@ -1254,6 +1286,7 @@ const usaServices: ServiceCard[] = [
     icon: <MapIcon className="w-6 h-6" />,
     tag: "kansascitymesh.live",
     addedAt: "2026-04-03",
+    verifiedAt: '2026-04-06',
     note: "Network: Kansas City Mesh",
   },
   {
@@ -1268,6 +1301,7 @@ const usaServices: ServiceCard[] = [
     icon: <MapIcon className="w-6 h-6" />,
     tag: "meshconsin.org",
     addedAt: "2026-04-03",
+    verifiedAt: '2026-04-06',
     note: "Network: Meshconsin — meshconsin.org",
   },
   {
@@ -1282,6 +1316,7 @@ const usaServices: ServiceCard[] = [
     icon: <MapIcon className="w-6 h-6" />,
     tag: "nwimesh.net",
     addedAt: "2026-04-03",
+    verifiedAt: '2026-04-06',
     note: "Network: NWIMesh.net — nwimesh.net",
   },
   {
@@ -1296,6 +1331,7 @@ const usaServices: ServiceCard[] = [
     icon: <MapIcon className="w-6 h-6" />,
     tag: "cimesh.net",
     addedAt: "2026-04-03",
+    verifiedAt: '2026-04-06',
     note: "Network: CIMesh — cimesh.net",
   },
   {
@@ -1310,6 +1346,7 @@ const usaServices: ServiceCard[] = [
     icon: <MapIcon className="w-6 h-6" />,
     tag: "tulsa-meshtastic.com",
     addedAt: "2026-04-03",
+    verifiedAt: '2026-04-06',
     note: "Networks: Tulsa Meshtastic — tulsa-meshtastic.com | OKMesh — okmesh.org",
   },
   {
@@ -1324,6 +1361,7 @@ const usaServices: ServiceCard[] = [
     icon: <MapIcon className="w-6 h-6" />,
     tag: "meshinfo.cvme.sh",
     addedAt: "2026-04-03",
+    verifiedAt: '2026-04-06',
   },
 ];
 
@@ -1340,6 +1378,7 @@ const articleServices: ServiceCard[] = [
     note: "By Rob Cathy",
     noteUrl: "https://yesretired.com/author/rob",
     addedAt: "2026-04-04",
+    verifiedAt: '2026-04-06',
   },
   {
     id: "mesh-radio-emergency",
@@ -1353,6 +1392,7 @@ const articleServices: ServiceCard[] = [
     note: "By Rob Cathy",
     noteUrl: "https://yesretired.com/author/rob",
     addedAt: "2026-04-04",
+    verifiedAt: '2026-04-06',
   },
 ];
 
@@ -1592,16 +1632,30 @@ function ServiceCard({ card, index }: { card: ServiceCard; index: number }) {
 
         {/* Footer */}
         <div className="flex items-center justify-between pt-4 border-t border-white/6">
-          <span className="mono-label text-white/30 truncate max-w-[200px]">
+          <span className="mono-label text-white/30 truncate max-w-[160px]">
             {card.tag}
           </span>
-          <span className={`flex items-center gap-1.5 text-xs font-medium transition-colors duration-200 ${openTextStyles[card.badgeColor]}`}>
-            Open
-            <svg className="w-3.5 h-3.5 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <path d="M7 7h10v10" />
-              <path d="M7 17 17 7" />
-            </svg>
-          </span>
+          <div className="flex items-center gap-2">
+            {card.verifiedAt && (
+              <span
+                title={`Verified ${new Date(card.verifiedAt).toLocaleDateString('en-CA', { year: 'numeric', month: 'short', day: 'numeric' })}`}
+                className="mono-label text-[10px] text-white/25 flex items-center gap-1"
+              >
+                <svg className="w-3 h-3 text-emerald-500/50" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z" />
+                  <path d="m9 12 2 2 4-4" />
+                </svg>
+                {new Date(card.verifiedAt).toLocaleDateString('en-CA', { year: 'numeric', month: 'short' })}
+              </span>
+            )}
+            <span className={`flex items-center gap-1.5 text-xs font-medium transition-colors duration-200 ${openTextStyles[card.badgeColor]}`}>
+              Open
+              <svg className="w-3.5 h-3.5 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M7 7h10v10" />
+                <path d="M7 17 17 7" />
+              </svg>
+            </span>
+          </div>
         </div>
       </div>
     </div>
@@ -1883,6 +1937,23 @@ export default function Home() {
                 { label: "Firehose", href: "#canada-firehose", color: "text-blue-400/70 hover:text-blue-300 hover:bg-blue-500/10" },
                 { label: "Chat",     href: "#canada-chat",     color: "text-cyan-400/70 hover:text-cyan-300 hover:bg-cyan-500/10" },
                 { label: "Maps",     href: "#canada-maps",     color: "text-violet-400/70 hover:text-violet-300 hover:bg-violet-500/10" },
+              ].map(({ label, href, color }) => (
+                <a key={href} href={href} className={`mono-label text-[10px] uppercase tracking-widest px-2.5 py-0.5 rounded-md transition-all duration-200 ${color}`}>
+                  {label}
+                </a>
+              ))}
+            </>
+          )}
+          {/* Community sub-group quick-jump links — only visible when Community section is active */}
+          {activeSection === "community" && (
+            <>
+              <span className="text-white/15 text-xs select-none">|</span>
+              {[
+                { label: "Canadaverse", href: "#community-canadaverse", color: "text-cyan-400/70 hover:text-cyan-300 hover:bg-cyan-500/10" },
+                { label: "Regional",    href: "#community-regional",    color: "text-emerald-400/70 hover:text-emerald-300 hover:bg-emerald-500/10" },
+                { label: "GTA+",        href: "#community-gta",         color: "text-blue-400/70 hover:text-blue-300 hover:bg-blue-500/10" },
+                { label: "Extended",    href: "#community-extended",    color: "text-violet-400/70 hover:text-violet-300 hover:bg-violet-500/10" },
+                { label: "Social",      href: "#community-social",      color: "text-sky-400/70 hover:text-sky-300 hover:bg-sky-500/10" },
               ].map(({ label, href, color }) => (
                 <a key={href} href={href} className={`mono-label text-[10px] uppercase tracking-widest px-2.5 py-0.5 rounded-md transition-all duration-200 ${color}`}>
                   {label}
@@ -2395,7 +2466,7 @@ export default function Home() {
             const canadaverseExtIds = ["waterloo-meshview", "waterloo-meshsense", "canadaverse-adsb"];
             const socialIds      = ["discord-yyc-meshcore", "telegram-meshmonitoring-channel", "telegram-meshmonitoring-group"];
 
-            const SubGrp = ({ label, color, ids, startIdx, href }: { label: string; color: string; ids: string[]; startIdx: number; href?: string }) => {
+            const SubGrp = ({ label, color, ids, startIdx, href, anchorId }: { label: string; color: string; ids: string[]; startIdx: number; href?: string; anchorId?: string }) => {
               const cards = ids.map(id => communityServices.find(c => c.id === id)).filter(Boolean) as typeof communityServices;
               if (cards.length === 0) return null;
               const cm: Record<string, { border: string; bg: string; dot: string; text: string }> = {
@@ -2417,7 +2488,7 @@ export default function Home() {
                 </>
               );
               return (
-                <div className="mb-8">
+                <div className="mb-8" id={anchorId}>
                   <div className="flex items-center gap-3 mb-5">
                     <div className="h-px flex-1 bg-white/6" />
                     {href ? (
@@ -2449,11 +2520,11 @@ export default function Home() {
 
             return (
               <>
-                <SubGrp label="Canadaverse Network"    color="cyan"    ids={canadaverseIds}    startIdx={0} href="https://canadaverse.org" />
-                <SubGrp label="Regional Communities"  color="emerald" ids={regionalIds}       startIdx={canadaverseIds.length} />
-                <SubGrp label="CedarMesh — GTA+"      color="blue"    ids={cedarMeshIds}      startIdx={canadaverseIds.length + regionalIds.length}                                                href="https://cedarmesh.ca" />
-                <SubGrp label="Canadaverse Extended"  color="violet"  ids={canadaverseExtIds} startIdx={canadaverseIds.length + regionalIds.length + cedarMeshIds.length}                        href="https://canadaverse.org" />
-                <SubGrp label="Social &amp; Chat"     color="sky"     ids={socialIds}         startIdx={canadaverseIds.length + regionalIds.length + cedarMeshIds.length + canadaverseExtIds.length} />
+                <SubGrp label="Canadaverse Network"    color="cyan"    anchorId="community-canadaverse" ids={canadaverseIds}    startIdx={0} href="https://canadaverse.org" />
+                <SubGrp label="Regional Communities"  color="emerald" anchorId="community-regional"    ids={regionalIds}       startIdx={canadaverseIds.length} />
+                <SubGrp label="CedarMesh — GTA+"      color="blue"    anchorId="community-gta"         ids={cedarMeshIds}      startIdx={canadaverseIds.length + regionalIds.length}                                                href="https://cedarmesh.ca" />
+                <SubGrp label="Canadaverse Extended"  color="violet"  anchorId="community-extended"    ids={canadaverseExtIds} startIdx={canadaverseIds.length + regionalIds.length + cedarMeshIds.length}                        href="https://canadaverse.org" />
+                <SubGrp label="Social &amp; Chat"     color="sky"     anchorId="community-social"      ids={socialIds}         startIdx={canadaverseIds.length + regionalIds.length + cedarMeshIds.length + canadaverseExtIds.length} />
               </>
             );
           })()}

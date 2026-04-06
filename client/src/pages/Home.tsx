@@ -368,6 +368,21 @@ const coreServices: ServiceCard[] = [
     addedAt: "2026-04-03",
   },
   {
+    id: "canada-meshview",
+    title: "Canada Mesh — MeshView",
+    subtitle: "Meshtastic Network — Canada",
+    description:
+      "National-scale MeshView instance displaying Meshtastic nodes and mesh activity from across Canada. Explore node positions, signal paths, and network topology at a country-wide level.",
+    url: "https://ca.meshmonitoring.com/meshview",
+    badge: "MeshView",
+    badgeColor: "sky",
+    icon: <MapIcon className="w-6 h-6" />,
+    tag: "ca.meshmonitoring.com",
+    note: "Open MeshView",
+    noteUrl: "https://ca.meshmonitoring.com/meshview",
+    addedAt: "2026-04-06",
+  },
+  {
     id: "cedarmesh-hub",
     title: "CedarMesh.ca — GTA+ Mesh Hub",
     subtitle: "Greater Toronto Area, CA",
@@ -1722,7 +1737,8 @@ export default function Home() {
   const newCommunity = communityServices.filter(isNew).length;
   const newUSA       = usaServices.filter(isNew).length;
   const newArticles  = articleServices.filter(isNew).length;
-  const chatCanada   = coreServices.filter(c => c.badge === 'Chat').length;
+  const chatCanada     = coreServices.filter(c => c.badge === 'Chat').length;
+  const firehoseCanada = coreServices.filter(c => c.badge === 'Firehose').length;
 
   // Copy-link anchor state
   const [copiedAnchor, setCopiedAnchor] = useState<string | null>(null);
@@ -1838,6 +1854,7 @@ export default function Home() {
             <a href="#services" className="mono-label text-white/40 hover:text-white/80 text-xs uppercase tracking-widest px-3 py-1.5 rounded-lg hover:bg-white/6 transition-all duration-200">Services</a>
             <a href="#canada" className="mono-label text-blue-400/70 hover:text-blue-300 text-xs uppercase tracking-widest px-3 py-1.5 rounded-lg hover:bg-blue-500/10 transition-all duration-200 flex items-center gap-1.5">
               <span>🇨🇦</span>Canada
+              {firehoseCanada > 0 && <span className="inline-flex items-center gap-0.5 h-4 px-1.5 rounded-full bg-blue-500/20 border border-blue-500/30 text-blue-300 text-[9px] font-bold leading-none" title="Firehose feed cards">Firehose {firehoseCanada}</span>}
               {chatCanada > 0 && <span className="inline-flex items-center gap-0.5 h-4 px-1.5 rounded-full bg-cyan-500/20 border border-cyan-500/30 text-cyan-300 text-[9px] font-bold leading-none" title="Chat stream cards">Chat {chatCanada}</span>}
               {newCanada > 0 && <span className="inline-flex items-center justify-center h-4 min-w-4 px-1 rounded-full bg-emerald-500/20 border border-emerald-500/30 text-emerald-400 text-[9px] font-bold leading-none">{newCanada}</span>}
             </a>
@@ -1949,6 +1966,7 @@ export default function Home() {
             <a href="#services" onClick={() => setMobileMenuOpen(false)} className="mono-label text-white/60 hover:text-white text-xs uppercase tracking-widest px-3 py-2.5 rounded-lg hover:bg-white/8 transition-all duration-200">Services</a>
             <a href="#canada" onClick={() => setMobileMenuOpen(false)} className="mono-label text-blue-400/80 hover:text-blue-300 text-xs uppercase tracking-widest px-3 py-2.5 rounded-lg hover:bg-blue-500/10 transition-all duration-200 flex items-center gap-1.5">
               <span>🇨🇦</span>Canada
+              {firehoseCanada > 0 && <span className="inline-flex items-center gap-0.5 h-4 px-1.5 rounded-full bg-blue-500/20 border border-blue-500/30 text-blue-300 text-[9px] font-bold leading-none" title="Firehose feed cards">Firehose {firehoseCanada}</span>}
               {chatCanada > 0 && <span className="inline-flex items-center gap-0.5 h-4 px-1.5 rounded-full bg-cyan-500/20 border border-cyan-500/30 text-cyan-300 text-[9px] font-bold leading-none" title="Chat stream cards">Chat {chatCanada}</span>}
               {newCanada > 0 && <span className="inline-flex items-center justify-center h-4 min-w-4 px-1 rounded-full bg-emerald-500/20 border border-emerald-500/30 text-emerald-400 text-[9px] font-bold leading-none">{newCanada}</span>}
             </a>
@@ -2199,7 +2217,7 @@ export default function Home() {
             const chatCards     = filteredCore.filter(c => c.badge === 'Chat');
             const mapCards      = filteredCore.filter(c => c.badge !== 'Firehose' && c.badge !== 'Chat');
 
-            const CaSubGroup = ({ label, color, cards, startIdx, href }: { label: string; color: string; cards: typeof filteredCore; startIdx: number; href?: string }) => {
+            const CaSubGroup = ({ label, color, cards, startIdx, href, anchorId }: { label: string; color: string; cards: typeof filteredCore; startIdx: number; href?: string; anchorId?: string }) => {
               if (cards.length === 0) return null;
               const colorMap: Record<string, { border: string; bg: string; dot: string; text: string }> = {
                 blue:   { border: 'border-blue-500/20',   bg: 'bg-blue-500/8',   dot: 'bg-blue-400',   text: 'text-blue-400/80' },
@@ -2208,11 +2226,12 @@ export default function Home() {
                 amber:  { border: 'border-amber-500/20',  bg: 'bg-amber-500/8',  dot: 'bg-amber-400',  text: 'text-amber-400/80' },
               };
               const c = colorMap[color] ?? colorMap.blue;
+              const anchorHash = anchorId ? `#${anchorId}` : undefined;
               const labelEl = href
                 ? <a href={href} target="_blank" rel="noopener noreferrer" className={`mono-label ${c.text} text-xs uppercase tracking-widest hover:underline`}>{label} <span className="opacity-50">&middot; {cards.length}</span></a>
                 : <span className={`mono-label ${c.text} text-xs uppercase tracking-widest`}>{label} <span className="opacity-50">&middot; {cards.length}</span></span>;
               return (
-                <div className="mb-10">
+                <div className="mb-10" id={anchorId}>
                   <div className="flex items-center gap-3 mb-5">
                     <div className="h-px flex-1 bg-white/6" />
                     <div className={`flex items-center gap-2 px-3 py-1.5 rounded-full border ${c.border} ${c.bg}`}>
@@ -2221,6 +2240,19 @@ export default function Home() {
                         <span className={`relative inline-flex rounded-full h-1.5 w-1.5 ${c.dot}`}></span>
                       </span>
                       {labelEl}
+                      {anchorHash && (
+                        <button
+                          onClick={() => copyAnchor(anchorHash)}
+                          title="Copy link to this group"
+                          className="ml-1 inline-flex items-center justify-center w-5 h-5 rounded border border-white/10 bg-white/5 hover:bg-white/10 text-white/30 hover:text-white/60 transition-all duration-200"
+                          aria-label={`Copy link to ${label}`}
+                        >
+                          {copiedAnchor === anchorHash
+                            ? <svg className="w-2.5 h-2.5 text-emerald-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M20 6 9 17l-5-5" /></svg>
+                            : <svg className="w-2.5 h-2.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="14" height="14" x="8" y="8" rx="2" ry="2" /><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2" /></svg>
+                          }
+                        </button>
+                      )}
                     </div>
                     <div className="h-px flex-1 bg-white/6" />
                   </div>
@@ -2243,9 +2275,9 @@ export default function Home() {
 
             return (
               <>
-                <CaSubGroup label="Firehose Feeds"   color="blue"  cards={firehoseCards} startIdx={0} />
-                <CaSubGroup label="Chat Streams"     color="cyan"  cards={chatCards}     startIdx={firehoseCards.length} />
-                <CaSubGroup label="Maps & Analysis"  color="violet" cards={mapCards}     startIdx={firehoseCards.length + chatCards.length} />
+                <CaSubGroup label="Firehose Feeds"  color="blue"   cards={firehoseCards} startIdx={0}                                          anchorId="canada-firehose" />
+                <CaSubGroup label="Chat Streams"     color="cyan"   cards={chatCards}     startIdx={firehoseCards.length}                          anchorId="canada-chat" />
+                <CaSubGroup label="Maps & Analysis"  color="violet" cards={mapCards}      startIdx={firehoseCards.length + chatCards.length}       anchorId="canada-maps" />
               </>
             );
           })()}

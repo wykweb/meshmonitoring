@@ -119,6 +119,12 @@ All listed services are volunteer-run and community-maintained.
 | Georgia Mesh | [meshview.gamesh.net](https://meshview.gamesh.net) | Georgia |
 | MeshSense | [meshsense.affirmatech.com](https://meshsense.affirmatech.com/) | Cross-platform app |
 
+### USA — Community Hubs
+
+| Service | URL | Region |
+|---|---|---------|
+| Tahoe Mesh | [tahoemesh.org](https://tahoemesh.org/) | Lake Tahoe Basin, CA/NV |
+
 ### USA — MeshInfo Instances
 
 | Service | URL | Region |

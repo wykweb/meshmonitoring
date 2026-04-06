@@ -1363,6 +1363,20 @@ const usaServices: ServiceCard[] = [
     addedAt: "2026-04-03",
     verifiedAt: '2026-04-03',
   },
+  {
+    id: "tahoe-mesh",
+    title: "Tahoe Mesh",
+    subtitle: "Lake Tahoe Basin, California/Nevada — USA",
+    description:
+      "Community site documenting, promoting, and providing information about the deployment of Meshtastic in the Lake Tahoe Basin. A hub for local mesh operators and outdoor enthusiasts exploring off-grid mesh communications in the Sierra Nevada.",
+    url: "https://tahoemesh.org/",
+    badge: "Community",
+    badgeColor: "green",
+    icon: <GlobeIcon className="w-6 h-6" />,
+    tag: "tahoemesh.org",
+    addedAt: "2026-04-06",
+    verifiedAt: '2026-04-06',
+  },
 ];
 
 const articleServices: ServiceCard[] = [

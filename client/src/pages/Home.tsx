@@ -413,6 +413,21 @@ const coreServices: ServiceCard[] = [
     addedAt: "2026-04-06",
   },
   {
+    id: "yyc-meshinfo",
+    title: "YYC Mesh — MeshInfo",
+    subtitle: "Meshtastic Network — Calgary, Alberta",
+    description:
+      "YYC-specific MeshInfo dashboard aggregating node data, telemetry, and mesh statistics from the Calgary Meshtastic network. Browse node details, hardware types, firmware versions, and local network health.",
+    url: "https://yycmesh.meshmonitoring.com/meshinfo",
+    badge: "MeshInfo",
+    badgeColor: "indigo",
+    icon: <NetworkIcon className="w-6 h-6" />,
+    tag: "yycmesh.meshmonitoring.com",
+    note: "Open MeshInfo",
+    noteUrl: "https://yycmesh.meshmonitoring.com/meshinfo",
+    addedAt: "2026-04-06",
+  },
+  {
     id: "cedarmesh-hub",
     title: "CedarMesh.ca — GTA+ Mesh Hub",
     subtitle: "Greater Toronto Area, CA",
@@ -1869,11 +1884,22 @@ export default function Home() {
                 { label: "Chat",     href: "#canada-chat",     color: "text-cyan-400/70 hover:text-cyan-300 hover:bg-cyan-500/10" },
                 { label: "Maps",     href: "#canada-maps",     color: "text-violet-400/70 hover:text-violet-300 hover:bg-violet-500/10" },
               ].map(({ label, href, color }) => (
-                <a
-                  key={href}
-                  href={href}
-                  className={`mono-label text-[10px] uppercase tracking-widest px-2.5 py-0.5 rounded-md transition-all duration-200 ${color}`}
-                >
+                <a key={href} href={href} className={`mono-label text-[10px] uppercase tracking-widest px-2.5 py-0.5 rounded-md transition-all duration-200 ${color}`}>
+                  {label}
+                </a>
+              ))}
+            </>
+          )}
+          {/* USA sub-group quick-jump links — only visible when USA section is active */}
+          {activeSection === "usa" && (
+            <>
+              <span className="text-white/15 text-xs select-none">|</span>
+              {[
+                { label: "MeshView",    href: "#usa-meshview",     color: "text-sky-400/70 hover:text-sky-300 hover:bg-sky-500/10" },
+                { label: "MeshMonitor", href: "#usa-meshmonitor",  color: "text-rose-400/70 hover:text-rose-300 hover:bg-rose-500/10" },
+                { label: "MeshInfo",    href: "#usa-meshinfo",     color: "text-emerald-400/70 hover:text-emerald-300 hover:bg-emerald-500/10" },
+              ].map(({ label, href, color }) => (
+                <a key={href} href={href} className={`mono-label text-[10px] uppercase tracking-widest px-2.5 py-0.5 rounded-md transition-all duration-200 ${color}`}>
                   {label}
                 </a>
               ))}
@@ -2585,7 +2611,7 @@ export default function Home() {
             const meshMonitorCards = filteredUSA.filter(c => c.badge === "MeshMonitor");
             const meshInfoCards    = filteredUSA.filter(c => c.badge === "MeshInfo");
 
-            const USASubGroup = ({ label, color, linkHref, cards, startIdx }: { label: string; color: string; linkHref?: string; cards: typeof filteredUSA; startIdx: number }) => {
+            const USASubGroup = ({ label, color, linkHref, anchorId, cards, startIdx }: { label: string; color: string; linkHref?: string; anchorId?: string; cards: typeof filteredUSA; startIdx: number }) => {
               if (cards.length === 0) return null;
               const colorMap: Record<string, { border: string; bg: string; dot: string; text: string; hover: string }> = {
                 sky:     { border: "border-sky-500/20",     bg: "bg-sky-500/8",     dot: "bg-sky-400",     text: "text-sky-400/80",     hover: "hover:text-sky-300" },
@@ -2593,6 +2619,7 @@ export default function Home() {
                 emerald: { border: "border-emerald-500/20", bg: "bg-emerald-500/8", dot: "bg-emerald-400", text: "text-emerald-400/80", hover: "hover:text-emerald-300" },
               };
               const c = colorMap[color] ?? colorMap.sky;
+              const anchorHash = anchorId ? `#${anchorId}` : undefined;
               const labelEl = linkHref ? (
                 <a href={linkHref} target="_blank" rel="noopener noreferrer"
                   className={`mono-label ${c.text} text-xs uppercase tracking-widest ${c.hover} transition-colors duration-150 flex items-center gap-1`}>
@@ -2607,7 +2634,7 @@ export default function Home() {
                 </span>
               );
               return (
-                <div className="mb-10">
+                <div className="mb-10" id={anchorId}>
                   <div className="flex items-center gap-3 mb-5">
                     <div className="h-px flex-1 bg-white/6" />
                     <div className={`flex items-center gap-2 px-3 py-1.5 rounded-full border ${c.border} ${c.bg}`}>
@@ -2616,6 +2643,19 @@ export default function Home() {
                         <span className={`relative inline-flex rounded-full h-1.5 w-1.5 ${c.dot}`}></span>
                       </span>
                       {labelEl}
+                      {anchorHash && (
+                        <button
+                          onClick={() => copyAnchor(anchorHash)}
+                          title="Copy link to this group"
+                          className="ml-1 inline-flex items-center justify-center w-5 h-5 rounded border border-white/10 bg-white/5 hover:bg-white/10 text-white/30 hover:text-white/60 transition-all duration-200"
+                          aria-label={`Copy link to ${label}`}
+                        >
+                          {copiedAnchor === anchorHash
+                            ? <svg className="w-2.5 h-2.5 text-emerald-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M20 6 9 17l-5-5" /></svg>
+                            : <svg className="w-2.5 h-2.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="14" height="14" x="8" y="8" rx="2" ry="2" /><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2" /></svg>
+                          }
+                        </button>
+                      )}
                     </div>
                     <div className="h-px flex-1 bg-white/6" />
                   </div>
@@ -2628,9 +2668,9 @@ export default function Home() {
 
             return (
               <>
-                <USASubGroup label="MeshView &amp; Map Viewers" color="sky"     cards={meshViewCards}    startIdx={0} />
-                <USASubGroup label="MeshMonitor Instances"      color="rose"    linkHref="https://meshmonitor.org/" cards={meshMonitorCards} startIdx={meshViewCards.length} />
-                <USASubGroup label="MeshInfo Instances"         color="emerald" linkHref="https://github.com/MeshAddicts/meshinfo" cards={meshInfoCards} startIdx={meshViewCards.length + meshMonitorCards.length} />
+                <USASubGroup label="MeshView &amp; Map Viewers" color="sky"     anchorId="usa-meshview"     cards={meshViewCards}    startIdx={0} />
+                <USASubGroup label="MeshMonitor Instances"      color="rose"    anchorId="usa-meshmonitor" linkHref="https://meshmonitor.org/" cards={meshMonitorCards} startIdx={meshViewCards.length} />
+                <USASubGroup label="MeshInfo Instances"         color="emerald" anchorId="usa-meshinfo"    linkHref="https://github.com/MeshAddicts/meshinfo" cards={meshInfoCards} startIdx={meshViewCards.length + meshMonitorCards.length} />
               </>
             );
           })()}

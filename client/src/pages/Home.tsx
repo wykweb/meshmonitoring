@@ -270,6 +270,21 @@ const coreServices: ServiceCard[] = [
     qrCaption: "Scan to join the YYC Mesh Custom channel",
   },
   {
+    id: "yyc-mesh-chats",
+    title: "YYC Mesh — Chats",
+    subtitle: "Live Chat Stream — Calgary, Alberta",
+    description:
+      "Live chat stream from the YYC Mesh network. Browse real-time messages sent over the Calgary Meshtastic mesh, including channel traffic, direct messages, and community conversations as they happen.",
+    url: "https://yycmesh.meshmonitoring.com/chat",
+    badge: "Firehose",
+    badgeColor: "cyan",
+    icon: <NetworkIcon className="w-6 h-6" />,
+    tag: "yycmesh.meshmonitoring.com",
+    note: "Open Chat Stream",
+    noteUrl: "https://yycmesh.meshmonitoring.com/chat",
+    addedAt: "2026-04-06",
+  },
+  {
     id: "canada-mesh",
     title: "Canada Mesh",
     subtitle: "Meshtastic Network",

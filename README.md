@@ -22,7 +22,8 @@ All listed services are volunteer-run and community-maintained.
 |---|---|---|
 | YYC Mesh — Observer Zapp Mobile | [yycmesh.meshmonitoring.com/firehose](https://yycmesh.meshmonitoring.com/firehose) | Live firehose from the YYC Mesh Zapp Mobile observer |
 | YYC Mesh — Observer WYK0 Bot | [yyc.meshmonitoring.com/firehose](https://yyc.meshmonitoring.com/firehose) | Live firehose from the YYC Mesh WYK0 bot observer |
-| YYC Mesh — Chats | [yycmesh.meshmonitoring.com/chat](https://yycmesh.meshmonitoring.com/chat) | Live chat stream from the YYC Mesh network |
+| YYC Mesh — Chats (Zapp) | [yycmesh.meshmonitoring.com/chat](https://yycmesh.meshmonitoring.com/chat) | Live chat stream from the YYC Mesh network via Zapp Mobile observer |
+| YYC Mesh — Chats (WYK0) | [yyc.meshmonitoring.com/chat](https://yyc.meshmonitoring.com/chat) | Live chat stream from the YYC Mesh network via WYK0 bot observer |
 | Canada Mesh Meshtastic | [ca.meshmonitoring.com/firehose](https://ca.meshmonitoring.com/firehose) | National Meshtastic firehose feed |
 | Canada Mesh — Chats | [ca.meshmonitoring.com/chat](https://ca.meshmonitoring.com/chat) | Live chat stream aggregating messages from across the Canadian mesh |
 | MeshMapper YYC | [yyc.meshmapper.net](https://yyc.meshmapper.net/) | Live RF coverage map for Calgary (YYC) — powered by MeshMapper |

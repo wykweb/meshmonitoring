@@ -285,6 +285,21 @@ const coreServices: ServiceCard[] = [
     addedAt: "2026-04-06",
   },
   {
+    id: "wyk0-chats",
+    title: "YYC Mesh — Chats (WYK0)",
+    subtitle: "Live Chat Stream — Calgary, Alberta",
+    description:
+      "Live chat stream from the YYC Mesh network via the WYK0 bot observer. Browse real-time messages, channel traffic, and community conversations as they flow through the Calgary Meshtastic mesh.",
+    url: "https://yyc.meshmonitoring.com/chat",
+    badge: "Chat",
+    badgeColor: "blue",
+    icon: <BotIcon className="w-6 h-6" />,
+    tag: "yyc.meshmonitoring.com",
+    note: "Open Chat Stream",
+    noteUrl: "https://yyc.meshmonitoring.com/chat",
+    addedAt: "2026-04-06",
+  },
+  {
     id: "canada-mesh",
     title: "Canada Mesh",
     subtitle: "Meshtastic Network",
@@ -1707,6 +1722,7 @@ export default function Home() {
   const newCommunity = communityServices.filter(isNew).length;
   const newUSA       = usaServices.filter(isNew).length;
   const newArticles  = articleServices.filter(isNew).length;
+  const chatCanada   = coreServices.filter(c => c.badge === 'Chat').length;
 
   // Copy-link anchor state
   const [copiedAnchor, setCopiedAnchor] = useState<string | null>(null);
@@ -1822,6 +1838,7 @@ export default function Home() {
             <a href="#services" className="mono-label text-white/40 hover:text-white/80 text-xs uppercase tracking-widest px-3 py-1.5 rounded-lg hover:bg-white/6 transition-all duration-200">Services</a>
             <a href="#canada" className="mono-label text-blue-400/70 hover:text-blue-300 text-xs uppercase tracking-widest px-3 py-1.5 rounded-lg hover:bg-blue-500/10 transition-all duration-200 flex items-center gap-1.5">
               <span>🇨🇦</span>Canada
+              {chatCanada > 0 && <span className="inline-flex items-center gap-0.5 h-4 px-1.5 rounded-full bg-cyan-500/20 border border-cyan-500/30 text-cyan-300 text-[9px] font-bold leading-none" title="Chat stream cards">Chat {chatCanada}</span>}
               {newCanada > 0 && <span className="inline-flex items-center justify-center h-4 min-w-4 px-1 rounded-full bg-emerald-500/20 border border-emerald-500/30 text-emerald-400 text-[9px] font-bold leading-none">{newCanada}</span>}
             </a>
             <a href="#community" className="mono-label text-white/40 hover:text-cyan-300 text-xs uppercase tracking-widest px-3 py-1.5 rounded-lg hover:bg-cyan-500/10 transition-all duration-200 flex items-center gap-1.5">
@@ -1932,6 +1949,7 @@ export default function Home() {
             <a href="#services" onClick={() => setMobileMenuOpen(false)} className="mono-label text-white/60 hover:text-white text-xs uppercase tracking-widest px-3 py-2.5 rounded-lg hover:bg-white/8 transition-all duration-200">Services</a>
             <a href="#canada" onClick={() => setMobileMenuOpen(false)} className="mono-label text-blue-400/80 hover:text-blue-300 text-xs uppercase tracking-widest px-3 py-2.5 rounded-lg hover:bg-blue-500/10 transition-all duration-200 flex items-center gap-1.5">
               <span>🇨🇦</span>Canada
+              {chatCanada > 0 && <span className="inline-flex items-center gap-0.5 h-4 px-1.5 rounded-full bg-cyan-500/20 border border-cyan-500/30 text-cyan-300 text-[9px] font-bold leading-none" title="Chat stream cards">Chat {chatCanada}</span>}
               {newCanada > 0 && <span className="inline-flex items-center justify-center h-4 min-w-4 px-1 rounded-full bg-emerald-500/20 border border-emerald-500/30 text-emerald-400 text-[9px] font-bold leading-none">{newCanada}</span>}
             </a>
             <a href="#community" onClick={() => setMobileMenuOpen(false)} className="mono-label text-white/60 hover:text-cyan-300 text-xs uppercase tracking-widest px-3 py-2.5 rounded-lg hover:bg-cyan-500/10 transition-all duration-200 flex items-center gap-1.5">
@@ -2177,17 +2195,22 @@ export default function Home() {
           </div>
 
 {(() => {
-            const yycCards      = filteredCore.filter(c => c.badge === 'Firehose' || c.badge === 'Map');
-            const nationalCards = filteredCore.filter(c => c.badge !== 'Firehose' && c.badge !== 'Map');
+            const firehoseCards = filteredCore.filter(c => c.badge === 'Firehose');
+            const chatCards     = filteredCore.filter(c => c.badge === 'Chat');
+            const mapCards      = filteredCore.filter(c => c.badge !== 'Firehose' && c.badge !== 'Chat');
 
-            const CaSubGroup = ({ label, color, cards, startIdx }: { label: string; color: string; cards: typeof filteredCore; startIdx: number }) => {
+            const CaSubGroup = ({ label, color, cards, startIdx, href }: { label: string; color: string; cards: typeof filteredCore; startIdx: number; href?: string }) => {
               if (cards.length === 0) return null;
               const colorMap: Record<string, { border: string; bg: string; dot: string; text: string }> = {
                 blue:   { border: 'border-blue-500/20',   bg: 'bg-blue-500/8',   dot: 'bg-blue-400',   text: 'text-blue-400/80' },
                 cyan:   { border: 'border-cyan-500/20',   bg: 'bg-cyan-500/8',   dot: 'bg-cyan-400',   text: 'text-cyan-400/80' },
                 violet: { border: 'border-violet-500/20', bg: 'bg-violet-500/8', dot: 'bg-violet-400', text: 'text-violet-400/80' },
+                amber:  { border: 'border-amber-500/20',  bg: 'bg-amber-500/8',  dot: 'bg-amber-400',  text: 'text-amber-400/80' },
               };
               const c = colorMap[color] ?? colorMap.blue;
+              const labelEl = href
+                ? <a href={href} target="_blank" rel="noopener noreferrer" className={`mono-label ${c.text} text-xs uppercase tracking-widest hover:underline`}>{label} <span className="opacity-50">&middot; {cards.length}</span></a>
+                : <span className={`mono-label ${c.text} text-xs uppercase tracking-widest`}>{label} <span className="opacity-50">&middot; {cards.length}</span></span>;
               return (
                 <div className="mb-10">
                   <div className="flex items-center gap-3 mb-5">
@@ -2197,9 +2220,7 @@ export default function Home() {
                         <span className={`animate-ping absolute inline-flex h-full w-full rounded-full ${c.dot} opacity-60`}></span>
                         <span className={`relative inline-flex rounded-full h-1.5 w-1.5 ${c.dot}`}></span>
                       </span>
-                      <span className={`mono-label ${c.text} text-xs uppercase tracking-widest`}>
-                        {label} <span className="opacity-50">&middot; {cards.length}</span>
-                      </span>
+                      {labelEl}
                     </div>
                     <div className="h-px flex-1 bg-white/6" />
                   </div>
@@ -2222,8 +2243,9 @@ export default function Home() {
 
             return (
               <>
-                <CaSubGroup label="YYC Firehose & Maps" color="blue" cards={yycCards}      startIdx={0} />
-                <CaSubGroup label="National Coverage"   color="cyan" cards={nationalCards} startIdx={yycCards.length} />
+                <CaSubGroup label="Firehose Feeds"   color="blue"  cards={firehoseCards} startIdx={0} />
+                <CaSubGroup label="Chat Streams"     color="cyan"  cards={chatCards}     startIdx={firehoseCards.length} />
+                <CaSubGroup label="Maps & Analysis"  color="violet" cards={mapCards}     startIdx={firehoseCards.length + chatCards.length} />
               </>
             );
           })()}

@@ -322,20 +322,6 @@ const coreServices: ServiceCard[] = [
     noteUrl: "https://wiki.meshmapper.net/",
     addedAt: "2026-04-03",
   },
-  {
-    id: "cedarmesh-hub",
-    title: "CedarMesh.ca — GTA+ Mesh Hub",
-    subtitle: "Greater Toronto Area, CA",
-    description:
-      "Community hub for the Greater Toronto Area Meshtastic and MeshCore mesh network. Features setup guides, local mesh tools, a battery & solar calculator, RF power estimator, and a welcoming space for GTA+ mesh operators.",
-    url: "https://cedarmesh.ca",
-    badge: "Community",
-    badgeColor: "blue",
-    icon: <NetworkIcon className="w-6 h-6" />,
-    tag: "cedarmesh.ca",
-    note: "GTA+ Mesh Community",
-    addedAt: "2026-04-06",
-  },
 ];
 
 const resourceServices: ServiceCard[] = [
@@ -1519,22 +1505,16 @@ function StatsBar() {
         observer.disconnect();
         // Dynamically count unique geographic regions from all service arrays
         const allCards = [...coreServices, ...communityServices, ...resourceServices, ...usaServices, ...articleServices];
-        const nonGeoExclude = new Set(['Dashboard','Mesh Bot','Python Automation Bot','Open Source Tools','Protocol Bridge','Network Analysis Tool','Network Monitor & Visualizer','Node Information Portal','Community Knowledge Base','Resource Index','Observer Zapp Mobile','Observer WYK0 Bot','YYC MeshCore Map','YYCMesh Community','Ottawa Mesh Community','GTA+ Community Hub','KW / NEOSG2 Region','Northern BC','by MeshNard','Discord Community','map.mt.gt','Meshtastic Network','Your mesh. Your data.','MeshCore','Python + MariaDB','RF Coverage Map']);
         const geoRegions = new Set(
           allCards
             .map(c => c.subtitle)
-            .flatMap(s => {
-              if (s.includes('\u2014')) {
-                const parts = s.split('\u2014');
-                const region = parts[parts.length - 1].trim();
-                const r = region === 'USA' || region === 'Canada' ? parts[0].trim().replace(/^[^a-zA-Z]+/, '') : region;
-                return [r === 'Calgary, AB' ? 'Calgary, Alberta' : r];
-              }
-              // Also capture plain geographic subtitles like "Greater Toronto Area, CA"
-              if (/^[A-Z][^\u2014]+,\s*[A-Z]{2,}$/.test(s.trim())) return [s.trim()];
-              return [];
+            .filter(s => s.includes('\u2014'))
+            .map(s => {
+              const parts = s.split('\u2014');
+              const region = parts[parts.length - 1].trim();
+              return region === 'USA' || region === 'Canada' ? parts[0].trim().replace(/^[^a-zA-Z]+/, '') : region;
             })
-            .filter(r => !nonGeoExclude.has(r))
+            .filter(r => !['Dashboard','Mesh Bot','Python Automation Bot','Open Source Tools','Protocol Bridge','Network Analysis Tool','Network Monitor & Visualizer','Node Information Portal','Community Knowledge Base','Resource Index','Observer Zapp Mobile','Observer WYK0 Bot','YYC MeshCore Map','YYCMesh Community','Ottawa Mesh Community','GTA+ Community Hub','KW / NEOSG2 Region','Northern BC','by MeshNard','Discord Community','map.mt.gt','Meshtastic Network','Your mesh. Your data.'].includes(r))
         );
         const serviceTarget = allCards.length;
         let svc = 0;
@@ -2290,7 +2270,7 @@ export default function Home() {
 
             return (
               <>
-                <SubGrp label="Canadaverse Network"    color="cyan"    ids={canadaverseIds}    startIdx={0} href="https://canadaverse.org" />
+                <SubGrp label="Canadaverse Network"    color="cyan"    ids={canadaverseIds}    startIdx={0} />
                 <SubGrp label="Regional Communities"  color="emerald" ids={regionalIds}       startIdx={canadaverseIds.length} />
                 <SubGrp label="CedarMesh — GTA+"      color="blue"    ids={cedarMeshIds}      startIdx={canadaverseIds.length + regionalIds.length}                                                href="https://cedarmesh.ca" />
                 <SubGrp label="Canadaverse Extended"  color="violet"  ids={canadaverseExtIds} startIdx={canadaverseIds.length + regionalIds.length + cedarMeshIds.length}                        href="https://canadaverse.org" />

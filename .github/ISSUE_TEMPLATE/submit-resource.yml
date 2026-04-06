@@ -1,0 +1,102 @@
+name: Submit a Resource
+description: Propose a new community service, tool, map, dashboard, or regional hub to be listed on meshmonitoring.com
+title: "[Resource] "
+labels: ["resource-submission"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for contributing to the Canadian mesh community directory!
+        Please fill in the details below and we'll review your submission for inclusion on [meshmonitoring.com](https://meshmonitoring.com).
+
+  - type: input
+    id: name
+    attributes:
+      label: Resource Name
+      description: The display name for the service or community hub
+      placeholder: e.g. "Vancouver Mesh Community"
+    validations:
+      required: true
+
+  - type: input
+    id: url
+    attributes:
+      label: Primary URL
+      description: The main link visitors should be directed to
+      placeholder: https://example.com
+    validations:
+      required: true
+
+  - type: dropdown
+    id: category
+    attributes:
+      label: Category
+      description: What type of resource is this?
+      options:
+        - Firehose Feed
+        - Interactive Map
+        - Dashboard
+        - Node Monitor
+        - Community Hub
+        - Wiki / Documentation
+        - Links Directory
+        - Analyzer / Tool
+        - Other
+    validations:
+      required: true
+
+  - type: dropdown
+    id: region
+    attributes:
+      label: Region
+      description: Which region does this resource primarily serve?
+      options:
+        - National (Canada-wide)
+        - YYC / Calgary
+        - Canadaverse Network
+        - Ottawa / Eastern Ontario
+        - GTA / Southern Ontario
+        - KW / Waterloo Region
+        - BC / West Coast
+        - Prairies
+        - Atlantic Canada
+        - Other / International
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Short Description
+      description: One or two sentences describing what this resource does and who it's for
+      placeholder: "A community hub for Vancouver-area Meshtastic operators with local node maps and setup guides."
+    validations:
+      required: true
+
+  - type: input
+    id: network
+    attributes:
+      label: Network Type
+      description: Which mesh network protocol does this resource support?
+      placeholder: e.g. Meshtastic, MeshCore, Both
+    validations:
+      required: true
+
+  - type: input
+    id: maintainer
+    attributes:
+      label: Maintainer / Contact (optional)
+      description: GitHub username, callsign, or Discord handle of the person responsible for this resource
+      placeholder: e.g. @username or VE3XYZ
+
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: Submission Checklist
+      options:
+        - label: The resource is publicly accessible (or has clearly documented guest credentials)
+          required: true
+        - label: The resource is community-operated and relevant to Canadian mesh networking
+          required: true
+        - label: I have tested the URL and it is currently live
+          required: true

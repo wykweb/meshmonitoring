@@ -1819,6 +1819,13 @@ export default function Home() {
   const [activeSection, setActiveSection] = useState<string>("services");
   const [searchQuery, setSearchQuery] = useState("");
   const [activeType, setActiveType] = useState<string>("All");
+  const [sortOrder, setSortOrder] = useState<"newest" | "oldest" | "az">("newest");
+
+  function sortCards<T extends { title: string; addedAt?: string }>(cards: T[]): T[] {
+    if (sortOrder === "az") return [...cards].sort((a, b) => a.title.localeCompare(b.title));
+    if (sortOrder === "oldest") return [...cards].sort((a, b) => (a.addedAt ?? "").localeCompare(b.addedAt ?? ""));
+    return [...cards].sort((a, b) => (b.addedAt ?? "").localeCompare(a.addedAt ?? ""));
+  }
   const searchRef = useRef<HTMLInputElement>(null);
 
   const TYPE_PILLS = ["All", "New", "Verified", "Stale", "Firehose", "Chat", "Map", "MeshView", "MeshMonitor", "MeshInfo", "Community", "Dashboard", "Bot", "Tool", "Software", "Wardriving", "Relay", "Directory", "Telegram", "Discord", "Article", "GTA+"];
@@ -1842,11 +1849,11 @@ export default function Home() {
   }
 
   // Derived filtered arrays
-  const filteredCore      = coreServices.filter(c => matchesQuery(c, searchQuery) && matchesType(c));
-  const filteredCommunity = communityServices.filter(c => matchesQuery(c, searchQuery) && matchesType(c));
-  const filteredResources = resourceServices.filter(c => matchesQuery(c, searchQuery) && matchesType(c));
-  const filteredUSA       = usaServices.filter(c => matchesQuery(c, searchQuery) && matchesType(c));
-  const filteredArticles  = articleServices.filter(c => matchesQuery(c, searchQuery) && matchesType(c));
+  const filteredCore      = sortCards(coreServices.filter(c => matchesQuery(c, searchQuery) && matchesType(c)));
+  const filteredCommunity = sortCards(communityServices.filter(c => matchesQuery(c, searchQuery) && matchesType(c)));
+  const filteredResources = sortCards(resourceServices.filter(c => matchesQuery(c, searchQuery) && matchesType(c)));
+  const filteredUSA       = sortCards(usaServices.filter(c => matchesQuery(c, searchQuery) && matchesType(c)));
+  const filteredArticles  = sortCards(articleServices.filter(c => matchesQuery(c, searchQuery) && matchesType(c)));
 
   const totalVisible =
     filteredCore.length + filteredCommunity.length + filteredResources.length + filteredUSA.length + filteredArticles.length;
@@ -2058,6 +2065,7 @@ export default function Home() {
             </a>
             <a href="#usa" className="mono-label text-rose-400/70 hover:text-rose-300 text-xs uppercase tracking-widest px-3 py-1.5 rounded-lg hover:bg-rose-500/10 transition-all duration-200 flex items-center gap-1.5">
               <span>🇺🇸</span>USA
+              <span className="inline-flex items-center justify-center h-4 min-w-4 px-1 rounded-full bg-white/10 border border-white/15 text-white/50 text-[9px] font-bold leading-none" title="Total USA services">{usaServices.length}</span>
               {newUSA > 0 && <span className="inline-flex items-center justify-center h-4 min-w-4 px-1 rounded-full bg-emerald-500/20 border border-emerald-500/30 text-emerald-400 text-[9px] font-bold leading-none">{newUSA}</span>}
             </a>
             <a
@@ -2171,6 +2179,7 @@ export default function Home() {
             </a>
             <a href="#usa" onClick={() => setMobileMenuOpen(false)} className="mono-label text-rose-400/80 hover:text-rose-300 text-xs uppercase tracking-widest px-3 py-2.5 rounded-lg hover:bg-rose-500/10 transition-all duration-200 flex items-center gap-1.5">
               <span>🇺🇸</span>USA
+              <span className="inline-flex items-center justify-center h-4 min-w-4 px-1 rounded-full bg-white/10 border border-white/15 text-white/50 text-[9px] font-bold leading-none" title="Total USA services">{usaServices.length}</span>
               {newUSA > 0 && <span className="inline-flex items-center justify-center h-4 min-w-4 px-1 rounded-full bg-emerald-500/20 border border-emerald-500/30 text-emerald-400 text-[9px] font-bold leading-none">{newUSA}</span>}
             </a>
             <a
@@ -2339,14 +2348,39 @@ export default function Home() {
                 </button>
               )}
             </div>
-            {isFiltering && (
+            {isFiltering ? (
               <span className="mono-label text-white/30 text-xs whitespace-nowrap">
                 {totalVisible} result{totalVisible !== 1 ? "s" : ""}
               </span>
+            ) : (
+              <span className="hidden sm:flex items-center gap-1 mono-label text-white/20 text-xs whitespace-nowrap select-none" title="Press / to focus search, Escape to clear">
+                <kbd className="px-1.5 py-0.5 rounded border border-white/12 bg-white/5 text-white/30 text-[10px] font-mono">/</kbd>
+                <span>to search</span>
+                <span className="text-white/12 mx-0.5">&middot;</span>
+                <kbd className="px-1.5 py-0.5 rounded border border-white/12 bg-white/5 text-white/30 text-[10px] font-mono">Esc</kbd>
+                <span>to clear</span>
+              </span>
             )}
           </div>
-          {/* Type filter pills */}
+          {/* Type filter pills + sort dropdown */}
           <div className="flex items-center gap-2 mt-2.5 flex-wrap">
+            {/* Sort dropdown */}
+            <div className="relative">
+              <select
+                value={sortOrder}
+                onChange={e => setSortOrder(e.target.value as "newest" | "oldest" | "az")}
+                className="mono-label text-xs px-3 py-1 rounded-full border border-white/10 bg-white/4 text-white/40 hover:text-white/60 hover:bg-white/8 hover:border-white/20 transition-all duration-150 cursor-pointer appearance-none pr-6"
+                title="Sort order"
+              >
+                <option value="newest">↓ Newest</option>
+                <option value="oldest">↑ Oldest</option>
+                <option value="az">A–Z</option>
+              </select>
+              <svg className="pointer-events-none absolute right-2 top-1/2 -translate-y-1/2 w-2.5 h-2.5 text-white/25" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                <path d="m6 9 6 6 6-6" />
+              </svg>
+            </div>
+            <div className="w-px h-4 bg-white/10" />
             {TYPE_PILLS.map((pill) => (
               <button
                 key={pill}

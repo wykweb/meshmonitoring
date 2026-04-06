@@ -370,7 +370,7 @@ const coreServices: ServiceCard[] = [
     note: "Powered by MeshMapper — wiki.meshmapper.net",
     noteUrl: "https://wiki.meshmapper.net/",
     addedAt: "2026-04-03",
-    verifiedAt: '2026-04-06',
+    verifiedAt: '2026-04-03',
   },
   {
     id: "canada-meshview",
@@ -598,7 +598,7 @@ const resourceServices: ServiceCard[] = [
     icon: <AnalyzerIcon className="w-6 h-6" />,
     tag: "github.com/dadecoza",
     addedAt: "2026-04-03",
-    verifiedAt: '2026-04-06',
+    verifiedAt: '2026-04-03',
   },
   {
     id: "meshinfo",
@@ -612,7 +612,7 @@ const resourceServices: ServiceCard[] = [
     icon: <AnalyzerIcon className="w-6 h-6" />,
     tag: "github.com/MeshAddicts",
     addedAt: "2026-04-03",
-    verifiedAt: '2026-04-06',
+    verifiedAt: '2026-04-03',
   },
   {
     id: "meshmapper-wardriving",
@@ -630,7 +630,7 @@ const resourceServices: ServiceCard[] = [
     note2: "Live Coverage Map — YOW Ottawa",
     note2Url: "https://yow.meshmapper.net/",
     addedAt: "2026-04-03",
-    verifiedAt: '2026-04-06',
+    verifiedAt: '2026-04-03',
   },
   {
     id: "meshmapper-yyc",
@@ -646,7 +646,7 @@ const resourceServices: ServiceCard[] = [
     note: "Network: YYC MeshCore",
     noteUrl: "https://yycmesh.com/",
     addedAt: "2026-04-03",
-    verifiedAt: '2026-04-06',
+    verifiedAt: '2026-04-03',
   },
   {
     id: "meshmapper-yow",
@@ -662,7 +662,7 @@ const resourceServices: ServiceCard[] = [
     note: "Community: Greater Ottawa Mesh Radio Enthusiasts",
     noteUrl: "https://ottawamesh.ca/",
     addedAt: "2026-04-03",
-    verifiedAt: '2026-04-06',
+    verifiedAt: '2026-04-03',
   },
   {
     id: "mesh-web-relay",
@@ -677,7 +677,7 @@ const resourceServices: ServiceCard[] = [
     tag: "relay.meshnard.com",
     note: "By meshnard",
     addedAt: "2026-04-03",
-    verifiedAt: '2026-04-06',
+    verifiedAt: '2026-04-03',
   },
   {
     id: "interlink-radio",
@@ -691,7 +691,7 @@ const resourceServices: ServiceCard[] = [
     icon: <NetworkIcon className="w-6 h-6" />,
     tag: "interlinkradio.weebly.com",
     addedAt: "2026-04-03",
-    verifiedAt: '2026-04-06',
+    verifiedAt: '2026-04-03',
   },
 ];
 
@@ -845,7 +845,7 @@ const communityServices: ServiceCard[] = [
     tag: "t.me/meshmonitoring",
     note: "Announcements & updates channel",
     addedAt: "2026-04-03",
-    verifiedAt: '2026-04-06',
+    verifiedAt: '2026-04-03',
   },
   {
     id: "telegram-meshmonitoring-group",
@@ -864,7 +864,7 @@ const communityServices: ServiceCard[] = [
     tag: "t.me/meshmonitoringgroup",
     note: "Community discussion group",
     addedAt: "2026-04-03",
-    verifiedAt: '2026-04-06',
+    verifiedAt: '2026-04-03',
   },
   {
     id: "salish-mesh",
@@ -913,7 +913,7 @@ const communityServices: ServiceCard[] = [
     note: "Community: Greater Ottawa Mesh Radio Enthusiasts",
     noteUrl: "https://ottawamesh.ca/",
     addedAt: "2026-04-03",
-    verifiedAt: '2026-04-06',
+    verifiedAt: '2026-04-03',
   },
   {
     id: "interlink-radio-community",
@@ -927,7 +927,7 @@ const communityServices: ServiceCard[] = [
     icon: <NetworkIcon className="w-6 h-6" />,
     tag: "interlinkradio.weebly.com",
     addedAt: "2026-04-03",
-    verifiedAt: '2026-04-06',
+    verifiedAt: '2026-04-03',
   },
   {
     id: "cedarmesh-discord",
@@ -1242,7 +1242,7 @@ const usaServices: ServiceCard[] = [
     icon: <MapIcon className="w-6 h-6" />,
     tag: "areyoumeshingwith.us",
     addedAt: "2026-04-03",
-    verifiedAt: '2026-04-06',
+    verifiedAt: '2026-04-03',
     note: "Network: Are You Meshing With Us? — areyoumeshingwith.us",
   },
   {
@@ -1257,7 +1257,7 @@ const usaServices: ServiceCard[] = [
     icon: <MapIcon className="w-6 h-6" />,
     tag: "areyoumeshingwith.us",
     addedAt: "2026-04-03",
-    verifiedAt: '2026-04-06',
+    verifiedAt: '2026-04-03',
     note: "Network: Are You Meshing With Us? — areyoumeshingwith.us",
   },
   {
@@ -1272,7 +1272,7 @@ const usaServices: ServiceCard[] = [
     icon: <MapIcon className="w-6 h-6" />,
     tag: "Central Oregon, US",
     addedAt: "2026-04-03",
-    verifiedAt: '2026-04-06',
+    verifiedAt: '2026-04-03',
   },
   {
     id: "kansas-city-mesh",
@@ -1286,7 +1286,7 @@ const usaServices: ServiceCard[] = [
     icon: <MapIcon className="w-6 h-6" />,
     tag: "kansascitymesh.live",
     addedAt: "2026-04-03",
-    verifiedAt: '2026-04-06',
+    verifiedAt: '2026-04-03',
     note: "Network: Kansas City Mesh",
   },
   {
@@ -1301,7 +1301,7 @@ const usaServices: ServiceCard[] = [
     icon: <MapIcon className="w-6 h-6" />,
     tag: "meshconsin.org",
     addedAt: "2026-04-03",
-    verifiedAt: '2026-04-06',
+    verifiedAt: '2026-04-03',
     note: "Network: Meshconsin — meshconsin.org",
   },
   {
@@ -1316,7 +1316,7 @@ const usaServices: ServiceCard[] = [
     icon: <MapIcon className="w-6 h-6" />,
     tag: "nwimesh.net",
     addedAt: "2026-04-03",
-    verifiedAt: '2026-04-06',
+    verifiedAt: '2026-04-03',
     note: "Network: NWIMesh.net — nwimesh.net",
   },
   {
@@ -1331,7 +1331,7 @@ const usaServices: ServiceCard[] = [
     icon: <MapIcon className="w-6 h-6" />,
     tag: "cimesh.net",
     addedAt: "2026-04-03",
-    verifiedAt: '2026-04-06',
+    verifiedAt: '2026-04-03',
     note: "Network: CIMesh — cimesh.net",
   },
   {
@@ -1346,7 +1346,7 @@ const usaServices: ServiceCard[] = [
     icon: <MapIcon className="w-6 h-6" />,
     tag: "tulsa-meshtastic.com",
     addedAt: "2026-04-03",
-    verifiedAt: '2026-04-06',
+    verifiedAt: '2026-04-03',
     note: "Networks: Tulsa Meshtastic — tulsa-meshtastic.com | OKMesh — okmesh.org",
   },
   {
@@ -1361,7 +1361,7 @@ const usaServices: ServiceCard[] = [
     icon: <MapIcon className="w-6 h-6" />,
     tag: "meshinfo.cvme.sh",
     addedAt: "2026-04-03",
-    verifiedAt: '2026-04-06',
+    verifiedAt: '2026-04-03',
   },
 ];
 
@@ -1378,7 +1378,7 @@ const articleServices: ServiceCard[] = [
     note: "By Rob Cathy",
     noteUrl: "https://yesretired.com/author/rob",
     addedAt: "2026-04-04",
-    verifiedAt: '2026-04-06',
+    verifiedAt: '2026-04-04',
   },
   {
     id: "mesh-radio-emergency",
@@ -1392,7 +1392,7 @@ const articleServices: ServiceCard[] = [
     note: "By Rob Cathy",
     noteUrl: "https://yesretired.com/author/rob",
     addedAt: "2026-04-04",
-    verifiedAt: '2026-04-06',
+    verifiedAt: '2026-04-04',
   },
 ];
 
@@ -1809,11 +1809,15 @@ export default function Home() {
   const [activeType, setActiveType] = useState<string>("All");
   const searchRef = useRef<HTMLInputElement>(null);
 
-  const TYPE_PILLS = ["All", "Firehose", "Chat", "Map", "MeshView", "MeshMonitor", "MeshInfo", "Community", "Dashboard", "Bot", "Tool", "Software", "Wardriving", "Relay", "Directory", "Telegram", "Discord", "Article", "GTA+"];
+  const TYPE_PILLS = ["All", "Verified", "Firehose", "Chat", "Map", "MeshView", "MeshMonitor", "MeshInfo", "Community", "Dashboard", "Bot", "Tool", "Software", "Wardriving", "Relay", "Directory", "Telegram", "Discord", "Article", "GTA+"];
 
   function matchesType(card: ServiceCard): boolean {
     if (activeType === "All") return true;
     if (activeType === "GTA+") return card.tag === "cedarmesh.ca" || card.subtitle?.includes("Greater Toronto");
+    if (activeType === "Verified") {
+      if (!card.verifiedAt) return false;
+      return (Date.now() - new Date(card.verifiedAt).getTime()) < 60 * 24 * 60 * 60 * 1000;
+    }
     return card.badge === activeType;
   }
 
@@ -1954,6 +1958,23 @@ export default function Home() {
                 { label: "GTA+",        href: "#community-gta",         color: "text-blue-400/70 hover:text-blue-300 hover:bg-blue-500/10" },
                 { label: "Extended",    href: "#community-extended",    color: "text-violet-400/70 hover:text-violet-300 hover:bg-violet-500/10" },
                 { label: "Social",      href: "#community-social",      color: "text-sky-400/70 hover:text-sky-300 hover:bg-sky-500/10" },
+              ].map(({ label, href, color }) => (
+                <a key={href} href={href} className={`mono-label text-[10px] uppercase tracking-widest px-2.5 py-0.5 rounded-md transition-all duration-200 ${color}`}>
+                  {label}
+                </a>
+              ))}
+            </>
+          )}
+          {/* Resources sub-group quick-jump links — only visible when Resources section is active */}
+          {activeSection === "resources" && (
+            <>
+              <span className="text-white/15 text-xs select-none">|</span>
+              {[
+                { label: "Monitoring",  href: "#resources-monitoring", color: "text-amber-400/70 hover:text-amber-300 hover:bg-amber-500/10" },
+                { label: "Bots",        href: "#resources-bots",        color: "text-rose-400/70 hover:text-rose-300 hover:bg-rose-500/10" },
+                { label: "Protocol",    href: "#resources-protocol",    color: "text-violet-400/70 hover:text-violet-300 hover:bg-violet-500/10" },
+                { label: "Wardriving",  href: "#resources-wardriving",  color: "text-violet-400/70 hover:text-violet-300 hover:bg-violet-500/10" },
+                { label: "Other",       href: "#resources-other",       color: "text-teal-400/70 hover:text-teal-300 hover:bg-teal-500/10" },
               ].map(({ label, href, color }) => (
                 <a key={href} href={href} className={`mono-label text-[10px] uppercase tracking-widest px-2.5 py-0.5 rounded-md transition-all duration-200 ${color}`}>
                   {label}
@@ -2594,7 +2615,7 @@ export default function Home() {
               !PROTOCOL_BADGES.has(c.badge) && !WARDRIVING_BADGES.has(c.badge)
             );
 
-            const SubGroup = ({ label, color, cards, startIdx }: { label: string; color: string; cards: typeof filteredResources; startIdx: number }) => {
+            const SubGroup = ({ label, color, cards, startIdx, anchorId }: { label: string; color: string; cards: typeof filteredResources; startIdx: number; anchorId?: string }) => {
               if (cards.length === 0) return null;
               const colorMap: Record<string, { border: string; bg: string; dot: string; text: string }> = {
                 amber:   { border: "border-amber-500/20",   bg: "bg-amber-500/8",   dot: "bg-amber-400",   text: "text-amber-400/80" },
@@ -2604,7 +2625,7 @@ export default function Home() {
               };
               const c = colorMap[color] ?? colorMap.amber;
               return (
-                <div className="mb-10">
+                <div className="mb-10" id={anchorId}>
                   <div className="flex items-center gap-3 mb-5">
                     <div className="h-px flex-1 bg-white/6" />
                     <div className={`flex items-center gap-2 px-3 py-1.5 rounded-full border ${c.border} ${c.bg}`}>
@@ -2629,11 +2650,11 @@ export default function Home() {
 
             return (
               <>
-                <SubGroup label="Monitoring Software"  color="amber"  cards={monitoringCards} startIdx={0} />
-                <SubGroup label="Bots &amp; Automation"   color="rose"   cards={botCards}        startIdx={monitoringCards.length} />
-                <SubGroup label="Protocol Tools"        color="violet" cards={protocolCards}   startIdx={monitoringCards.length + botCards.length} />
-                <SubGroup label="MeshMapper Coverage"   color="violet" cards={wardrivingCards} startIdx={monitoringCards.length + botCards.length + protocolCards.length} />
-                <SubGroup label="Other Resources"       color="teal"   cards={otherCards}      startIdx={monitoringCards.length + botCards.length + protocolCards.length + wardrivingCards.length} />
+                <SubGroup label="Monitoring Software"  color="amber"  anchorId="resources-monitoring" cards={monitoringCards} startIdx={0} />
+                <SubGroup label="Bots &amp; Automation"   color="rose"   anchorId="resources-bots"       cards={botCards}        startIdx={monitoringCards.length} />
+                <SubGroup label="Protocol Tools"        color="violet" anchorId="resources-protocol"   cards={protocolCards}   startIdx={monitoringCards.length + botCards.length} />
+                <SubGroup label="MeshMapper Coverage"   color="violet" anchorId="resources-wardriving" cards={wardrivingCards} startIdx={monitoringCards.length + botCards.length + protocolCards.length} />
+                <SubGroup label="Other Resources"       color="teal"   anchorId="resources-other"      cards={otherCards}      startIdx={monitoringCards.length + botCards.length + protocolCards.length + wardrivingCards.length} />
               </>
             );
           })()}

@@ -276,7 +276,7 @@ const coreServices: ServiceCard[] = [
     description:
       "Live chat stream from the YYC Mesh network. Browse real-time messages sent over the Calgary Meshtastic mesh, including channel traffic, direct messages, and community conversations as they happen.",
     url: "https://yycmesh.meshmonitoring.com/chat",
-    badge: "Firehose",
+    badge: "Chat",
     badgeColor: "cyan",
     icon: <NetworkIcon className="w-6 h-6" />,
     tag: "yycmesh.meshmonitoring.com",
@@ -297,6 +297,21 @@ const coreServices: ServiceCard[] = [
     tag: "ca.meshmonitoring.com",
     note: "Open Firehose Feed",
     noteUrl: "https://ca.meshmonitoring.com/firehose",
+  },
+  {
+    id: "canada-mesh-chats",
+    title: "Canada Mesh — Chats",
+    subtitle: "Live Chat Stream — Canada",
+    description:
+      "Live chat stream aggregating messages from across the Canadian Meshtastic mesh network. Monitor real-time channel traffic, community conversations, and cross-regional message activity from coast to coast.",
+    url: "https://ca.meshmonitoring.com/chat",
+    badge: "Chat",
+    badgeColor: "green",
+    icon: <NetworkIcon className="w-6 h-6" />,
+    tag: "ca.meshmonitoring.com",
+    note: "Open Chat Stream",
+    noteUrl: "https://ca.meshmonitoring.com/chat",
+    addedAt: "2026-04-06",
   },
   {
     id: "meshmapper",
@@ -1665,7 +1680,7 @@ export default function Home() {
   const [activeType, setActiveType] = useState<string>("All");
   const searchRef = useRef<HTMLInputElement>(null);
 
-  const TYPE_PILLS = ["All", "Firehose", "Map", "MeshView", "MeshMonitor", "MeshInfo", "Community", "Dashboard", "Bot", "Tool", "Software", "Wardriving", "Relay", "Directory", "Telegram", "Discord", "Article", "GTA+"];
+  const TYPE_PILLS = ["All", "Firehose", "Chat", "Map", "MeshView", "MeshMonitor", "MeshInfo", "Community", "Dashboard", "Bot", "Tool", "Software", "Wardriving", "Relay", "Directory", "Telegram", "Discord", "Article", "GTA+"];
 
   function matchesType(card: ServiceCard): boolean {
     if (activeType === "All") return true;

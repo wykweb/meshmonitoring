@@ -1510,6 +1510,10 @@ function ServiceCard({ card, index }: { card: ServiceCard; index: number }) {
   const isNew = card.addedAt
     ? (Date.now() - new Date(card.addedAt).getTime()) < 30 * 24 * 60 * 60 * 1000
     : false;
+  // "Stale" if verifiedAt is older than 90 days
+  const isStale = card.verifiedAt
+    ? (Date.now() - new Date(card.verifiedAt).getTime()) > 90 * 24 * 60 * 60 * 1000
+    : false;
 
   return (
     <div
@@ -1542,6 +1546,14 @@ function ServiceCard({ card, index }: { card: ServiceCard; index: number }) {
             {isNew && (
               <span className="mono-label px-2 py-0.5 rounded-full text-xs font-semibold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 animate-pulse">
                 New
+              </span>
+            )}
+            {isStale && (
+              <span
+                title={`Last verified ${card.verifiedAt} — may need re-checking`}
+                className="mono-label px-2 py-0.5 rounded-full text-xs font-semibold bg-amber-500/15 text-amber-400/80 border border-amber-500/25"
+              >
+                Needs check
               </span>
             )}
             <span className="relative flex h-2 w-2">
@@ -1809,11 +1821,15 @@ export default function Home() {
   const [activeType, setActiveType] = useState<string>("All");
   const searchRef = useRef<HTMLInputElement>(null);
 
-  const TYPE_PILLS = ["All", "Verified", "Firehose", "Chat", "Map", "MeshView", "MeshMonitor", "MeshInfo", "Community", "Dashboard", "Bot", "Tool", "Software", "Wardriving", "Relay", "Directory", "Telegram", "Discord", "Article", "GTA+"];
+  const TYPE_PILLS = ["All", "New", "Verified", "Firehose", "Chat", "Map", "MeshView", "MeshMonitor", "MeshInfo", "Community", "Dashboard", "Bot", "Tool", "Software", "Wardriving", "Relay", "Directory", "Telegram", "Discord", "Article", "GTA+"];
 
   function matchesType(card: ServiceCard): boolean {
     if (activeType === "All") return true;
     if (activeType === "GTA+") return card.tag === "cedarmesh.ca" || card.subtitle?.includes("Greater Toronto");
+    if (activeType === "New") {
+      if (!card.addedAt) return false;
+      return (Date.now() - new Date(card.addedAt).getTime()) < 30 * 24 * 60 * 60 * 1000;
+    }
     if (activeType === "Verified") {
       if (!card.verifiedAt) return false;
       return (Date.now() - new Date(card.verifiedAt).getTime()) < 60 * 24 * 60 * 60 * 1000;
@@ -2949,7 +2965,7 @@ export default function Home() {
           <div className="border-t border-white/6 pt-5">
             <p className="mono-label text-white/30 text-xs text-center mb-3">
               Directory last updated:{" "}
-              <span className="text-white/45">{new Date("2026-04-03").toLocaleDateString("en-CA", { year: "numeric", month: "long", day: "numeric" })}</span>
+              <span className="text-white/45">{new Date("2026-04-06").toLocaleDateString("en-CA", { year: "numeric", month: "long", day: "numeric" })}</span>
               {" · "}
               <span className="text-white/30">{coreServices.length + communityServices.length + resourceServices.length + usaServices.length} services listed</span>
             </p>

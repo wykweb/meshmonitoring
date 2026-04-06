@@ -1821,7 +1821,7 @@ export default function Home() {
   const [activeType, setActiveType] = useState<string>("All");
   const searchRef = useRef<HTMLInputElement>(null);
 
-  const TYPE_PILLS = ["All", "New", "Verified", "Firehose", "Chat", "Map", "MeshView", "MeshMonitor", "MeshInfo", "Community", "Dashboard", "Bot", "Tool", "Software", "Wardriving", "Relay", "Directory", "Telegram", "Discord", "Article", "GTA+"];
+  const TYPE_PILLS = ["All", "New", "Verified", "Stale", "Firehose", "Chat", "Map", "MeshView", "MeshMonitor", "MeshInfo", "Community", "Dashboard", "Bot", "Tool", "Software", "Wardriving", "Relay", "Directory", "Telegram", "Discord", "Article", "GTA+"];
 
   function matchesType(card: ServiceCard): boolean {
     if (activeType === "All") return true;
@@ -1833,6 +1833,10 @@ export default function Home() {
     if (activeType === "Verified") {
       if (!card.verifiedAt) return false;
       return (Date.now() - new Date(card.verifiedAt).getTime()) < 60 * 24 * 60 * 60 * 1000;
+    }
+    if (activeType === "Stale") {
+      if (!card.verifiedAt) return true; // no verifiedAt = treat as stale
+      return (Date.now() - new Date(card.verifiedAt).getTime()) > 90 * 24 * 60 * 60 * 1000;
     }
     return card.badge === activeType;
   }
@@ -2034,13 +2038,12 @@ export default function Home() {
           </a>
           {/* Section nav — hidden on mobile, visible md+ */}
           <nav className="hidden md:flex items-center gap-1">
-            <a href="#services" className="mono-label text-white/40 hover:text-white/80 text-xs uppercase tracking-widest px-3 py-1.5 rounded-lg hover:bg-white/6 transition-all duration-200">Services</a>
-            <a href="#canada" className="mono-label text-blue-400/70 hover:text-blue-300 text-xs uppercase tracking-widest px-3 py-1.5 rounded-lg hover:bg-blue-500/10 transition-all duration-200 flex items-center gap-1.5">
+            <a href="#services" className="mono-label text-white/40 hover:text-white/80 text-xs uppercase tracking-widest px-3 py-1.5 rounded-lg hover:bg-white/6 transition-all duration-200">Serv              {newCanada > 0 && <span className="inline-flex items-center justify-center h-4 min-w-4 px-1 rounded-full bg-emerald-500/20 border border-emerald-500/30 text-emerald-400 text-[9px] font-bold leading-none">{newCanada}</span>}
               <span>🇨🇦</span>Canada
+              <span className="inline-flex items-center justify-center h-4 min-w-4 px-1 rounded-full bg-white/10 border border-white/15 text-white/50 text-[9px] font-bold leading-none" title="Total Canada Core services">{coreServices.length}</span>
               {firehoseCanada > 0 && <span className="inline-flex items-center gap-0.5 h-4 px-1.5 rounded-full bg-blue-500/20 border border-blue-500/30 text-blue-300 text-[9px] font-bold leading-none" title="Firehose feed cards">Firehose {firehoseCanada}</span>}
               {chatCanada > 0 && <span className="inline-flex items-center gap-0.5 h-4 px-1.5 rounded-full bg-cyan-500/20 border border-cyan-500/30 text-cyan-300 text-[9px] font-bold leading-none" title="Chat stream cards">Chat {chatCanada}</span>}
-              {newCanada > 0 && <span className="inline-flex items-center justify-center h-4 min-w-4 px-1 rounded-full bg-emerald-500/20 border border-emerald-500/30 text-emerald-400 text-[9px] font-bold leading-none">{newCanada}</span>}
-            </a>
+              {newCanada > 0 && <span className="inline-flex items-center justify-center h-4 min-w-4 px-1 rounded-full bg-emerald-500/20 border border-emerald-500/30 text-emerald-400 text-[9px] font-bold leading-none">{newCanada}</span>}       </a>
             <a href="#community" className="mono-label text-white/40 hover:text-cyan-300 text-xs uppercase tracking-widest px-3 py-1.5 rounded-lg hover:bg-cyan-500/10 transition-all duration-200 flex items-center gap-1.5">
               Community
               <span className="inline-flex items-center justify-center h-4 min-w-4 px-1 rounded-full bg-white/8 text-white/40 text-[9px] font-bold leading-none">{communityServices.length}</span>
@@ -2149,6 +2152,7 @@ export default function Home() {
             <a href="#services" onClick={() => setMobileMenuOpen(false)} className="mono-label text-white/60 hover:text-white text-xs uppercase tracking-widest px-3 py-2.5 rounded-lg hover:bg-white/8 transition-all duration-200">Services</a>
             <a href="#canada" onClick={() => setMobileMenuOpen(false)} className="mono-label text-blue-400/80 hover:text-blue-300 text-xs uppercase tracking-widest px-3 py-2.5 rounded-lg hover:bg-blue-500/10 transition-all duration-200 flex items-center gap-1.5">
               <span>🇨🇦</span>Canada
+              <span className="inline-flex items-center justify-center h-4 min-w-4 px-1 rounded-full bg-white/10 border border-white/15 text-white/50 text-[9px] font-bold leading-none" title="Total Canada Core services">{coreServices.length}</span>
               {firehoseCanada > 0 && <span className="inline-flex items-center gap-0.5 h-4 px-1.5 rounded-full bg-blue-500/20 border border-blue-500/30 text-blue-300 text-[9px] font-bold leading-none" title="Firehose feed cards">Firehose {firehoseCanada}</span>}
               {chatCanada > 0 && <span className="inline-flex items-center gap-0.5 h-4 px-1.5 rounded-full bg-cyan-500/20 border border-cyan-500/30 text-cyan-300 text-[9px] font-bold leading-none" title="Chat stream cards">Chat {chatCanada}</span>}
               {newCanada > 0 && <span className="inline-flex items-center justify-center h-4 min-w-4 px-1 rounded-full bg-emerald-500/20 border border-emerald-500/30 text-emerald-400 text-[9px] font-bold leading-none">{newCanada}</span>}
@@ -2464,6 +2468,26 @@ export default function Home() {
               </>
             );
           })()}
+          {/* ── Submit a Service CTA ── */}
+          <div className="flex flex-col items-center gap-4 pt-6 border-t border-white/6">
+            <p className="mono-label text-white/30 text-xs uppercase tracking-widest">Know a Canadian mesh service we're missing?</p>
+            <a
+              href="https://github.com/wykweb/meshmonitoring/issues/new?template=submit-resource.yml"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl border border-white/12 bg-white/4 hover:bg-white/8 hover:border-white/20 text-white/60 hover:text-white/90 text-sm font-500 transition-all duration-200 group"
+            >
+              <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <circle cx="12" cy="12" r="10" />
+                <line x1="12" y1="8" x2="12" y2="16" />
+                <line x1="8" y1="12" x2="16" y2="12" />
+              </svg>
+              Submit a Service
+              <svg className="w-3.5 h-3.5 opacity-50 group-hover:opacity-80 transition-opacity" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M7 7h10v10" /><path d="M7 17 17 7" />
+              </svg>
+            </a>
+          </div>
         </div>
       </section>
       )}
@@ -2782,6 +2806,26 @@ export default function Home() {
               </>
             );
           })()}
+          {/* ── Submit a Service CTA ── */}
+          <div className="flex flex-col items-center gap-4 pt-6 border-t border-white/6">
+            <p className="mono-label text-white/30 text-xs uppercase tracking-widest">Know a USA mesh service we're missing?</p>
+            <a
+              href="https://github.com/wykweb/meshmonitoring/issues/new?template=submit-resource.yml"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl border border-white/12 bg-white/4 hover:bg-white/8 hover:border-white/20 text-white/60 hover:text-white/90 text-sm font-500 transition-all duration-200 group"
+            >
+              <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <circle cx="12" cy="12" r="10" />
+                <line x1="12" y1="8" x2="12" y2="16" />
+                <line x1="8" y1="12" x2="16" y2="12" />
+              </svg>
+              Submit a Service
+              <svg className="w-3.5 h-3.5 opacity-50 group-hover:opacity-80 transition-opacity" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M7 7h10v10" /><path d="M7 17 17 7" />
+              </svg>
+            </a>
+          </div>
         </div>
       </section>
       )}

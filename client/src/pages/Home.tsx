@@ -1377,6 +1377,62 @@ const usaServices: ServiceCard[] = [
     addedAt: "2026-04-06",
     verifiedAt: '2026-04-06',
   },
+  {
+    id: "are-you-meshing-with-us",
+    title: "Are You Meshing With Us?",
+    subtitle: "Florida — USA",
+    description:
+      "Community hub for the Florida Meshtastic mesh network, covering South Florida and the Tampa Bay Area. Provides resources, node maps, and information for mesh operators across the Sunshine State.",
+    url: "https://areyoumeshingwith.us/",
+    badge: "Community",
+    badgeColor: "green",
+    icon: <GlobeIcon className="w-6 h-6" />,
+    tag: "areyoumeshingwith.us",
+    addedAt: "2026-04-06",
+    verifiedAt: '2026-04-06',
+  },
+  {
+    id: "okmesh",
+    title: "OKMesh",
+    subtitle: "Oklahoma — USA",
+    description:
+      "Community hub for the Oklahoma Meshtastic mesh network. Connects mesh operators across the state and provides resources for building and expanding the Oklahoma mesh.",
+    url: "https://okmesh.org/",
+    badge: "Community",
+    badgeColor: "green",
+    icon: <GlobeIcon className="w-6 h-6" />,
+    tag: "okmesh.org",
+    addedAt: "2026-04-06",
+    verifiedAt: '2026-04-06',
+  },
+  {
+    id: "tulsa-meshtastic",
+    title: "Tulsa Meshtastic",
+    subtitle: "Tulsa, Oklahoma — USA",
+    description:
+      "Community hub for the Tulsa and Broken Arrow Meshtastic mesh network in Oklahoma. Supports local mesh operators and provides information on the Tulsa/OKMesh deployment.",
+    url: "https://www.tulsa-meshtastic.com/",
+    badge: "Community",
+    badgeColor: "green",
+    icon: <GlobeIcon className="w-6 h-6" />,
+    tag: "tulsa-meshtastic.com",
+    addedAt: "2026-04-06",
+    verifiedAt: '2026-04-06',
+  },
+  {
+    id: "meshconsin",
+    title: "Meshconsin",
+    subtitle: "Wisconsin — USA",
+    description:
+      "Community hub for the Wisconsin Meshtastic mesh network. Connects mesh operators across the state, with a focus on the Milwaukee area and broader Wisconsin mesh community.",
+    url: "https://meshconsin.org/",
+    badge: "Community",
+    badgeColor: "green",
+    icon: <GlobeIcon className="w-6 h-6" />,
+    tag: "meshconsin.org",
+    addedAt: "2026-04-06",
+    verifiedAt: '2026-04-06',
+  },
 ];
 
 const articleServices: ServiceCard[] = [
@@ -1879,7 +1935,8 @@ export default function Home() {
   const isNew = (card: ServiceCard) => !!card.addedAt && new Date(card.addedAt) >= thirtyDaysAgo;
   const newCanada    = coreServices.filter(isNew).length;
   const newCommunity = communityServices.filter(isNew).length;
-  const newUSA       = usaServices.filter(isNew).length;
+  const newUSA          = usaServices.filter(isNew).length;
+  const communityUSA    = usaServices.filter(c => c.badge === "Community").length;
   const newArticles  = articleServices.filter(isNew).length;
   const chatCanada     = coreServices.filter(c => c.badge === 'Chat').length;
   const firehoseCanada = coreServices.filter(c => c.badge === 'Firehose').length;
@@ -2028,6 +2085,7 @@ export default function Home() {
             <>
               <span className="text-white/15 text-xs select-none">|</span>
               {[
+                { label: "Community",   href: "#usa-community",    color: "text-green-400/70 hover:text-green-300 hover:bg-green-500/10" },
                 { label: "MeshView",    href: "#usa-meshview",     color: "text-sky-400/70 hover:text-sky-300 hover:bg-sky-500/10" },
                 { label: "MeshMonitor", href: "#usa-meshmonitor",  color: "text-rose-400/70 hover:text-rose-300 hover:bg-rose-500/10" },
                 { label: "MeshInfo",    href: "#usa-meshinfo",     color: "text-emerald-400/70 hover:text-emerald-300 hover:bg-emerald-500/10" },
@@ -2080,6 +2138,7 @@ export default function Home() {
             <a href="#usa" className="mono-label text-rose-400/70 hover:text-rose-300 text-xs uppercase tracking-widest px-3 py-1.5 rounded-lg hover:bg-rose-500/10 transition-all duration-200 flex items-center gap-1.5">
               <img src="https://flagcdn.com/16x12/us.png" srcSet="https://flagcdn.com/32x24/us.png 2x" width="16" height="12" alt="USA" className="inline-block rounded-sm" />USA
               <span className="inline-flex items-center justify-center h-4 min-w-4 px-1 rounded-full bg-white/10 border border-white/15 text-white/50 text-[9px] font-bold leading-none" title="Total USA services">{usaServices.length}</span>
+              {communityUSA > 0 && <span className="inline-flex items-center gap-0.5 h-4 px-1.5 rounded-full bg-green-500/20 border border-green-500/30 text-green-300 text-[9px] font-bold leading-none" title="Community hub cards">Community {communityUSA}</span>}
               {newUSA > 0 && <span className="inline-flex items-center justify-center h-4 min-w-4 px-1 rounded-full bg-emerald-500/20 border border-emerald-500/30 text-emerald-400 text-[9px] font-bold leading-none">{newUSA}</span>}
             </a>
             <a
@@ -2194,6 +2253,7 @@ export default function Home() {
             <a href="#usa" onClick={() => setMobileMenuOpen(false)} className="mono-label text-rose-400/80 hover:text-rose-300 text-xs uppercase tracking-widest px-3 py-2.5 rounded-lg hover:bg-rose-500/10 transition-all duration-200 flex items-center gap-1.5">
               <img src="https://flagcdn.com/16x12/us.png" srcSet="https://flagcdn.com/32x24/us.png 2x" width="16" height="12" alt="USA" className="inline-block rounded-sm" />USA
               <span className="inline-flex items-center justify-center h-4 min-w-4 px-1 rounded-full bg-white/10 border border-white/15 text-white/50 text-[9px] font-bold leading-none" title="Total USA services">{usaServices.length}</span>
+              {communityUSA > 0 && <span className="inline-flex items-center gap-0.5 h-4 px-1.5 rounded-full bg-green-500/20 border border-green-500/30 text-green-300 text-[9px] font-bold leading-none" title="Community hub cards">Community {communityUSA}</span>}
               {newUSA > 0 && <span className="inline-flex items-center justify-center h-4 min-w-4 px-1 rounded-full bg-emerald-500/20 border border-emerald-500/30 text-emerald-400 text-[9px] font-bold leading-none">{newUSA}</span>}
             </a>
             <a
@@ -2787,9 +2847,10 @@ export default function Home() {
             </div>
           </div>
 {(() => {
-            const meshViewCards    = filteredUSA.filter(c => c.badge !== "MeshMonitor" && c.badge !== "MeshInfo");
-            const meshMonitorCards = filteredUSA.filter(c => c.badge === "MeshMonitor");
-            const meshInfoCards    = filteredUSA.filter(c => c.badge === "MeshInfo");
+            const meshCommunityCards = filteredUSA.filter(c => c.badge === "Community");
+            const meshViewCards       = filteredUSA.filter(c => c.badge !== "MeshMonitor" && c.badge !== "MeshInfo" && c.badge !== "Community");
+            const meshMonitorCards    = filteredUSA.filter(c => c.badge === "MeshMonitor");
+            const meshInfoCards       = filteredUSA.filter(c => c.badge === "MeshInfo");
 
             const USASubGroup = ({ label, color, linkHref, anchorId, cards, startIdx }: { label: string; color: string; linkHref?: string; anchorId?: string; cards: typeof filteredUSA; startIdx: number }) => {
               if (cards.length === 0) return null;
@@ -2797,6 +2858,7 @@ export default function Home() {
                 sky:     { border: "border-sky-500/20",     bg: "bg-sky-500/8",     dot: "bg-sky-400",     text: "text-sky-400/80",     hover: "hover:text-sky-300" },
                 rose:    { border: "border-rose-500/20",    bg: "bg-rose-500/8",    dot: "bg-rose-400",    text: "text-rose-400/80",    hover: "hover:text-rose-300" },
                 emerald: { border: "border-emerald-500/20", bg: "bg-emerald-500/8", dot: "bg-emerald-400", text: "text-emerald-400/80", hover: "hover:text-emerald-300" },
+                green:   { border: "border-green-500/20",   bg: "bg-green-500/8",   dot: "bg-green-400",   text: "text-green-400/80",   hover: "hover:text-green-300" },
               };
               const c = colorMap[color] ?? colorMap.sky;
               const anchorHash = anchorId ? `#${anchorId}` : undefined;
@@ -2848,9 +2910,10 @@ export default function Home() {
 
             return (
               <>
-                <USASubGroup label="MeshView &amp; Map Viewers" color="sky"     anchorId="usa-meshview"     cards={meshViewCards}    startIdx={0} />
-                <USASubGroup label="MeshMonitor Instances"      color="rose"    anchorId="usa-meshmonitor" linkHref="https://meshmonitor.org/" cards={meshMonitorCards} startIdx={meshViewCards.length} />
-                <USASubGroup label="MeshInfo Instances"         color="emerald" anchorId="usa-meshinfo"    linkHref="https://github.com/MeshAddicts/meshinfo" cards={meshInfoCards} startIdx={meshViewCards.length + meshMonitorCards.length} />
+                <USASubGroup label="Community Hubs"           color="green"   anchorId="usa-community"   cards={meshCommunityCards} startIdx={0} />
+                <USASubGroup label="MeshView &amp; Map Viewers" color="sky"     anchorId="usa-meshview"    cards={meshViewCards}     startIdx={meshCommunityCards.length} />
+                <USASubGroup label="MeshMonitor Instances"      color="rose"    anchorId="usa-meshmonitor" linkHref="https://meshmonitor.org/" cards={meshMonitorCards} startIdx={meshCommunityCards.length + meshViewCards.length} />
+                <USASubGroup label="MeshInfo Instances"         color="emerald" anchorId="usa-meshinfo"    linkHref="https://github.com/MeshAddicts/meshinfo" cards={meshInfoCards} startIdx={meshCommunityCards.length + meshViewCards.length + meshMonitorCards.length} />
               </>
             );
           })()}

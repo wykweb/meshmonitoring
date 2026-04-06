@@ -124,6 +124,10 @@ All listed services are volunteer-run and community-maintained.
 | Service | URL | Region |
 |---|---|---------|
 | Tahoe Mesh | [tahoemesh.org](https://tahoemesh.org/) | Lake Tahoe Basin, CA/NV |
+| Are You Meshing With Us? | [areyoumeshingwith.us](https://areyoumeshingwith.us/) | Florida |
+| OKMesh | [okmesh.org](https://okmesh.org/) | Oklahoma |
+| Tulsa Meshtastic | [tulsa-meshtastic.com](https://www.tulsa-meshtastic.com/) | Tulsa, Oklahoma |
+| Meshconsin | [meshconsin.org](https://meshconsin.org/) | Wisconsin |
 
 ### USA — MeshInfo Instances
 

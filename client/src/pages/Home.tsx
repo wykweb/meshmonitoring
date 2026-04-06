@@ -665,7 +665,7 @@ const resourceServices: ServiceCard[] = [
     verifiedAt: '2026-04-03',
   },
   {
-    id: "mesh-web-relay",
+    id: "mesh-web-relay-2",
     title: "Mesh Web Relay",
     subtitle: "Web-based Meshtastic Relay",
     description:

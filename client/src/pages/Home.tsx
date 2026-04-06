@@ -383,6 +383,36 @@ const coreServices: ServiceCard[] = [
     addedAt: "2026-04-06",
   },
   {
+    id: "yyc-meshview",
+    title: "YYC Mesh — MeshView",
+    subtitle: "Meshtastic Network — Calgary, Alberta",
+    description:
+      "YYC-specific MeshView instance displaying Meshtastic nodes and mesh activity across the Calgary region. Explore node positions, signal paths, and local network topology in real time.",
+    url: "https://yycmesh.meshmonitoring.com/meshview",
+    badge: "MeshView",
+    badgeColor: "sky",
+    icon: <MapIcon className="w-6 h-6" />,
+    tag: "yycmesh.meshmonitoring.com",
+    note: "Open MeshView",
+    noteUrl: "https://yycmesh.meshmonitoring.com/meshview",
+    addedAt: "2026-04-06",
+  },
+  {
+    id: "canada-meshinfo",
+    title: "Canada Mesh — MeshInfo",
+    subtitle: "Meshtastic Network — Canada",
+    description:
+      "National-scale MeshInfo dashboard aggregating node data, telemetry, and mesh statistics from across Canada. Browse node details, hardware types, firmware versions, and network health at a country-wide level.",
+    url: "https://ca.meshmonitoring.com/meshinfo",
+    badge: "MeshInfo",
+    badgeColor: "indigo",
+    icon: <NetworkIcon className="w-6 h-6" />,
+    tag: "ca.meshmonitoring.com",
+    note: "Open MeshInfo",
+    noteUrl: "https://ca.meshmonitoring.com/meshinfo",
+    addedAt: "2026-04-06",
+  },
+  {
     id: "cedarmesh-hub",
     title: "CedarMesh.ca — GTA+ Mesh Hub",
     subtitle: "Greater Toronto Area, CA",
@@ -1807,7 +1837,7 @@ export default function Home() {
         }`}
         style={{ background: "oklch(0.10 0.008 265 / 0.75)", backdropFilter: "blur(12px)", borderBottom: "1px solid rgba(255,255,255,0.05)" }}
       >
-        <div className="container flex items-center justify-center gap-2 h-9">
+        <div className="container flex items-center justify-center gap-1.5 h-9 flex-wrap overflow-hidden">
           {([
             { label: "🇨🇦 Canada", href: "#canada",   id: "canada",   count: coreServices.length,      active: "text-blue-300 bg-blue-500/15 border border-blue-500/30",   hover: "hover:text-blue-300 hover:bg-blue-500/10" },
             { label: "Community", href: "#community", id: "community", count: communityServices.length,  active: "text-cyan-300 bg-cyan-500/15 border border-cyan-500/30",   hover: "hover:text-cyan-300 hover:bg-cyan-500/10" },
@@ -1830,6 +1860,25 @@ export default function Home() {
               }`}>{count}</span>
             </a>
           ))}
+          {/* Canada Core sub-group quick-jump links — only visible when Canada section is active */}
+          {activeSection === "canada" && (
+            <>
+              <span className="text-white/15 text-xs select-none">|</span>
+              {[
+                { label: "Firehose", href: "#canada-firehose", color: "text-blue-400/70 hover:text-blue-300 hover:bg-blue-500/10" },
+                { label: "Chat",     href: "#canada-chat",     color: "text-cyan-400/70 hover:text-cyan-300 hover:bg-cyan-500/10" },
+                { label: "Maps",     href: "#canada-maps",     color: "text-violet-400/70 hover:text-violet-300 hover:bg-violet-500/10" },
+              ].map(({ label, href, color }) => (
+                <a
+                  key={href}
+                  href={href}
+                  className={`mono-label text-[10px] uppercase tracking-widest px-2.5 py-0.5 rounded-md transition-all duration-200 ${color}`}
+                >
+                  {label}
+                </a>
+              ))}
+            </>
+          )}
         </div>
       </div>
 

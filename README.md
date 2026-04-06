@@ -29,6 +29,8 @@ All listed services are volunteer-run and community-maintained.
 | MeshMapper YYC | [yyc.meshmapper.net](https://yyc.meshmapper.net/) | Live RF coverage map for Calgary (YYC) — powered by MeshMapper |
 | MeshCore Analyzer | [analyzer.letsmesh.net/map](https://analyzer.letsmesh.net/map) | MeshCore network analyzer |
 | Canada Mesh — MeshView | [ca.meshmonitoring.com/meshview](https://ca.meshmonitoring.com/meshview) | National-scale MeshView instance for Canada Meshtastic nodes |
+| YYC Mesh — MeshView | [yycmesh.meshmonitoring.com/meshview](https://yycmesh.meshmonitoring.com/meshview) | YYC-specific MeshView instance for Calgary Meshtastic nodes |
+| Canada Mesh — MeshInfo | [ca.meshmonitoring.com/meshinfo](https://ca.meshmonitoring.com/meshinfo) | National-scale MeshInfo dashboard for Canada Meshtastic node data and telemetry |
 | CedarMesh.ca — GTA+ Mesh Hub | [cedarmesh.ca](https://cedarmesh.ca) | Community hub for the Greater Toronto Area Meshtastic and MeshCore mesh network |
 
 ### Canadaverse Network

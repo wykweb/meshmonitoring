@@ -2046,7 +2046,7 @@ export default function Home() {
           {/* Section nav — hidden on mobile, visible md+ */}
           <nav className="hidden md:flex items-center gap-1">
             <a href="#services" className="mono-label text-white/40 hover:text-white/80 text-xs uppercase tracking-widest px-3 py-1.5 rounded-lg hover:bg-white/6 transition-all duration-200">Serv              {newCanada > 0 && <span className="inline-flex items-center justify-center h-4 min-w-4 px-1 rounded-full bg-emerald-500/20 border border-emerald-500/30 text-emerald-400 text-[9px] font-bold leading-none">{newCanada}</span>}
-              <span>🇨🇦</span>Canada
+              <img src="https://flagcdn.com/16x12/ca.png" srcSet="https://flagcdn.com/32x24/ca.png 2x" width="16" height="12" alt="Canada" className="inline-block rounded-sm" />Canada
               <span className="inline-flex items-center justify-center h-4 min-w-4 px-1 rounded-full bg-white/10 border border-white/15 text-white/50 text-[9px] font-bold leading-none" title="Total Canada Core services">{coreServices.length}</span>
               {firehoseCanada > 0 && <span className="inline-flex items-center gap-0.5 h-4 px-1.5 rounded-full bg-blue-500/20 border border-blue-500/30 text-blue-300 text-[9px] font-bold leading-none" title="Firehose feed cards">Firehose {firehoseCanada}</span>}
               {chatCanada > 0 && <span className="inline-flex items-center gap-0.5 h-4 px-1.5 rounded-full bg-cyan-500/20 border border-cyan-500/30 text-cyan-300 text-[9px] font-bold leading-none" title="Chat stream cards">Chat {chatCanada}</span>}
@@ -2064,7 +2064,7 @@ export default function Home() {
               {newArticles > 0 && <span className="inline-flex items-center justify-center h-4 min-w-4 px-1 rounded-full bg-emerald-500/20 border border-emerald-500/30 text-emerald-400 text-[9px] font-bold leading-none">{newArticles}</span>}
             </a>
             <a href="#usa" className="mono-label text-rose-400/70 hover:text-rose-300 text-xs uppercase tracking-widest px-3 py-1.5 rounded-lg hover:bg-rose-500/10 transition-all duration-200 flex items-center gap-1.5">
-              <span>🇺🇸</span>USA
+              <img src="https://flagcdn.com/16x12/us.png" srcSet="https://flagcdn.com/32x24/us.png 2x" width="16" height="12" alt="USA" className="inline-block rounded-sm" />USA
               <span className="inline-flex items-center justify-center h-4 min-w-4 px-1 rounded-full bg-white/10 border border-white/15 text-white/50 text-[9px] font-bold leading-none" title="Total USA services">{usaServices.length}</span>
               {newUSA > 0 && <span className="inline-flex items-center justify-center h-4 min-w-4 px-1 rounded-full bg-emerald-500/20 border border-emerald-500/30 text-emerald-400 text-[9px] font-bold leading-none">{newUSA}</span>}
             </a>
@@ -2159,7 +2159,7 @@ export default function Home() {
           <div className="md:hidden border-t border-white/8 px-4 py-3 flex flex-col gap-1" style={{ background: "oklch(0.11 0.008 265 / 0.97)" }}>
             <a href="#services" onClick={() => setMobileMenuOpen(false)} className="mono-label text-white/60 hover:text-white text-xs uppercase tracking-widest px-3 py-2.5 rounded-lg hover:bg-white/8 transition-all duration-200">Services</a>
             <a href="#canada" onClick={() => setMobileMenuOpen(false)} className="mono-label text-blue-400/80 hover:text-blue-300 text-xs uppercase tracking-widest px-3 py-2.5 rounded-lg hover:bg-blue-500/10 transition-all duration-200 flex items-center gap-1.5">
-              <span>🇨🇦</span>Canada
+              <img src="https://flagcdn.com/16x12/ca.png" srcSet="https://flagcdn.com/32x24/ca.png 2x" width="16" height="12" alt="Canada" className="inline-block rounded-sm" />Canada
               <span className="inline-flex items-center justify-center h-4 min-w-4 px-1 rounded-full bg-white/10 border border-white/15 text-white/50 text-[9px] font-bold leading-none" title="Total Canada Core services">{coreServices.length}</span>
               {firehoseCanada > 0 && <span className="inline-flex items-center gap-0.5 h-4 px-1.5 rounded-full bg-blue-500/20 border border-blue-500/30 text-blue-300 text-[9px] font-bold leading-none" title="Firehose feed cards">Firehose {firehoseCanada}</span>}
               {chatCanada > 0 && <span className="inline-flex items-center gap-0.5 h-4 px-1.5 rounded-full bg-cyan-500/20 border border-cyan-500/30 text-cyan-300 text-[9px] font-bold leading-none" title="Chat stream cards">Chat {chatCanada}</span>}
@@ -2178,7 +2178,7 @@ export default function Home() {
               {newArticles > 0 && <span className="inline-flex items-center justify-center h-4 min-w-4 px-1 rounded-full bg-emerald-500/20 border border-emerald-500/30 text-emerald-400 text-[9px] font-bold leading-none">{newArticles}</span>}
             </a>
             <a href="#usa" onClick={() => setMobileMenuOpen(false)} className="mono-label text-rose-400/80 hover:text-rose-300 text-xs uppercase tracking-widest px-3 py-2.5 rounded-lg hover:bg-rose-500/10 transition-all duration-200 flex items-center gap-1.5">
-              <span>🇺🇸</span>USA
+              <img src="https://flagcdn.com/16x12/us.png" srcSet="https://flagcdn.com/32x24/us.png 2x" width="16" height="12" alt="USA" className="inline-block rounded-sm" />USA
               <span className="inline-flex items-center justify-center h-4 min-w-4 px-1 rounded-full bg-white/10 border border-white/15 text-white/50 text-[9px] font-bold leading-none" title="Total USA services">{usaServices.length}</span>
               {newUSA > 0 && <span className="inline-flex items-center justify-center h-4 min-w-4 px-1 rounded-full bg-emerald-500/20 border border-emerald-500/30 text-emerald-400 text-[9px] font-bold leading-none">{newUSA}</span>}
             </a>
@@ -2414,7 +2414,7 @@ export default function Home() {
               className="text-3xl sm:text-4xl font-700 text-white scroll-mt-28 inline-flex items-center gap-3 justify-center"
               style={{ fontFamily: "'Outfit', sans-serif", fontWeight: 700 }}
             >
-              🇨🇦 YYC &amp; Canada Mesh Monitoring
+              <img src="https://flagcdn.com/20x15/ca.png" srcSet="https://flagcdn.com/40x30/ca.png 2x" width="20" height="15" alt="Canada" className="inline-block rounded-sm mr-1" /> YYC &amp; Canada Mesh Monitoring
               <button
                 onClick={() => copyAnchor('#canada')}
                 title="Copy link to this section"
@@ -2753,7 +2753,7 @@ export default function Home() {
                 className="text-2xl sm:text-3xl font-700 text-white scroll-mt-28 inline-flex items-center gap-3"
                 style={{ fontFamily: "'Outfit', sans-serif", fontWeight: 700 }}
               >
-                🇺🇸 US Regional Mesh Communities
+                <img src="https://flagcdn.com/20x15/us.png" srcSet="https://flagcdn.com/40x30/us.png 2x" width="20" height="15" alt="USA" className="inline-block rounded-sm mr-1" /> US Regional Mesh Communities
                 <button
                   onClick={() => copyAnchor('#usa')}
                   title="Copy link to this section"

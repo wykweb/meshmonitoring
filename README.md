@@ -119,6 +119,13 @@ All listed services are volunteer-run and community-maintained.
 | Georgia Mesh | [meshview.gamesh.net](https://meshview.gamesh.net) | Georgia |
 | MeshSense | [meshsense.affirmatech.com](https://meshsense.affirmatech.com/) | Cross-platform app |
 
+### USA — Pacific Northwest
+
+| Service | URL | Region |
+|---|---|---|
+| Oregon Mesh | [meshview.meshoregon.com](https://meshview.meshoregon.com) | Oregon |
+| Central Oregon Mesh | [192.81.132.42:8080](http://192.81.132.42:8080/) | Central Oregon |
+
 ### USA — New York Networks
 
 | Service | URL | Region |

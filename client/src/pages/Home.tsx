@@ -2020,6 +2020,7 @@ export default function Home() {
   const newCommunity = communityServices.filter(isNew).length;
   const newUSA          = usaServices.filter(isNew).length;
   const communityUSA    = usaServices.filter(c => c.badge === "Community").length;
+  const newYorkUSA      = usaServices.filter(c => ["new-york-mesh", "nyme-sh", "cnymesh", "nyc-mesh-wifi"].includes(c.id)).length;
   const newArticles  = articleServices.filter(isNew).length;
   const chatCanada     = coreServices.filter(c => c.badge === 'Chat').length;
   const firehoseCanada = coreServices.filter(c => c.badge === 'Firehose').length;
@@ -2169,6 +2170,7 @@ export default function Home() {
               <span className="text-white/15 text-xs select-none">|</span>
               {[
                 { label: "New York",    href: "#usa-new-york",     color: "text-violet-400/70 hover:text-violet-300 hover:bg-violet-500/10" },
+                { label: "PNW",         href: "#usa-pnw",          color: "text-teal-400/70 hover:text-teal-300 hover:bg-teal-500/10" },
                 { label: "Community",   href: "#usa-community",    color: "text-green-400/70 hover:text-green-300 hover:bg-green-500/10" },
                 { label: "MeshView",    href: "#usa-meshview",     color: "text-sky-400/70 hover:text-sky-300 hover:bg-sky-500/10" },
                 { label: "MeshMonitor", href: "#usa-meshmonitor",  color: "text-rose-400/70 hover:text-rose-300 hover:bg-rose-500/10" },
@@ -2337,11 +2339,11 @@ export default function Home() {
             <a href="#usa" onClick={() => setMobileMenuOpen(false)} className="mono-label text-rose-400/80 hover:text-rose-300 text-xs uppercase tracking-widest px-3 py-2.5 rounded-lg hover:bg-rose-500/10 transition-all duration-200 flex items-center gap-1.5">
               <img src="https://flagcdn.com/16x12/us.png" srcSet="https://flagcdn.com/32x24/us.png 2x" width="16" height="12" alt="USA" className="inline-block rounded-sm" />USA
               <span className="inline-flex items-center justify-center h-4 min-w-4 px-1 rounded-full bg-white/10 border border-white/15 text-white/50 text-[9px] font-bold leading-none" title="Total USA services">{usaServices.length}</span>
+              {newYorkUSA > 0 && <span className="inline-flex items-center gap-0.5 h-4 px-1.5 rounded-full bg-violet-500/20 border border-violet-500/30 text-violet-300 text-[9px] font-bold leading-none" title="New York network cards">NY {newYorkUSA}</span>}
               {communityUSA > 0 && <span className="inline-flex items-center gap-0.5 h-4 px-1.5 rounded-full bg-green-500/20 border border-green-500/30 text-green-300 text-[9px] font-bold leading-none" title="Community hub cards">Community {communityUSA}</span>}
               {newUSA > 0 && <span className="inline-flex items-center justify-center h-4 min-w-4 px-1 rounded-full bg-emerald-500/20 border border-emerald-500/30 text-emerald-400 text-[9px] font-bold leading-none">{newUSA}</span>}
             </a>
-            <a
-              href="https://relay.meshnard.com/"
+            <a href="https://relay.meshnard.com/"
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => setMobileMenuOpen(false)}
@@ -2932,9 +2934,11 @@ export default function Home() {
           </div>
 {(() => {
             const newYorkIds = ["new-york-mesh", "nyme-sh", "cnymesh", "nyc-mesh-wifi"];
+            const pnwIds     = ["oregon-mesh", "central-oregon-mesh", "washington-mesh"];
             const newYorkCards        = filteredUSA.filter(c => newYorkIds.includes(c.id));
-            const meshCommunityCards  = filteredUSA.filter(c => c.badge === "Community" && !newYorkIds.includes(c.id));
-            const meshViewCards       = filteredUSA.filter(c => c.badge !== "MeshMonitor" && c.badge !== "MeshInfo" && c.badge !== "Community" && !newYorkIds.includes(c.id));
+            const pnwCards            = filteredUSA.filter(c => pnwIds.includes(c.id));
+            const meshCommunityCards  = filteredUSA.filter(c => c.badge === "Community" && !newYorkIds.includes(c.id) && !pnwIds.includes(c.id));
+            const meshViewCards       = filteredUSA.filter(c => c.badge !== "MeshMonitor" && c.badge !== "MeshInfo" && c.badge !== "Community" && !newYorkIds.includes(c.id) && !pnwIds.includes(c.id));
             const meshMonitorCards    = filteredUSA.filter(c => c.badge === "MeshMonitor");
             const meshInfoCards       = filteredUSA.filter(c => c.badge === "MeshInfo");
 
@@ -2946,6 +2950,7 @@ export default function Home() {
                 emerald: { border: "border-emerald-500/20", bg: "bg-emerald-500/8", dot: "bg-emerald-400", text: "text-emerald-400/80", hover: "hover:text-emerald-300" },
                 green:   { border: "border-green-500/20",   bg: "bg-green-500/8",   dot: "bg-green-400",   text: "text-green-400/80",   hover: "hover:text-green-300" },
                 violet:  { border: "border-violet-500/20",  bg: "bg-violet-500/8",  dot: "bg-violet-400",  text: "text-violet-400/80",  hover: "hover:text-violet-300" },
+                teal:    { border: "border-teal-500/20",    bg: "bg-teal-500/8",    dot: "bg-teal-400",    text: "text-teal-400/80",    hover: "hover:text-teal-300" },
               };
               const c = colorMap[color] ?? colorMap.sky;
               const anchorHash = anchorId ? `#${anchorId}` : undefined;
@@ -2998,10 +3003,11 @@ export default function Home() {
             return (
               <>
                 <USASubGroup label="New York Networks"          color="violet"  anchorId="usa-new-york"    cards={newYorkCards}       startIdx={0} />
-                <USASubGroup label="Community Hubs"           color="green"   anchorId="usa-community"   cards={meshCommunityCards} startIdx={newYorkCards.length} />
-                <USASubGroup label="MeshView &amp; Map Viewers" color="sky"     anchorId="usa-meshview"    cards={meshViewCards}     startIdx={newYorkCards.length + meshCommunityCards.length} />
-                <USASubGroup label="MeshMonitor Instances"      color="rose"    anchorId="usa-meshmonitor" linkHref="https://meshmonitor.org/" cards={meshMonitorCards} startIdx={newYorkCards.length + meshCommunityCards.length + meshViewCards.length} />
-                <USASubGroup label="MeshInfo Instances"         color="emerald" anchorId="usa-meshinfo"    linkHref="https://github.com/MeshAddicts/meshinfo" cards={meshInfoCards} startIdx={newYorkCards.length + meshCommunityCards.length + meshViewCards.length + meshMonitorCards.length} />
+                <USASubGroup label="Pacific Northwest"          color="teal"    anchorId="usa-pnw"         cards={pnwCards}           startIdx={newYorkCards.length} />
+                <USASubGroup label="Community Hubs"             color="green"   anchorId="usa-community"   cards={meshCommunityCards} startIdx={newYorkCards.length + pnwCards.length} />
+                <USASubGroup label="MeshView &amp; Map Viewers" color="sky"     anchorId="usa-meshview"    cards={meshViewCards}     startIdx={newYorkCards.length + pnwCards.length + meshCommunityCards.length} />
+                <USASubGroup label="MeshMonitor Instances"      color="rose"    anchorId="usa-meshmonitor" linkHref="https://meshmonitor.org/" cards={meshMonitorCards} startIdx={newYorkCards.length + pnwCards.length + meshCommunityCards.length + meshViewCards.length} />
+                <USASubGroup label="MeshInfo Instances"         color="emerald" anchorId="usa-meshinfo"    linkHref="https://github.com/MeshAddicts/meshinfo" cards={meshInfoCards} startIdx={newYorkCards.length + pnwCards.length + meshCommunityCards.length + meshViewCards.length + meshMonitorCards.length} />
               </>
             );
           })()}

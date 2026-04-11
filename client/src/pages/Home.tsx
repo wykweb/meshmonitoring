@@ -412,7 +412,7 @@ const coreServices: ServiceCard[] = [
       "National-scale MeshInfo dashboard aggregating node data, telemetry, and mesh statistics from across Canada. Browse node details, hardware types, firmware versions, and network health at a country-wide level.",
     url: "https://ca.meshmonitoring.com/meshinfo",
     badge: "MeshInfo",
-    badgeColor: "indigo",
+    badgeColor: "violet",
     icon: <NetworkIcon className="w-6 h-6" />,
     tag: "ca.meshmonitoring.com",
     note: "Open MeshInfo",
@@ -428,7 +428,7 @@ const coreServices: ServiceCard[] = [
       "YYC-specific MeshInfo dashboard aggregating node data, telemetry, and mesh statistics from the Calgary Meshtastic network. Browse node details, hardware types, firmware versions, and local network health.",
     url: "https://yycmesh.meshmonitoring.com/meshinfo",
     badge: "MeshInfo",
-    badgeColor: "indigo",
+    badgeColor: "violet",
     icon: <NetworkIcon className="w-6 h-6" />,
     tag: "yycmesh.meshmonitoring.com",
     note: "Open MeshInfo",
@@ -1097,6 +1097,48 @@ const usaServices: ServiceCard[] = [
     badgeColor: "sky",
     icon: <MapIcon className="w-6 h-6" />,
     tag: "meshview.nyme.sh",
+  },
+  {
+    id: "nyme-sh",
+    title: "NYmesh",
+    subtitle: "New York City Metro — USA",
+    description:
+      "A group of Meshtastic enthusiasts based in the New York City metro area. Open to anyone curious about Meshtastic or mesh radio technologies. Join their Discord community to connect with the crew and explore the NYC mesh.",
+    url: "https://nyme.sh/",
+    badge: "Community",
+    badgeColor: "green",
+    icon: <GlobeIcon className="w-6 h-6" />,
+    tag: "nyme.sh",
+    addedAt: "2026-04-10",
+    verifiedAt: "2026-04-10",
+  },
+  {
+    id: "cnymesh",
+    title: "CNYmesh",
+    subtitle: "Central New York — USA",
+    description:
+      "Building a community-powered Meshtastic mesh network across the Syracuse region — covering Onondaga, Oswego, Madison, Oneida, Cayuga, and Cortland counties — with connections to Rochester, Buffalo, Ithaca, and Albany.",
+    url: "https://cnymesh.org/",
+    badge: "Community",
+    badgeColor: "green",
+    icon: <GlobeIcon className="w-6 h-6" />,
+    tag: "cnymesh.org",
+    addedAt: "2026-04-10",
+    verifiedAt: "2026-04-10",
+  },
+  {
+    id: "nyc-mesh-wifi",
+    title: "NYC Mesh WiFi Network",
+    subtitle: "New York City — USA",
+    description:
+      "A diverse group of volunteers dedicated to ending the digital divide and extending high-speed, reliable internet to all New Yorkers. A neutral community network that does not monitor, collect, store or block any user data or content.",
+    url: "https://www.nycmesh.net/",
+    badge: "Community",
+    badgeColor: "green",
+    icon: <GlobeIcon className="w-6 h-6" />,
+    tag: "nycmesh.net",
+    addedAt: "2026-04-10",
+    verifiedAt: "2026-04-10",
   },
   {
     id: "los-angeles-mesh",
@@ -2126,6 +2168,7 @@ export default function Home() {
             <>
               <span className="text-white/15 text-xs select-none">|</span>
               {[
+                { label: "New York",    href: "#usa-new-york",     color: "text-violet-400/70 hover:text-violet-300 hover:bg-violet-500/10" },
                 { label: "Community",   href: "#usa-community",    color: "text-green-400/70 hover:text-green-300 hover:bg-green-500/10" },
                 { label: "MeshView",    href: "#usa-meshview",     color: "text-sky-400/70 hover:text-sky-300 hover:bg-sky-500/10" },
                 { label: "MeshMonitor", href: "#usa-meshmonitor",  color: "text-rose-400/70 hover:text-rose-300 hover:bg-rose-500/10" },
@@ -2888,8 +2931,10 @@ export default function Home() {
             </div>
           </div>
 {(() => {
-            const meshCommunityCards = filteredUSA.filter(c => c.badge === "Community");
-            const meshViewCards       = filteredUSA.filter(c => c.badge !== "MeshMonitor" && c.badge !== "MeshInfo" && c.badge !== "Community");
+            const newYorkIds = ["new-york-mesh", "nyme-sh", "cnymesh", "nyc-mesh-wifi"];
+            const newYorkCards        = filteredUSA.filter(c => newYorkIds.includes(c.id));
+            const meshCommunityCards  = filteredUSA.filter(c => c.badge === "Community" && !newYorkIds.includes(c.id));
+            const meshViewCards       = filteredUSA.filter(c => c.badge !== "MeshMonitor" && c.badge !== "MeshInfo" && c.badge !== "Community" && !newYorkIds.includes(c.id));
             const meshMonitorCards    = filteredUSA.filter(c => c.badge === "MeshMonitor");
             const meshInfoCards       = filteredUSA.filter(c => c.badge === "MeshInfo");
 
@@ -2900,6 +2945,7 @@ export default function Home() {
                 rose:    { border: "border-rose-500/20",    bg: "bg-rose-500/8",    dot: "bg-rose-400",    text: "text-rose-400/80",    hover: "hover:text-rose-300" },
                 emerald: { border: "border-emerald-500/20", bg: "bg-emerald-500/8", dot: "bg-emerald-400", text: "text-emerald-400/80", hover: "hover:text-emerald-300" },
                 green:   { border: "border-green-500/20",   bg: "bg-green-500/8",   dot: "bg-green-400",   text: "text-green-400/80",   hover: "hover:text-green-300" },
+                violet:  { border: "border-violet-500/20",  bg: "bg-violet-500/8",  dot: "bg-violet-400",  text: "text-violet-400/80",  hover: "hover:text-violet-300" },
               };
               const c = colorMap[color] ?? colorMap.sky;
               const anchorHash = anchorId ? `#${anchorId}` : undefined;
@@ -2951,10 +2997,11 @@ export default function Home() {
 
             return (
               <>
-                <USASubGroup label="Community Hubs"           color="green"   anchorId="usa-community"   cards={meshCommunityCards} startIdx={0} />
-                <USASubGroup label="MeshView &amp; Map Viewers" color="sky"     anchorId="usa-meshview"    cards={meshViewCards}     startIdx={meshCommunityCards.length} />
-                <USASubGroup label="MeshMonitor Instances"      color="rose"    anchorId="usa-meshmonitor" linkHref="https://meshmonitor.org/" cards={meshMonitorCards} startIdx={meshCommunityCards.length + meshViewCards.length} />
-                <USASubGroup label="MeshInfo Instances"         color="emerald" anchorId="usa-meshinfo"    linkHref="https://github.com/MeshAddicts/meshinfo" cards={meshInfoCards} startIdx={meshCommunityCards.length + meshViewCards.length + meshMonitorCards.length} />
+                <USASubGroup label="New York Networks"          color="violet"  anchorId="usa-new-york"    cards={newYorkCards}       startIdx={0} />
+                <USASubGroup label="Community Hubs"           color="green"   anchorId="usa-community"   cards={meshCommunityCards} startIdx={newYorkCards.length} />
+                <USASubGroup label="MeshView &amp; Map Viewers" color="sky"     anchorId="usa-meshview"    cards={meshViewCards}     startIdx={newYorkCards.length + meshCommunityCards.length} />
+                <USASubGroup label="MeshMonitor Instances"      color="rose"    anchorId="usa-meshmonitor" linkHref="https://meshmonitor.org/" cards={meshMonitorCards} startIdx={newYorkCards.length + meshCommunityCards.length + meshViewCards.length} />
+                <USASubGroup label="MeshInfo Instances"         color="emerald" anchorId="usa-meshinfo"    linkHref="https://github.com/MeshAddicts/meshinfo" cards={meshInfoCards} startIdx={newYorkCards.length + meshCommunityCards.length + meshViewCards.length + meshMonitorCards.length} />
               </>
             );
           })()}

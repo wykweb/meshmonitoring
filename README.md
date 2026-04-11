@@ -119,6 +119,15 @@ All listed services are volunteer-run and community-maintained.
 | Georgia Mesh | [meshview.gamesh.net](https://meshview.gamesh.net) | Georgia |
 | MeshSense | [meshsense.affirmatech.com](https://meshsense.affirmatech.com/) | Cross-platform app |
 
+### USA — New York Networks
+
+| Service | URL | Region |
+|---|---|---|
+| New York Mesh | [meshview.nyme.sh](https://meshview.nyme.sh) | New York |
+| NYmesh | [nyme.sh](https://nyme.sh/) | New York City Metro |
+| CNYmesh | [cnymesh.org](https://cnymesh.org/) | Central New York (Syracuse region) |
+| NYC Mesh WiFi Network | [nycmesh.net](https://www.nycmesh.net/) | New York City |
+
 ### USA — Community Hubs
 
 | Service | URL | Region |

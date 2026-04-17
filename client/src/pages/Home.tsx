@@ -166,6 +166,13 @@ function MapIcon({ className }: { className?: string }) {
   );
 }
 
+function MessageSquareIcon({ className }: { className?: string }) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+    </svg>
+  );
+}
 // ─── Badge / style maps ───────────────────────────────────────────────────────
 
 const badgeStyles: Record<ServiceCard["badgeColor"], string> = {
@@ -1139,6 +1146,210 @@ const usaServices: ServiceCard[] = [
     tag: "nycmesh.net",
     addedAt: "2026-04-10",
     verifiedAt: "2026-04-10",
+  },
+  {
+    id: "mesh-ny-chat",
+    title: "Mesh NY — Chat",
+    subtitle: "New York — USA",
+    description:
+      "Real-time data from the big apple. Malla view of nyme.sh — live chat stream from the New York Meshtastic network.",
+    url: "https://malla.nyme.sh/chat",
+    badge: "Chat",
+    badgeColor: "cyan",
+    icon: <MessageSquareIcon className="w-6 h-6" />,
+    tag: "malla.nyme.sh",
+    addedAt: "2026-04-16",
+    verifiedAt: "2026-04-16",
+  },
+  // Adjacent Meshes — Buffalo
+  {
+    id: "buffalora-snydermesh",
+    title: "BuffaLoRa & SnyderMesh",
+    subtitle: "Buffalo, NY — USA",
+    description:
+      "Community mesh network serving the Buffalo, NY area. BuffaLoRa and SnyderMesh are local Meshtastic groups building coverage across Western New York.",
+    url: "https://buffalora.org/",
+    badge: "Community",
+    badgeColor: "green",
+    icon: <GlobeIcon className="w-6 h-6" />,
+    tag: "buffalora.org",
+    addedAt: "2026-04-16",
+    verifiedAt: "2026-04-16",
+  },
+  {
+    id: "discord-buffalo-ny",
+    title: "Meshtastic Discord — Buffalo",
+    subtitle: "Buffalo, NY — USA",
+    description:
+      "Official Meshtastic Discord channel for Western NY / Buffalo. Join the community under Social → Connect → US - NY - Western.",
+    url: "https://discord.com/channels/867578229534359593/1214181209597280357",
+    badge: "Social",
+    badgeColor: "violet",
+    icon: <MessageSquareIcon className="w-6 h-6" />,
+    tag: "discord.com",
+    addedAt: "2026-04-16",
+    verifiedAt: "2026-04-16",
+  },
+  // Adjacent Meshes — Capital Region & Hudson Valley
+  {
+    id: "upstatemesh",
+    title: "Upstate Mesh",
+    subtitle: "Capital Region & Hudson Valley, NY — USA",
+    description:
+      "Community Meshtastic mesh network covering the Capital Region and Hudson Valley area of upstate New York.",
+    url: "https://upstatemesh.org/",
+    badge: "Community",
+    badgeColor: "green",
+    icon: <GlobeIcon className="w-6 h-6" />,
+    tag: "upstatemesh.org",
+    addedAt: "2026-04-16",
+    verifiedAt: "2026-04-16",
+  },
+  {
+    id: "discord-capital-region-ny",
+    title: "Meshtastic Discord — Capital Region & Hudson Valley",
+    subtitle: "Capital Region, NY — USA",
+    description:
+      "Official Meshtastic Discord channel for the NY Capital Region and Hudson Valley. Join under Social → Connect → US - NY Capital Region and Hudson Valley.",
+    url: "https://discord.com/channels/867578229534359593/1282698033657811105",
+    badge: "Social",
+    badgeColor: "violet",
+    icon: <MessageSquareIcon className="w-6 h-6" />,
+    tag: "discord.com",
+    addedAt: "2026-04-16",
+    verifiedAt: "2026-04-16",
+  },
+  // Adjacent Meshes — Long Island
+  {
+    id: "discord-long-island-ny",
+    title: "Meshtastic Discord — Long Island",
+    subtitle: "Suffolk / Nassau / Queens, NY — USA",
+    description:
+      "Official Meshtastic Discord channel for Long Island (Suffolk, Nassau, Queens). Join under Social → Connect → US NY - Long Island Suffolk/Nassau/Queens.",
+    url: "https://discord.com/channels/867578229534359593/1292647069256913031",
+    badge: "Social",
+    badgeColor: "violet",
+    icon: <MessageSquareIcon className="w-6 h-6" />,
+    tag: "discord.com",
+    addedAt: "2026-04-16",
+    verifiedAt: "2026-04-16",
+  },
+  // Adjacent Meshes — Rochester
+  {
+    id: "discord-rochester-ny",
+    title: "Meshtastic Discord — Rochester",
+    subtitle: "Rochester, NY — USA",
+    description:
+      "Official Meshtastic Discord channel for Rochester, NY. Join under Social → Connect → US-Rochester, NY.",
+    url: "https://discord.com/channels/867578229534359593/1292647069256913031",
+    badge: "Social",
+    badgeColor: "violet",
+    icon: <MessageSquareIcon className="w-6 h-6" />,
+    tag: "discord.com",
+    addedAt: "2026-04-16",
+    verifiedAt: "2026-04-16",
+  },
+  // Adjacent Meshes — Sullivan County & Southern Catskills
+  {
+    id: "kaatskills-mesh",
+    title: "Kaatskills Mesh",
+    subtitle: "Sullivan County & Southern Catskills, NY — USA",
+    description:
+      "Community Meshtastic mesh network covering Sullivan County and the Southern Catskills region of New York.",
+    url: "https://kmesh.us/",
+    badge: "Community",
+    badgeColor: "green",
+    icon: <GlobeIcon className="w-6 h-6" />,
+    tag: "kmesh.us",
+    addedAt: "2026-04-16",
+    verifiedAt: "2026-04-16",
+  },
+  {
+    id: "hudson-hams-discord",
+    title: "Hudson Hams Discord",
+    subtitle: "Sullivan County & Southern Catskills, NY — USA",
+    description:
+      "Discord community for Hudson Hams — amateur radio and Meshtastic operators in the Sullivan County and Southern Catskills area.",
+    url: "https://discord.gg/2J6BuhR",
+    badge: "Social",
+    badgeColor: "violet",
+    icon: <MessageSquareIcon className="w-6 h-6" />,
+    tag: "discord.gg",
+    addedAt: "2026-04-16",
+    verifiedAt: "2026-04-16",
+  },
+  // Adjacent Meshes — Westchester
+  {
+    id: "discord-westchester-ny",
+    title: "Meshtastic Discord — Westchester County",
+    subtitle: "Westchester County, NY — USA",
+    description:
+      "Official Meshtastic Discord channel for Westchester County, NY. Join under Social → Connect → US - NY - Westchester County.",
+    url: "https://discord.com/channels/867578229534359593/1383046714763509910",
+    badge: "Social",
+    badgeColor: "violet",
+    icon: <MessageSquareIcon className="w-6 h-6" />,
+    tag: "discord.com",
+    addedAt: "2026-04-16",
+    verifiedAt: "2026-04-16",
+  },
+  // Adjacent Meshes — New Jersey
+  {
+    id: "cnjmesh",
+    title: "Central NJ Mesh",
+    subtitle: "New Jersey — USA",
+    description:
+      "Community Meshtastic mesh network serving Central New Jersey.",
+    url: "https://cnjmesh.me/",
+    badge: "Community",
+    badgeColor: "green",
+    icon: <GlobeIcon className="w-6 h-6" />,
+    tag: "cnjmesh.me",
+    addedAt: "2026-04-16",
+    verifiedAt: "2026-04-16",
+  },
+  {
+    id: "forest-edge-nj",
+    title: "Forest Edge Mesh",
+    subtitle: "New Jersey — USA",
+    description:
+      "Community Meshtastic mesh network in New Jersey — Forest Edge node cluster.",
+    url: "https://forest-edge.info/",
+    badge: "Community",
+    badgeColor: "green",
+    icon: <GlobeIcon className="w-6 h-6" />,
+    tag: "forest-edge.info",
+    addedAt: "2026-04-16",
+    verifiedAt: "2026-04-16",
+  },
+  // Adjacent Meshes — Connecticut
+  {
+    id: "ctmesh",
+    title: "CT Mesh (Statewide)",
+    subtitle: "Connecticut — USA",
+    description:
+      "Statewide Meshtastic mesh network covering Connecticut. Building community-powered mesh coverage across the state.",
+    url: "https://ctmesh.org/",
+    badge: "Community",
+    badgeColor: "green",
+    icon: <GlobeIcon className="w-6 h-6" />,
+    tag: "ctmesh.org",
+    addedAt: "2026-04-16",
+    verifiedAt: "2026-04-16",
+  },
+  {
+    id: "ctmesh-discord",
+    title: "CT Mesh Discord",
+    subtitle: "Connecticut — USA",
+    description:
+      "Official Discord community for CT Mesh — the statewide Connecticut Meshtastic network.",
+    url: "https://discord.gg/m4F328as3K",
+    badge: "Social",
+    badgeColor: "violet",
+    icon: <MessageSquareIcon className="w-6 h-6" />,
+    tag: "discord.gg",
+    addedAt: "2026-04-16",
+    verifiedAt: "2026-04-16",
   },
   {
     id: "los-angeles-mesh",
@@ -2170,6 +2381,7 @@ export default function Home() {
               <span className="text-white/15 text-xs select-none">|</span>
               {[
                 { label: "New York",    href: "#usa-new-york",     color: "text-violet-400/70 hover:text-violet-300 hover:bg-violet-500/10" },
+                { label: "Adjacent",    href: "#usa-adjacent-ny",  color: "text-indigo-400/70 hover:text-indigo-300 hover:bg-indigo-500/10" },
                 { label: "PNW",         href: "#usa-pnw",          color: "text-teal-400/70 hover:text-teal-300 hover:bg-teal-500/10" },
                 { label: "Community",   href: "#usa-community",    color: "text-green-400/70 hover:text-green-300 hover:bg-green-500/10" },
                 { label: "MeshView",    href: "#usa-meshview",     color: "text-sky-400/70 hover:text-sky-300 hover:bg-sky-500/10" },
@@ -2933,12 +3145,14 @@ export default function Home() {
             </div>
           </div>
 {(() => {
-            const newYorkIds = ["new-york-mesh", "nyme-sh", "cnymesh", "nyc-mesh-wifi"];
-            const pnwIds     = ["oregon-mesh", "central-oregon-mesh", "washington-mesh"];
+            const newYorkIds   = ["new-york-mesh", "nyme-sh", "cnymesh", "nyc-mesh-wifi", "mesh-ny-chat"];
+            const adjacentNYIds = ["buffalora-snydermesh", "discord-buffalo-ny", "upstatemesh", "discord-capital-region-ny", "discord-long-island-ny", "discord-rochester-ny", "kaatskills-mesh", "hudson-hams-discord", "discord-westchester-ny", "cnjmesh", "forest-edge-nj", "ctmesh", "ctmesh-discord"];
+            const pnwIds        = ["oregon-mesh", "central-oregon-mesh", "washington-mesh"];
             const newYorkCards        = filteredUSA.filter(c => newYorkIds.includes(c.id));
+            const adjacentNYCards     = filteredUSA.filter(c => adjacentNYIds.includes(c.id));
             const pnwCards            = filteredUSA.filter(c => pnwIds.includes(c.id));
-            const meshCommunityCards  = filteredUSA.filter(c => c.badge === "Community" && !newYorkIds.includes(c.id) && !pnwIds.includes(c.id));
-            const meshViewCards       = filteredUSA.filter(c => c.badge !== "MeshMonitor" && c.badge !== "MeshInfo" && c.badge !== "Community" && !newYorkIds.includes(c.id) && !pnwIds.includes(c.id));
+            const meshCommunityCards  = filteredUSA.filter(c => c.badge === "Community" && !newYorkIds.includes(c.id) && !adjacentNYIds.includes(c.id) && !pnwIds.includes(c.id));
+            const meshViewCards       = filteredUSA.filter(c => c.badge !== "MeshMonitor" && c.badge !== "MeshInfo" && c.badge !== "Community" && !newYorkIds.includes(c.id) && !adjacentNYIds.includes(c.id) && !pnwIds.includes(c.id));
             const meshMonitorCards    = filteredUSA.filter(c => c.badge === "MeshMonitor");
             const meshInfoCards       = filteredUSA.filter(c => c.badge === "MeshInfo");
 
@@ -2951,6 +3165,7 @@ export default function Home() {
                 green:   { border: "border-green-500/20",   bg: "bg-green-500/8",   dot: "bg-green-400",   text: "text-green-400/80",   hover: "hover:text-green-300" },
                 violet:  { border: "border-violet-500/20",  bg: "bg-violet-500/8",  dot: "bg-violet-400",  text: "text-violet-400/80",  hover: "hover:text-violet-300" },
                 teal:    { border: "border-teal-500/20",    bg: "bg-teal-500/8",    dot: "bg-teal-400",    text: "text-teal-400/80",    hover: "hover:text-teal-300" },
+                indigo:  { border: "border-indigo-500/20",  bg: "bg-indigo-500/8",  dot: "bg-indigo-400",  text: "text-indigo-400/80",  hover: "hover:text-indigo-300" },
               };
               const c = colorMap[color] ?? colorMap.sky;
               const anchorHash = anchorId ? `#${anchorId}` : undefined;
@@ -3003,11 +3218,12 @@ export default function Home() {
             return (
               <>
                 <USASubGroup label="New York Networks"          color="violet"  anchorId="usa-new-york"    cards={newYorkCards}       startIdx={0} />
-                <USASubGroup label="Pacific Northwest"          color="teal"    anchorId="usa-pnw"         cards={pnwCards}           startIdx={newYorkCards.length} />
-                <USASubGroup label="Community Hubs"             color="green"   anchorId="usa-community"   cards={meshCommunityCards} startIdx={newYorkCards.length + pnwCards.length} />
-                <USASubGroup label="MeshView &amp; Map Viewers" color="sky"     anchorId="usa-meshview"    cards={meshViewCards}     startIdx={newYorkCards.length + pnwCards.length + meshCommunityCards.length} />
-                <USASubGroup label="MeshMonitor Instances"      color="rose"    anchorId="usa-meshmonitor" linkHref="https://meshmonitor.org/" cards={meshMonitorCards} startIdx={newYorkCards.length + pnwCards.length + meshCommunityCards.length + meshViewCards.length} />
-                <USASubGroup label="MeshInfo Instances"         color="emerald" anchorId="usa-meshinfo"    linkHref="https://github.com/MeshAddicts/meshinfo" cards={meshInfoCards} startIdx={newYorkCards.length + pnwCards.length + meshCommunityCards.length + meshViewCards.length + meshMonitorCards.length} />
+                <USASubGroup label="Adjacent Meshes (NY/NJ/CT)" color="indigo"  anchorId="usa-adjacent-ny" cards={adjacentNYCards}    startIdx={newYorkCards.length} />
+                <USASubGroup label="Pacific Northwest"          color="teal"    anchorId="usa-pnw"         cards={pnwCards}           startIdx={newYorkCards.length + adjacentNYCards.length} />
+                <USASubGroup label="Community Hubs"             color="green"   anchorId="usa-community"   cards={meshCommunityCards} startIdx={newYorkCards.length + adjacentNYCards.length + pnwCards.length} />
+                <USASubGroup label="MeshView &amp; Map Viewers" color="sky"     anchorId="usa-meshview"    cards={meshViewCards}     startIdx={newYorkCards.length + adjacentNYCards.length + pnwCards.length + meshCommunityCards.length} />
+                <USASubGroup label="MeshMonitor Instances"      color="rose"    anchorId="usa-meshmonitor" linkHref="https://meshmonitor.org/" cards={meshMonitorCards} startIdx={newYorkCards.length + adjacentNYCards.length + pnwCards.length + meshCommunityCards.length + meshViewCards.length} />
+                <USASubGroup label="MeshInfo Instances"         color="emerald" anchorId="usa-meshinfo"    linkHref="https://github.com/MeshAddicts/meshinfo" cards={meshInfoCards} startIdx={newYorkCards.length + adjacentNYCards.length + pnwCards.length + meshCommunityCards.length + meshViewCards.length + meshMonitorCards.length} />
               </>
             );
           })()}

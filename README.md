@@ -126,6 +126,24 @@ All listed services are volunteer-run and community-maintained.
 | Oregon Mesh | [meshview.meshoregon.com](https://meshview.meshoregon.com) | Oregon |
 | Central Oregon Mesh | [192.81.132.42:8080](http://192.81.132.42:8080/) | Central Oregon |
 
+### USA — Adjacent Meshes (NY/NJ/CT)
+
+| Service | URL | Region |
+|---|---|---|
+| BuffaLoRa & SnyderMesh | [buffalora.org](https://buffalora.org/) | Buffalo, NY |
+| Meshtastic Discord — Buffalo | [discord.com](https://discord.com/channels/867578229534359593/1214181209597280357) | Buffalo, NY |
+| Upstate Mesh | [upstatemesh.org](https://upstatemesh.org/) | Capital Region & Hudson Valley, NY |
+| Meshtastic Discord — Capital Region | [discord.com](https://discord.com/channels/867578229534359593/1282698033657811105) | Capital Region, NY |
+| Meshtastic Discord — Long Island | [discord.com](https://discord.com/channels/867578229534359593/1292647069256913031) | Suffolk/Nassau/Queens, NY |
+| Meshtastic Discord — Rochester | [discord.com](https://discord.com/channels/867578229534359593/1292647069256913031) | Rochester, NY |
+| Kaatskills Mesh | [kmesh.us](https://kmesh.us/) | Sullivan County & Southern Catskills, NY |
+| Hudson Hams Discord | [discord.gg](https://discord.gg/2J6BuhR) | Sullivan County & Southern Catskills, NY |
+| Meshtastic Discord — Westchester | [discord.com](https://discord.com/channels/867578229534359593/1383046714763509910) | Westchester County, NY |
+| Central NJ Mesh | [cnjmesh.me](https://cnjmesh.me/) | New Jersey |
+| Forest Edge Mesh | [forest-edge.info](https://forest-edge.info/) | New Jersey |
+| CT Mesh (Statewide) | [ctmesh.org](https://ctmesh.org/) | Connecticut |
+| CT Mesh Discord | [discord.gg](https://discord.gg/m4F328as3K) | Connecticut |
+
 ### USA — New York Networks
 
 | Service | URL | Region |
@@ -134,6 +152,7 @@ All listed services are volunteer-run and community-maintained.
 | NYmesh | [nyme.sh](https://nyme.sh/) | New York City Metro |
 | CNYmesh | [cnymesh.org](https://cnymesh.org/) | Central New York (Syracuse region) |
 | NYC Mesh WiFi Network | [nycmesh.net](https://www.nycmesh.net/) | New York City |
+| Mesh NY — Chat | [malla.nyme.sh/chat](https://malla.nyme.sh/chat) | New York |
 
 ### USA — Community Hubs
 

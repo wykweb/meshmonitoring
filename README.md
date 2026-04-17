@@ -126,7 +126,16 @@ All listed services are volunteer-run and community-maintained.
 | Oregon Mesh | [meshview.meshoregon.com](https://meshview.meshoregon.com) | Oregon |
 | Central Oregon Mesh | [192.81.132.42:8080](http://192.81.132.42:8080/) | Central Oregon |
 
-### USA — Adjacent Meshes (NY/NJ/CT)
+### USA — New England
+
+| Service | URL | Region |
+|---|---|---|
+| Boston Mesh | [bostonmesh.org](https://bostonmesh.org/) | Massachusetts |
+| Meshtastic Discord — Massachusetts | [discord.com](https://discord.com/invite/ktMAKGBnBs) | Massachusetts |
+| Rhode Island Mesh | [discord.com](https://discord.com/invite/ktMAKGBnBs) | Rhode Island |
+| Vermont Mesh | [discord.com](https://discord.com/invite/ktMAKGBnBs) | Vermont |
+
+### USA — Adjacent Meshes (NY/NJ/CT/PA)
 
 | Service | URL | Region |
 |---|---|---|
@@ -143,6 +152,11 @@ All listed services are volunteer-run and community-maintained.
 | Forest Edge Mesh | [forest-edge.info](https://forest-edge.info/) | New Jersey |
 | CT Mesh (Statewide) | [ctmesh.org](https://ctmesh.org/) | Connecticut |
 | CT Mesh Discord | [discord.gg](https://discord.gg/m4F328as3K) | Connecticut |
+| Philly Mesh | [phillymesh.net](https://phillymesh.net/) | Philadelphia / Delaware Valley, PA |
+| Philly Radio & Meshtastic Discord | [discord.gg](https://discord.gg/MWWbAkRR9v) | Philadelphia / Delaware Valley, PA |
+| Meshtastic Discord — Philadelphia PA/Delaware Valley | [discord.com](https://discord.com/channels/867578229534359593/1280671409995255809) | Philadelphia, PA |
+| Delaware Meshtastic (deme.sh) | [deme.sh](https://deme.sh/) | Delaware |
+| WPAMesh | [wpamesh.net](https://wpamesh.net/) | Western Pennsylvania |
 
 ### USA — New York Networks
 

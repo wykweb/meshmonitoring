@@ -1351,6 +1351,134 @@ const usaServices: ServiceCard[] = [
     addedAt: "2026-04-16",
     verifiedAt: "2026-04-16",
   },
+  // Philadelphia / Delaware Valley
+  {
+    id: "phillymesh",
+    title: "Philly Mesh",
+    subtitle: "Philadelphia / Delaware Valley — USA",
+    description:
+      "Community hub for Meshtastic and mesh networking enthusiasts in the Philadelphia area. Revived as the go-to resource for local Meshtastic users across the Philly metro and Delaware Valley.",
+    url: "https://phillymesh.net/",
+    badge: "Community",
+    badgeColor: "green",
+    icon: <GlobeIcon className="w-6 h-6" />,
+    tag: "phillymesh.net",
+    addedAt: "2026-04-16",
+    verifiedAt: "2026-04-16",
+  },
+  {
+    id: "philly-radio-discord",
+    title: "Philly Radio & Meshtastic Discord",
+    subtitle: "Philadelphia / Delaware Valley — USA",
+    description:
+      "The primary Discord server for Meshtastic and radio enthusiasts in the Philadelphia area (PRM). Join to connect with local operators and get help getting started.",
+    url: "https://discord.gg/MWWbAkRR9v",
+    badge: "Social",
+    badgeColor: "violet",
+    icon: <MessageSquareIcon className="w-6 h-6" />,
+    tag: "discord.gg",
+    addedAt: "2026-04-16",
+    verifiedAt: "2026-04-16",
+  },
+  {
+    id: "discord-philly-pa",
+    title: "Meshtastic Discord — Philadelphia PA/Delaware Valley",
+    subtitle: "Philadelphia / Delaware Valley — USA",
+    description:
+      "Official Meshtastic Discord channel for the PA/Delaware Valley region. Join under Social → Connect → US - Philadelphia PA/Delaware Valley.",
+    url: "https://discord.com/channels/867578229534359593/1280671409995255809",
+    badge: "Social",
+    badgeColor: "violet",
+    icon: <MessageSquareIcon className="w-6 h-6" />,
+    tag: "discord.com",
+    addedAt: "2026-04-16",
+    verifiedAt: "2026-04-16",
+  },
+  {
+    id: "delaware-mesh",
+    title: "Delaware Meshtastic (deme.sh)",
+    subtitle: "Delaware — USA",
+    description:
+      "Delaware Meshtastic community group on Facebook, also accessible at deme.sh. The Philly mesh connects to Delaware nodes about once a month through propagation or node flyovers.",
+    url: "https://deme.sh/",
+    badge: "Community",
+    badgeColor: "green",
+    icon: <GlobeIcon className="w-6 h-6" />,
+    tag: "deme.sh",
+    addedAt: "2026-04-16",
+    verifiedAt: "2026-04-16",
+  },
+  {
+    id: "wpamesh",
+    title: "WPAMesh",
+    subtitle: "Western Pennsylvania — USA",
+    description:
+      "Community Meshtastic mesh network for Western Pennsylvania (Pittsburgh / Yinzer area). Includes a Discord server as their main communication platform.",
+    url: "https://wpamesh.net/",
+    badge: "Community",
+    badgeColor: "green",
+    icon: <GlobeIcon className="w-6 h-6" />,
+    tag: "wpamesh.net",
+    addedAt: "2026-04-16",
+    verifiedAt: "2026-04-16",
+  },
+  // New England
+  {
+    id: "bostonmesh",
+    title: "Boston Mesh",
+    subtitle: "Massachusetts — USA",
+    description:
+      "Community Meshtastic mesh network for the Boston and Greater Massachusetts area. Connecting operators across the Bay State.",
+    url: "https://bostonmesh.org/",
+    badge: "Community",
+    badgeColor: "green",
+    icon: <GlobeIcon className="w-6 h-6" />,
+    tag: "bostonmesh.org",
+    addedAt: "2026-04-16",
+    verifiedAt: "2026-04-16",
+  },
+  {
+    id: "discord-ma-meshtastic",
+    title: "Meshtastic Discord — Massachusetts",
+    subtitle: "Massachusetts — USA",
+    description:
+      "Official Meshtastic Discord channel for Massachusetts. Join under Social → Connect → US - Massachusetts.",
+    url: "https://discord.com/invite/ktMAKGBnBs",
+    badge: "Social",
+    badgeColor: "violet",
+    icon: <MessageSquareIcon className="w-6 h-6" />,
+    tag: "discord.com",
+    addedAt: "2026-04-16",
+    verifiedAt: "2026-04-16",
+  },
+  {
+    id: "rimesh",
+    title: "Rhode Island Mesh",
+    subtitle: "Rhode Island — USA",
+    description:
+      "Community Meshtastic mesh network for Rhode Island. Building local coverage across the Ocean State.",
+    url: "https://discord.com/invite/ktMAKGBnBs",
+    badge: "Social",
+    badgeColor: "violet",
+    icon: <MessageSquareIcon className="w-6 h-6" />,
+    tag: "discord.com",
+    addedAt: "2026-04-16",
+    verifiedAt: "2026-04-16",
+  },
+  {
+    id: "vtmesh",
+    title: "Vermont Mesh",
+    subtitle: "Vermont — USA",
+    description:
+      "Community Meshtastic mesh network for Vermont. Connecting operators across the Green Mountain State.",
+    url: "https://discord.com/invite/ktMAKGBnBs",
+    badge: "Social",
+    badgeColor: "violet",
+    icon: <MessageSquareIcon className="w-6 h-6" />,
+    tag: "discord.com",
+    addedAt: "2026-04-16",
+    verifiedAt: "2026-04-16",
+  },
   {
     id: "los-angeles-mesh",
     title: "SoCal Mesh",
@@ -2192,7 +2320,7 @@ export default function Home() {
   }
   const searchRef = useRef<HTMLInputElement>(null);
 
-  const TYPE_PILLS = ["All", "New", "Verified", "Stale", "Firehose", "Chat", "Map", "MeshView", "MeshMonitor", "MeshInfo", "Community", "Dashboard", "Bot", "Tool", "Software", "Wardriving", "Relay", "Directory", "Telegram", "Discord", "Article", "GTA+"];
+  const TYPE_PILLS = ["All", "New", "Verified", "Stale", "Social", "Firehose", "Chat", "Map", "MeshView", "MeshMonitor", "MeshInfo", "Community", "Dashboard", "Bot", "Tool", "Software", "Wardriving", "Relay", "Directory", "Telegram", "Discord", "Article", "GTA+"];
 
   function matchesType(card: ServiceCard): boolean {
     if (activeType === "All") return true;
@@ -2208,6 +2336,9 @@ export default function Home() {
     if (activeType === "Stale") {
       if (!card.verifiedAt) return true; // no verifiedAt = treat as stale
       return (Date.now() - new Date(card.verifiedAt).getTime()) > 90 * 24 * 60 * 60 * 1000;
+    }
+    if (activeType === "Social") {
+      return card.badge === "Social" || card.badge === "Discord" || card.badge === "Telegram";
     }
     return card.badge === activeType;
   }
@@ -2382,6 +2513,7 @@ export default function Home() {
               {[
                 { label: "New York",    href: "#usa-new-york",     color: "text-violet-400/70 hover:text-violet-300 hover:bg-violet-500/10" },
                 { label: "Adjacent",    href: "#usa-adjacent-ny",  color: "text-indigo-400/70 hover:text-indigo-300 hover:bg-indigo-500/10" },
+                { label: "New England", href: "#usa-new-england",  color: "text-amber-400/70 hover:text-amber-300 hover:bg-amber-500/10" },
                 { label: "PNW",         href: "#usa-pnw",          color: "text-teal-400/70 hover:text-teal-300 hover:bg-teal-500/10" },
                 { label: "Community",   href: "#usa-community",    color: "text-green-400/70 hover:text-green-300 hover:bg-green-500/10" },
                 { label: "MeshView",    href: "#usa-meshview",     color: "text-sky-400/70 hover:text-sky-300 hover:bg-sky-500/10" },
@@ -3145,14 +3277,17 @@ export default function Home() {
             </div>
           </div>
 {(() => {
-            const newYorkIds   = ["new-york-mesh", "nyme-sh", "cnymesh", "nyc-mesh-wifi", "mesh-ny-chat"];
-            const adjacentNYIds = ["buffalora-snydermesh", "discord-buffalo-ny", "upstatemesh", "discord-capital-region-ny", "discord-long-island-ny", "discord-rochester-ny", "kaatskills-mesh", "hudson-hams-discord", "discord-westchester-ny", "cnjmesh", "forest-edge-nj", "ctmesh", "ctmesh-discord"];
-            const pnwIds        = ["oregon-mesh", "central-oregon-mesh", "washington-mesh"];
+            const newYorkIds     = ["new-york-mesh", "nyme-sh", "cnymesh", "nyc-mesh-wifi", "mesh-ny-chat"];
+            const adjacentNYIds  = ["buffalora-snydermesh", "discord-buffalo-ny", "upstatemesh", "discord-capital-region-ny", "discord-long-island-ny", "discord-rochester-ny", "kaatskills-mesh", "hudson-hams-discord", "discord-westchester-ny", "cnjmesh", "forest-edge-nj", "ctmesh", "ctmesh-discord", "phillymesh", "philly-radio-discord", "discord-philly-pa", "delaware-mesh", "wpamesh"];
+            const newEnglandIds  = ["bostonmesh", "discord-ma-meshtastic", "rimesh", "vtmesh"];
+            const pnwIds         = ["oregon-mesh", "central-oregon-mesh", "washington-mesh"];
+            const allGroupedIds  = [...newYorkIds, ...adjacentNYIds, ...newEnglandIds, ...pnwIds];
             const newYorkCards        = filteredUSA.filter(c => newYorkIds.includes(c.id));
             const adjacentNYCards     = filteredUSA.filter(c => adjacentNYIds.includes(c.id));
+            const newEnglandCards     = filteredUSA.filter(c => newEnglandIds.includes(c.id));
             const pnwCards            = filteredUSA.filter(c => pnwIds.includes(c.id));
-            const meshCommunityCards  = filteredUSA.filter(c => c.badge === "Community" && !newYorkIds.includes(c.id) && !adjacentNYIds.includes(c.id) && !pnwIds.includes(c.id));
-            const meshViewCards       = filteredUSA.filter(c => c.badge !== "MeshMonitor" && c.badge !== "MeshInfo" && c.badge !== "Community" && !newYorkIds.includes(c.id) && !adjacentNYIds.includes(c.id) && !pnwIds.includes(c.id));
+            const meshCommunityCards  = filteredUSA.filter(c => c.badge === "Community" && !allGroupedIds.includes(c.id));
+            const meshViewCards       = filteredUSA.filter(c => c.badge !== "MeshMonitor" && c.badge !== "MeshInfo" && c.badge !== "Community" && !allGroupedIds.includes(c.id));
             const meshMonitorCards    = filteredUSA.filter(c => c.badge === "MeshMonitor");
             const meshInfoCards       = filteredUSA.filter(c => c.badge === "MeshInfo");
 
@@ -3166,6 +3301,7 @@ export default function Home() {
                 violet:  { border: "border-violet-500/20",  bg: "bg-violet-500/8",  dot: "bg-violet-400",  text: "text-violet-400/80",  hover: "hover:text-violet-300" },
                 teal:    { border: "border-teal-500/20",    bg: "bg-teal-500/8",    dot: "bg-teal-400",    text: "text-teal-400/80",    hover: "hover:text-teal-300" },
                 indigo:  { border: "border-indigo-500/20",  bg: "bg-indigo-500/8",  dot: "bg-indigo-400",  text: "text-indigo-400/80",  hover: "hover:text-indigo-300" },
+                amber:   { border: "border-amber-500/20",   bg: "bg-amber-500/8",   dot: "bg-amber-400",   text: "text-amber-400/80",   hover: "hover:text-amber-300" },
               };
               const c = colorMap[color] ?? colorMap.sky;
               const anchorHash = anchorId ? `#${anchorId}` : undefined;
@@ -3217,13 +3353,27 @@ export default function Home() {
 
             return (
               <>
-                <USASubGroup label="New York Networks"          color="violet"  anchorId="usa-new-york"    cards={newYorkCards}       startIdx={0} />
-                <USASubGroup label="Adjacent Meshes (NY/NJ/CT)" color="indigo"  anchorId="usa-adjacent-ny" cards={adjacentNYCards}    startIdx={newYorkCards.length} />
-                <USASubGroup label="Pacific Northwest"          color="teal"    anchorId="usa-pnw"         cards={pnwCards}           startIdx={newYorkCards.length + adjacentNYCards.length} />
-                <USASubGroup label="Community Hubs"             color="green"   anchorId="usa-community"   cards={meshCommunityCards} startIdx={newYorkCards.length + adjacentNYCards.length + pnwCards.length} />
-                <USASubGroup label="MeshView &amp; Map Viewers" color="sky"     anchorId="usa-meshview"    cards={meshViewCards}     startIdx={newYorkCards.length + adjacentNYCards.length + pnwCards.length + meshCommunityCards.length} />
-                <USASubGroup label="MeshMonitor Instances"      color="rose"    anchorId="usa-meshmonitor" linkHref="https://meshmonitor.org/" cards={meshMonitorCards} startIdx={newYorkCards.length + adjacentNYCards.length + pnwCards.length + meshCommunityCards.length + meshViewCards.length} />
-                <USASubGroup label="MeshInfo Instances"         color="emerald" anchorId="usa-meshinfo"    linkHref="https://github.com/MeshAddicts/meshinfo" cards={meshInfoCards} startIdx={newYorkCards.length + adjacentNYCards.length + pnwCards.length + meshCommunityCards.length + meshViewCards.length + meshMonitorCards.length} />
+                {/* helper to accumulate startIdx cleanly */}
+                {(() => {
+                  let idx = 0;
+                  const grp = (label: string, color: string, cards: typeof filteredUSA, anchorId?: string, linkHref?: string) => {
+                    const el = <USASubGroup key={anchorId} label={label} color={color} anchorId={anchorId} linkHref={linkHref} cards={cards} startIdx={idx} />;
+                    idx += cards.length;
+                    return el;
+                  };
+                  return (
+                    <>
+                      {grp("New York Networks",          "violet",  newYorkCards,       "usa-new-york")}
+                      {grp("Adjacent Meshes (NY/NJ/CT/PA)", "indigo", adjacentNYCards,  "usa-adjacent-ny")}
+                      {grp("New England",                "amber",   newEnglandCards,    "usa-new-england")}
+                      {grp("Pacific Northwest",          "teal",    pnwCards,           "usa-pnw")}
+                      {grp("Community Hubs",             "green",   meshCommunityCards, "usa-community")}
+                      {grp("MeshView & Map Viewers",     "sky",     meshViewCards,      "usa-meshview")}
+                      {grp("MeshMonitor Instances",      "rose",    meshMonitorCards,   "usa-meshmonitor", "https://meshmonitor.org/")}
+                      {grp("MeshInfo Instances",         "emerald", meshInfoCards,      "usa-meshinfo",    "https://github.com/MeshAddicts/meshinfo")}
+                    </>
+                  );
+                })()}
               </>
             );
           })()}

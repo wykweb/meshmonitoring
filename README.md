@@ -21,8 +21,10 @@ All listed services are volunteer-run and community-maintained.
 | Service | URL | Description |
 |---|---|---|
 | YYC Mesh — Observer Zapp Mobile | [yycmesh.meshmonitoring.com/firehose](https://yycmesh.meshmonitoring.com/firehose) | Live firehose from the YYC Mesh Zapp Mobile observer |
-| YYC Mesh — Observer WYK0 Bot | [yyc.meshmonitoring.com/firehose](https://yyc.meshmonitoring.com/firehose) | Live firehose from the YYC Mesh WYK0 bot observer |
-| YYC Mesh — Chats (Zapp) | [yycmesh.meshmonitoring.com/chat](https://yycmesh.meshmonitoring.com/chat) | Live chat stream from the YYC Mesh network via Zapp Mobile observer |
+| YYC Mesh — Firehose (WYK0) | [yyc.meshmonitoring.com/firehose](https://yyc.meshmonitoring.com/firehose) | Live firehose from the YYC Mesh WYK0 bot observer |
+| Malla — YYCMesh | [malla-yyc.meshmonitoring.com](https://malla-yyc.meshmonitoring.com/) | Live data from the YYC Meshtastic Custom Network via Zapp Mobile observer and Malla |
+| YYC Mesh — Chats | [yycmesh.meshmonitoring.com/chat](https://yycmesh.meshmonitoring.com/chat) | Live chat stream from the YYC Mesh network via Zapp Mobile observer |
+| YYC Mesh — Malla Chats | [malla-yyc.meshmonitoring.com/chat](https://malla-yyc.meshmonitoring.com/chat) | Live chat stream from the YYC Mesh network on Malla dashboard |
 | YYC Mesh — Chats (WYK0) | [yyc.meshmonitoring.com/chat](https://yyc.meshmonitoring.com/chat) | Live chat stream from the YYC Mesh network via WYK0 bot observer |
 | Canada Mesh Meshtastic | [ca.meshmonitoring.com/firehose](https://ca.meshmonitoring.com/firehose) | National Meshtastic firehose feed |
 | Canada Mesh — Chats | [ca.meshmonitoring.com/chat](https://ca.meshmonitoring.com/chat) | Live chat stream aggregating messages from across the Canadian mesh |

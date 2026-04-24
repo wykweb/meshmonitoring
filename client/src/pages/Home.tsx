@@ -2565,11 +2565,11 @@ export default function Home() {
       <header className="fixed top-0 left-0 right-0 z-50 border-b border-white/6" style={{ background: "oklch(0.11 0.008 265 / 0.85)", backdropFilter: "blur(16px)" }}>
         <div className="container flex items-center justify-between h-16">
           <a href="#" className="flex items-center gap-3 group" aria-label="MeshMonitoring.com — back to top">
-            <div className="relative w-8 h-8">
-              <div className="absolute inset-0 rounded-lg bg-blue-500/20 border border-blue-500/30 flex items-center justify-center group-hover:bg-blue-500/30 transition-colors duration-200">
-                <NetworkIcon className="w-4 h-4 text-blue-400" />
-              </div>
-            </div>
+            <img
+              src="https://d2xsxph8kpxj0f.cloudfront.net/310519663459784497/HNPJdRREoZxPBHo4cuB8dc/meshmonitoring-logo_2abe0e44.png"
+              alt="MeshMonitoring.com logo"
+              className="w-9 h-9 rounded-full object-cover ring-1 ring-white/10 group-hover:ring-blue-400/40 transition-all duration-200"
+            />
             <div>
               <span className="text-sm font-700 text-white group-hover:text-blue-100 transition-colors duration-200" style={{ fontFamily: "'Outfit', sans-serif", fontWeight: 700 }}>
                 Mesh<span className="text-blue-400">Monitoring</span>
@@ -2798,6 +2798,14 @@ export default function Home() {
              <span className="gradient-text">Mesh Networks</span>
           </h1>
 
+          {/* Hero logo */}
+          <div className="flex justify-center mb-6 opacity-0 animate-fade-up animation-delay-250">
+            <img
+              src="https://d2xsxph8kpxj0f.cloudfront.net/310519663459784497/HNPJdRREoZxPBHo4cuB8dc/meshmonitoring-logo_2abe0e44.png"
+              alt="MeshMonitoring.com — Bearspaw Den"
+              className="w-36 h-36 sm:w-44 sm:h-44 rounded-full object-cover ring-2 ring-green-500/30 shadow-[0_0_48px_rgba(34,197,94,0.15)]"
+            />
+          </div>
           {/* Sub */}
           <p className="text-lg sm:text-xl text-white/60 max-w-2xl mx-auto leading-relaxed mb-10 opacity-0 animate-fade-up animation-delay-300">
             Real-time firehose feeds, interactive maps, and network analyzers for the{" "}

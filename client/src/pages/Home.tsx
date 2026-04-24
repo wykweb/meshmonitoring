@@ -3544,6 +3544,15 @@ export default function Home() {
               are volunteer-run and designed to help mesh operators understand network health, node connectivity,
               and packet flow without requiring any proprietary infrastructure.
             </p>
+            {/* Footer logo */}
+            <div className="flex justify-center mt-10">
+              <img
+                src="https://d2xsxph8kpxj0f.cloudfront.net/310519663459784497/HNPJdRREoZxPBHo4cuB8dc/meshmonitoring-logo_2abe0e44.png"
+                alt="MeshMonitoring.com — Bearspaw Den"
+                title="MeshMonitoring.com — Bearspaw Den, Calgary AB"
+                className="w-48 h-48 sm:w-56 sm:h-56 rounded-full object-cover ring-2 ring-green-500/20 shadow-[0_0_64px_rgba(34,197,94,0.10)] opacity-90 hover:opacity-100 hover:ring-green-500/40 hover:shadow-[0_0_80px_rgba(34,197,94,0.20)] transition-all duration-500"
+              />
+            </div>
           </div>
         </div>
       </section>

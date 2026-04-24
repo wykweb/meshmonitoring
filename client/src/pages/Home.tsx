@@ -3561,7 +3561,12 @@ export default function Home() {
       <footer className="border-t border-white/6 pt-8 pb-6">
         <div className="container flex flex-col sm:flex-row items-center justify-between gap-4 mb-6">
           <div className="flex items-center gap-2">
-            <NetworkIcon className="w-4 h-4 text-blue-400" />
+            <img
+              src="https://d2xsxph8kpxj0f.cloudfront.net/310519663459784497/HNPJdRREoZxPBHo4cuB8dc/meshmonitoring-logo_2abe0e44.png"
+              alt="MeshMonitoring.com"
+              title="MeshMonitoring.com — Bearspaw Den, Calgary AB"
+              className="w-7 h-7 rounded-full object-cover ring-1 ring-green-500/20 opacity-70 hover:opacity-100 hover:ring-green-500/40 transition-all duration-300"
+            />
             <span className="mono-label text-white/30 text-xs">meshmonitoring.com</span>
           </div>
           <p className="mono-label text-white/20 text-xs text-center">

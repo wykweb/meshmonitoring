@@ -26,6 +26,8 @@ All listed services are volunteer-run and community-maintained.
 | YYC Mesh — Chats | [yycmesh.meshmonitoring.com/chat](https://yycmesh.meshmonitoring.com/chat) | Live chat stream from the YYC Mesh network via Zapp Mobile observer |
 | YYC Mesh — Malla Chats | [malla-yyc.meshmonitoring.com/chat](https://malla-yyc.meshmonitoring.com/chat) | Live chat stream from the YYC Mesh network on Malla dashboard |
 | Malla US — Meshtastic Network Chats | [mshus.meshmonitoring.com/chat](https://mshus.meshmonitoring.com/chat) | Live chat stream from the US Meshtastic network on Malla dashboard |
+| Malla CA — Live Packet Feed | [mshca.meshmonitoring.com/packets](https://mshca.meshmonitoring.com/packets) | Live firehose feed from the Canadian Meshtastic network on Malla dashboard — Canada & World Wide |
+| Malla CA — Live Chat Stream | [mshca.meshmonitoring.com/chat](https://mshca.meshmonitoring.com/chat) | Live chat stream from the Canadian Meshtastic network on Malla dashboard — Canada & World Wide |
 | Canadaverse Mesh — Malla Network Chats | [canadaverse.meshmonitoring.com/chat](https://canadaverse.meshmonitoring.com/chat) | Live chat stream from the Canadaverse national mesh network on Malla dashboard |
 | YYC Mesh — Chats (WYK0) | [yyc.meshmonitoring.com/chat](https://yyc.meshmonitoring.com/chat) | Live chat stream from the YYC Mesh network via WYK0 bot observer |
 | Canada Mesh Meshtastic | [ca.meshmonitoring.com/firehose](https://ca.meshmonitoring.com/firehose) | National Meshtastic firehose feed |

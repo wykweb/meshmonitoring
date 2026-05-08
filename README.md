@@ -181,6 +181,10 @@ All listed services are volunteer-run and community-maintained.
 |---|---|---------|
 | Tahoe Mesh | [tahoemesh.org](https://tahoemesh.org/) | Lake Tahoe Basin, CA/NV |
 | Are You Meshing With Us? | [areyoumeshingwith.us](https://areyoumeshingwith.us/) | Florida |
+| Florida Mesh — Discord | [discord.com/invite/floridamesh](https://discord.com/invite/floridamesh) | Florida |
+| Florida Mesh — Live Chat Stream | [malla.areyoumeshingwith.us/chat](https://malla.areyoumeshingwith.us/chat) | Florida |
+| Florida Mesh — Live Packet Feed | [malla.areyoumeshingwith.us/packets](https://malla.areyoumeshingwith.us/packets) | Florida |
+| Florida Mesh — Node Map | [map.areyoumeshingwith.us](https://map.areyoumeshingwith.us/) | Florida |
 | OKMesh | [okmesh.org](https://okmesh.org/) | Oklahoma |
 | Tulsa Meshtastic | [tulsa-meshtastic.com](https://www.tulsa-meshtastic.com/) | Tulsa, Oklahoma |
 | Meshconsin | [meshconsin.org](https://meshconsin.org/) | Wisconsin |

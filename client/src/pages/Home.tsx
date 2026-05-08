@@ -970,6 +970,25 @@ const communityServices: ServiceCard[] = [
     verifiedAt: '2026-04-03',
   },
   {
+    id: "telegram-mesh-networks",
+    title: "Mesh Networks on Telegram",
+    subtitle: "Telegram Group — Global",
+    description:
+      "A Telegram group for mesh networking enthusiasts worldwide. Connect with Meshtastic and MeshCore operators, share network updates, discuss hardware, and stay up to date with the global mesh community.",
+    url: "https://t.me/+3XvTwby0GW1jYTU5",
+    badge: "Telegram",
+    badgeColor: "sky",
+    icon: (
+      <svg className="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
+      </svg>
+    ),
+    tag: "t.me/+3XvTwby0GW1jYTU5",
+    note: "Global mesh networking community",
+    addedAt: "2026-05-07",
+    verifiedAt: "2026-05-07",
+  },
+  {
     id: "salish-mesh",
     title: "Salish Mesh",
     subtitle: "🇨🇦 Salish Sea & Surrounding Area — Canada",
@@ -3756,7 +3775,7 @@ export default function Home() {
           <div className="border-t border-white/6 pt-5">
             <p className="mono-label text-white/30 text-xs text-center mb-3">
               Directory last updated:{" "}
-              <span className="text-white/45">{new Date("2026-04-06").toLocaleDateString("en-CA", { year: "numeric", month: "long", day: "numeric" })}</span>
+              <span className="text-white/45">{new Date("2026-05-07").toLocaleDateString("en-CA", { year: "numeric", month: "long", day: "numeric" })}</span>
               {" · "}
               <span className="text-white/30">{coreServices.length + communityServices.length + resourceServices.length + usaServices.length} services listed</span>
             </p>

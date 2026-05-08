@@ -80,6 +80,7 @@ All listed services are volunteer-run and community-maintained.
 |---|---|---|
 | Mesh Monitoring — Telegram Channel | [t.me/meshmonitoring](https://t.me/meshmonitoring) | Official announcements and updates for the Canadian & USA mesh network directory |
 | Mesh Monitoring — Telegram Group | [t.me/meshmonitoringgroup](https://t.me/meshmonitoringgroup) | Community discussion group for mesh operators across Canada and the USA |
+| Mesh Networks on Telegram | [t.me/+3XvTwby0GW1jYTU5](https://t.me/+3XvTwby0GW1jYTU5) | Global Telegram group for mesh networking enthusiasts — Meshtastic and MeshCore operators worldwide |
 | YYC MeshCore Network — Discord | [discord.gg/CznDhsRWnJ](https://discord.gg/CznDhsRWnJ) | Discord community server for the YYC MeshCore Network |
 
 ### Mesh Tools & Resources

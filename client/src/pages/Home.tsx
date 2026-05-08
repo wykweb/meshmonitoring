@@ -294,6 +294,38 @@ const coreServices: ServiceCard[] = [
     verifiedAt: "2026-04-22",
   },
   {
+    id: "canadaverse-firehose",
+    title: "Canadaverse Mesh — Firehose",
+    subtitle: "Live Packet Feed — Canadaverse National Network",
+    description:
+      "Live firehose feed from the Canadaverse national mesh network. Monitor real-time packet flow, node interactions, and network activity across the Canadaverse Meshtastic mesh.",
+    url: "https://canadaverse.meshmonitoring.com/packets",
+    badge: "Firehose",
+    badgeColor: "green",
+    icon: <RadioIcon className="w-6 h-6" />,
+    tag: "canadaverse.meshmonitoring.com",
+    note: "Open Canadaverse Firehose",
+    noteUrl: "https://canadaverse.meshmonitoring.com/packets",
+    addedAt: "2026-05-07",
+    verifiedAt: "2026-05-07",
+  },
+  {
+    id: "mshus-firehose",
+    title: "Malla US — Meshtastic Network Firehose",
+    subtitle: "Live Packet Feed — United States",
+    description:
+      "Live firehose feed from the US Meshtastic network on Malla dashboard. Monitor real-time packet flow, node interactions, and network activity across the USA Meshtastic mesh.",
+    url: "https://mshus.meshmonitoring.com/packets",
+    badge: "Firehose",
+    badgeColor: "cyan",
+    icon: <RadioIcon className="w-6 h-6" />,
+    tag: "mshus.meshmonitoring.com",
+    note: "Open US Meshtastic Firehose",
+    noteUrl: "https://mshus.meshmonitoring.com/packets",
+    addedAt: "2026-05-07",
+    verifiedAt: "2026-05-07",
+  },
+  {
     id: "yyc-mesh-chats",
     title: "YYC Mesh — Chats",
     subtitle: "Live Chat Stream — Calgary, Alberta",
@@ -2877,7 +2909,31 @@ export default function Home() {
               className="inline-flex items-center gap-2 px-6 py-3 rounded-xl border border-cyan-500/30 hover:border-cyan-400/60 bg-cyan-500/8 hover:bg-cyan-500/15 text-cyan-300 hover:text-cyan-200 font-500 text-sm transition-all duration-200 hover:shadow-[0_0_18px_rgba(6,182,212,0.2)]"
               style={{ fontFamily: "'Outfit', sans-serif", fontWeight: 500 }}
             >
-              About MeshCore
+              About MeshCore.co.uk
+              <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M7 7h10v10" /><path d="M7 17 17 7" />
+              </svg>
+            </a>
+            <a
+              href="https://meshcore.io/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-xl border border-cyan-500/30 hover:border-cyan-400/60 bg-cyan-500/8 hover:bg-cyan-500/15 text-cyan-300 hover:text-cyan-200 font-500 text-sm transition-all duration-200 hover:shadow-[0_0_18px_rgba(6,182,212,0.2)]"
+              style={{ fontFamily: "'Outfit', sans-serif", fontWeight: 500 }}
+            >
+              About MeshCore.io
+              <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M7 7h10v10" /><path d="M7 17 17 7" />
+              </svg>
+            </a>
+            <a
+              href="https://blog.meshcore.io/2026/04/23/the-split"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-xl border border-amber-500/30 hover:border-amber-400/60 bg-amber-500/8 hover:bg-amber-500/15 text-amber-300 hover:text-amber-200 font-500 text-sm transition-all duration-200 hover:shadow-[0_0_18px_rgba(245,158,11,0.2)]"
+              style={{ fontFamily: "'Outfit', sans-serif", fontWeight: 500 }}
+            >
+              MeshCore.io — Why The Split?
               <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M7 7h10v10" /><path d="M7 17 17 7" />
               </svg>

@@ -372,6 +372,38 @@ const coreServices: ServiceCard[] = [
     verifiedAt: "2026-04-22",
   },
   {
+    id: "malla-us-chats",
+    title: "Malla US — Meshtastic Network Chats",
+    subtitle: "Malla Live Chat Stream — United States",
+    description:
+      "Live chat stream from the US Meshtastic network on Malla dashboard. Browse real-time messages sent across the USA Meshtastic mesh, including channel traffic, direct messages, and community conversations as they happen.",
+    url: "https://mshus.meshmonitoring.com/chat",
+    badge: "Chat",
+    badgeColor: "cyan",
+    icon: <NetworkIcon className="w-6 h-6" />,
+    tag: "mshus.meshmonitoring.com",
+    note: "Open Malla US Chat Stream",
+    noteUrl: "https://mshus.meshmonitoring.com/chat",
+    addedAt: "2026-05-07",
+    verifiedAt: "2026-05-07",
+  },
+  {
+    id: "canadaverse-malla-chats",
+    title: "Canadaverse Mesh — Malla Network Chats",
+    subtitle: "Malla Live Chat Stream — Canadaverse National Network",
+    description:
+      "Live chat stream from the Canadaverse national mesh network on Malla dashboard. Browse real-time messages from across the Canadaverse Meshtastic mesh, including channel traffic, direct messages, and community conversations.",
+    url: "https://canadaverse.meshmonitoring.com/chat",
+    badge: "Chat",
+    badgeColor: "cyan",
+    icon: <NetworkIcon className="w-6 h-6" />,
+    tag: "canadaverse.meshmonitoring.com",
+    note: "Open Canadaverse Malla Chat Stream",
+    noteUrl: "https://canadaverse.meshmonitoring.com/chat",
+    addedAt: "2026-05-07",
+    verifiedAt: "2026-05-07",
+  },
+  {
     id: "meshmapper",
     title: "YYC MeshMapper",
     subtitle: "YYC MeshCore Map",
@@ -2958,7 +2990,7 @@ export default function Home() {
               className="text-3xl sm:text-4xl font-700 text-white scroll-mt-28 inline-flex items-center gap-3 justify-center"
               style={{ fontFamily: "'Outfit', sans-serif", fontWeight: 700 }}
             >
-              <img src="https://flagcdn.com/20x15/ca.png" srcSet="https://flagcdn.com/40x30/ca.png 2x" width="20" height="15" alt="Canada" className="inline-block rounded-sm mr-1" /> YYC &amp; Canada Mesh Monitoring
+              <img src="https://flagcdn.com/20x15/ca.png" srcSet="https://flagcdn.com/40x30/ca.png 2x" width="20" height="15" alt="Canada" className="inline-block rounded-sm mr-1" /> <img src="https://flagcdn.com/20x15/us.png" srcSet="https://flagcdn.com/40x30/us.png 2x" width="20" height="15" alt="USA" className="inline-block rounded-sm mr-1" /> YYC, Canada &amp; USA Mesh Monitoring
               <button
                 onClick={() => copyAnchor('#canada')}
                 title="Copy link to this section"
@@ -2973,7 +3005,7 @@ export default function Home() {
               </button>
             </h2>
             <p className="text-white/50 mt-3 max-w-xl mx-auto text-sm leading-relaxed">
-              Live firehose feeds, mesh maps, and analyzers for the Calgary and national Meshtastic &amp; Meshcore networks.
+              Live firehose feeds, mesh maps, and analyzers for Calgary (YYC), Canadaverse Canadian National &amp; USA Meshtastic &amp; Meshcore Networks.
             </p>
           </div>
 

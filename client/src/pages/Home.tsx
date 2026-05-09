@@ -895,6 +895,22 @@ const communityServices: ServiceCard[] = [
     note2Url: "https://dash.mt.gt/d/edqkge9mf7v28g/main-dashboard?orgId=1&refresh=5s&from=now-24h&to=now",
   },
   {
+    id: "yyc-metrics-dashboard",
+    title: "YYC Meshtastic Metrics Exporter",
+    subtitle: "Zapp Mobile Observer — Calgary, Alberta",
+    description:
+      "Grafana dashboard for the YYC Meshtastic Metrics Exporter (Zapp Mobile Observer). Visualise live and historical node metrics, packet rates, signal strength, and network health for the Calgary mesh. Guest access available with credentials guest / guest.",
+    url: "https://yycmme.meshmonitoring.com/d/edqkge9mf7v28g/main-dashboard?orgId=1&from=now-24h&to=now&timezone=browser&var-Nodes=$__all&refresh=5s",
+    badge: "Dashboard",
+    badgeColor: "amber",
+    icon: <DashboardIcon className="w-6 h-6" />,
+    tag: "yycmme.meshmonitoring.com",
+    note: "Login: guest / guest",
+    noteUrl: "https://yycmme.meshmonitoring.com/d/edqkge9mf7v28g/main-dashboard?orgId=1&from=now-24h&to=now&timezone=browser&var-Nodes=$__all&refresh=5s",
+    addedAt: "2026-05-09",
+    verifiedAt: "2026-05-09",
+  },
+  {
     id: "canadaverse-meshinfo",
     title: "Canadaverse MeshInfo",
     subtitle: "Node Information Portal",

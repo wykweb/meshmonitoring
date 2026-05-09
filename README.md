@@ -49,6 +49,7 @@ All listed services are volunteer-run and community-maintained.
 | YYC Custom Mesh | [yycmesh.com](https://yycmesh.com/) | Local HAMs & hobbyists running a public off-grid mesh in Southern Alberta |
 | Canadaverse Dashboard | [dash.mt.gt](https://dash.mt.gt) | Community mesh dashboard (guest/guest) — Maintainer: @tb0hdan |
 | Canadaverse Meshtastic Metrics Exporter | [dash.mt.gt/d/…](https://dash.mt.gt/d/edqkge9mf7v28g/main-dashboard?orgId=1&refresh=5s&from=now-24h&to=now) | Grafana metrics dashboard (guest/guest) |
+| YYC Meshtastic Metrics Exporter | [yycmme.meshmonitoring.com/…](https://yycmme.meshmonitoring.com/d/edqkge9mf7v28g/main-dashboard?orgId=1&from=now-24h&to=now&timezone=browser&var-Nodes=$__all&refresh=5s) | Grafana dashboard — Zapp Mobile Observer, Calgary. Login: guest / guest |
 | Canadaverse MeshInfo | [mi.mt.gt](https://mi.mt.gt/) | Node information portal |
 | Meshtastic Node Map | [map.mt.gt](https://map.mt.gt/) | Nearly live map of nodes seen by the Canadaverse MQTT server |
 | Canadaverse Mesh Wiki | [wiki.mt.gt](https://wiki.mt.gt/) | Community knowledge base |

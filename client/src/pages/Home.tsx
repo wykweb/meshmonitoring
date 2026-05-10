@@ -358,6 +358,38 @@ const coreServices: ServiceCard[] = [
     verifiedAt: "2026-05-09",
   },
   {
+    id: "camme-firehose",
+    title: "Canadaverse Meshtastic Metrics Exporter",
+    subtitle: "Grafana Dashboard — Canadaverse Network",
+    description:
+      "Grafana dashboard for the Canadaverse Meshtastic Metrics Exporter. Visualise live and historical node metrics, packet rates, signal strength, and network health across the Canadaverse MQTT network. Log in with username \"guest\" and password \"guest\" to view the dashboard.",
+    url: "https://camme.meshmonitoring.com/login",
+    badge: "Firehose",
+    badgeColor: "sky",
+    icon: <RadioIcon className="w-6 h-6" />,
+    tag: "camme.meshmonitoring.com",
+    note: "Login: guest / guest",
+    noteUrl: "https://camme.meshmonitoring.com/login",
+    addedAt: "2026-05-10",
+    verifiedAt: "2026-05-10",
+  },
+  {
+    id: "usmme-firehose",
+    title: "msh/US Meshtastic Metrics Exporter",
+    subtitle: "Grafana Dashboard — USA Network",
+    description:
+      "Grafana dashboard for the msh/US Meshtastic Metrics Exporter. Visualise live and historical node metrics, packet rates, signal strength, and network health across the US Meshtastic mesh network. Log in with username \"guest\" and password \"guest\" to view the dashboard.",
+    url: "https://usmme.meshmonitoring.com/login",
+    badge: "Firehose",
+    badgeColor: "rose",
+    icon: <RadioIcon className="w-6 h-6" />,
+    tag: "usmme.meshmonitoring.com",
+    note: "Login: guest / guest",
+    noteUrl: "https://usmme.meshmonitoring.com/login",
+    addedAt: "2026-05-10",
+    verifiedAt: "2026-05-10",
+  },
+  {
     id: "yyc-mesh-chats",
     title: "YYC Mesh — Chats",
     subtitle: "Live Chat Stream — Calgary, Alberta",
@@ -911,6 +943,22 @@ const communityServices: ServiceCard[] = [
     verifiedAt: "2026-05-09",
   },
   {
+    id: "camme-dashboard",
+    title: "Canadaverse Meshtastic Metrics Exporter",
+    subtitle: "Grafana Dashboard — Canadaverse Network",
+    description:
+      "Grafana dashboard for the Canadaverse Meshtastic Metrics Exporter. Visualise live and historical node metrics, packet rates, signal strength, and network health across the Canadaverse MQTT network. Guest access available with credentials guest / guest.",
+    url: "https://camme.meshmonitoring.com/login",
+    badge: "Dashboard",
+    badgeColor: "sky",
+    icon: <DashboardIcon className="w-6 h-6" />,
+    tag: "camme.meshmonitoring.com",
+    note: "Login: guest / guest",
+    noteUrl: "https://camme.meshmonitoring.com/login",
+    addedAt: "2026-05-10",
+    verifiedAt: "2026-05-10",
+  },
+  {
     id: "canadaverse-meshinfo",
     title: "Canadaverse MeshInfo",
     subtitle: "Node Information Portal",
@@ -1264,6 +1312,22 @@ const communityServices: ServiceCard[] = [
 // ─── USA Meshtastic Networks ────────────────────────────────────────────────────
 
 const usaServices: ServiceCard[] = [
+  {
+    id: "usmme-dashboard",
+    title: "msh/US Meshtastic Metrics Exporter",
+    subtitle: "Grafana Dashboard — USA Network",
+    description:
+      "Grafana dashboard for the msh/US Meshtastic Metrics Exporter. Visualise live and historical node metrics, packet rates, signal strength, and network health across the US Meshtastic mesh network. Guest access available with credentials guest / guest.",
+    url: "https://usmme.meshmonitoring.com/login",
+    badge: "Dashboard",
+    badgeColor: "rose",
+    icon: <DashboardIcon className="w-6 h-6" />,
+    tag: "usmme.meshmonitoring.com",
+    note: "Login: guest / guest",
+    noteUrl: "https://usmme.meshmonitoring.com/login",
+    addedAt: "2026-05-10",
+    verifiedAt: "2026-05-10",
+  },
   {
     id: "sf-bay-area",
     title: "SF Bay Area Mesh",

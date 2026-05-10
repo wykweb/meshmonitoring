@@ -28,6 +28,8 @@ All listed services are volunteer-run and community-maintained.
 | Malla US — Meshtastic Network Chats | [mshus.meshmonitoring.com/chat](https://mshus.meshmonitoring.com/chat) | Live chat stream from the US Meshtastic network on Malla dashboard |
 | Malla CA — Live Packet Feed | [mshca.meshmonitoring.com/packets](https://mshca.meshmonitoring.com/packets) | Live firehose feed from the Canadian Meshtastic network on Malla dashboard — Canada & World Wide |
 | YYC Meshtastic Metrics Exporter (Firehose) | [yycmme.meshmonitoring.com/…](https://yycmme.meshmonitoring.com/d/edqkge9mf7v28g/main-dashboard?orgId=1&from=now-24h&to=now&timezone=browser&var-Nodes=$__all&refresh=5s) | Grafana dashboard — Zapp Mobile Observer, Calgary. Login: guest / guest |
+| Canadaverse Meshtastic Metrics Exporter (Firehose) | [camme.meshmonitoring.com/login](https://camme.meshmonitoring.com/login) | Grafana dashboard — Canadaverse network. Login: guest / guest |
+| msh/US Meshtastic Metrics Exporter (Firehose) | [usmme.meshmonitoring.com/login](https://usmme.meshmonitoring.com/login) | Grafana dashboard — US Meshtastic network. Login: guest / guest |
 | YYC Meshtastic Metrics Exporter (Chat) | [yycmme.meshmonitoring.com/…](https://yycmme.meshmonitoring.com/d/edqkge9mf7v28g/main-dashboard?orgId=1&from=now-24h&to=now&timezone=browser&var-Nodes=$__all&refresh=5s) | Grafana dashboard — Zapp Mobile Observer, Calgary. Login: guest / guest |
 | Malla CA — Live Chat Stream | [mshca.meshmonitoring.com/chat](https://mshca.meshmonitoring.com/chat) | Live chat stream from the Canadian Meshtastic network on Malla dashboard — Canada & World Wide |
 | Canadaverse Mesh — Malla Network Chats | [canadaverse.meshmonitoring.com/chat](https://canadaverse.meshmonitoring.com/chat) | Live chat stream from the Canadaverse national mesh network on Malla dashboard |
@@ -50,6 +52,7 @@ All listed services are volunteer-run and community-maintained.
 | Canadaverse Dashboard | [dash.mt.gt](https://dash.mt.gt) | Community mesh dashboard (guest/guest) — Maintainer: @tb0hdan |
 | Canadaverse Meshtastic Metrics Exporter | [dash.mt.gt/d/…](https://dash.mt.gt/d/edqkge9mf7v28g/main-dashboard?orgId=1&refresh=5s&from=now-24h&to=now) | Grafana metrics dashboard (guest/guest) |
 | YYC Meshtastic Metrics Exporter | [yycmme.meshmonitoring.com/…](https://yycmme.meshmonitoring.com/d/edqkge9mf7v28g/main-dashboard?orgId=1&from=now-24h&to=now&timezone=browser&var-Nodes=$__all&refresh=5s) | Grafana dashboard — Zapp Mobile Observer, Calgary. Login: guest / guest |
+| Canadaverse Meshtastic Metrics Exporter (Dashboard) | [camme.meshmonitoring.com/login](https://camme.meshmonitoring.com/login) | Grafana dashboard — Canadaverse network. Login: guest / guest |
 | Canadaverse MeshInfo | [mi.mt.gt](https://mi.mt.gt/) | Node information portal |
 | Meshtastic Node Map | [map.mt.gt](https://map.mt.gt/) | Nearly live map of nodes seen by the Canadaverse MQTT server |
 | Canadaverse Mesh Wiki | [wiki.mt.gt](https://wiki.mt.gt/) | Community knowledge base |
@@ -109,6 +112,12 @@ All listed services are volunteer-run and community-maintained.
 | MeshMapper YYC | [yyc.meshmapper.net](https://yyc.meshmapper.net/) | Live MeshMapper instance visualizing real-world MeshCore RF coverage across Calgary (YYC) |
 | MeshMapper YOW | [yow.meshmapper.net](https://yow.meshmapper.net/) | Live MeshMapper instance visualizing real-world MeshCore RF coverage across Ottawa (YOW), maintained by the Greater Ottawa Mesh Radio Enthusiasts |
 | Interlink Radio | [interlinkradio.weebly.com](https://interlinkradio.weebly.com/) | Community resource hub — Telegram mesh chat groups, Discord mesh groups, and resources for Meshtastic and MeshCore enthusiasts |
+
+### USA — Dashboards
+
+| Service | URL | Description |
+|---|---|---|
+| msh/US Meshtastic Metrics Exporter | [usmme.meshmonitoring.com/login](https://usmme.meshmonitoring.com/login) | Grafana dashboard — US Meshtastic network. Login: guest / guest |
 
 ### USA — MeshView & Map Viewers
 

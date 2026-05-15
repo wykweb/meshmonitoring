@@ -3195,7 +3195,7 @@ export default function Home() {
               className="inline-flex items-center gap-2 px-6 py-3 rounded-xl border border-red-500/30 hover:border-red-400/60 bg-red-500/8 hover:bg-red-500/15 text-red-300 hover:text-red-200 font-500 text-sm transition-all duration-200 hover:shadow-[0_0_18px_rgba(239,68,68,0.2)]"
               style={{ fontFamily: "'Outfit', sans-serif", fontWeight: 500 }}
             >
-              Canadaverse
+              Canadaverse MeshCore Canada
               <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M7 7h10v10" /><path d="M7 17 17 7" />
               </svg>
@@ -3207,7 +3207,7 @@ export default function Home() {
               className="inline-flex items-center gap-2 px-6 py-3 rounded-xl border border-teal-500/30 hover:border-teal-400/60 bg-teal-500/8 hover:bg-teal-500/15 text-teal-300 hover:text-teal-200 font-500 text-sm transition-all duration-200 hover:shadow-[0_0_18px_rgba(20,184,166,0.2)]"
               style={{ fontFamily: "'Outfit', sans-serif", fontWeight: 500 }}
             >
-              Canadaverse Mesh Wiki
+              Canadaverse Mesh Wiki MeshTastic
               <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M7 7h10v10" /><path d="M7 17 17 7" />
               </svg>

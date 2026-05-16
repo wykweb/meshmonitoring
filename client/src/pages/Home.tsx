@@ -3513,6 +3513,19 @@ export default function Home() {
                 {pill}
               </button>
             ))}
+            {(activeType !== "All" || searchQuery.trim().length > 0) && (
+              <button
+                type="button"
+                onClick={() => { setActiveType("All"); setSearchQuery(""); }}
+                className="mono-label text-xs px-3 py-1 rounded-full border border-red-500/40 bg-red-500/10 text-red-400/80 hover:bg-red-500/20 hover:border-red-500/60 hover:text-red-300 transition-all duration-150 flex items-center gap-1.5"
+                title="Clear all filters and search"
+              >
+                <svg className="w-3 h-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                  <line x1="18" y1="6" x2="6" y2="18" /><line x1="6" y1="6" x2="18" y2="18" />
+                </svg>
+                Clear Filters
+              </button>
+            )}
           </div>
         </div>
       </div>

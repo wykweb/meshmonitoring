@@ -2739,7 +2739,7 @@ export default function Home() {
   }
   const searchRef = useRef<HTMLInputElement>(null);
 
-  const TYPE_PILLS = ["All", "New", "Verified", "Stale", "Social", "Firehose", "Chat", "Map", "MeshView", "MeshMonitor", "MeshInfo", "Community", "Dashboard", "Bot", "Tool", "Software", "Wardriving", "Relay", "Directory", "Telegram", "Discord", "Article", "GTA+"];
+  const TYPE_PILLS = ["All", "New", "Verified", "Stale", "Social", "Firehose", "Chat", "Map", "MeshView", "MeshMonitor", "MeshInfo", "Community", "Dashboard", "Bot", "Tool", "Software", "Wardriving", "Relay", "Directory", "Telegram", "Discord", "Article", "GTA+", "MeshCore"];
 
   function matchesType(card: ServiceCard): boolean {
     if (activeType === "All") return true;
@@ -2758,6 +2758,16 @@ export default function Home() {
     }
     if (activeType === "Social") {
       return card.badge === "Social" || card.badge === "Discord" || card.badge === "Telegram";
+    }
+    if (activeType === "MeshCore") {
+      return (
+        card.tag === "live.meshcore.ca" ||
+        card.tag === "meshcore.ca" ||
+        card.tag === "meshcore.net" ||
+        card.title?.toLowerCase().includes("meshcore") ||
+        card.subtitle?.toLowerCase().includes("meshcore") ||
+        card.description?.toLowerCase().includes("meshcore")
+      );
     }
     return card.badge === activeType;
   }

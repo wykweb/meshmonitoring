@@ -2730,6 +2730,7 @@ export default function Home() {
   const [activeSection, setActiveSection] = useState<string>("services");
   const [searchQuery, setSearchQuery] = useState("");
   const [activeType, setActiveType] = useState<string>("All");
+  const [filterKey, setFilterKey] = useState(0);
   const [sortOrder, setSortOrder] = useState<"newest" | "oldest" | "az">("newest");
 
   function sortCards<T extends { title: string; addedAt?: string }>(cards: T[]): T[] {
@@ -2790,6 +2791,21 @@ export default function Home() {
   const totalVisible =
     filteredCore.length + filteredCommunity.length + filteredResources.length + filteredUSA.length + filteredArticles.length;
   const isFiltering = searchQuery.trim().length > 0 || activeType !== "All";
+
+  // Protocol filter counts (across all service arrays, no query filter)
+  const allCards = [...coreServices, ...communityServices, ...resourceServices, ...usaServices, ...articleServices];
+  const meshcoreCount = allCards.filter(c =>
+    c.tag === "live.meshcore.ca" || c.tag === "meshcore.ca" || c.tag === "meshcore.net" ||
+    c.title?.toLowerCase().includes("meshcore") ||
+    c.subtitle?.toLowerCase().includes("meshcore") ||
+    c.description?.toLowerCase().includes("meshcore")
+  ).length;
+  const meshtasticCount = allCards.filter(c =>
+    c.tag === "meshtastic.org" ||
+    c.title?.toLowerCase().includes("meshtastic") ||
+    c.subtitle?.toLowerCase().includes("meshtastic") ||
+    c.description?.toLowerCase().includes("meshtastic")
+  ).length;
 
   // "New this month" counts — cards added within the last 30 days
   const thirtyDaysAgo = new Date();
@@ -3445,7 +3461,7 @@ export default function Home() {
                 ref={searchRef}
                 type="text"
                 value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
+                onChange={e => { setSearchQuery(e.target.value); setFilterKey(k => k + 1); }}
                 placeholder='Filter by name, region, type... press "/" to focus'
                 className="w-full pl-9 pr-9 py-2 rounded-xl text-sm text-white/80 placeholder-white/25 bg-white/5 border border-white/10 focus:border-blue-500/40 focus:bg-white/8 focus:outline-none transition-all duration-200"
                 style={{ fontFamily: "'Fira Code', monospace" }}
@@ -3501,22 +3517,36 @@ export default function Home() {
               <button
                 key={pill}
                 type="button"
-                onClick={() => setActiveType(pill)}
-                className={`mono-label text-xs px-3 py-1 rounded-full border transition-all duration-150 ${
+                onClick={() => { setActiveType(pill); setFilterKey(k => k + 1); }}
+                className={`mono-label text-xs px-3 py-1 rounded-full border transition-all duration-150 flex items-center gap-1.5 ${
                   activeType === pill
                     ? pill === "MeshMonitor"
                       ? "border-rose-500/60 bg-rose-500/15 text-rose-300"
-                      : "border-blue-500/60 bg-blue-500/15 text-blue-300"
+                      : pill === "MeshCore"
+                        ? "border-orange-500/60 bg-orange-500/15 text-orange-300"
+                        : pill === "Meshtastic"
+                          ? "border-teal-500/60 bg-teal-500/15 text-teal-300"
+                          : "border-blue-500/60 bg-blue-500/15 text-blue-300"
                     : "border-white/10 bg-white/4 text-white/35 hover:text-white/60 hover:bg-white/8 hover:border-white/20"
                 }`}
               >
                 {pill}
+                {pill === "MeshCore" && (
+                  <span className={`inline-flex items-center justify-center h-3.5 min-w-3.5 px-1 rounded-full text-[9px] font-bold leading-none ${
+                    activeType === "MeshCore" ? "bg-orange-400/30 text-orange-200" : "bg-white/10 text-white/40"
+                  }`}>{meshcoreCount}</span>
+                )}
+                {pill === "Meshtastic" && (
+                  <span className={`inline-flex items-center justify-center h-3.5 min-w-3.5 px-1 rounded-full text-[9px] font-bold leading-none ${
+                    activeType === "Meshtastic" ? "bg-teal-400/30 text-teal-200" : "bg-white/10 text-white/40"
+                  }`}>{meshtasticCount}</span>
+                )}
               </button>
             ))}
             {(activeType !== "All" || searchQuery.trim().length > 0) && (
               <button
                 type="button"
-                onClick={() => { setActiveType("All"); setSearchQuery(""); }}
+                onClick={() => { setActiveType("All"); setSearchQuery(""); setFilterKey(k => k + 1); }}
                 className="mono-label text-xs px-3 py-1 rounded-full border border-red-500/40 bg-red-500/10 text-red-400/80 hover:bg-red-500/20 hover:border-red-500/60 hover:text-red-300 transition-all duration-150 flex items-center gap-1.5"
                 title="Clear all filters and search"
               >
@@ -3617,7 +3647,7 @@ export default function Home() {
 
             if (isFiltering) {
               return (
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+                <div key={filterKey} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
                   {filteredCore.map((card, i) => <ServiceCard key={card.id} card={card} index={i} />)}
                 </div>
               );
@@ -3678,7 +3708,7 @@ export default function Home() {
 
           {/* When filtering, show all matching community cards in one flat grid */}
           {isFiltering ? (
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+            <div key={filterKey} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
               {filteredCommunity.map((card, i) => (
                 <ServiceCard key={card.id} card={card} index={i} />
               ))}
@@ -4062,7 +4092,7 @@ export default function Home() {
                 <p className="text-white/30 text-xs mt-0.5">Guides, tutorials, and community write-ups about Meshtastic &amp; MeshCore</p>
               </div>
             </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            <div key={filterKey} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
               {filteredArticles.map((card, i) => <ServiceCard key={card.id} card={card} index={i} />)}
             </div>
           </div>

@@ -78,6 +78,11 @@ All listed services are volunteer-run and community-maintained.
 | Battery & Solar Runtime Calculator | [cedarmesh.ca/battery_solar_runtime_calculator.html](https://cedarmesh.ca/battery_solar_runtime_calculator.html) | Estimate device runtime with battery packs and optional solar assist (CedarMesh.ca) |
 | RF Power & EIRP Estimator | [cedarmesh.ca/rf_power_eirp_estimator.html](https://cedarmesh.ca/rf_power_eirp_estimator.html) | Calculate effective radiated power based on TX power, antenna gain, and losses (CedarMesh.ca) |
 | CedarMesh Blog | [cedarmesh.ca/blog.html](https://cedarmesh.ca/blog.html) | Updates, guides, and field notes from the GTA+ community (CedarMesh.ca) |
+| CoreScope — MeshCore Canada | [live.meshcore.ca/#/home](https://live.meshcore.ca/#/home) | Live MeshCore network dashboard for Canada — nodes, channels, packets, and observers |
+| CoreScope — Mesh LIVE | [live.meshcore.ca/#/live](https://live.meshcore.ca/#/live) | Real-time MeshCore packet stream across Canada |
+| CoreScope — Map | [live.meshcore.ca/#/map](https://live.meshcore.ca/#/map) | Interactive node map for the Canadian MeshCore network |
+| CoreScope — Channels | [live.meshcore.ca/#/channels](https://live.meshcore.ca/#/channels) | Channel directory — all known MeshCore channels heard by observer nodes |
+| CoreScope — Observers | [live.meshcore.ca/#/observers](https://live.meshcore.ca/#/observers) | Active CoreScope observer nodes contributing data to the Canadian MeshCore network |
 | Waterloo Meshview | [canadaverse.org/map](https://canadaverse.org/map) | Waterloo region dashboard for mesh stats and node health (Canadaverse) |
 | Waterloo MeshSense | [meshsense.canadaverse.org](https://meshsense.canadaverse.org/) | Waterloo sensor data and environmental dashboards (Canadaverse) |
 | Canadaverse ADS-B | [adsb.canadaverse.org](https://adsb.canadaverse.org/) | Live aircraft tracking and local ADS-B coverage (Canadaverse) |

@@ -959,6 +959,86 @@ const communityServices: ServiceCard[] = [
     verifiedAt: "2026-05-10",
   },
   {
+    id: "corescope-home",
+    title: "CoreScope — MeshCore Canada",
+    subtitle: "Live MeshCore Network Dashboard",
+    description:
+      "CoreScope is a live MeshCore network dashboard for Canada. Explore connected nodes, active channels, live packet traffic, and observer coverage across the Canadian MeshCore network in real time.",
+    url: "https://live.meshcore.ca/#/home",
+    badge: "Dashboard",
+    badgeColor: "orange",
+    icon: <DashboardIcon className="w-6 h-6" />,
+    tag: "live.meshcore.ca",
+    note: "Powered by live.meshcore.ca",
+    noteUrl: "https://live.meshcore.ca/#/home",
+    addedAt: "2026-05-16",
+    verifiedAt: "2026-05-16",
+  },
+  {
+    id: "corescope-live",
+    title: "CoreScope — Mesh LIVE",
+    subtitle: "Real-Time Packet Stream — MeshCore Canada",
+    description:
+      "Watch live MeshCore packet traffic across Canada in real time. CoreScope LIVE streams incoming packets from observer nodes, giving you an instant view of network activity, message routing, and signal events as they happen.",
+    url: "https://live.meshcore.ca/#/live",
+    badge: "Firehose",
+    badgeColor: "rose",
+    icon: <RadioIcon className="w-6 h-6" />,
+    tag: "live.meshcore.ca",
+    note: "Powered by live.meshcore.ca",
+    noteUrl: "https://live.meshcore.ca/#/live",
+    addedAt: "2026-05-16",
+    verifiedAt: "2026-05-16",
+  },
+  {
+    id: "corescope-map",
+    title: "CoreScope — Map",
+    subtitle: "Node Map — MeshCore Canada",
+    description:
+      "Interactive node map for the Canadian MeshCore network. See where active nodes and observers are located across Canada, visualise coverage areas, and explore network topology at a glance.",
+    url: "https://live.meshcore.ca/#/map",
+    badge: "Map",
+    badgeColor: "emerald",
+    icon: <MapIcon className="w-6 h-6" />,
+    tag: "live.meshcore.ca",
+    note: "Powered by live.meshcore.ca",
+    noteUrl: "https://live.meshcore.ca/#/map",
+    addedAt: "2026-05-16",
+    verifiedAt: "2026-05-16",
+  },
+  {
+    id: "corescope-channels",
+    title: "CoreScope — Channels",
+    subtitle: "Channel Directory — MeshCore Canada",
+    description:
+      "Browse and explore active MeshCore channels across Canada. CoreScope Channels lists all known channels heard by observer nodes, including channel names, activity levels, and the nodes using them.",
+    url: "https://live.meshcore.ca/#/channels",
+    badge: "Info",
+    badgeColor: "teal",
+    icon: <NetworkIcon className="w-6 h-6" />,
+    tag: "live.meshcore.ca",
+    note: "Powered by live.meshcore.ca",
+    noteUrl: "https://live.meshcore.ca/#/channels",
+    addedAt: "2026-05-16",
+    verifiedAt: "2026-05-16",
+  },
+  {
+    id: "corescope-observers",
+    title: "CoreScope — Observers",
+    subtitle: "Observer Network — MeshCore Canada",
+    description:
+      "View all active CoreScope observer nodes contributing data to the Canadian MeshCore network. Each observer is an MQTT-connected MeshCore node reporting packets it hears, enabling network-wide analysis and coverage mapping.",
+    url: "https://live.meshcore.ca/#/observers",
+    badge: "Monitor",
+    badgeColor: "violet",
+    icon: <RadioIcon className="w-6 h-6" />,
+    tag: "live.meshcore.ca",
+    note: "Powered by live.meshcore.ca",
+    noteUrl: "https://live.meshcore.ca/#/observers",
+    addedAt: "2026-05-16",
+    verifiedAt: "2026-05-16",
+  },
+  {
     id: "canadaverse-meshinfo",
     title: "Canadaverse MeshInfo",
     subtitle: "Node Information Portal",
@@ -3560,6 +3640,7 @@ export default function Home() {
             const canadaverseIds = ["yyc-custom-mesh", "canadaverse-dashboard", "canadaverse-meshinfo", "canadaverse-node-map", "canadaverse-wiki", "canadaverse-links"];
             const regionalIds    = ["ottawa-mesh", "meshmon-kw", "cedarmesh", "salish-mesh", "vancouver-mesh", "yeg-mesh", "meshmapper-yow-community", "interlink-radio-community"];
             const cedarMeshIds   = ["cedarmesh-discord", "gta-meshcore-map", "cedarmesh-battery-calc", "cedarmesh-rf-calc", "cedarmesh-blog"];
+            const meshcoreCanadaIds = ["corescope-home", "corescope-live", "corescope-map", "corescope-channels", "corescope-observers"];
             const canadaverseExtIds = ["waterloo-meshview", "waterloo-meshsense", "canadaverse-adsb"];
             const socialIds      = ["discord-yyc-meshcore", "telegram-meshmonitoring-channel", "telegram-meshmonitoring-group"];
 
@@ -3572,6 +3653,7 @@ export default function Home() {
                 blue:    { border: 'border-blue-500/20',    bg: 'bg-blue-500/8',    dot: 'bg-blue-400',    text: 'text-blue-400/80' },
                 violet:  { border: 'border-violet-500/20',  bg: 'bg-violet-500/8',  dot: 'bg-violet-400',  text: 'text-violet-400/80' },
                 sky:     { border: 'border-sky-500/20',     bg: 'bg-sky-500/8',     dot: 'bg-sky-400',     text: 'text-sky-400/80' },
+                orange:  { border: 'border-orange-500/20',  bg: 'bg-orange-500/8',  dot: 'bg-orange-400',  text: 'text-orange-400/80' },
               };
               const c = cm[color] ?? cm.cyan;
               const labelContent = (
@@ -3619,9 +3701,10 @@ export default function Home() {
               <>
                 <SubGrp label="Canadaverse Network"    color="cyan"    anchorId="community-canadaverse" ids={canadaverseIds}    startIdx={0} href="https://canadaverse.org" />
                 <SubGrp label="Regional Communities"  color="emerald" anchorId="community-regional"    ids={regionalIds}       startIdx={canadaverseIds.length} />
-                <SubGrp label="CedarMesh — GTA+"      color="blue"    anchorId="community-gta"         ids={cedarMeshIds}      startIdx={canadaverseIds.length + regionalIds.length}                                                href="https://cedarmesh.ca" />
-                <SubGrp label="Canadaverse Extended"  color="violet"  anchorId="community-extended"    ids={canadaverseExtIds} startIdx={canadaverseIds.length + regionalIds.length + cedarMeshIds.length}                        href="https://canadaverse.org" />
-                <SubGrp label="Social &amp; Chat"     color="sky"     anchorId="community-social"      ids={socialIds}         startIdx={canadaverseIds.length + regionalIds.length + cedarMeshIds.length + canadaverseExtIds.length} />
+                <SubGrp label="CedarMesh — GTA+"      color="blue"    anchorId="community-gta"         ids={cedarMeshIds}      startIdx={canadaverseIds.length + regionalIds.length}                                                                                href="https://cedarmesh.ca" />
+                <SubGrp label="MeshCore Canada"       color="orange"  anchorId="community-meshcore-ca" ids={meshcoreCanadaIds} startIdx={canadaverseIds.length + regionalIds.length + cedarMeshIds.length}                                                          href="https://live.meshcore.ca/#/home" />
+                <SubGrp label="Canadaverse Extended"  color="violet"  anchorId="community-extended"    ids={canadaverseExtIds} startIdx={canadaverseIds.length + regionalIds.length + cedarMeshIds.length + meshcoreCanadaIds.length}                               href="https://canadaverse.org" />
+                <SubGrp label="Social &amp; Chat"     color="sky"     anchorId="community-social"      ids={socialIds}         startIdx={canadaverseIds.length + regionalIds.length + cedarMeshIds.length + meshcoreCanadaIds.length + canadaverseExtIds.length} />
               </>
             );
           })()}

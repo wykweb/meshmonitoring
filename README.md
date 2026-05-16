@@ -78,6 +78,7 @@ All listed services are volunteer-run and community-maintained.
 | Battery & Solar Runtime Calculator | [cedarmesh.ca/battery_solar_runtime_calculator.html](https://cedarmesh.ca/battery_solar_runtime_calculator.html) | Estimate device runtime with battery packs and optional solar assist (CedarMesh.ca) |
 | RF Power & EIRP Estimator | [cedarmesh.ca/rf_power_eirp_estimator.html](https://cedarmesh.ca/rf_power_eirp_estimator.html) | Calculate effective radiated power based on TX power, antenna gain, and losses (CedarMesh.ca) |
 | CedarMesh Blog | [cedarmesh.ca/blog.html](https://cedarmesh.ca/blog.html) | Updates, guides, and field notes from the GTA+ community (CedarMesh.ca) |
+| MeshCore Canada | [meshcore.ca](https://meshcore.ca/) | Central community hub for MeshCore operators across Canada |
 | CoreScope — MeshCore Canada | [live.meshcore.ca/#/home](https://live.meshcore.ca/#/home) | Live MeshCore network dashboard for Canada — nodes, channels, packets, and observers |
 | CoreScope — Mesh LIVE | [live.meshcore.ca/#/live](https://live.meshcore.ca/#/live) | Real-time MeshCore packet stream across Canada |
 | CoreScope — Map | [live.meshcore.ca/#/map](https://live.meshcore.ca/#/map) | Interactive node map for the Canadian MeshCore network |

@@ -959,6 +959,22 @@ const communityServices: ServiceCard[] = [
     verifiedAt: "2026-05-10",
   },
   {
+    id: "meshcore-ca-hub",
+    title: "MeshCore Canada",
+    subtitle: "Community Hub — meshcore.ca",
+    description:
+      "The central community hub for MeshCore operators across Canada. Find news, resources, documentation, and community links for the Canadian MeshCore mesh network. A great starting point for anyone getting into MeshCore in Canada.",
+    url: "https://meshcore.ca/",
+    badge: "Community",
+    badgeColor: "orange",
+    icon: <RadioIcon className="w-6 h-6" />,
+    tag: "meshcore.ca",
+    note: "Canadian MeshCore community hub",
+    noteUrl: "https://meshcore.ca/",
+    addedAt: "2026-05-16",
+    verifiedAt: "2026-05-16",
+  },
+  {
     id: "corescope-home",
     title: "CoreScope — MeshCore Canada",
     subtitle: "Live MeshCore Network Dashboard",
@@ -3640,7 +3656,7 @@ export default function Home() {
             const canadaverseIds = ["yyc-custom-mesh", "canadaverse-dashboard", "canadaverse-meshinfo", "canadaverse-node-map", "canadaverse-wiki", "canadaverse-links"];
             const regionalIds    = ["ottawa-mesh", "meshmon-kw", "cedarmesh", "salish-mesh", "vancouver-mesh", "yeg-mesh", "meshmapper-yow-community", "interlink-radio-community"];
             const cedarMeshIds   = ["cedarmesh-discord", "gta-meshcore-map", "cedarmesh-battery-calc", "cedarmesh-rf-calc", "cedarmesh-blog"];
-            const meshcoreCanadaIds = ["corescope-home", "corescope-live", "corescope-map", "corescope-channels", "corescope-observers"];
+            const meshcoreCanadaIds = ["meshcore-ca-hub", "corescope-home", "corescope-live", "corescope-map", "corescope-channels", "corescope-observers"];
             const canadaverseExtIds = ["waterloo-meshview", "waterloo-meshsense", "canadaverse-adsb"];
             const socialIds      = ["discord-yyc-meshcore", "telegram-meshmonitoring-channel", "telegram-meshmonitoring-group"];
 

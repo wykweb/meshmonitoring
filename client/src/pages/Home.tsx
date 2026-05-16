@@ -2739,7 +2739,7 @@ export default function Home() {
   }
   const searchRef = useRef<HTMLInputElement>(null);
 
-  const TYPE_PILLS = ["All", "New", "Verified", "Stale", "Social", "Firehose", "Chat", "Map", "MeshView", "MeshMonitor", "MeshInfo", "Community", "Dashboard", "Bot", "Tool", "Software", "Wardriving", "Relay", "Directory", "Telegram", "Discord", "Article", "GTA+", "MeshCore"];
+  const TYPE_PILLS = ["All", "New", "Verified", "Stale", "Social", "Firehose", "Chat", "Map", "MeshView", "MeshMonitor", "MeshInfo", "Community", "Dashboard", "Bot", "Tool", "Software", "Wardriving", "Relay", "Directory", "Telegram", "Discord", "Article", "GTA+", "MeshCore", "Meshtastic"];
 
   function matchesType(card: ServiceCard): boolean {
     if (activeType === "All") return true;
@@ -2767,6 +2767,14 @@ export default function Home() {
         card.title?.toLowerCase().includes("meshcore") ||
         card.subtitle?.toLowerCase().includes("meshcore") ||
         card.description?.toLowerCase().includes("meshcore")
+      );
+    }
+    if (activeType === "Meshtastic") {
+      return (
+        card.tag === "meshtastic.org" ||
+        card.title?.toLowerCase().includes("meshtastic") ||
+        card.subtitle?.toLowerCase().includes("meshtastic") ||
+        card.description?.toLowerCase().includes("meshtastic")
       );
     }
     return card.badge === activeType;

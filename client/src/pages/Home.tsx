@@ -2807,6 +2807,35 @@ export default function Home() {
     c.description?.toLowerCase().includes("meshtastic")
   ).length;
 
+  // Badge-based pill counts (static, no query filter)
+  const now = Date.now();
+  const pillCounts: Record<string, number> = {
+    MeshMonitor:  allCards.filter(c => c.badge === "MeshMonitor").length,
+    MeshView:     allCards.filter(c => c.badge === "MeshView").length,
+    MeshInfo:     allCards.filter(c => c.badge === "MeshInfo").length,
+    Community:    allCards.filter(c => c.badge === "Community").length,
+    Firehose:     allCards.filter(c => c.badge === "Firehose").length,
+    Chat:         allCards.filter(c => c.badge === "Chat").length,
+    Map:          allCards.filter(c => c.badge === "Map").length,
+    Dashboard:    allCards.filter(c => c.badge === "Dashboard").length,
+    Bot:          allCards.filter(c => c.badge === "Bot").length,
+    Tool:         allCards.filter(c => c.badge === "Tool").length,
+    Software:     allCards.filter(c => c.badge === "Software").length,
+    Wardriving:   allCards.filter(c => c.badge === "Wardriving").length,
+    Relay:        allCards.filter(c => c.badge === "Relay").length,
+    Directory:    allCards.filter(c => c.badge === "Directory").length,
+    Article:      allCards.filter(c => c.badge === "Article").length,
+    Social:       allCards.filter(c => c.badge === "Social" || c.badge === "Discord" || c.badge === "Telegram").length,
+    Telegram:     allCards.filter(c => c.badge === "Telegram").length,
+    Discord:      allCards.filter(c => c.badge === "Discord").length,
+    "GTA+":       allCards.filter(c => c.tag === "cedarmesh.ca" || c.subtitle?.includes("Greater Toronto")).length,
+    New:          allCards.filter(c => !!c.addedAt && (now - new Date(c.addedAt).getTime()) < 30 * 24 * 60 * 60 * 1000).length,
+    Verified:     allCards.filter(c => !!c.verifiedAt && (now - new Date(c.verifiedAt).getTime()) < 60 * 24 * 60 * 60 * 1000).length,
+    Stale:        allCards.filter(c => !c.verifiedAt || (now - new Date(c.verifiedAt).getTime()) > 90 * 24 * 60 * 60 * 1000).length,
+    MeshCore:     meshcoreCount,
+    Meshtastic:   meshtasticCount,
+  };
+
   // "New this month" counts — cards added within the last 30 days
   const thirtyDaysAgo = new Date();
   thirtyDaysAgo.setDate(thirtyDaysAgo.getDate() - 30);
@@ -3526,20 +3555,27 @@ export default function Home() {
                         ? "border-orange-500/60 bg-orange-500/15 text-orange-300"
                         : pill === "Meshtastic"
                           ? "border-teal-500/60 bg-teal-500/15 text-teal-300"
-                          : "border-blue-500/60 bg-blue-500/15 text-blue-300"
+                          : pill === "Firehose"
+                            ? "border-sky-500/60 bg-sky-500/15 text-sky-300"
+                            : pill === "Chat"
+                              ? "border-cyan-500/60 bg-cyan-500/15 text-cyan-300"
+                              : pill === "Map"
+                                ? "border-emerald-500/60 bg-emerald-500/15 text-emerald-300"
+                                : pill === "Dashboard"
+                                  ? "border-amber-500/60 bg-amber-500/15 text-amber-300"
+                                  : pill === "MeshView"
+                                    ? "border-violet-500/60 bg-violet-500/15 text-violet-300"
+                                    : pill === "MeshInfo"
+                                      ? "border-indigo-500/60 bg-indigo-500/15 text-indigo-300"
+                                      : "border-blue-500/60 bg-blue-500/15 text-blue-300"
                     : "border-white/10 bg-white/4 text-white/35 hover:text-white/60 hover:bg-white/8 hover:border-white/20"
                 }`}
               >
                 {pill}
-                {pill === "MeshCore" && (
+                {pill !== "All" && pillCounts[pill] !== undefined && pillCounts[pill] > 0 && (
                   <span className={`inline-flex items-center justify-center h-3.5 min-w-3.5 px-1 rounded-full text-[9px] font-bold leading-none ${
-                    activeType === "MeshCore" ? "bg-orange-400/30 text-orange-200" : "bg-white/10 text-white/40"
-                  }`}>{meshcoreCount}</span>
-                )}
-                {pill === "Meshtastic" && (
-                  <span className={`inline-flex items-center justify-center h-3.5 min-w-3.5 px-1 rounded-full text-[9px] font-bold leading-none ${
-                    activeType === "Meshtastic" ? "bg-teal-400/30 text-teal-200" : "bg-white/10 text-white/40"
-                  }`}>{meshtasticCount}</span>
+                    activeType === pill ? "bg-white/20 text-white/90" : "bg-white/8 text-white/35"
+                  }`}>{pillCounts[pill]}</span>
                 )}
               </button>
             ))}

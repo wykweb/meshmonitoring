@@ -3248,6 +3248,66 @@ export default function Home() {
                 <path d="M7 7h10v10" /><path d="M7 17 17 7" />
               </svg>
             </a>
+            <a
+              href="https://live.meshcore.ca/#/home"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-xl border border-sky-500/30 hover:border-sky-400/60 bg-sky-500/8 hover:bg-sky-500/15 text-sky-300 hover:text-sky-200 font-500 text-sm transition-all duration-200 hover:shadow-[0_0_18px_rgba(14,165,233,0.2)]"
+              style={{ fontFamily: "'Outfit', sans-serif", fontWeight: 500 }}
+            >
+              CoreScope Meshcore Canada
+              <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M7 7h10v10" /><path d="M7 17 17 7" />
+              </svg>
+            </a>
+            <a
+              href="https://live.meshcore.ca/#/live"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-xl border border-sky-500/30 hover:border-sky-400/60 bg-sky-500/8 hover:bg-sky-500/15 text-sky-300 hover:text-sky-200 font-500 text-sm transition-all duration-200 hover:shadow-[0_0_18px_rgba(14,165,233,0.2)]"
+              style={{ fontFamily: "'Outfit', sans-serif", fontWeight: 500 }}
+            >
+              CoreScope Mesh LIVE
+              <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M7 7h10v10" /><path d="M7 17 17 7" />
+              </svg>
+            </a>
+            <a
+              href="https://live.meshcore.ca/#/map"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-xl border border-sky-500/30 hover:border-sky-400/60 bg-sky-500/8 hover:bg-sky-500/15 text-sky-300 hover:text-sky-200 font-500 text-sm transition-all duration-200 hover:shadow-[0_0_18px_rgba(14,165,233,0.2)]"
+              style={{ fontFamily: "'Outfit', sans-serif", fontWeight: 500 }}
+            >
+              CoreScope Map
+              <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M7 7h10v10" /><path d="M7 17 17 7" />
+              </svg>
+            </a>
+            <a
+              href="https://live.meshcore.ca/#/channels"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-xl border border-sky-500/30 hover:border-sky-400/60 bg-sky-500/8 hover:bg-sky-500/15 text-sky-300 hover:text-sky-200 font-500 text-sm transition-all duration-200 hover:shadow-[0_0_18px_rgba(14,165,233,0.2)]"
+              style={{ fontFamily: "'Outfit', sans-serif", fontWeight: 500 }}
+            >
+              CoreScope Channels
+              <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M7 7h10v10" /><path d="M7 17 17 7" />
+              </svg>
+            </a>
+            <a
+              href="https://live.meshcore.ca/#/observers"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-xl border border-sky-500/30 hover:border-sky-400/60 bg-sky-500/8 hover:bg-sky-500/15 text-sky-300 hover:text-sky-200 font-500 text-sm transition-all duration-200 hover:shadow-[0_0_18px_rgba(14,165,233,0.2)]"
+              style={{ fontFamily: "'Outfit', sans-serif", fontWeight: 500 }}
+            >
+              CoreScope Observers
+              <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M7 7h10v10" /><path d="M7 17 17 7" />
+              </svg>
+            </a>
           </div>
 
           <StatsBar />

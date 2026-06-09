@@ -3069,6 +3069,7 @@ export default function Home() {
   const newUSA          = usaServices.filter(isNew).length;
   const communityUSA    = usaServices.filter(c => c.badge === "Community").length;
   const newYorkUSA      = usaServices.filter(c => ["new-york-mesh", "nyme-sh", "cnymesh", "nyc-mesh-wifi"].includes(c.id)).length;
+  const southeastUSA    = usaServices.filter(c => ["tennmesh", "tennmesh-corescope", "ncmesh", "georgia-mesh-community"].includes(c.id)).length;
   const newArticles  = articleServices.filter(isNew).length;
   const chatCanada     = coreServices.filter(c => c.badge === 'Chat').length;
   const firehoseCanada = coreServices.filter(c => c.badge === 'Firehose').length;
@@ -3276,6 +3277,7 @@ export default function Home() {
             <a href="#usa" className="mono-label text-rose-400/70 hover:text-rose-300 text-xs uppercase tracking-widest px-3 py-1.5 rounded-lg hover:bg-rose-500/10 transition-all duration-200 flex items-center gap-1.5">
               <img src="https://flagcdn.com/16x12/us.png" srcSet="https://flagcdn.com/32x24/us.png 2x" width="16" height="12" alt="USA" className="inline-block rounded-sm" />USA
               <span className="inline-flex items-center justify-center h-4 min-w-4 px-1 rounded-full bg-white/10 border border-white/15 text-white/50 text-[9px] font-bold leading-none" title="Total USA services">{usaServices.length}</span>
+              {southeastUSA > 0 && <span className="inline-flex items-center gap-0.5 h-4 px-1.5 rounded-full bg-amber-500/20 border border-amber-500/30 text-amber-300 text-[9px] font-bold leading-none" title="Southeast USA cards (TN/NC/GA)">SE {southeastUSA}</span>}
               {communityUSA > 0 && <span className="inline-flex items-center gap-0.5 h-4 px-1.5 rounded-full bg-green-500/20 border border-green-500/30 text-green-300 text-[9px] font-bold leading-none" title="Community hub cards">Community {communityUSA}</span>}
               {newUSA > 0 && <span className="inline-flex items-center justify-center h-4 min-w-4 px-1 rounded-full bg-emerald-500/20 border border-emerald-500/30 text-emerald-400 text-[9px] font-bold leading-none">{newUSA}</span>}
             </a>
@@ -3403,6 +3405,7 @@ export default function Home() {
               <img src="https://flagcdn.com/16x12/us.png" srcSet="https://flagcdn.com/32x24/us.png 2x" width="16" height="12" alt="USA" className="inline-block rounded-sm" />USA
               <span className="inline-flex items-center justify-center h-4 min-w-4 px-1 rounded-full bg-white/10 border border-white/15 text-white/50 text-[9px] font-bold leading-none" title="Total USA services">{usaServices.length}</span>
               {newYorkUSA > 0 && <span className="inline-flex items-center gap-0.5 h-4 px-1.5 rounded-full bg-violet-500/20 border border-violet-500/30 text-violet-300 text-[9px] font-bold leading-none" title="New York network cards">NY {newYorkUSA}</span>}
+              {southeastUSA > 0 && <span className="inline-flex items-center gap-0.5 h-4 px-1.5 rounded-full bg-amber-500/20 border border-amber-500/30 text-amber-300 text-[9px] font-bold leading-none" title="Southeast USA cards (TN/NC/GA)">SE {southeastUSA}</span>}
               {communityUSA > 0 && <span className="inline-flex items-center gap-0.5 h-4 px-1.5 rounded-full bg-green-500/20 border border-green-500/30 text-green-300 text-[9px] font-bold leading-none" title="Community hub cards">Community {communityUSA}</span>}
               {newUSA > 0 && <span className="inline-flex items-center justify-center h-4 min-w-4 px-1 rounded-full bg-emerald-500/20 border border-emerald-500/30 text-emerald-400 text-[9px] font-bold leading-none">{newUSA}</span>}
             </a>

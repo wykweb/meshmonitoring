@@ -1548,6 +1548,22 @@ const communityServices: ServiceCard[] = [
     addedAt: "2026-06-09",
     verifiedAt: "2026-06-09",
   },
+  {
+    id: "corescope-cartolive-canada",
+    title: "MeshCore Canada — CartoLive",
+    subtitle: "CoreScope Map — 🇨🇦 Canadaverse",
+    description:
+      "CartoLive is a real-time MeshCore node map for the Canadaverse network. Visualise live node positions, signal paths, and mesh topology across the Canadian MeshCore community.",
+    url: "https://carto.canadaverse.org/",
+    badge: "Map",
+    badgeColor: "emerald",
+    icon: <MapPinIcon className="w-6 h-6" />,
+    tag: "carto.canadaverse.org",
+    note: "Canadaverse",
+    noteUrl: "https://canadaverse.org/",
+    addedAt: "2026-06-09",
+    verifiedAt: "2026-06-09",
+  },
 ];
 
 // ─── USA Meshtastic Networks ────────────────────────────────────────────────────
@@ -3985,7 +4001,7 @@ export default function Home() {
             const meshcoreCanadaIds = ["meshcore-ca-hub", "corescope-home", "corescope-live", "corescope-map", "corescope-channels", "corescope-observers"];
             const canadaverseExtIds = ["waterloo-meshview", "waterloo-meshsense", "canadaverse-adsb"];
             const socialIds      = ["discord-yyc-meshcore", "telegram-meshmonitoring-channel", "telegram-meshmonitoring-group"];
-            const meshcoreAnalyzerIds = ["corescope-sfbay", "corescope-tennmesh", "corescope-boston", "corescope-cascadia", "corescope-swbc", "corescope-wcmesh", "corescope-letsmesh", "corescope-letsmesh-forum", "corescope-meshcore-ca-live"];
+            const meshcoreAnalyzerIds = ["corescope-sfbay", "corescope-tennmesh", "corescope-boston", "corescope-cascadia", "corescope-swbc", "corescope-wcmesh", "corescope-letsmesh", "corescope-letsmesh-forum", "corescope-meshcore-ca-live", "corescope-cartolive-canada"];
 
             const SubGrp = ({ label, color, ids, startIdx, href, anchorId }: { label: string; color: string; ids: string[]; startIdx: number; href?: string; anchorId?: string }) => {
               const cards = ids.map(id => communityServices.find(c => c.id === id)).filter(Boolean) as typeof communityServices;

@@ -2420,6 +2420,63 @@ const usaServices: ServiceCard[] = [
     addedAt: "2026-04-06",
     verifiedAt: '2026-04-06',
   },
+  // ── Southeast USA ──────────────────────────────────────────────────────────
+  {
+    id: "tennmesh",
+    title: "TennMesh",
+    subtitle: "Tennessee Meshtastic Community — USA",
+    description:
+      "Community hub for the Tennessee Meshtastic mesh network. Covers node maps, channel info, and resources for mesh operators across Tennessee, including Nashville, Memphis, Knoxville, and Chattanooga.",
+    url: "https://tennmesh.com/",
+    badge: "Community",
+    badgeColor: "green",
+    icon: <GlobeIcon className="w-6 h-6" />,
+    tag: "tennmesh.com",
+    addedAt: "2026-06-09",
+    verifiedAt: "2026-06-09",
+  },
+  {
+    id: "tennmesh-corescope",
+    title: "TennMesh — CoreScope Live",
+    subtitle: "Tennessee MeshCore Analyzer — CoreScope",
+    description:
+      "Live CoreScope MeshCore analyzer for the Tennessee mesh network. Stream real-time packet traffic, explore active channels, and monitor observer coverage across TennMesh.",
+    url: "https://live.tennmesh.com/#/live",
+    badge: "Dashboard",
+    badgeColor: "orange",
+    icon: <DashboardIcon className="w-6 h-6" />,
+    tag: "live.tennmesh.com",
+    addedAt: "2026-06-09",
+    verifiedAt: "2026-06-09",
+  },
+  {
+    id: "ncmesh",
+    title: "NC Mesh",
+    subtitle: "North Carolina Meshtastic Community — USA",
+    description:
+      "Community hub for the North Carolina Meshtastic mesh network. Provides node maps, channel resources, and community links for mesh operators across NC including Charlotte, Raleigh, Asheville, and the Research Triangle.",
+    url: "https://ncmesh.net/",
+    badge: "Community",
+    badgeColor: "green",
+    icon: <GlobeIcon className="w-6 h-6" />,
+    tag: "ncmesh.net",
+    addedAt: "2026-06-09",
+    verifiedAt: "2026-06-09",
+  },
+  {
+    id: "georgia-mesh",
+    title: "Georgia Mesh",
+    subtitle: "Georgia Meshtastic Community — USA",
+    description:
+      "Community hub for the Georgia Meshtastic mesh network. Covers Atlanta, Savannah, Augusta, and surrounding areas with node maps, channel information, and resources for mesh operators across the Peach State.",
+    url: "https://georgiamesh.org/",
+    badge: "Community",
+    badgeColor: "green",
+    icon: <GlobeIcon className="w-6 h-6" />,
+    tag: "georgiamesh.org",
+    addedAt: "2026-06-09",
+    verifiedAt: "2026-06-09",
+  },
 ];
 const articleServices: ServiceCard[] = [
   {
@@ -2918,19 +2975,19 @@ export default function Home() {
       );
     }
     if (activeType === "MeshCore") {
-      return (
+      return !!(
         card.tag === "live.meshcore.ca" ||
         card.tag === "meshcore.ca" ||
         card.tag === "meshcore.net" ||
-        card.title?.toLowerCase().includes("meshcore") ||
+        card.title.toLowerCase().includes("meshcore") ||
         card.subtitle?.toLowerCase().includes("meshcore") ||
         card.description?.toLowerCase().includes("meshcore")
       );
     }
     if (activeType === "Meshtastic") {
-      return (
+      return !!(
         card.tag === "meshtastic.org" ||
-        card.title?.toLowerCase().includes("meshtastic") ||
+        card.title.toLowerCase().includes("meshtastic") ||
         card.subtitle?.toLowerCase().includes("meshtastic") ||
         card.description?.toLowerCase().includes("meshtastic")
       );
@@ -3164,6 +3221,8 @@ export default function Home() {
                 { label: "Adjacent",    href: "#usa-adjacent-ny",  color: "text-indigo-400/70 hover:text-indigo-300 hover:bg-indigo-500/10" },
                 { label: "New England", href: "#usa-new-england",  color: "text-amber-400/70 hover:text-amber-300 hover:bg-amber-500/10" },
                 { label: "PNW",         href: "#usa-pnw",          color: "text-teal-400/70 hover:text-teal-300 hover:bg-teal-500/10" },
+                { label: "Florida",     href: "#usa-florida",      color: "text-rose-400/70 hover:text-rose-300 hover:bg-rose-500/10" },
+                { label: "Southeast",   href: "#usa-southeast",    color: "text-amber-400/70 hover:text-amber-300 hover:bg-amber-500/10" },
                 { label: "Community",   href: "#usa-community",    color: "text-green-400/70 hover:text-green-300 hover:bg-green-500/10" },
                 { label: "MeshView",    href: "#usa-meshview",     color: "text-sky-400/70 hover:text-sky-300 hover:bg-sky-500/10" },
                 { label: "MeshMonitor", href: "#usa-meshmonitor",  color: "text-rose-400/70 hover:text-rose-300 hover:bg-rose-500/10" },
@@ -4146,12 +4205,14 @@ export default function Home() {
             const newEnglandIds  = ["bostonmesh", "discord-ma-meshtastic", "rimesh", "vtmesh"];
             const pnwIds         = ["oregon-mesh", "central-oregon-mesh", "washington-mesh"];
             const floridaIds     = ["south-florida-mesh", "tampa-bay-mesh", "are-you-meshing-with-us", "florida-mesh-discord", "florida-mesh-chat", "florida-mesh-firehose", "florida-mesh-map"];
-            const allGroupedIds  = [...newYorkIds, ...adjacentNYIds, ...newEnglandIds, ...pnwIds, ...floridaIds];
+            const southeastIds   = ["tennmesh", "tennmesh-corescope", "ncmesh", "georgia-mesh"];
+            const allGroupedIds  = [...newYorkIds, ...adjacentNYIds, ...newEnglandIds, ...pnwIds, ...floridaIds, ...southeastIds];
             const newYorkCards        = filteredUSA.filter(c => newYorkIds.includes(c.id));
             const adjacentNYCards     = filteredUSA.filter(c => adjacentNYIds.includes(c.id));
             const newEnglandCards     = filteredUSA.filter(c => newEnglandIds.includes(c.id));
             const pnwCards            = filteredUSA.filter(c => pnwIds.includes(c.id));
             const floridaCards        = filteredUSA.filter(c => floridaIds.includes(c.id));
+            const southeastCards      = filteredUSA.filter(c => southeastIds.includes(c.id));
             const meshCommunityCards  = filteredUSA.filter(c => c.badge === "Community" && !allGroupedIds.includes(c.id));
             const meshViewCards       = filteredUSA.filter(c => c.badge !== "MeshMonitor" && c.badge !== "MeshInfo" && c.badge !== "Community" && !allGroupedIds.includes(c.id));
             const meshMonitorCards    = filteredUSA.filter(c => c.badge === "MeshMonitor");
@@ -4234,6 +4295,7 @@ export default function Home() {
                       {grp("New England",                "amber",   newEnglandCards,    "usa-new-england")}
                       {grp("Pacific Northwest",          "teal",    pnwCards,           "usa-pnw")}
                       {grp("Florida — Are You Meshing With Us?", "rose", floridaCards, "usa-florida", "https://areyoumeshingwith.us/")}
+                      {grp("Southeast USA — TN / NC / GA", "amber", southeastCards, "usa-southeast")}
                       {grp("Community Hubs",             "green",   meshCommunityCards, "usa-community")}
                       {grp("MeshView & Map Viewers",     "sky",     meshViewCards,      "usa-meshview")}
                       {grp("MeshMonitor Instances",      "rose",    meshMonitorCards,   "usa-meshmonitor", "https://meshmonitor.org/")}

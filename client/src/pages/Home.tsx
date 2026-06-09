@@ -3712,6 +3712,18 @@ export default function Home() {
                 <path d="M7 7h10v10" /><path d="M7 17 17 7" />
               </svg>
             </a>
+            <a
+              href="https://carto.canadaverse.org/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-xl border border-emerald-500/30 hover:border-emerald-400/60 bg-emerald-500/8 hover:bg-emerald-500/15 text-emerald-300 hover:text-emerald-200 font-500 text-sm transition-all duration-200 hover:shadow-[0_0_18px_rgba(16,185,129,0.2)]"
+              style={{ fontFamily: "'Outfit', sans-serif", fontWeight: 500 }}
+            >
+              CartoLive — MeshCore Canada
+              <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M7 7h10v10" /><path d="M7 17 17 7" />
+              </svg>
+            </a>
           </div>
 
           <StatsBar />

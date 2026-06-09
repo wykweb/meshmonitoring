@@ -4145,11 +4145,13 @@ export default function Home() {
             const adjacentNYIds  = ["buffalora-snydermesh", "discord-buffalo-ny", "upstatemesh", "discord-capital-region-ny", "discord-long-island-ny", "discord-rochester-ny", "kaatskills-mesh", "hudson-hams-discord", "discord-westchester-ny", "cnjmesh", "forest-edge-nj", "ctmesh", "ctmesh-discord", "phillymesh", "philly-radio-discord", "discord-philly-pa", "delaware-mesh", "wpamesh"];
             const newEnglandIds  = ["bostonmesh", "discord-ma-meshtastic", "rimesh", "vtmesh"];
             const pnwIds         = ["oregon-mesh", "central-oregon-mesh", "washington-mesh"];
-            const allGroupedIds  = [...newYorkIds, ...adjacentNYIds, ...newEnglandIds, ...pnwIds];
+            const floridaIds     = ["south-florida-mesh", "tampa-bay-mesh", "are-you-meshing-with-us", "florida-mesh-discord", "florida-mesh-chat", "florida-mesh-firehose", "florida-mesh-map"];
+            const allGroupedIds  = [...newYorkIds, ...adjacentNYIds, ...newEnglandIds, ...pnwIds, ...floridaIds];
             const newYorkCards        = filteredUSA.filter(c => newYorkIds.includes(c.id));
             const adjacentNYCards     = filteredUSA.filter(c => adjacentNYIds.includes(c.id));
             const newEnglandCards     = filteredUSA.filter(c => newEnglandIds.includes(c.id));
             const pnwCards            = filteredUSA.filter(c => pnwIds.includes(c.id));
+            const floridaCards        = filteredUSA.filter(c => floridaIds.includes(c.id));
             const meshCommunityCards  = filteredUSA.filter(c => c.badge === "Community" && !allGroupedIds.includes(c.id));
             const meshViewCards       = filteredUSA.filter(c => c.badge !== "MeshMonitor" && c.badge !== "MeshInfo" && c.badge !== "Community" && !allGroupedIds.includes(c.id));
             const meshMonitorCards    = filteredUSA.filter(c => c.badge === "MeshMonitor");
@@ -4231,6 +4233,7 @@ export default function Home() {
                       {grp("Adjacent Meshes (NY/NJ/CT/PA)", "indigo", adjacentNYCards,  "usa-adjacent-ny")}
                       {grp("New England",                "amber",   newEnglandCards,    "usa-new-england")}
                       {grp("Pacific Northwest",          "teal",    pnwCards,           "usa-pnw")}
+                      {grp("Florida — Are You Meshing With Us?", "rose", floridaCards, "usa-florida", "https://areyoumeshingwith.us/")}
                       {grp("Community Hubs",             "green",   meshCommunityCards, "usa-community")}
                       {grp("MeshView & Map Viewers",     "sky",     meshViewCards,      "usa-meshview")}
                       {grp("MeshMonitor Instances",      "rose",    meshMonitorCards,   "usa-meshmonitor", "https://meshmonitor.org/")}

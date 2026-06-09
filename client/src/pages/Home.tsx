@@ -2906,13 +2906,13 @@ export default function Home() {
       return card.badge === "Social" || card.badge === "Discord" || card.badge === "Telegram";
     }
     if (activeType === "CoreScope") {
-      return (
-        card.id?.startsWith("corescope-") ||
-        card.tag?.includes("analyzer.") ||
+      return !!(  
+        card.id.startsWith("corescope-") ||
+        (card.tag && card.tag.includes("analyzer.")) ||
         card.tag === "live.meshcore.ca" ||
         card.tag === "live.tennmesh.com" ||
         card.tag === "mcanalyzer.yellowcooln.cloud" ||
-        card.title?.toLowerCase().includes("corescope") ||
+        card.title.toLowerCase().includes("corescope") ||
         card.subtitle?.toLowerCase().includes("corescope") ||
         card.description?.toLowerCase().includes("corescope")
       );

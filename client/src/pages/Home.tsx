@@ -3089,6 +3089,7 @@ export default function Home() {
   const newArticles  = articleServices.filter(isNew).length;
   const chatCanada     = coreServices.filter(c => c.badge === 'Chat').length;
   const firehoseCanada = coreServices.filter(c => c.badge === 'Firehose').length;
+  const mapCanada      = coreServices.filter(c => c.badge !== 'Chat' && c.badge !== 'Firehose').length;
 
   // Copy-link anchor state
   const [copiedAnchor, setCopiedAnchor] = useState<string | null>(null);
@@ -3184,15 +3185,18 @@ export default function Home() {
           {activeSection === "canada" && (
             <>
               <span className="text-white/15 text-xs select-none">|</span>
-              {[
-                { label: "Firehose", href: "#canada-firehose", color: "text-blue-400/70 hover:text-blue-300 hover:bg-blue-500/10" },
-                { label: "Chat",     href: "#canada-chat",     color: "text-cyan-400/70 hover:text-cyan-300 hover:bg-cyan-500/10" },
-                { label: "Maps",     href: "#canada-maps",     color: "text-violet-400/70 hover:text-violet-300 hover:bg-violet-500/10" },
-              ].map(({ label, href, color }) => (
-                <a key={href} href={href} className={`mono-label text-[10px] uppercase tracking-widest px-2.5 py-0.5 rounded-md transition-all duration-200 ${color}`}>
-                  {label}
-                </a>
-              ))}
+              <a href="#canada-firehose" className="mono-label text-[10px] uppercase tracking-widest px-2.5 py-0.5 rounded-md transition-all duration-200 text-blue-400/70 hover:text-blue-300 hover:bg-blue-500/10 flex items-center gap-1">
+                Firehose
+                {firehoseCanada > 0 && <span className="inline-flex items-center justify-center h-3.5 min-w-3.5 px-1 rounded-full bg-blue-500/25 border border-blue-500/40 text-blue-200 text-[8px] font-bold leading-none">{firehoseCanada}</span>}
+              </a>
+              <a href="#canada-chat" className="mono-label text-[10px] uppercase tracking-widest px-2.5 py-0.5 rounded-md transition-all duration-200 text-cyan-400/70 hover:text-cyan-300 hover:bg-cyan-500/10 flex items-center gap-1">
+                Chat
+                {chatCanada > 0 && <span className="inline-flex items-center justify-center h-3.5 min-w-3.5 px-1 rounded-full bg-cyan-500/25 border border-cyan-500/40 text-cyan-200 text-[8px] font-bold leading-none">{chatCanada}</span>}
+              </a>
+              <a href="#canada-maps" className="mono-label text-[10px] uppercase tracking-widest px-2.5 py-0.5 rounded-md transition-all duration-200 text-violet-400/70 hover:text-violet-300 hover:bg-violet-500/10 flex items-center gap-1">
+                Maps
+                {mapCanada > 0 && <span className="inline-flex items-center justify-center h-3.5 min-w-3.5 px-1 rounded-full bg-violet-500/25 border border-violet-500/40 text-violet-200 text-[8px] font-bold leading-none">{mapCanada}</span>}
+              </a>
             </>
           )}
           {/* Community sub-group quick-jump links — only visible when Community section is active */}

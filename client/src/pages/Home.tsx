@@ -2885,7 +2885,7 @@ export default function Home() {
   }
   const searchRef = useRef<HTMLInputElement>(null);
 
-  const TYPE_PILLS = ["All", "New", "Verified", "Stale", "Social", "Firehose", "Chat", "Map", "MeshView", "MeshMonitor", "MeshInfo", "Community", "Dashboard", "Bot", "Tool", "Software", "Wardriving", "Relay", "Directory", "Telegram", "Discord", "Article", "GTA+", "MeshCore", "Meshtastic"];
+  const TYPE_PILLS = ["All", "New", "Verified", "Stale", "Social", "Firehose", "Chat", "Map", "MeshView", "MeshMonitor", "MeshInfo", "Community", "Dashboard", "Bot", "Tool", "Software", "Wardriving", "Relay", "Directory", "Telegram", "Discord", "Article", "GTA+", "CoreScope", "MeshCore", "Meshtastic"];
 
   function matchesType(card: ServiceCard): boolean {
     if (activeType === "All") return true;
@@ -2904,6 +2904,18 @@ export default function Home() {
     }
     if (activeType === "Social") {
       return card.badge === "Social" || card.badge === "Discord" || card.badge === "Telegram";
+    }
+    if (activeType === "CoreScope") {
+      return (
+        card.id?.startsWith("corescope-") ||
+        card.tag?.includes("analyzer.") ||
+        card.tag === "live.meshcore.ca" ||
+        card.tag === "live.tennmesh.com" ||
+        card.tag === "mcanalyzer.yellowcooln.cloud" ||
+        card.title?.toLowerCase().includes("corescope") ||
+        card.subtitle?.toLowerCase().includes("corescope") ||
+        card.description?.toLowerCase().includes("corescope")
+      );
     }
     if (activeType === "MeshCore") {
       return (
@@ -2979,6 +2991,16 @@ export default function Home() {
     Stale:        allCards.filter(c => !c.verifiedAt || (now - new Date(c.verifiedAt).getTime()) > 90 * 24 * 60 * 60 * 1000).length,
     MeshCore:     meshcoreCount,
     Meshtastic:   meshtasticCount,
+    CoreScope:    allCards.filter(c =>
+      c.id?.startsWith("corescope-") ||
+      c.tag?.includes("analyzer.") ||
+      c.tag === "live.meshcore.ca" ||
+      c.tag === "live.tennmesh.com" ||
+      c.tag === "mcanalyzer.yellowcooln.cloud" ||
+      c.title?.toLowerCase().includes("corescope") ||
+      c.subtitle?.toLowerCase().includes("corescope") ||
+      c.description?.toLowerCase().includes("corescope")
+    ).length,
   };
 
   // "New this month" counts — cards added within the last 30 days

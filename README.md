@@ -88,6 +88,20 @@ All listed services are volunteer-run and community-maintained.
 | Waterloo MeshSense | [meshsense.canadaverse.org](https://meshsense.canadaverse.org/) | Waterloo sensor data and environmental dashboards (Canadaverse) |
 | Canadaverse ADS-B | [adsb.canadaverse.org](https://adsb.canadaverse.org/) | Live aircraft tracking and local ADS-B coverage (Canadaverse) |
 
+### MeshCore Analyzers — CoreScope
+
+| Service | URL | Description |
+|---|---|---|
+| SF Bay Area — MeshCore Analyzer | [analyzer.00id.net/#/live](https://analyzer.00id.net/#/live) | Live CoreScope analyzer for the SF Bay Area MeshCore community |
+| TennMesh — Tennessee CoreScope | [live.tennmesh.com/#/live](https://live.tennmesh.com/#/live) | Live CoreScope analyzer for the TennMesh network covering Tennessee |
+| Boston MeshCore — CoreScope | [mcanalyzer.yellowcooln.cloud](https://mcanalyzer.yellowcooln.cloud/) | Live CoreScope analyzer for the Boston MeshCore community |
+| CascadiaMesh Analyzer — PNW | [analyzer.cascadiamesh.org/#/live](https://analyzer.cascadiamesh.org/#/live) | Live CoreScope analyzer for CascadiaMesh covering the Pacific Northwest |
+| SWBC / Salish Mesh — CoreScope | [analyzer.ve7kod.ca/map#/live](https://analyzer.ve7kod.ca/map#/live) | Live CoreScope analyzer for SWBC and Salish Mesh — coastal British Columbia |
+| West Coast Mesh — CoreScope | [analyzer.wcmesh.com/#/live](https://analyzer.wcmesh.com/#/live) | Live CoreScope analyzer for WCMesh on the US West Coast |
+| MeshCore Analyzer — LetsMesh.net | [analyzer.letsmesh.net/nodes/repeaters](https://analyzer.letsmesh.net/nodes/repeaters) | CoreScope analyzer for the LetsMesh.net network — browse repeater nodes and channel activity |
+| MeshCore Analyzer — LetsMesh Forum | [forum.letsmesh.net](https://forum.letsmesh.net/?utm_source=analyzer&utm_medium=nav) | LetsMesh community forum linked from the MeshCore Analyzer |
+| MeshCore.ca — CoreScope Live | [live.meshcore.ca/#/live](https://live.meshcore.ca/#/live) | Live CoreScope analyzer for the MeshCore Canada community |
+
 ### Chat Groups & Social
 
 | Platform | URL | Description |

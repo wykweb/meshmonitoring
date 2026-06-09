@@ -1403,6 +1403,151 @@ const communityServices: ServiceCard[] = [
     addedAt: "2026-04-06",
     verifiedAt: '2026-04-06',
   },
+  // ── MeshCore Analyzers — CoreScope ──────────────────────────────────────────
+  {
+    id: "corescope-sfbay",
+    title: "SF Bay Area — MeshCore Analyzer",
+    subtitle: "CoreScope — San Francisco Bay Area",
+    description:
+      "Live MeshCore CoreScope analyzer for the SF Bay Area mesh network. Monitor real-time node activity, channel traffic, and network topology across the San Francisco Bay Area MeshCore community.",
+    url: "https://analyzer.00id.net/#/live",
+    badge: "MeshView",
+    badgeColor: "violet",
+    icon: <NetworkIcon className="w-6 h-6" />,
+    tag: "analyzer.00id.net",
+    note: "SF Bay Area MeshCore",
+    noteUrl: "https://analyzer.00id.net/#/live",
+    addedAt: "2026-06-09",
+    verifiedAt: "2026-06-09",
+  },
+  {
+    id: "corescope-tennmesh",
+    title: "TennMesh — Tennessee CoreScope",
+    subtitle: "CoreScope — Tennessee",
+    description:
+      "Live MeshCore CoreScope analyzer for the TennMesh network covering Tennessee. Track node positions, channel activity, and mesh connectivity across the TennMesh community.",
+    url: "https://live.tennmesh.com/#/live",
+    badge: "MeshView",
+    badgeColor: "violet",
+    icon: <NetworkIcon className="w-6 h-6" />,
+    tag: "live.tennmesh.com",
+    note: "TennMesh — Tennessee",
+    noteUrl: "https://live.tennmesh.com/#/live",
+    addedAt: "2026-06-09",
+    verifiedAt: "2026-06-09",
+  },
+  {
+    id: "corescope-boston",
+    title: "Boston MeshCore — CoreScope",
+    subtitle: "CoreScope — Boston, Massachusetts",
+    description:
+      "Live MeshCore CoreScope analyzer for the Boston mesh network. Monitor node activity, channel traffic, and network health for the Boston MeshCore community.",
+    url: "https://mcanalyzer.yellowcooln.cloud/",
+    badge: "MeshView",
+    badgeColor: "violet",
+    icon: <NetworkIcon className="w-6 h-6" />,
+    tag: "mcanalyzer.yellowcooln.cloud",
+    note: "Boston MeshCore",
+    noteUrl: "https://mcanalyzer.yellowcooln.cloud/",
+    addedAt: "2026-06-09",
+    verifiedAt: "2026-06-09",
+  },
+  {
+    id: "corescope-cascadia",
+    title: "CascadiaMesh Analyzer",
+    subtitle: "CoreScope — Pacific Northwest",
+    description:
+      "Live MeshCore CoreScope analyzer for CascadiaMesh covering the Pacific Northwest. Track node positions, channel activity, and mesh connectivity across the PNW CascadiaMesh community.",
+    url: "https://analyzer.cascadiamesh.org/#/live",
+    badge: "MeshView",
+    badgeColor: "violet",
+    icon: <NetworkIcon className="w-6 h-6" />,
+    tag: "analyzer.cascadiamesh.org",
+    note: "CascadiaMesh — PNW",
+    noteUrl: "https://analyzer.cascadiamesh.org/#/live",
+    addedAt: "2026-06-09",
+    verifiedAt: "2026-06-09",
+  },
+  {
+    id: "corescope-swbc",
+    title: "SWBC / Salish Mesh — CoreScope",
+    subtitle: "CoreScope — 🇨🇦 British Columbia, Canada",
+    description:
+      "Live MeshCore CoreScope analyzer for the SWBC and Salish Mesh community covering coastal British Columbia. Monitor node activity, channel traffic, and network health across the Salish Sea region.",
+    url: "https://analyzer.ve7kod.ca/map#/live",
+    badge: "MeshView",
+    badgeColor: "violet",
+    icon: <NetworkIcon className="w-6 h-6" />,
+    tag: "analyzer.ve7kod.ca",
+    note: "SWBC / Salish Mesh — BC",
+    noteUrl: "https://analyzer.ve7kod.ca/map#/live",
+    addedAt: "2026-06-09",
+    verifiedAt: "2026-06-09",
+  },
+  {
+    id: "corescope-wcmesh",
+    title: "West Coast Mesh — CoreScope",
+    subtitle: "CoreScope — WCMesh, West Coast USA",
+    description:
+      "Live MeshCore CoreScope analyzer for West Coast Mesh (WCMesh). Monitor real-time node activity, channel traffic, and network topology across the WCMesh community on the US West Coast.",
+    url: "https://analyzer.wcmesh.com/#/live",
+    badge: "MeshView",
+    badgeColor: "violet",
+    icon: <NetworkIcon className="w-6 h-6" />,
+    tag: "analyzer.wcmesh.com",
+    note: "WCMesh — West Coast USA",
+    noteUrl: "https://analyzer.wcmesh.com/#/live",
+    addedAt: "2026-06-09",
+    verifiedAt: "2026-06-09",
+  },
+  {
+    id: "corescope-letsmesh",
+    title: "MeshCore Analyzer — LetsMesh.net",
+    subtitle: "CoreScope — LetsMesh Network",
+    description:
+      "Live MeshCore CoreScope analyzer for the LetsMesh.net network. Browse repeater nodes, track channel activity, and monitor network health across the LetsMesh community.",
+    url: "https://analyzer.letsmesh.net/nodes/repeaters",
+    badge: "MeshView",
+    badgeColor: "violet",
+    icon: <NetworkIcon className="w-6 h-6" />,
+    tag: "analyzer.letsmesh.net",
+    note: "LetsMesh.net",
+    noteUrl: "https://analyzer.letsmesh.net/nodes/repeaters",
+    addedAt: "2026-06-09",
+    verifiedAt: "2026-06-09",
+  },
+  {
+    id: "corescope-letsmesh-forum",
+    title: "MeshCore Analyzer — LetsMesh Forum",
+    subtitle: "Forum — LetsMesh Community",
+    description:
+      "The LetsMesh community forum, linked from the MeshCore Analyzer. Discuss MeshCore topics, share network updates, and connect with the LetsMesh community.",
+    url: "https://forum.letsmesh.net/?utm_source=analyzer&utm_medium=nav",
+    badge: "Community",
+    badgeColor: "green",
+    icon: <RadioIcon className="w-6 h-6" />,
+    tag: "forum.letsmesh.net",
+    note: "LetsMesh Forum",
+    noteUrl: "https://forum.letsmesh.net/",
+    addedAt: "2026-06-09",
+    verifiedAt: "2026-06-09",
+  },
+  {
+    id: "corescope-meshcore-ca-live",
+    title: "MeshCore.ca — CoreScope Live",
+    subtitle: "CoreScope — 🇨🇦 MeshCore Canada",
+    description:
+      "Live MeshCore CoreScope analyzer for the MeshCore Canada community. Monitor real-time node activity, channel traffic, and mesh connectivity across the Canadian MeshCore network.",
+    url: "https://live.meshcore.ca/#/live",
+    badge: "MeshView",
+    badgeColor: "violet",
+    icon: <NetworkIcon className="w-6 h-6" />,
+    tag: "live.meshcore.ca",
+    note: "MeshCore Canada",
+    noteUrl: "https://live.meshcore.ca/#/live",
+    addedAt: "2026-06-09",
+    verifiedAt: "2026-06-09",
+  },
 ];
 
 // ─── USA Meshtastic Networks ────────────────────────────────────────────────────
@@ -3756,6 +3901,7 @@ export default function Home() {
             const meshcoreCanadaIds = ["meshcore-ca-hub", "corescope-home", "corescope-live", "corescope-map", "corescope-channels", "corescope-observers"];
             const canadaverseExtIds = ["waterloo-meshview", "waterloo-meshsense", "canadaverse-adsb"];
             const socialIds      = ["discord-yyc-meshcore", "telegram-meshmonitoring-channel", "telegram-meshmonitoring-group"];
+            const meshcoreAnalyzerIds = ["corescope-sfbay", "corescope-tennmesh", "corescope-boston", "corescope-cascadia", "corescope-swbc", "corescope-wcmesh", "corescope-letsmesh", "corescope-letsmesh-forum", "corescope-meshcore-ca-live"];
 
             const SubGrp = ({ label, color, ids, startIdx, href, anchorId }: { label: string; color: string; ids: string[]; startIdx: number; href?: string; anchorId?: string }) => {
               const cards = ids.map(id => communityServices.find(c => c.id === id)).filter(Boolean) as typeof communityServices;
@@ -3767,6 +3913,7 @@ export default function Home() {
                 violet:  { border: 'border-violet-500/20',  bg: 'bg-violet-500/8',  dot: 'bg-violet-400',  text: 'text-violet-400/80' },
                 sky:     { border: 'border-sky-500/20',     bg: 'bg-sky-500/8',     dot: 'bg-sky-400',     text: 'text-sky-400/80' },
                 orange:  { border: 'border-orange-500/20',  bg: 'bg-orange-500/8',  dot: 'bg-orange-400',  text: 'text-orange-400/80' },
+                rose:    { border: 'border-rose-500/20',    bg: 'bg-rose-500/8',    dot: 'bg-rose-400',    text: 'text-rose-400/80' },
               };
               const c = cm[color] ?? cm.cyan;
               const labelContent = (
@@ -3816,8 +3963,9 @@ export default function Home() {
                 <SubGrp label="Regional Communities"  color="emerald" anchorId="community-regional"    ids={regionalIds}       startIdx={canadaverseIds.length} />
                 <SubGrp label="CedarMesh — GTA+"      color="blue"    anchorId="community-gta"         ids={cedarMeshIds}      startIdx={canadaverseIds.length + regionalIds.length}                                                                                href="https://cedarmesh.ca" />
                 <SubGrp label="MeshCore Canada"       color="orange"  anchorId="community-meshcore-ca" ids={meshcoreCanadaIds} startIdx={canadaverseIds.length + regionalIds.length + cedarMeshIds.length}                                                          href="https://live.meshcore.ca/#/home" />
-                <SubGrp label="Canadaverse Extended"  color="violet"  anchorId="community-extended"    ids={canadaverseExtIds} startIdx={canadaverseIds.length + regionalIds.length + cedarMeshIds.length + meshcoreCanadaIds.length}                               href="https://canadaverse.org" />
-                <SubGrp label="Social &amp; Chat"     color="sky"     anchorId="community-social"      ids={socialIds}         startIdx={canadaverseIds.length + regionalIds.length + cedarMeshIds.length + meshcoreCanadaIds.length + canadaverseExtIds.length} />
+                <SubGrp label="Canadaverse Extended"  color="violet"  anchorId="community-extended"    ids={canadaverseExtIds}      startIdx={canadaverseIds.length + regionalIds.length + cedarMeshIds.length + meshcoreCanadaIds.length}                                                                                             href="https://canadaverse.org" />
+                <SubGrp label="MeshCore Analyzers — CoreScope" color="rose" anchorId="community-meshcore-analyzers" ids={meshcoreAnalyzerIds} startIdx={canadaverseIds.length + regionalIds.length + cedarMeshIds.length + meshcoreCanadaIds.length + canadaverseExtIds.length}                                href="https://live.meshcore.ca/#/live" />
+                <SubGrp label="Social &amp; Chat"     color="sky"     anchorId="community-social"      ids={socialIds}              startIdx={canadaverseIds.length + regionalIds.length + cedarMeshIds.length + meshcoreCanadaIds.length + canadaverseExtIds.length + meshcoreAnalyzerIds.length} />
               </>
             );
           })()}

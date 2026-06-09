@@ -2407,7 +2407,7 @@ const usaServices: ServiceCard[] = [
     verifiedAt: '2026-04-06',
   },
   {
-    id: "kansas-city-mesh",
+    id: "kansas-city-mesh-community",
     title: "Kansas City Mesh",
     subtitle: "Kansas City, Missouri/Kansas — USA",
     description:
@@ -2464,7 +2464,7 @@ const usaServices: ServiceCard[] = [
     verifiedAt: "2026-06-09",
   },
   {
-    id: "georgia-mesh",
+    id: "georgia-mesh-community",
     title: "Georgia Mesh",
     subtitle: "Georgia Meshtastic Community — USA",
     description:
@@ -4205,7 +4205,7 @@ export default function Home() {
             const newEnglandIds  = ["bostonmesh", "discord-ma-meshtastic", "rimesh", "vtmesh"];
             const pnwIds         = ["oregon-mesh", "central-oregon-mesh", "washington-mesh"];
             const floridaIds     = ["south-florida-mesh", "tampa-bay-mesh", "are-you-meshing-with-us", "florida-mesh-discord", "florida-mesh-chat", "florida-mesh-firehose", "florida-mesh-map"];
-            const southeastIds   = ["tennmesh", "tennmesh-corescope", "ncmesh", "georgia-mesh"];
+            const southeastIds   = ["tennmesh", "tennmesh-corescope", "ncmesh", "georgia-mesh-community"];
             const allGroupedIds  = [...newYorkIds, ...adjacentNYIds, ...newEnglandIds, ...pnwIds, ...floridaIds, ...southeastIds];
             const newYorkCards        = filteredUSA.filter(c => newYorkIds.includes(c.id));
             const adjacentNYCards     = filteredUSA.filter(c => adjacentNYIds.includes(c.id));

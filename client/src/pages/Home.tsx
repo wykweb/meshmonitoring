@@ -2509,6 +2509,63 @@ const usaServices: ServiceCard[] = [
     addedAt: "2026-06-09",
     verifiedAt: "2026-06-09",
   },
+  // Texas
+  {
+    id: "ntxmesh",
+    title: "NTX Mesh — DFW / North Texas",
+    subtitle: "Dallas-Fort Worth / North Texas — USA",
+    description:
+      "Community group building a mesh network of solar-powered Meshtastic and MeshCore radios across DFW and greater North Texas. Includes county-level modem preset maps, educational resources, and an active Discord community.",
+    url: "https://ntxmesh.com",
+    badge: "Community",
+    badgeColor: "green",
+    icon: <GlobeIcon className="w-6 h-6" />,
+    tag: "ntxmesh.com",
+    addedAt: "2026-06-11",
+    verifiedAt: "2026-06-11",
+  },
+  {
+    id: "austin-mesh",
+    title: "Austin Mesh",
+    subtitle: "Austin, Texas — USA",
+    description:
+      "Community-driven free text messaging mesh network built on Meshtastic in Austin, TX. Active community with regular meetups, educational resources, and a growing network of nodes across the Austin metro area.",
+    url: "https://austinmesh.org",
+    badge: "Community",
+    badgeColor: "green",
+    icon: <GlobeIcon className="w-6 h-6" />,
+    tag: "austinmesh.org",
+    addedAt: "2026-06-11",
+    verifiedAt: "2026-06-11",
+  },
+  {
+    id: "central-texas-mesh-discord",
+    title: "Central Texas Mesh — Discord",
+    subtitle: "Central Texas — USA",
+    description:
+      "Discord community for Central Texas Meshtastic mesh network operators. Connect with local mesh enthusiasts across the central Texas region.",
+    url: "https://discord.gg/StsH5BncsW",
+    badge: "Social",
+    badgeColor: "violet",
+    icon: <MessageSquareIcon className="w-6 h-6" />,
+    tag: "discord.gg",
+    addedAt: "2026-06-11",
+    verifiedAt: "2026-06-11",
+  },
+  {
+    id: "cypress-texas-mesh",
+    title: "Cypress, Texas Meshtastic Club",
+    subtitle: "Cypress, Texas — USA",
+    description:
+      "Local Meshtastic club for the Cypress, Texas area. Building community mesh coverage in the northwest Houston suburbs.",
+    url: "https://discord.gg/KzuwNRwE6q",
+    badge: "Social",
+    badgeColor: "violet",
+    icon: <MessageSquareIcon className="w-6 h-6" />,
+    tag: "discord.gg",
+    addedAt: "2026-06-11",
+    verifiedAt: "2026-06-11",
+  },
 ];
 const articleServices: ServiceCard[] = [
   {
@@ -3102,6 +3159,8 @@ export default function Home() {
   const communityUSA    = usaServices.filter(c => c.badge === "Community").length;
   const newYorkUSA      = usaServices.filter(c => ["new-york-mesh", "nyme-sh", "cnymesh", "nyc-mesh-wifi"].includes(c.id)).length;
   const southeastUSA    = usaServices.filter(c => ["tennmesh", "tennmesh-corescope", "ncmesh", "georgia-mesh-community", "north-georgia-mesh", "north-georgia-mesh-chat"].includes(c.id)).length;
+  const midAtlanticUSA  = usaServices.filter(c => ["cnjmesh", "forest-edge-nj", "ctmesh", "ctmesh-discord", "phillymesh", "philly-radio-discord", "discord-philly-pa", "delaware-mesh", "wpamesh", "western-pa-mesh"].includes(c.id)).length;
+  const texasUSA        = usaServices.filter(c => ["ntxmesh", "austin-mesh", "central-texas-mesh-discord", "cypress-texas-mesh"].includes(c.id)).length;
   const newArticles  = articleServices.filter(isNew).length;
   const chatCanada     = coreServices.filter(c => c.badge === 'Chat').length;
   const firehoseCanada = coreServices.filter(c => c.badge === 'Firehose').length;
@@ -3219,17 +3278,26 @@ export default function Home() {
           {activeSection === "community" && (
             <>
               <span className="text-white/15 text-xs select-none">|</span>
-              {[
-                { label: "Canadaverse", href: "#community-canadaverse", color: "text-cyan-400/70 hover:text-cyan-300 hover:bg-cyan-500/10" },
-                { label: "Regional",    href: "#community-regional",    color: "text-emerald-400/70 hover:text-emerald-300 hover:bg-emerald-500/10" },
-                { label: "GTA+",        href: "#community-gta",         color: "text-blue-400/70 hover:text-blue-300 hover:bg-blue-500/10" },
-                { label: "Extended",    href: "#community-extended",    color: "text-violet-400/70 hover:text-violet-300 hover:bg-violet-500/10" },
-                { label: "Social",      href: "#community-social",      color: "text-sky-400/70 hover:text-sky-300 hover:bg-sky-500/10" },
-              ].map(({ label, href, color }) => (
-                <a key={href} href={href} className={`mono-label text-[10px] uppercase tracking-widest px-2.5 py-0.5 rounded-md transition-all duration-200 ${color}`}>
-                  {label}
-                </a>
-              ))}
+              <a href="#community-canadaverse" className="mono-label text-[10px] uppercase tracking-widest px-2.5 py-0.5 rounded-md transition-all duration-200 text-cyan-400/70 hover:text-cyan-300 hover:bg-cyan-500/10 flex items-center gap-1">
+                Canadaverse
+                <span className="inline-flex items-center justify-center h-3.5 min-w-3.5 px-1 rounded-full bg-cyan-500/25 border border-cyan-500/40 text-cyan-200 text-[8px] font-bold leading-none">{communityServices.filter(c => ["yyc-custom-mesh","canadaverse-dashboard","canadaverse-meshinfo","canadaverse-node-map","canadaverse-wiki","canadaverse-links"].includes(c.id)).length}</span>
+              </a>
+              <a href="#community-regional" className="mono-label text-[10px] uppercase tracking-widest px-2.5 py-0.5 rounded-md transition-all duration-200 text-emerald-400/70 hover:text-emerald-300 hover:bg-emerald-500/10 flex items-center gap-1">
+                Regional
+                <span className="inline-flex items-center justify-center h-3.5 min-w-3.5 px-1 rounded-full bg-emerald-500/25 border border-emerald-500/40 text-emerald-200 text-[8px] font-bold leading-none">{communityServices.filter(c => ["ottawa-mesh","meshmon-kw","cedarmesh","salish-mesh","vancouver-mesh","yeg-mesh","meshmapper-yow-community","interlink-radio-community"].includes(c.id)).length}</span>
+              </a>
+              <a href="#community-gta" className="mono-label text-[10px] uppercase tracking-widest px-2.5 py-0.5 rounded-md transition-all duration-200 text-blue-400/70 hover:text-blue-300 hover:bg-blue-500/10 flex items-center gap-1">
+                GTA+
+                <span className="inline-flex items-center justify-center h-3.5 min-w-3.5 px-1 rounded-full bg-blue-500/25 border border-blue-500/40 text-blue-200 text-[8px] font-bold leading-none">{communityServices.filter(c => ["cedarmesh-discord","gta-meshcore-map","cedarmesh-battery-calc","cedarmesh-rf-calc","cedarmesh-blog"].includes(c.id)).length}</span>
+              </a>
+              <a href="#community-extended" className="mono-label text-[10px] uppercase tracking-widest px-2.5 py-0.5 rounded-md transition-all duration-200 text-violet-400/70 hover:text-violet-300 hover:bg-violet-500/10 flex items-center gap-1">
+                Extended
+                <span className="inline-flex items-center justify-center h-3.5 min-w-3.5 px-1 rounded-full bg-violet-500/25 border border-violet-500/40 text-violet-200 text-[8px] font-bold leading-none">{communityServices.filter(c => ["waterloo-meshview","waterloo-meshsense","canadaverse-adsb"].includes(c.id)).length}</span>
+              </a>
+              <a href="#community-social" className="mono-label text-[10px] uppercase tracking-widest px-2.5 py-0.5 rounded-md transition-all duration-200 text-sky-400/70 hover:text-sky-300 hover:bg-sky-500/10 flex items-center gap-1">
+                Social
+                <span className="inline-flex items-center justify-center h-3.5 min-w-3.5 px-1 rounded-full bg-sky-500/25 border border-sky-500/40 text-sky-200 text-[8px] font-bold leading-none">{communityServices.filter(c => ["discord-yyc-meshcore","telegram-meshmonitoring-channel","telegram-meshmonitoring-group"].includes(c.id)).length}</span>
+              </a>
             </>
           )}
           {/* Resources sub-group quick-jump links — only visible when Resources section is active */}
@@ -3254,16 +3322,18 @@ export default function Home() {
             <>
               <span className="text-white/15 text-xs select-none">|</span>
               {[
-                { label: "New York",    href: "#usa-new-york",     color: "text-violet-400/70 hover:text-violet-300 hover:bg-violet-500/10" },
-                { label: "Adjacent",    href: "#usa-adjacent-ny",  color: "text-indigo-400/70 hover:text-indigo-300 hover:bg-indigo-500/10" },
-                { label: "New England", href: "#usa-new-england",  color: "text-amber-400/70 hover:text-amber-300 hover:bg-amber-500/10" },
-                { label: "PNW",         href: "#usa-pnw",          color: "text-teal-400/70 hover:text-teal-300 hover:bg-teal-500/10" },
-                { label: "Florida",     href: "#usa-florida",      color: "text-rose-400/70 hover:text-rose-300 hover:bg-rose-500/10" },
-                { label: "Southeast",   href: "#usa-southeast",    color: "text-amber-400/70 hover:text-amber-300 hover:bg-amber-500/10" },
-                { label: "Community",   href: "#usa-community",    color: "text-green-400/70 hover:text-green-300 hover:bg-green-500/10" },
-                { label: "MeshView",    href: "#usa-meshview",     color: "text-sky-400/70 hover:text-sky-300 hover:bg-sky-500/10" },
-                { label: "MeshMonitor", href: "#usa-meshmonitor",  color: "text-rose-400/70 hover:text-rose-300 hover:bg-rose-500/10" },
-                { label: "MeshInfo",    href: "#usa-meshinfo",     color: "text-emerald-400/70 hover:text-emerald-300 hover:bg-emerald-500/10" },
+                { label: "New York",      href: "#usa-new-york",      color: "text-violet-400/70 hover:text-violet-300 hover:bg-violet-500/10" },
+                { label: "Adjacent NY",   href: "#usa-adjacent-ny",   color: "text-indigo-400/70 hover:text-indigo-300 hover:bg-indigo-500/10" },
+                { label: "Mid-Atlantic",  href: "#usa-midatlantic",   color: "text-sky-400/70 hover:text-sky-300 hover:bg-sky-500/10" },
+                { label: "New England",   href: "#usa-new-england",   color: "text-amber-400/70 hover:text-amber-300 hover:bg-amber-500/10" },
+                { label: "PNW",           href: "#usa-pnw",           color: "text-teal-400/70 hover:text-teal-300 hover:bg-teal-500/10" },
+                { label: "Florida",       href: "#usa-florida",       color: "text-rose-400/70 hover:text-rose-300 hover:bg-rose-500/10" },
+                { label: "Southeast",     href: "#usa-southeast",     color: "text-amber-400/70 hover:text-amber-300 hover:bg-amber-500/10" },
+                { label: "Texas",         href: "#usa-texas",         color: "text-orange-400/70 hover:text-orange-300 hover:bg-orange-500/10" },
+                { label: "Community",     href: "#usa-community",     color: "text-green-400/70 hover:text-green-300 hover:bg-green-500/10" },
+                { label: "MeshView",      href: "#usa-meshview",      color: "text-sky-400/70 hover:text-sky-300 hover:bg-sky-500/10" },
+                { label: "MeshMonitor",   href: "#usa-meshmonitor",   color: "text-rose-400/70 hover:text-rose-300 hover:bg-rose-500/10" },
+                { label: "MeshInfo",      href: "#usa-meshinfo",      color: "text-emerald-400/70 hover:text-emerald-300 hover:bg-emerald-500/10" },
               ].map(({ label, href, color }) => (
                 <a key={href} href={href} className={`mono-label text-[10px] uppercase tracking-widest px-2.5 py-0.5 rounded-md transition-all duration-200 ${color}`}>
                   {label}
@@ -3314,6 +3384,7 @@ export default function Home() {
               <img src="https://flagcdn.com/16x12/us.png" srcSet="https://flagcdn.com/32x24/us.png 2x" width="16" height="12" alt="USA" className="inline-block rounded-sm" />USA
               <span className="inline-flex items-center justify-center h-4 min-w-4 px-1 rounded-full bg-white/10 border border-white/15 text-white/50 text-[9px] font-bold leading-none" title="Total USA services">{usaServices.length}</span>
               {southeastUSA > 0 && <span className="inline-flex items-center gap-0.5 h-4 px-1.5 rounded-full bg-amber-500/20 border border-amber-500/30 text-amber-300 text-[9px] font-bold leading-none" title="Southeast USA cards (TN/NC/GA)">SE {southeastUSA}</span>}
+              {texasUSA > 0 && <span className="inline-flex items-center gap-0.5 h-4 px-1.5 rounded-full bg-orange-500/20 border border-orange-500/30 text-orange-300 text-[9px] font-bold leading-none" title="Texas cards">TX {texasUSA}</span>}
               {communityUSA > 0 && <span className="inline-flex items-center gap-0.5 h-4 px-1.5 rounded-full bg-green-500/20 border border-green-500/30 text-green-300 text-[9px] font-bold leading-none" title="Community hub cards">Community {communityUSA}</span>}
               {newUSA > 0 && <span className="inline-flex items-center justify-center h-4 min-w-4 px-1 rounded-full bg-emerald-500/20 border border-emerald-500/30 text-emerald-400 text-[9px] font-bold leading-none">{newUSA}</span>}
             </a>
@@ -3442,6 +3513,7 @@ export default function Home() {
               <span className="inline-flex items-center justify-center h-4 min-w-4 px-1 rounded-full bg-white/10 border border-white/15 text-white/50 text-[9px] font-bold leading-none" title="Total USA services">{usaServices.length}</span>
               {newYorkUSA > 0 && <span className="inline-flex items-center gap-0.5 h-4 px-1.5 rounded-full bg-violet-500/20 border border-violet-500/30 text-violet-300 text-[9px] font-bold leading-none" title="New York network cards">NY {newYorkUSA}</span>}
               {southeastUSA > 0 && <span className="inline-flex items-center gap-0.5 h-4 px-1.5 rounded-full bg-amber-500/20 border border-amber-500/30 text-amber-300 text-[9px] font-bold leading-none" title="Southeast USA cards (TN/NC/GA)">SE {southeastUSA}</span>}
+              {texasUSA > 0 && <span className="inline-flex items-center gap-0.5 h-4 px-1.5 rounded-full bg-orange-500/20 border border-orange-500/30 text-orange-300 text-[9px] font-bold leading-none" title="Texas cards">TX {texasUSA}</span>}
               {communityUSA > 0 && <span className="inline-flex items-center gap-0.5 h-4 px-1.5 rounded-full bg-green-500/20 border border-green-500/30 text-green-300 text-[9px] font-bold leading-none" title="Community hub cards">Community {communityUSA}</span>}
               {newUSA > 0 && <span className="inline-flex items-center justify-center h-4 min-w-4 px-1 rounded-full bg-emerald-500/20 border border-emerald-500/30 text-emerald-400 text-[9px] font-bold leading-none">{newUSA}</span>}
             </a>
@@ -4252,18 +4324,22 @@ export default function Home() {
           </div>
 {(() => {
             const newYorkIds     = ["new-york-mesh", "nyme-sh", "cnymesh", "nyc-mesh-wifi", "mesh-ny-chat"];
-            const adjacentNYIds  = ["buffalora-snydermesh", "discord-buffalo-ny", "upstatemesh", "discord-capital-region-ny", "discord-long-island-ny", "discord-rochester-ny", "kaatskills-mesh", "hudson-hams-discord", "discord-westchester-ny", "cnjmesh", "forest-edge-nj", "ctmesh", "ctmesh-discord", "phillymesh", "philly-radio-discord", "discord-philly-pa", "delaware-mesh", "wpamesh"];
+            const adjacentNYIds  = ["buffalora-snydermesh", "discord-buffalo-ny", "upstatemesh", "discord-capital-region-ny", "discord-long-island-ny", "discord-rochester-ny", "kaatskills-mesh", "hudson-hams-discord", "discord-westchester-ny"];
+            const midAtlanticIds = ["cnjmesh", "forest-edge-nj", "ctmesh", "ctmesh-discord", "phillymesh", "philly-radio-discord", "discord-philly-pa", "delaware-mesh", "wpamesh", "western-pa-mesh"];
             const newEnglandIds  = ["bostonmesh", "discord-ma-meshtastic", "rimesh", "vtmesh"];
             const pnwIds         = ["oregon-mesh", "central-oregon-mesh", "washington-mesh"];
             const floridaIds     = ["south-florida-mesh", "tampa-bay-mesh", "are-you-meshing-with-us", "florida-mesh-discord", "florida-mesh-chat", "florida-mesh-firehose", "florida-mesh-map"];
             const southeastIds   = ["tennmesh", "tennmesh-corescope", "ncmesh", "georgia-mesh-community", "north-georgia-mesh", "north-georgia-mesh-chat"];
-            const allGroupedIds  = [...newYorkIds, ...adjacentNYIds, ...newEnglandIds, ...pnwIds, ...floridaIds, ...southeastIds];
+            const texasIds       = ["ntxmesh", "austin-mesh", "central-texas-mesh-discord", "cypress-texas-mesh"];
+            const allGroupedIds  = [...newYorkIds, ...adjacentNYIds, ...midAtlanticIds, ...newEnglandIds, ...pnwIds, ...floridaIds, ...southeastIds, ...texasIds];
             const newYorkCards        = filteredUSA.filter(c => newYorkIds.includes(c.id));
             const adjacentNYCards     = filteredUSA.filter(c => adjacentNYIds.includes(c.id));
             const newEnglandCards     = filteredUSA.filter(c => newEnglandIds.includes(c.id));
             const pnwCards            = filteredUSA.filter(c => pnwIds.includes(c.id));
             const floridaCards        = filteredUSA.filter(c => floridaIds.includes(c.id));
             const southeastCards      = filteredUSA.filter(c => southeastIds.includes(c.id));
+            const midAtlanticCards    = filteredUSA.filter(c => midAtlanticIds.includes(c.id));
+            const texasCards          = filteredUSA.filter(c => texasIds.includes(c.id));
             const meshCommunityCards  = filteredUSA.filter(c => c.badge === "Community" && !allGroupedIds.includes(c.id));
             const meshViewCards       = filteredUSA.filter(c => c.badge !== "MeshMonitor" && c.badge !== "MeshInfo" && c.badge !== "Community" && !allGroupedIds.includes(c.id));
             const meshMonitorCards    = filteredUSA.filter(c => c.badge === "MeshMonitor");
@@ -4280,6 +4356,7 @@ export default function Home() {
                 teal:    { border: "border-teal-500/20",    bg: "bg-teal-500/8",    dot: "bg-teal-400",    text: "text-teal-400/80",    hover: "hover:text-teal-300" },
                 indigo:  { border: "border-indigo-500/20",  bg: "bg-indigo-500/8",  dot: "bg-indigo-400",  text: "text-indigo-400/80",  hover: "hover:text-indigo-300" },
                 amber:   { border: "border-amber-500/20",   bg: "bg-amber-500/8",   dot: "bg-amber-400",   text: "text-amber-400/80",   hover: "hover:text-amber-300" },
+                orange:  { border: "border-orange-500/20",  bg: "bg-orange-500/8",  dot: "bg-orange-400",  text: "text-orange-400/80",  hover: "hover:text-orange-300" },
               };
               const c = colorMap[color] ?? colorMap.sky;
               const anchorHash = anchorId ? `#${anchorId}` : undefined;
@@ -4342,11 +4419,13 @@ export default function Home() {
                   return (
                     <>
                       {grp("New York Networks",          "violet",  newYorkCards,       "usa-new-york")}
-                      {grp("Adjacent Meshes (NY/NJ/CT/PA)", "indigo", adjacentNYCards,  "usa-adjacent-ny")}
+                      {grp("Adjacent NY Meshes",          "indigo",  adjacentNYCards,    "usa-adjacent-ny")}
+                      {grp("Mid-Atlantic — PA / NJ / CT / DE", "sky", midAtlanticCards, "usa-midatlantic")}
                       {grp("New England",                "amber",   newEnglandCards,    "usa-new-england")}
                       {grp("Pacific Northwest",          "teal",    pnwCards,           "usa-pnw")}
                       {grp("Florida — Are You Meshing With Us?", "rose", floridaCards, "usa-florida", "https://areyoumeshingwith.us/")}
                       {grp("Southeast USA — TN / NC / GA", "amber", southeastCards, "usa-southeast")}
+                      {grp("Texas",                      "orange",  texasCards,         "usa-texas")}
                       {grp("Community Hubs",             "green",   meshCommunityCards, "usa-community")}
                       {grp("MeshView & Map Viewers",     "sky",     meshViewCards,      "usa-meshview")}
                       {grp("MeshMonitor Instances",      "rose",    meshMonitorCards,   "usa-meshmonitor", "https://meshmonitor.org/")}

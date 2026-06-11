@@ -2054,6 +2054,22 @@ const usaServices: ServiceCard[] = [
     badgeColor: "sky",
     icon: <MapIcon className="w-6 h-6" />,
     tag: "view.mtnme.sh",
+    addedAt: "2026-06-10",
+  },
+  {
+    id: "north-georgia-mesh-chat",
+    title: "Mountain Mesh — Chat",
+    subtitle: "North Georgia / East Tennessee — USA",
+    description:
+      "Real-time Meshtastic chat stream for the Mountain Mesh community covering North Georgia and East Tennessee. Watch live messages from mesh operators across the mtnme.sh network.",
+    url: "https://view.mtnme.sh/chat",
+    badge: "Chat",
+    badgeColor: "sky",
+    icon: <RadioIcon className="w-6 h-6" />,
+    tag: "view.mtnme.sh",
+    addedAt: "2026-06-10",
+    note: "Network: Mountain Mesh — MtnMe.sh",
+    noteUrl: "https://mtnme.sh",
   },
   {
     id: "pioneer-valley-mesh",
@@ -3085,7 +3101,7 @@ export default function Home() {
   const newUSA          = usaServices.filter(isNew).length;
   const communityUSA    = usaServices.filter(c => c.badge === "Community").length;
   const newYorkUSA      = usaServices.filter(c => ["new-york-mesh", "nyme-sh", "cnymesh", "nyc-mesh-wifi"].includes(c.id)).length;
-  const southeastUSA    = usaServices.filter(c => ["tennmesh", "tennmesh-corescope", "ncmesh", "georgia-mesh-community"].includes(c.id)).length;
+  const southeastUSA    = usaServices.filter(c => ["tennmesh", "tennmesh-corescope", "ncmesh", "georgia-mesh-community", "north-georgia-mesh", "north-georgia-mesh-chat"].includes(c.id)).length;
   const newArticles  = articleServices.filter(isNew).length;
   const chatCanada     = coreServices.filter(c => c.badge === 'Chat').length;
   const firehoseCanada = coreServices.filter(c => c.badge === 'Firehose').length;
@@ -4240,7 +4256,7 @@ export default function Home() {
             const newEnglandIds  = ["bostonmesh", "discord-ma-meshtastic", "rimesh", "vtmesh"];
             const pnwIds         = ["oregon-mesh", "central-oregon-mesh", "washington-mesh"];
             const floridaIds     = ["south-florida-mesh", "tampa-bay-mesh", "are-you-meshing-with-us", "florida-mesh-discord", "florida-mesh-chat", "florida-mesh-firehose", "florida-mesh-map"];
-            const southeastIds   = ["tennmesh", "tennmesh-corescope", "ncmesh", "georgia-mesh-community"];
+            const southeastIds   = ["tennmesh", "tennmesh-corescope", "ncmesh", "georgia-mesh-community", "north-georgia-mesh", "north-georgia-mesh-chat"];
             const allGroupedIds  = [...newYorkIds, ...adjacentNYIds, ...newEnglandIds, ...pnwIds, ...floridaIds, ...southeastIds];
             const newYorkCards        = filteredUSA.filter(c => newYorkIds.includes(c.id));
             const adjacentNYCards     = filteredUSA.filter(c => adjacentNYIds.includes(c.id));

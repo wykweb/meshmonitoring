@@ -2566,6 +2566,63 @@ const usaServices: ServiceCard[] = [
     addedAt: "2026-06-11",
     verifiedAt: "2026-06-11",
   },
+  // Las Vegas
+  {
+    id: "lasmesh-community",
+    title: "Las Vegas Meshtastic Network",
+    subtitle: "Las Vegas, Nevada — USA",
+    description:
+      "Join a decentralized, off-grid communication network powered by Meshtastic in Las Vegas. Whether you\u2019re hiking, off-roading, preparing for emergencies, or coordinating at a crowded event, LASmesh provides a resilient alternative when traditional networks become unreliable. Las Vegas\u2019 unique terrain and urban density make it a prime location for mesh experimentation.",
+    url: "https://lasmesh.com/",
+    badge: "Community",
+    badgeColor: "green",
+    icon: <GlobeIcon className="w-6 h-6" />,
+    tag: "lasmesh.com",
+    addedAt: "2026-06-11",
+    verifiedAt: "2026-06-11",
+  },
+  {
+    id: "lasmesh-discord",
+    title: "LASmesh — Discord",
+    subtitle: "Las Vegas Meshtastic Network — USA",
+    description:
+      "Official Discord community for the Las Vegas Meshtastic Network. Connect with local mesh operators, share node locations, discuss coverage, and coordinate the growing off-grid communication network across the Las Vegas metro area.",
+    url: "https://lasmesh.com/#discord",
+    badge: "Social",
+    badgeColor: "violet",
+    icon: <MessageSquareIcon className="w-6 h-6" />,
+    tag: "lasmesh.com",
+    addedAt: "2026-06-11",
+    verifiedAt: "2026-06-11",
+  },
+  {
+    id: "lasmesh-meshbot-dashboard",
+    title: "LASmesh MeshBot Dashboard",
+    subtitle: "Las Vegas Meshtastic Network — USA",
+    description:
+      "A live, interactive dashboard pulling real data directly from LASmesh Bot Nodes over the mesh. No MQTT. No cloud relays. Pure off-grid telemetry from the network itself. The LASmesh MeshBot is undergoing a major upgrade to deliver real-time bot node data across the Las Vegas mesh.",
+    url: "https://lasmesh.com/#meshbot",
+    badge: "Dashboard",
+    badgeColor: "blue",
+    icon: <DashboardIcon className="w-6 h-6" />,
+    tag: "lasmesh.com",
+    addedAt: "2026-06-11",
+    verifiedAt: "2026-06-11",
+  },
+  {
+    id: "lasmesh-nodes",
+    title: "LASmesh Nodes",
+    subtitle: "Las Vegas Meshtastic Network — USA",
+    description:
+      "Active and planned infrastructure nodes across the Las Vegas metro area. Track the expanding LASmesh backbone, including solar-powered relay nodes positioned across the unique terrain and urban landscape of greater Las Vegas.",
+    url: "https://lasmesh.com/#nodes",
+    badge: "MeshInfo",
+    badgeColor: "cyan",
+    icon: <RadioIcon className="w-6 h-6" />,
+    tag: "lasmesh.com",
+    addedAt: "2026-06-11",
+    verifiedAt: "2026-06-11",
+  },
 ];
 const articleServices: ServiceCard[] = [
   {
@@ -3330,6 +3387,7 @@ export default function Home() {
                 { label: "Florida",       href: "#usa-florida",       color: "text-rose-400/70 hover:text-rose-300 hover:bg-rose-500/10" },
                 { label: "Southeast",     href: "#usa-southeast",     color: "text-amber-400/70 hover:text-amber-300 hover:bg-amber-500/10" },
                 { label: "Texas",         href: "#usa-texas",         color: "text-orange-400/70 hover:text-orange-300 hover:bg-orange-500/10" },
+                { label: "Nevada",        href: "#usa-nevada",        color: "text-amber-400/70 hover:text-amber-300 hover:bg-amber-500/10" },
                 { label: "Community",     href: "#usa-community",     color: "text-green-400/70 hover:text-green-300 hover:bg-green-500/10" },
                 { label: "MeshView",      href: "#usa-meshview",      color: "text-sky-400/70 hover:text-sky-300 hover:bg-sky-500/10" },
                 { label: "MeshMonitor",   href: "#usa-meshmonitor",   color: "text-rose-400/70 hover:text-rose-300 hover:bg-rose-500/10" },
@@ -4331,7 +4389,8 @@ export default function Home() {
             const floridaIds     = ["south-florida-mesh", "tampa-bay-mesh", "are-you-meshing-with-us", "florida-mesh-discord", "florida-mesh-chat", "florida-mesh-firehose", "florida-mesh-map"];
             const southeastIds   = ["tennmesh", "tennmesh-corescope", "ncmesh", "georgia-mesh-community", "north-georgia-mesh", "north-georgia-mesh-chat"];
             const texasIds       = ["ntxmesh", "austin-mesh", "central-texas-mesh-discord", "cypress-texas-mesh"];
-            const allGroupedIds  = [...newYorkIds, ...adjacentNYIds, ...midAtlanticIds, ...newEnglandIds, ...pnwIds, ...floridaIds, ...southeastIds, ...texasIds];
+            const nevadaIds      = ["lasmesh-community", "lasmesh-discord", "lasmesh-meshbot-dashboard", "lasmesh-nodes"];
+            const allGroupedIds  = [...newYorkIds, ...adjacentNYIds, ...midAtlanticIds, ...newEnglandIds, ...pnwIds, ...floridaIds, ...southeastIds, ...texasIds, ...nevadaIds];
             const newYorkCards        = filteredUSA.filter(c => newYorkIds.includes(c.id));
             const adjacentNYCards     = filteredUSA.filter(c => adjacentNYIds.includes(c.id));
             const newEnglandCards     = filteredUSA.filter(c => newEnglandIds.includes(c.id));
@@ -4340,6 +4399,7 @@ export default function Home() {
             const southeastCards      = filteredUSA.filter(c => southeastIds.includes(c.id));
             const midAtlanticCards    = filteredUSA.filter(c => midAtlanticIds.includes(c.id));
             const texasCards          = filteredUSA.filter(c => texasIds.includes(c.id));
+            const nevadaCards         = filteredUSA.filter(c => nevadaIds.includes(c.id));
             const meshCommunityCards  = filteredUSA.filter(c => c.badge === "Community" && !allGroupedIds.includes(c.id));
             const meshViewCards       = filteredUSA.filter(c => c.badge !== "MeshMonitor" && c.badge !== "MeshInfo" && c.badge !== "Community" && !allGroupedIds.includes(c.id));
             const meshMonitorCards    = filteredUSA.filter(c => c.badge === "MeshMonitor");
@@ -4426,6 +4486,7 @@ export default function Home() {
                       {grp("Florida — Are You Meshing With Us?", "rose", floridaCards, "usa-florida", "https://areyoumeshingwith.us/")}
                       {grp("Southeast USA — TN / NC / GA", "amber", southeastCards, "usa-southeast")}
                       {grp("Texas",                      "orange",  texasCards,         "usa-texas")}
+                      {grp("Nevada — Las Vegas",          "amber",   nevadaCards,        "usa-nevada",   "https://lasmesh.com/")}
                       {grp("Community Hubs",             "green",   meshCommunityCards, "usa-community")}
                       {grp("MeshView & Map Viewers",     "sky",     meshViewCards,      "usa-meshview")}
                       {grp("MeshMonitor Instances",      "rose",    meshMonitorCards,   "usa-meshmonitor", "https://meshmonitor.org/")}

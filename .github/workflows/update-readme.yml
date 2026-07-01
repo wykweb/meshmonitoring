@@ -1,0 +1,41 @@
+name: Update README Listed Resources
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "client/src/pages/Home.tsx"
+      - "scripts/generate-readme.mjs"
+
+jobs:
+  update-readme:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Generate README Listed Resources
+        run: node scripts/generate-readme.mjs
+
+      - name: Commit updated README (if changed)
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add README.md
+          if git diff --cached --quiet; then
+            echo "README.md is already up to date — nothing to commit."
+          else
+            git commit -m "docs(auto): regenerate README Listed Resources from Home.tsx [skip ci]"
+            git push
+          fi

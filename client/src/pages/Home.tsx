@@ -17,7 +17,7 @@ interface ServiceCard {
   description: string;
   url: string;
   badge: string;
-  badgeColor: "blue" | "cyan" | "green" | "emerald" | "violet" | "amber" | "rose" | "sky" | "teal" | "orange";
+  badgeColor: "blue" | "cyan" | "green" | "emerald" | "violet" | "amber" | "rose" | "sky" | "teal" | "orange" | "indigo";
   icon?: React.ReactNode;
   tag: string;
   note?: string;
@@ -186,6 +186,7 @@ const badgeStyles: Record<ServiceCard["badgeColor"], string> = {
   sky:     "bg-sky-500/15 text-sky-300 border border-sky-500/25",
   teal:    "bg-teal-500/15 text-teal-300 border border-teal-500/25",
   orange:  "bg-orange-500/15 text-orange-300 border border-orange-500/25",
+  indigo:  "bg-indigo-500/15 text-indigo-300 border border-indigo-500/25",
 };
 
 const iconBgStyles: Record<ServiceCard["badgeColor"], string> = {
@@ -199,6 +200,7 @@ const iconBgStyles: Record<ServiceCard["badgeColor"], string> = {
   sky:     "bg-sky-500/15 text-sky-400",
   teal:    "bg-teal-500/15 text-teal-400",
   orange:  "bg-orange-500/15 text-orange-400",
+  indigo:  "bg-indigo-500/15 text-indigo-400",
 };
 
 const glowStyles: Record<ServiceCard["badgeColor"], string> = {
@@ -212,6 +214,7 @@ const glowStyles: Record<ServiceCard["badgeColor"], string> = {
   sky:     "group-hover:shadow-[0_0_30px_oklch(0.7_0.18_230/0.2)]",
   teal:    "group-hover:shadow-[0_0_30px_oklch(0.7_0.15_185/0.2)]",
   orange:  "group-hover:shadow-[0_0_30px_oklch(0.72_0.18_55/0.2)]",
+  indigo:  "group-hover:shadow-[0_0_30px_oklch(0.6_0.2_270/0.2)]",
 };
 
 const borderHoverStyles: Record<ServiceCard["badgeColor"], string> = {
@@ -225,6 +228,7 @@ const borderHoverStyles: Record<ServiceCard["badgeColor"], string> = {
   sky:     "group-hover:border-sky-500/50",
   teal:    "group-hover:border-teal-500/50",
   orange:  "group-hover:border-orange-500/50",
+  indigo:  "group-hover:border-indigo-500/50",
 };
 
 const openTextStyles: Record<ServiceCard["badgeColor"], string> = {
@@ -238,6 +242,7 @@ const openTextStyles: Record<ServiceCard["badgeColor"], string> = {
   sky:     "text-sky-400 group-hover:text-sky-300",
   teal:    "text-teal-400 group-hover:text-teal-300",
   orange:  "text-orange-400 group-hover:text-orange-300",
+  indigo:  "text-indigo-400 group-hover:text-indigo-300",
 };
 
 // ─── Service data ─────────────────────────────────────────────────────────────
@@ -1655,35 +1660,35 @@ const communityServices: ServiceCard[] = [
   {
     id: "beacon-canadaverse",
     title: "Beacon — Canadaverse",
-    subtitle: "Canadaverse-linked Resources Hub — 🇨🇦 Canadaverse",
+    subtitle: "MeshCore Beacon — 🇨🇦 Canadaverse",
     description:
-      "Beacon for Canadaverse-linked resources. A central hub aggregating links, tools, and services connected to the Canadaverse MeshCore ecosystem.",
-    url: "https://beacon.canadaverse.org/?tab=Home",
-    badge: "Directory",
-    badgeColor: "teal",
-    icon: <LinkIcon className="w-6 h-6" />,
+      "Beacon for Canadaverse-linked resources. A MeshCore Network Analyzer providing a live map and hub aggregating links, tools, and services connected to the Canadaverse MeshCore ecosystem.",
+    url: "https://beacon.canadaverse.org/?tab=Map",
+    badge: "Dashboard",
+    badgeColor: "indigo",
+    icon: <NetworkIcon className="w-6 h-6" />,
     tag: "beacon.canadaverse.org",
     note: "Canadaverse",
     noteUrl: "https://canadaverse.org/",
-    addedAt: "2026-06-11",
-    verifiedAt: "2026-06-11",
+    addedAt: "2026-06-30",
+    verifiedAt: "2026-06-30",
   },
   // MeshCore Canada additions
   {
     id: "beacon-meshcore-ca",
     title: "Beacon — MeshCore Canada",
-    subtitle: "Dev Environment — 🇨🇦 MeshCore Canada",
+    subtitle: "MeshCore Beacon — 🇨🇦 MeshCore Canada",
     description:
-      "Dev environment and beacon for MeshCore Canada. Provides a development and testing hub for the MeshCore Canada network, supporting new features and integrations before they reach production.",
-    url: "https://dev.meshcore.ca/",
-    badge: "Tool",
-    badgeColor: "violet",
+      "BEACON MeshCore Network Analyzer for MeshCore Canada. Dev environment for MeshCore Canada — a live map and network analyzer providing real-time visibility into the Canadian MeshCore network, supporting new features and integrations.",
+    url: "https://dev.meshcore.ca/?tab=Map",
+    badge: "Dashboard",
+    badgeColor: "indigo",
     icon: <NetworkIcon className="w-6 h-6" />,
     tag: "dev.meshcore.ca",
     note: "MeshCore Canada",
     noteUrl: "https://live.meshcore.ca/#/home",
-    addedAt: "2026-06-11",
-    verifiedAt: "2026-06-11",
+    addedAt: "2026-06-30",
+    verifiedAt: "2026-06-30",
   },
   // Krabs Lagoon
   {
@@ -3241,7 +3246,7 @@ export default function Home() {
   }
   const searchRef = useRef<HTMLInputElement>(null);
 
-  const TYPE_PILLS = ["All", "New", "Verified", "Stale", "Social", "Firehose", "Chat", "Map", "MeshView", "MeshMonitor", "MeshInfo", "Community", "Dashboard", "Bot", "Tool", "Software", "Wardriving", "Relay", "Directory", "Telegram", "Discord", "Article", "GTA+", "CoreScope", "MeshCore", "Meshtastic"];
+  const TYPE_PILLS = ["All", "New", "Verified", "Stale", "Social", "Firehose", "Chat", "Map", "MeshView", "MeshMonitor", "MeshInfo", "Community", "Dashboard", "Bot", "Tool", "Software", "Wardriving", "Relay", "Directory", "Telegram", "Discord", "Article", "GTA+", "CoreScope", "MeshCore Beacons", "MeshCore", "Meshtastic"];
 
   function matchesType(card: ServiceCard): boolean {
     if (activeType === "All") return true;
@@ -3260,6 +3265,13 @@ export default function Home() {
     }
     if (activeType === "Social") {
       return card.badge === "Social" || card.badge === "Discord" || card.badge === "Telegram";
+    }
+    if (activeType === "MeshCore Beacons") {
+      return !!(  
+        card.id?.startsWith("beacon-") ||
+        card.subtitle?.toLowerCase().includes("meshcore beacon") ||
+        card.description?.toLowerCase().includes("beacon")
+      );
     }
     if (activeType === "CoreScope") {
       return !!(  
@@ -3347,6 +3359,11 @@ export default function Home() {
     Stale:        allCards.filter(c => !c.verifiedAt || (now - new Date(c.verifiedAt).getTime()) > 90 * 24 * 60 * 60 * 1000).length,
     MeshCore:     meshcoreCount,
     Meshtastic:   meshtasticCount,
+    "MeshCore Beacons": allCards.filter(c =>
+      c.id?.startsWith("beacon-") ||
+      c.subtitle?.toLowerCase().includes("meshcore beacon") ||
+      c.description?.toLowerCase().includes("beacon")
+    ).length,
     CoreScope:    allCards.filter(c =>
       c.id?.startsWith("corescope-") ||
       c.tag?.includes("analyzer.") ||
@@ -3502,15 +3519,19 @@ export default function Home() {
               </a>
               <a href="#community-meshcore-ca" className="mono-label text-[10px] uppercase tracking-widest px-2.5 py-0.5 rounded-md transition-all duration-200 text-amber-400/70 hover:text-amber-300 hover:bg-amber-500/10 flex items-center gap-1">
                 MeshCore CA
-                <span className="inline-flex items-center justify-center h-3.5 min-w-3.5 px-1 rounded-full bg-amber-500/25 border border-amber-500/40 text-amber-200 text-[8px] font-bold leading-none">{communityServices.filter(c => ["meshcore-ca-hub","corescope-home","corescope-live","corescope-map","corescope-channels","corescope-observers","beacon-meshcore-ca"].includes(c.id)).length}</span>
+                <span className="inline-flex items-center justify-center h-3.5 min-w-3.5 px-1 rounded-full bg-amber-500/25 border border-amber-500/40 text-amber-200 text-[8px] font-bold leading-none">{communityServices.filter(c => ["meshcore-ca-hub","corescope-home","corescope-live","corescope-map","corescope-channels","corescope-observers"].includes(c.id)).length}</span>
               </a>
               <a href="#community-extended" className="mono-label text-[10px] uppercase tracking-widest px-2.5 py-0.5 rounded-md transition-all duration-200 text-violet-400/70 hover:text-violet-300 hover:bg-violet-500/10 flex items-center gap-1">
                 Extended
-                <span className="inline-flex items-center justify-center h-3.5 min-w-3.5 px-1 rounded-full bg-violet-500/25 border border-violet-500/40 text-violet-200 text-[8px] font-bold leading-none">{communityServices.filter(c => ["waterloo-meshview","waterloo-meshsense","canadaverse-adsb","canadaverse-meshmon","canadaverse-release-radar","beacon-canadaverse"].includes(c.id)).length}</span>
+                <span className="inline-flex items-center justify-center h-3.5 min-w-3.5 px-1 rounded-full bg-violet-500/25 border border-violet-500/40 text-violet-200 text-[8px] font-bold leading-none">{communityServices.filter(c => ["waterloo-meshview","waterloo-meshsense","canadaverse-adsb","canadaverse-meshmon","canadaverse-release-radar"].includes(c.id)).length}</span>
               </a>
               <a href="#community-krabs-lagoon" className="mono-label text-[10px] uppercase tracking-widest px-2.5 py-0.5 rounded-md transition-all duration-200 text-teal-400/70 hover:text-teal-300 hover:bg-teal-500/10 flex items-center gap-1">
                 Krabs Lagoon
                 <span className="inline-flex items-center justify-center h-3.5 min-w-3.5 px-1 rounded-full bg-teal-500/25 border border-teal-500/40 text-teal-200 text-[8px] font-bold leading-none">{communityServices.filter(c => ["krabs-lagoon","krabs-lagoon-room"].includes(c.id)).length}</span>
+              </a>
+              <a href="#community-meshcore-beacon" className="mono-label text-[10px] uppercase tracking-widest px-2.5 py-0.5 rounded-md transition-all duration-200 text-indigo-400/70 hover:text-indigo-300 hover:bg-indigo-500/10 flex items-center gap-1">
+                Beacon
+                <span className="inline-flex items-center justify-center h-3.5 min-w-3.5 px-1 rounded-full bg-indigo-500/25 border border-indigo-500/40 text-indigo-200 text-[8px] font-bold leading-none">{communityServices.filter(c => ["beacon-meshcore-ca", "beacon-canadaverse"].includes(c.id)).length}</span>
               </a>
               <a href="#community-meshcore-analyzers" className="mono-label text-[10px] uppercase tracking-widest px-2.5 py-0.5 rounded-md transition-all duration-200 text-rose-400/70 hover:text-rose-300 hover:bg-rose-500/10 flex items-center gap-1">
                 CoreScope
@@ -4396,8 +4417,9 @@ export default function Home() {
             const canadaverseIds = ["yyc-custom-mesh", "canadaverse-dashboard", "canadaverse-meshinfo", "canadaverse-node-map", "canadaverse-wiki", "canadaverse-links"];
             const regionalIds    = ["ottawa-mesh", "meshmon-kw", "cedarmesh", "salish-mesh", "vancouver-mesh", "yeg-mesh", "meshmapper-yow-community", "interlink-radio-community"];
             const cedarMeshIds   = ["cedarmesh-discord", "gta-meshcore-map", "cedarmesh-battery-calc", "cedarmesh-rf-calc", "cedarmesh-blog"];
-            const meshcoreCanadaIds = ["meshcore-ca-hub", "corescope-home", "corescope-live", "corescope-map", "corescope-channels", "corescope-observers", "beacon-meshcore-ca"];
-            const canadaverseExtIds = ["waterloo-meshview", "waterloo-meshsense", "canadaverse-adsb", "canadaverse-meshmon", "canadaverse-release-radar", "beacon-canadaverse"];
+            const meshcoreCanadaIds = ["meshcore-ca-hub", "corescope-home", "corescope-live", "corescope-map", "corescope-channels", "corescope-observers"];
+            const canadaverseExtIds = ["waterloo-meshview", "waterloo-meshsense", "canadaverse-adsb", "canadaverse-meshmon", "canadaverse-release-radar"];
+            const beaconIds         = ["beacon-meshcore-ca", "beacon-canadaverse"];
             const krabsLagoonIds = ["krabs-lagoon", "krabs-lagoon-room"];
             const socialIds      = ["discord-yyc-meshcore", "telegram-meshmonitoring-channel", "telegram-meshmonitoring-group"];
             const meshcoreAnalyzerIds = ["corescope-sfbay", "corescope-tennmesh", "corescope-boston", "corescope-cascadia", "corescope-swbc", "corescope-wcmesh", "corescope-letsmesh", "corescope-letsmesh-forum", "corescope-meshcore-ca-live", "corescope-cartolive-canada"];
@@ -4413,6 +4435,7 @@ export default function Home() {
                 sky:     { border: 'border-sky-500/20',     bg: 'bg-sky-500/8',     dot: 'bg-sky-400',     text: 'text-sky-400/80' },
                 orange:  { border: 'border-orange-500/20',  bg: 'bg-orange-500/8',  dot: 'bg-orange-400',  text: 'text-orange-400/80' },
                 rose:    { border: 'border-rose-500/20',    bg: 'bg-rose-500/8',    dot: 'bg-rose-400',    text: 'text-rose-400/80' },
+                indigo:  { border: 'border-indigo-500/20',  bg: 'bg-indigo-500/8',  dot: 'bg-indigo-400',  text: 'text-indigo-400/80' },
               };
               const c = cm[color] ?? cm.cyan;
               const labelContent = (
@@ -4464,8 +4487,9 @@ export default function Home() {
                 <SubGrp label="MeshCore Canada"       color="orange"  anchorId="community-meshcore-ca" ids={meshcoreCanadaIds} startIdx={canadaverseIds.length + regionalIds.length + cedarMeshIds.length}                                                          href="https://live.meshcore.ca/#/home" />
                 <SubGrp label="Canadaverse Extended"  color="violet"  anchorId="community-extended"    ids={canadaverseExtIds}      startIdx={canadaverseIds.length + regionalIds.length + cedarMeshIds.length + meshcoreCanadaIds.length}                                                                                             href="https://canadaverse.org" />
                 <SubGrp label="Krabs Lagoon"          color="teal"    anchorId="community-krabs-lagoon" ids={krabsLagoonIds}   startIdx={canadaverseIds.length + regionalIds.length + cedarMeshIds.length + meshcoreCanadaIds.length + canadaverseExtIds.length}                                                                      href="https://canadaverse.org/krab/lagoon/" />
-                <SubGrp label="MeshCore Analyzers — CoreScope" color="rose" anchorId="community-meshcore-analyzers" ids={meshcoreAnalyzerIds} startIdx={canadaverseIds.length + regionalIds.length + cedarMeshIds.length + meshcoreCanadaIds.length + canadaverseExtIds.length + krabsLagoonIds.length}                                href="https://live.meshcore.ca/#/live" />
-                <SubGrp label="Social &amp; Chat"     color="sky"     anchorId="community-social"      ids={socialIds}              startIdx={canadaverseIds.length + regionalIds.length + cedarMeshIds.length + meshcoreCanadaIds.length + canadaverseExtIds.length + krabsLagoonIds.length + meshcoreAnalyzerIds.length} />
+                <SubGrp label="MeshCore Beacon"        color="indigo"  anchorId="community-meshcore-beacon" ids={beaconIds}      startIdx={canadaverseIds.length + regionalIds.length + cedarMeshIds.length + meshcoreCanadaIds.length + canadaverseExtIds.length + krabsLagoonIds.length}                                           href="https://dev.meshcore.ca/?tab=Map" />
+                <SubGrp label="MeshCore Analyzers — CoreScope" color="rose" anchorId="community-meshcore-analyzers" ids={meshcoreAnalyzerIds} startIdx={canadaverseIds.length + regionalIds.length + cedarMeshIds.length + meshcoreCanadaIds.length + canadaverseExtIds.length + krabsLagoonIds.length + beaconIds.length}       href="https://live.meshcore.ca/#/live" />
+                <SubGrp label="Social &amp; Chat"     color="sky"     anchorId="community-social"      ids={socialIds}              startIdx={canadaverseIds.length + regionalIds.length + cedarMeshIds.length + meshcoreCanadaIds.length + canadaverseExtIds.length + krabsLagoonIds.length + beaconIds.length + meshcoreAnalyzerIds.length} />
               </>
             );
           })()}

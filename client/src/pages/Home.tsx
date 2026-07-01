@@ -878,7 +878,7 @@ const resourceServices: ServiceCard[] = [
     addedAt: "2026-04-03",
     verifiedAt: '2026-04-03',
   },
-  {
+    {
     id: "interlink-radio",
     title: "Interlink Radio",
     subtitle: "Mesh Resources & Chat Groups",
@@ -892,8 +892,63 @@ const resourceServices: ServiceCard[] = [
     addedAt: "2026-04-03",
     verifiedAt: '2026-04-03',
   },
+  {
+    id: "eastmesh-dashboard",
+    title: "EastMeSH",
+    subtitle: "Eastern US MeshCore Initiative",
+    description:
+      "Eastern US MeshCore is an initiative to bring all east coast MeshCore communities together in order to visualize the traffic between states from a single site. Aggregates live mesh traffic across the eastern seaboard into one unified view.",
+    url: "https://eastme.sh/",
+    badge: "Dashboard",
+    badgeColor: "blue",
+    icon: <DashboardIcon className="w-6 h-6" />,
+    tag: "eastme.sh",
+    addedAt: "2026-06-11",
+    verifiedAt: "2026-06-11",
+  },
+  {
+    id: "corecomms-dashboard",
+    title: "CoreComms",
+    subtitle: "Global MeshCore Telemetry Platform",
+    description:
+      "CoreComms is a comprehensive, real-time mesh network monitoring and telemetry platform designed to visualize, track, and diagnose mesh network traffic on a global scale. Provides live dashboards for MeshCore network health, node activity, and inter-community traffic.",
+    url: "https://corecomms.net/",
+    badge: "Dashboard",
+    badgeColor: "blue",
+    icon: <DashboardIcon className="w-6 h-6" />,
+    tag: "corecomms.net",
+    addedAt: "2026-06-11",
+    verifiedAt: "2026-06-11",
+  },
+  {
+    id: "meshcore-ninja-firmwares",
+    title: "MeshCore Ninja — Firmwares",
+    subtitle: "MeshCore Firmware Directory",
+    description:
+      "A comprehensive directory of MeshCore firmware builds and variants. Find the right firmware for your hardware, compare versions, and stay up to date with the latest MeshCore firmware releases across supported devices.",
+    url: "https://meshcore.ninja/firmwares/",
+    badge: "Directory",
+    badgeColor: "teal",
+    icon: <NetworkIcon className="w-6 h-6" />,
+    tag: "meshcore.ninja",
+    addedAt: "2026-06-11",
+    verifiedAt: "2026-06-11",
+  },
+  {
+    id: "meshcore-ninja-software",
+    title: "MeshCore Ninja — Software",
+    subtitle: "MeshCore Software Directory",
+    description:
+      "A curated directory of MeshCore software tools, clients, and utilities. Discover apps, dashboards, and integrations built for the MeshCore ecosystem, all in one place.",
+    url: "https://meshcore.ninja/software/",
+    badge: "Directory",
+    badgeColor: "teal",
+    icon: <NetworkIcon className="w-6 h-6" />,
+    tag: "meshcore.ninja",
+    addedAt: "2026-06-11",
+    verifiedAt: "2026-06-11",
+  },
 ];
-
 const communityServices: ServiceCard[] = [
   {
     id: "yyc-custom-mesh",
@@ -1549,7 +1604,7 @@ const communityServices: ServiceCard[] = [
     verifiedAt: "2026-06-09",
   },
   {
-    id: "corescope-cartolive-canada",
+        id: "corescope-cartolive-canada",
     title: "MeshCore Canada — CartoLive",
     subtitle: "CoreScope Map — 🇨🇦 Canadaverse",
     description:
@@ -1564,8 +1619,106 @@ const communityServices: ServiceCard[] = [
     addedAt: "2026-06-09",
     verifiedAt: "2026-06-09",
   },
+  // Canadaverse Extended additions
+  {
+    id: "canadaverse-meshmon",
+    title: "Canadaverse Mesh Monitor",
+    subtitle: "MeshMonitor — 🇨🇦 Canadaverse",
+    description:
+      "MeshMonitor instance for the Canadaverse network. Real-time monitoring of MeshCore node health, packet activity, and network coverage across the Canadaverse mesh.",
+    url: "https://meshmon.canadaverse.org/",
+    badge: "MeshMonitor",
+    badgeColor: "rose",
+    icon: <HeartbeatIcon className="w-6 h-6" />,
+    tag: "meshmon.canadaverse.org",
+    note: "Canadaverse",
+    noteUrl: "https://canadaverse.org/",
+    addedAt: "2026-06-11",
+    verifiedAt: "2026-06-11",
+  },
+  {
+    id: "canadaverse-release-radar",
+    title: "Release Impact Radar",
+    subtitle: "MeshCore Release Review — 🇨🇦 Canadaverse",
+    description:
+      "MeshCore release and impact review for the Canadaverse network. Tracks firmware releases, evaluates their impact on the Canadian MeshCore mesh, and provides a timeline of changes affecting the community.",
+    url: "https://canadaverse.org/meshcore/radar/",
+    badge: "Dashboard",
+    badgeColor: "blue",
+    icon: <AnalyzerIcon className="w-6 h-6" />,
+    tag: "canadaverse.org",
+    note: "Canadaverse",
+    noteUrl: "https://canadaverse.org/",
+    addedAt: "2026-06-11",
+    verifiedAt: "2026-06-11",
+  },
+  {
+    id: "beacon-canadaverse",
+    title: "Beacon — Canadaverse",
+    subtitle: "Canadaverse-linked Resources Hub — 🇨🇦 Canadaverse",
+    description:
+      "Beacon for Canadaverse-linked resources. A central hub aggregating links, tools, and services connected to the Canadaverse MeshCore ecosystem.",
+    url: "https://beacon.canadaverse.org/?tab=Home",
+    badge: "Directory",
+    badgeColor: "teal",
+    icon: <LinkIcon className="w-6 h-6" />,
+    tag: "beacon.canadaverse.org",
+    note: "Canadaverse",
+    noteUrl: "https://canadaverse.org/",
+    addedAt: "2026-06-11",
+    verifiedAt: "2026-06-11",
+  },
+  // MeshCore Canada additions
+  {
+    id: "beacon-meshcore-ca",
+    title: "Beacon — MeshCore Canada",
+    subtitle: "Dev Environment — 🇨🇦 MeshCore Canada",
+    description:
+      "Dev environment and beacon for MeshCore Canada. Provides a development and testing hub for the MeshCore Canada network, supporting new features and integrations before they reach production.",
+    url: "https://dev.meshcore.ca/",
+    badge: "Tool",
+    badgeColor: "violet",
+    icon: <NetworkIcon className="w-6 h-6" />,
+    tag: "dev.meshcore.ca",
+    note: "MeshCore Canada",
+    noteUrl: "https://live.meshcore.ca/#/home",
+    addedAt: "2026-06-11",
+    verifiedAt: "2026-06-11",
+  },
+  // Krabs Lagoon
+  {
+    id: "krabs-lagoon",
+    title: "Krabs Lagoon",
+    subtitle: "Live MeshCore Canada — 🇨🇦 Canadaverse",
+    description:
+      "Live MeshCore Canada view showing active citizens, RF links, and neighbourhoods around the lagoon. A real-time visualisation of the Canadaverse mesh topology centred on the Krabs Lagoon node cluster.",
+    url: "https://canadaverse.org/krab/lagoon/",
+    badge: "Map",
+    badgeColor: "emerald",
+    icon: <MapPinIcon className="w-6 h-6" />,
+    tag: "canadaverse.org",
+    note: "Canadaverse",
+    noteUrl: "https://canadaverse.org/",
+    addedAt: "2026-06-11",
+    verifiedAt: "2026-06-11",
+  },
+  {
+    id: "krabs-lagoon-room",
+    title: "Krabs Lagoon Room",
+    subtitle: "Read-Only Room — 🇨🇦 Canadaverse",
+    description:
+      "Read-only room chat, packet activity, heard nodes, and observer health for the Krabs Lagoon area. A terminal-style view of real-time mesh activity from the Canadaverse Krabs Lagoon node cluster.",
+    url: "https://term.canadaverse.org/",
+    badge: "Chat",
+    badgeColor: "sky",
+    icon: <MessageSquareIcon className="w-6 h-6" />,
+    tag: "term.canadaverse.org",
+    note: "Canadaverse",
+    noteUrl: "https://canadaverse.org/",
+    addedAt: "2026-06-11",
+    verifiedAt: "2026-06-11",
+  },
 ];
-
 // ─── USA Meshtastic Networks ────────────────────────────────────────────────────
 
 const usaServices: ServiceCard[] = [
@@ -3349,7 +3502,11 @@ export default function Home() {
               </a>
               <a href="#community-extended" className="mono-label text-[10px] uppercase tracking-widest px-2.5 py-0.5 rounded-md transition-all duration-200 text-violet-400/70 hover:text-violet-300 hover:bg-violet-500/10 flex items-center gap-1">
                 Extended
-                <span className="inline-flex items-center justify-center h-3.5 min-w-3.5 px-1 rounded-full bg-violet-500/25 border border-violet-500/40 text-violet-200 text-[8px] font-bold leading-none">{communityServices.filter(c => ["waterloo-meshview","waterloo-meshsense","canadaverse-adsb"].includes(c.id)).length}</span>
+                <span className="inline-flex items-center justify-center h-3.5 min-w-3.5 px-1 rounded-full bg-violet-500/25 border border-violet-500/40 text-violet-200 text-[8px] font-bold leading-none">{communityServices.filter(c => ["waterloo-meshview","waterloo-meshsense","canadaverse-adsb","canadaverse-meshmon","canadaverse-release-radar","beacon-canadaverse"].includes(c.id)).length}</span>
+              </a>
+              <a href="#community-krabs-lagoon" className="mono-label text-[10px] uppercase tracking-widest px-2.5 py-0.5 rounded-md transition-all duration-200 text-teal-400/70 hover:text-teal-300 hover:bg-teal-500/10 flex items-center gap-1">
+                Krabs Lagoon
+                <span className="inline-flex items-center justify-center h-3.5 min-w-3.5 px-1 rounded-full bg-teal-500/25 border border-teal-500/40 text-teal-200 text-[8px] font-bold leading-none">{communityServices.filter(c => ["krabs-lagoon","krabs-lagoon-room"].includes(c.id)).length}</span>
               </a>
               <a href="#community-social" className="mono-label text-[10px] uppercase tracking-widest px-2.5 py-0.5 rounded-md transition-all duration-200 text-sky-400/70 hover:text-sky-300 hover:bg-sky-500/10 flex items-center gap-1">
                 Social
@@ -4160,8 +4317,9 @@ export default function Home() {
             const canadaverseIds = ["yyc-custom-mesh", "canadaverse-dashboard", "canadaverse-meshinfo", "canadaverse-node-map", "canadaverse-wiki", "canadaverse-links"];
             const regionalIds    = ["ottawa-mesh", "meshmon-kw", "cedarmesh", "salish-mesh", "vancouver-mesh", "yeg-mesh", "meshmapper-yow-community", "interlink-radio-community"];
             const cedarMeshIds   = ["cedarmesh-discord", "gta-meshcore-map", "cedarmesh-battery-calc", "cedarmesh-rf-calc", "cedarmesh-blog"];
-            const meshcoreCanadaIds = ["meshcore-ca-hub", "corescope-home", "corescope-live", "corescope-map", "corescope-channels", "corescope-observers"];
-            const canadaverseExtIds = ["waterloo-meshview", "waterloo-meshsense", "canadaverse-adsb"];
+            const meshcoreCanadaIds = ["meshcore-ca-hub", "corescope-home", "corescope-live", "corescope-map", "corescope-channels", "corescope-observers", "beacon-meshcore-ca"];
+            const canadaverseExtIds = ["waterloo-meshview", "waterloo-meshsense", "canadaverse-adsb", "canadaverse-meshmon", "canadaverse-release-radar", "beacon-canadaverse"];
+            const krabsLagoonIds = ["krabs-lagoon", "krabs-lagoon-room"];
             const socialIds      = ["discord-yyc-meshcore", "telegram-meshmonitoring-channel", "telegram-meshmonitoring-group"];
             const meshcoreAnalyzerIds = ["corescope-sfbay", "corescope-tennmesh", "corescope-boston", "corescope-cascadia", "corescope-swbc", "corescope-wcmesh", "corescope-letsmesh", "corescope-letsmesh-forum", "corescope-meshcore-ca-live", "corescope-cartolive-canada"];
 
@@ -4226,8 +4384,9 @@ export default function Home() {
                 <SubGrp label="CedarMesh — GTA+"      color="blue"    anchorId="community-gta"         ids={cedarMeshIds}      startIdx={canadaverseIds.length + regionalIds.length}                                                                                href="https://cedarmesh.ca" />
                 <SubGrp label="MeshCore Canada"       color="orange"  anchorId="community-meshcore-ca" ids={meshcoreCanadaIds} startIdx={canadaverseIds.length + regionalIds.length + cedarMeshIds.length}                                                          href="https://live.meshcore.ca/#/home" />
                 <SubGrp label="Canadaverse Extended"  color="violet"  anchorId="community-extended"    ids={canadaverseExtIds}      startIdx={canadaverseIds.length + regionalIds.length + cedarMeshIds.length + meshcoreCanadaIds.length}                                                                                             href="https://canadaverse.org" />
-                <SubGrp label="MeshCore Analyzers — CoreScope" color="rose" anchorId="community-meshcore-analyzers" ids={meshcoreAnalyzerIds} startIdx={canadaverseIds.length + regionalIds.length + cedarMeshIds.length + meshcoreCanadaIds.length + canadaverseExtIds.length}                                href="https://live.meshcore.ca/#/live" />
-                <SubGrp label="Social &amp; Chat"     color="sky"     anchorId="community-social"      ids={socialIds}              startIdx={canadaverseIds.length + regionalIds.length + cedarMeshIds.length + meshcoreCanadaIds.length + canadaverseExtIds.length + meshcoreAnalyzerIds.length} />
+                <SubGrp label="Krabs Lagoon"          color="teal"    anchorId="community-krabs-lagoon" ids={krabsLagoonIds}   startIdx={canadaverseIds.length + regionalIds.length + cedarMeshIds.length + meshcoreCanadaIds.length + canadaverseExtIds.length}                                                                      href="https://canadaverse.org/krab/lagoon/" />
+                <SubGrp label="MeshCore Analyzers — CoreScope" color="rose" anchorId="community-meshcore-analyzers" ids={meshcoreAnalyzerIds} startIdx={canadaverseIds.length + regionalIds.length + cedarMeshIds.length + meshcoreCanadaIds.length + canadaverseExtIds.length + krabsLagoonIds.length}                                href="https://live.meshcore.ca/#/live" />
+                <SubGrp label="Social &amp; Chat"     color="sky"     anchorId="community-social"      ids={socialIds}              startIdx={canadaverseIds.length + regionalIds.length + cedarMeshIds.length + meshcoreCanadaIds.length + canadaverseExtIds.length + krabsLagoonIds.length + meshcoreAnalyzerIds.length} />
               </>
             );
           })()}

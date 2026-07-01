@@ -3518,18 +3518,33 @@ export default function Home() {
           {activeSection === "resources" && (
             <>
               <span className="text-white/15 text-xs select-none">|</span>
-              {[
-                { label: "Monitoring",  href: "#resources-monitoring", color: "text-amber-400/70 hover:text-amber-300 hover:bg-amber-500/10" },
-                { label: "Bots",        href: "#resources-bots",        color: "text-rose-400/70 hover:text-rose-300 hover:bg-rose-500/10" },
-                { label: "Protocol",    href: "#resources-protocol",    color: "text-violet-400/70 hover:text-violet-300 hover:bg-violet-500/10" },
-                { label: "Wardriving",  href: "#resources-wardriving",  color: "text-violet-400/70 hover:text-violet-300 hover:bg-violet-500/10" },
-                { label: "Ninja",       href: "#resources-ninja",       color: "text-teal-400/70 hover:text-teal-300 hover:bg-teal-500/10" },
-                { label: "Other",       href: "#resources-other",       color: "text-amber-400/70 hover:text-amber-300 hover:bg-amber-500/10" },
-              ].map(({ label, href, color }) => (
-                <a key={href} href={href} className={`mono-label text-[10px] uppercase tracking-widest px-2.5 py-0.5 rounded-md transition-all duration-200 ${color}`}>
-                  {label}
-                </a>
-              ))}
+              {(() => {
+                const NINJA_IDS_NAV     = new Set(["meshcore-ninja-firmwares", "meshcore-ninja-software"]);
+                const MON_BADGES_NAV    = new Set(["Software", "MeshMonitor", "Dashboard", "Info"]);
+                const BOT_BADGES_NAV    = new Set(["Bot"]);
+                const PROTO_BADGES_NAV  = new Set(["Tool", "Relay", "Directory", "Firehose"]);
+                const WARD_BADGES_NAV   = new Set(["Wardriving"]);
+                const monCount  = resourceServices.filter(c => MON_BADGES_NAV.has(c.badge) && !NINJA_IDS_NAV.has(c.id)).length;
+                const botCount  = resourceServices.filter(c => BOT_BADGES_NAV.has(c.badge) && !NINJA_IDS_NAV.has(c.id)).length;
+                const proCount  = resourceServices.filter(c => PROTO_BADGES_NAV.has(c.badge) && !NINJA_IDS_NAV.has(c.id)).length;
+                const wardCount = resourceServices.filter(c => WARD_BADGES_NAV.has(c.badge) && !NINJA_IDS_NAV.has(c.id)).length;
+                const ninjaCount = resourceServices.filter(c => NINJA_IDS_NAV.has(c.id)).length;
+                const otherCount = resourceServices.filter(c => !NINJA_IDS_NAV.has(c.id) && !MON_BADGES_NAV.has(c.badge) && !BOT_BADGES_NAV.has(c.badge) && !PROTO_BADGES_NAV.has(c.badge) && !WARD_BADGES_NAV.has(c.badge)).length;
+                const links = [
+                  { label: "Monitoring", href: "#resources-monitoring", count: monCount,   bg: "bg-amber-500/25",  border: "border-amber-500/40",  text: "text-amber-200",  color: "text-amber-400/70 hover:text-amber-300 hover:bg-amber-500/10" },
+                  { label: "Bots",       href: "#resources-bots",       count: botCount,   bg: "bg-rose-500/25",   border: "border-rose-500/40",   text: "text-rose-200",   color: "text-rose-400/70 hover:text-rose-300 hover:bg-rose-500/10" },
+                  { label: "Protocol",   href: "#resources-protocol",   count: proCount,   bg: "bg-violet-500/25", border: "border-violet-500/40", text: "text-violet-200", color: "text-violet-400/70 hover:text-violet-300 hover:bg-violet-500/10" },
+                  { label: "Wardriving", href: "#resources-wardriving", count: wardCount,  bg: "bg-violet-500/25", border: "border-violet-500/40", text: "text-violet-200", color: "text-violet-400/70 hover:text-violet-300 hover:bg-violet-500/10" },
+                  { label: "Ninja",      href: "#resources-ninja",      count: ninjaCount, bg: "bg-teal-500/25",   border: "border-teal-500/40",   text: "text-teal-200",   color: "text-teal-400/70 hover:text-teal-300 hover:bg-teal-500/10" },
+                  { label: "Other",      href: "#resources-other",      count: otherCount, bg: "bg-amber-500/25",  border: "border-amber-500/40",  text: "text-amber-200",  color: "text-amber-400/70 hover:text-amber-300 hover:bg-amber-500/10" },
+                ];
+                return links.map(({ label, href, count, bg, border, text, color }) => (
+                  <a key={href} href={href} className={`mono-label text-[10px] uppercase tracking-widest px-2.5 py-0.5 rounded-md transition-all duration-200 ${color} flex items-center gap-1`}>
+                    {label}
+                    {count > 0 && <span className={`inline-flex items-center justify-center h-3.5 min-w-3.5 px-1 rounded-full ${bg} border ${border} ${text} text-[8px] font-bold leading-none`}>{count}</span>}
+                  </a>
+                ));
+              })()}
             </>
           )}
           {/* USA sub-group quick-jump links — only visible when USA section is active */}
@@ -4040,6 +4055,18 @@ export default function Home() {
               style={{ fontFamily: "'Outfit', sans-serif", fontWeight: 500 }}
             >
               Krabs Lagoon
+              <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M7 7h10v10" /><path d="M7 17 17 7" />
+              </svg>
+            </a>
+            <a
+              href="https://eastme.sh/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-xl border border-blue-500/30 hover:border-blue-400/60 bg-blue-500/8 hover:bg-blue-500/15 text-blue-300 hover:text-blue-200 font-500 text-sm transition-all duration-200 hover:shadow-[0_0_18px_rgba(59,130,246,0.2)]"
+              style={{ fontFamily: "'Outfit', sans-serif", fontWeight: 500 }}
+            >
+              EastMeSH
               <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M7 7h10v10" /><path d="M7 17 17 7" />
               </svg>

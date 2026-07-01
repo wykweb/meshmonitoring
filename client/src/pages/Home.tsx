@@ -4131,6 +4131,17 @@ export default function Home() {
                 <path d="M7 7h10v10" /><path d="M7 17 17 7" />
               </svg>
             </a>
+            <a
+              href="#community-meshcore-beacon"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-xl border border-indigo-400/30 hover:border-indigo-300/60 bg-indigo-400/8 hover:bg-indigo-400/15 text-indigo-200 hover:text-indigo-100 font-500 text-sm transition-all duration-200 hover:shadow-[0_0_18px_rgba(129,140,248,0.2)]"
+              style={{ fontFamily: "'Outfit', sans-serif", fontWeight: 500 }}
+            >
+              <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <circle cx="12" cy="12" r="3" />
+                <path d="M12 2v3M12 19v3M4.22 4.22l2.12 2.12M17.66 17.66l2.12 2.12M2 12h3M19 12h3M4.22 19.78l2.12-2.12M17.66 6.34l2.12-2.12" />
+              </svg>
+              MeshCore Beacon
+            </a>
           </div>
 
           <StatsBar />

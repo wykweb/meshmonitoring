@@ -3508,6 +3508,10 @@ export default function Home() {
                 Krabs Lagoon
                 <span className="inline-flex items-center justify-center h-3.5 min-w-3.5 px-1 rounded-full bg-teal-500/25 border border-teal-500/40 text-teal-200 text-[8px] font-bold leading-none">{communityServices.filter(c => ["krabs-lagoon","krabs-lagoon-room"].includes(c.id)).length}</span>
               </a>
+              <a href="#community-meshcore-analyzers" className="mono-label text-[10px] uppercase tracking-widest px-2.5 py-0.5 rounded-md transition-all duration-200 text-rose-400/70 hover:text-rose-300 hover:bg-rose-500/10 flex items-center gap-1">
+                CoreScope
+                <span className="inline-flex items-center justify-center h-3.5 min-w-3.5 px-1 rounded-full bg-rose-500/25 border border-rose-500/40 text-rose-200 text-[8px] font-bold leading-none">{communityServices.filter(c => ["corescope-sfbay","corescope-tennmesh","corescope-boston","corescope-cascadia","corescope-swbc","corescope-wcmesh","corescope-letsmesh","corescope-letsmesh-forum","corescope-meshcore-ca-live","corescope-cartolive-canada"].includes(c.id)).length}</span>
+              </a>
               <a href="#community-social" className="mono-label text-[10px] uppercase tracking-widest px-2.5 py-0.5 rounded-md transition-all duration-200 text-sky-400/70 hover:text-sky-300 hover:bg-sky-500/10 flex items-center gap-1">
                 Social
                 <span className="inline-flex items-center justify-center h-3.5 min-w-3.5 px-1 rounded-full bg-sky-500/25 border border-sky-500/40 text-sky-200 text-[8px] font-bold leading-none">{communityServices.filter(c => ["discord-yyc-meshcore","telegram-meshmonitoring-channel","telegram-meshmonitoring-group"].includes(c.id)).length}</span>

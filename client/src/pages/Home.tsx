@@ -3500,6 +3500,10 @@ export default function Home() {
                 GTA+
                 <span className="inline-flex items-center justify-center h-3.5 min-w-3.5 px-1 rounded-full bg-blue-500/25 border border-blue-500/40 text-blue-200 text-[8px] font-bold leading-none">{communityServices.filter(c => ["cedarmesh-discord","gta-meshcore-map","cedarmesh-battery-calc","cedarmesh-rf-calc","cedarmesh-blog"].includes(c.id)).length}</span>
               </a>
+              <a href="#community-meshcore-ca" className="mono-label text-[10px] uppercase tracking-widest px-2.5 py-0.5 rounded-md transition-all duration-200 text-amber-400/70 hover:text-amber-300 hover:bg-amber-500/10 flex items-center gap-1">
+                MeshCore CA
+                <span className="inline-flex items-center justify-center h-3.5 min-w-3.5 px-1 rounded-full bg-amber-500/25 border border-amber-500/40 text-amber-200 text-[8px] font-bold leading-none">{communityServices.filter(c => ["meshcore-ca-hub","corescope-home","corescope-live","corescope-map","corescope-channels","corescope-observers","beacon-meshcore-ca"].includes(c.id)).length}</span>
+              </a>
               <a href="#community-extended" className="mono-label text-[10px] uppercase tracking-widest px-2.5 py-0.5 rounded-md transition-all duration-200 text-violet-400/70 hover:text-violet-300 hover:bg-violet-500/10 flex items-center gap-1">
                 Extended
                 <span className="inline-flex items-center justify-center h-3.5 min-w-3.5 px-1 rounded-full bg-violet-500/25 border border-violet-500/40 text-violet-200 text-[8px] font-bold leading-none">{communityServices.filter(c => ["waterloo-meshview","waterloo-meshsense","canadaverse-adsb","canadaverse-meshmon","canadaverse-release-radar","beacon-canadaverse"].includes(c.id)).length}</span>

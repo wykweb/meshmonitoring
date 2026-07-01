@@ -895,7 +895,7 @@ const resourceServices: ServiceCard[] = [
   {
     id: "eastmesh-dashboard",
     title: "EastMeSH",
-    subtitle: "Eastern US MeshCore Initiative",
+    subtitle: "CoreScope — Eastern US MeshCore Initiative",
     description:
       "Eastern US MeshCore is an initiative to bring all east coast MeshCore communities together in order to visualize the traffic between states from a single site. Aggregates live mesh traffic across the eastern seaboard into one unified view.",
     url: "https://eastme.sh/",
@@ -909,7 +909,7 @@ const resourceServices: ServiceCard[] = [
   {
     id: "corecomms-dashboard",
     title: "CoreComms",
-    subtitle: "Global MeshCore Telemetry Platform",
+    subtitle: "CoreScope — Global MeshCore Telemetry Platform",
     description:
       "CoreComms is a comprehensive, real-time mesh network monitoring and telemetry platform designed to visualize, track, and diagnose mesh network traffic on a global scale. Provides live dashboards for MeshCore network health, node activity, and inter-community traffic.",
     url: "https://corecomms.net/",
@@ -3523,7 +3523,8 @@ export default function Home() {
                 { label: "Bots",        href: "#resources-bots",        color: "text-rose-400/70 hover:text-rose-300 hover:bg-rose-500/10" },
                 { label: "Protocol",    href: "#resources-protocol",    color: "text-violet-400/70 hover:text-violet-300 hover:bg-violet-500/10" },
                 { label: "Wardriving",  href: "#resources-wardriving",  color: "text-violet-400/70 hover:text-violet-300 hover:bg-violet-500/10" },
-                { label: "Other",       href: "#resources-other",       color: "text-teal-400/70 hover:text-teal-300 hover:bg-teal-500/10" },
+                { label: "Ninja",       href: "#resources-ninja",       color: "text-teal-400/70 hover:text-teal-300 hover:bg-teal-500/10" },
+                { label: "Other",       href: "#resources-other",       color: "text-amber-400/70 hover:text-amber-300 hover:bg-amber-500/10" },
               ].map(({ label, href, color }) => (
                 <a key={href} href={href} className={`mono-label text-[10px] uppercase tracking-widest px-2.5 py-0.5 rounded-md transition-all duration-200 ${color}`}>
                   {label}
@@ -4031,6 +4032,18 @@ export default function Home() {
                 <path d="M7 7h10v10" /><path d="M7 17 17 7" />
               </svg>
             </a>
+            <a
+              href="https://canadaverse.org/krab/lagoon/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-xl border border-teal-500/30 hover:border-teal-400/60 bg-teal-500/8 hover:bg-teal-500/15 text-teal-300 hover:text-teal-200 font-500 text-sm transition-all duration-200 hover:shadow-[0_0_18px_rgba(20,184,166,0.2)]"
+              style={{ fontFamily: "'Outfit', sans-serif", fontWeight: 500 }}
+            >
+              Krabs Lagoon
+              <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M7 7h10v10" /><path d="M7 17 17 7" />
+              </svg>
+            </a>
           </div>
 
           <StatsBar />
@@ -4441,18 +4454,19 @@ export default function Home() {
           </div>
 
 {(() => {
+                        const NINJA_IDS          = new Set(["meshcore-ninja-firmwares", "meshcore-ninja-software"]);
             const MONITORING_BADGES  = new Set(["Software", "MeshMonitor", "Dashboard", "Info"]);
             const BOT_BADGES         = new Set(["Bot"]);
             const PROTOCOL_BADGES    = new Set(["Tool", "Relay", "Directory", "Firehose"]);
             const WARDRIVING_BADGES  = new Set(["Wardriving"]);
-
-            const monitoringCards  = filteredResources.filter(c => MONITORING_BADGES.has(c.badge));
-            const botCards         = filteredResources.filter(c => BOT_BADGES.has(c.badge));
-            const protocolCards    = filteredResources.filter(c => PROTOCOL_BADGES.has(c.badge));
-            const wardrivingCards  = filteredResources.filter(c => WARDRIVING_BADGES.has(c.badge));
+            const ninjaCards       = filteredResources.filter(c => NINJA_IDS.has(c.id));
+            const monitoringCards  = filteredResources.filter(c => MONITORING_BADGES.has(c.badge) && !NINJA_IDS.has(c.id));
+            const botCards         = filteredResources.filter(c => BOT_BADGES.has(c.badge) && !NINJA_IDS.has(c.id));
+            const protocolCards    = filteredResources.filter(c => PROTOCOL_BADGES.has(c.badge) && !NINJA_IDS.has(c.id));
+            const wardrivingCards  = filteredResources.filter(c => WARDRIVING_BADGES.has(c.badge) && !NINJA_IDS.has(c.id));
             // Catch-all for any badge not in the above groups
             const otherCards       = filteredResources.filter(c =>
-              !MONITORING_BADGES.has(c.badge) && !BOT_BADGES.has(c.badge) &&
+              !NINJA_IDS.has(c.id) && !MONITORING_BADGES.has(c.badge) && !BOT_BADGES.has(c.badge) &&
               !PROTOCOL_BADGES.has(c.badge) && !WARDRIVING_BADGES.has(c.badge)
             );
 
@@ -4495,7 +4509,8 @@ export default function Home() {
                 <SubGroup label="Bots &amp; Automation"   color="rose"   anchorId="resources-bots"       cards={botCards}        startIdx={monitoringCards.length} />
                 <SubGroup label="Protocol Tools"        color="violet" anchorId="resources-protocol"   cards={protocolCards}   startIdx={monitoringCards.length + botCards.length} />
                 <SubGroup label="MeshMapper Coverage"   color="violet" anchorId="resources-wardriving" cards={wardrivingCards} startIdx={monitoringCards.length + botCards.length + protocolCards.length} />
-                <SubGroup label="Other Resources"       color="teal"   anchorId="resources-other"      cards={otherCards}      startIdx={monitoringCards.length + botCards.length + protocolCards.length + wardrivingCards.length} />
+                <SubGroup label="MeshCore Ninja"        color="teal"   anchorId="resources-ninja"      cards={ninjaCards}      startIdx={monitoringCards.length + botCards.length + protocolCards.length + wardrivingCards.length} />
+                <SubGroup label="Other Resources"       color="amber"  anchorId="resources-other"      cards={otherCards}      startIdx={monitoringCards.length + botCards.length + protocolCards.length + wardrivingCards.length + ninjaCards.length} />
               </>
             );
           })()}

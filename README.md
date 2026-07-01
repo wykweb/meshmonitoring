@@ -78,15 +78,36 @@ All listed services are volunteer-run and community-maintained.
 | Battery & Solar Runtime Calculator | [cedarmesh.ca/battery_solar_runtime_calculator.html](https://cedarmesh.ca/battery_solar_runtime_calculator.html) | Estimate device runtime with battery packs and optional solar assist (CedarMesh.ca) |
 | RF Power & EIRP Estimator | [cedarmesh.ca/rf_power_eirp_estimator.html](https://cedarmesh.ca/rf_power_eirp_estimator.html) | Calculate effective radiated power based on TX power, antenna gain, and losses (CedarMesh.ca) |
 | CedarMesh Blog | [cedarmesh.ca/blog.html](https://cedarmesh.ca/blog.html) | Updates, guides, and field notes from the GTA+ community (CedarMesh.ca) |
+
+### MeshCore Canada
+
+| Service | URL | Description |
+|---|---|---|
 | MeshCore Canada | [meshcore.ca](https://meshcore.ca/) | Central community hub for MeshCore operators across Canada |
 | CoreScope — MeshCore Canada | [live.meshcore.ca/#/home](https://live.meshcore.ca/#/home) | Live MeshCore network dashboard for Canada — nodes, channels, packets, and observers |
 | CoreScope — Mesh LIVE | [live.meshcore.ca/#/live](https://live.meshcore.ca/#/live) | Real-time MeshCore packet stream across Canada |
 | CoreScope — Map | [live.meshcore.ca/#/map](https://live.meshcore.ca/#/map) | Interactive node map for the Canadian MeshCore network |
 | CoreScope — Channels | [live.meshcore.ca/#/channels](https://live.meshcore.ca/#/channels) | Channel directory — all known MeshCore channels heard by observer nodes |
 | CoreScope — Observers | [live.meshcore.ca/#/observers](https://live.meshcore.ca/#/observers) | Active CoreScope observer nodes contributing data to the Canadian MeshCore network |
+| Beacon (MeshCore Canada) | [dev.meshcore.ca](https://dev.meshcore.ca) | Dev environment for MeshCore Canada |
+
+### Canadaverse Extended
+
+| Service | URL | Description |
+|---|---|---|
 | Waterloo Meshview | [canadaverse.org/map](https://canadaverse.org/map) | Waterloo region dashboard for mesh stats and node health (Canadaverse) |
 | Waterloo MeshSense | [meshsense.canadaverse.org](https://meshsense.canadaverse.org/) | Waterloo sensor data and environmental dashboards (Canadaverse) |
 | Canadaverse ADS-B | [adsb.canadaverse.org](https://adsb.canadaverse.org/) | Live aircraft tracking and local ADS-B coverage (Canadaverse) |
+| Canadaverse Mesh Monitor | [meshmon.canadaverse.org](https://meshmon.canadaverse.org) | Real-time mesh health monitoring for the Canadaverse network |
+| Release Impact Radar | [canadaverse.org/meshcore/radar/](https://canadaverse.org/meshcore/radar/) | MeshCore release and impact review for the Canadaverse network |
+| Beacon Canadaverse | [beacon.canadaverse.org/?tab=Home](https://beacon.canadaverse.org/?tab=Home) | Beacon for Canadaverse-linked resources |
+
+### Krabs Lagoon
+
+| Service | URL | Description |
+|---|---|---|
+| Krabs Lagoon | [canadaverse.org/krab/lagoon/](https://canadaverse.org/krab/lagoon/) | Live MeshCore Canada — active citizens, RF links, and neighborhoods around the lagoon |
+| Krabs Lagoon Room | [term.canadaverse.org](https://term.canadaverse.org/) | Read-only room chat, packet activity, heard nodes, and observer health |
 
 ### MeshCore Analyzers — CoreScope
 
@@ -101,6 +122,7 @@ All listed services are volunteer-run and community-maintained.
 | MeshCore Analyzer — LetsMesh.net | [analyzer.letsmesh.net/nodes/repeaters](https://analyzer.letsmesh.net/nodes/repeaters) | CoreScope analyzer for the LetsMesh.net network — browse repeater nodes and channel activity |
 | MeshCore Analyzer — LetsMesh Forum | [forum.letsmesh.net](https://forum.letsmesh.net/?utm_source=analyzer&utm_medium=nav) | LetsMesh community forum linked from the MeshCore Analyzer |
 | MeshCore.ca — CoreScope Live | [live.meshcore.ca/#/live](https://live.meshcore.ca/#/live) | Live CoreScope analyzer for the MeshCore Canada community |
+| CartoLive — MeshCore Canada | [carto.canadaverse.org](https://carto.canadaverse.org/) | Live MeshCore Canada network map via Canadaverse / Carto |
 
 ### Chat Groups & Social
 
@@ -115,6 +137,10 @@ All listed services are volunteer-run and community-maintained.
 
 | Service | URL | Description |
 |---|---|---|
+| EastMeSH | [eastme.sh](https://eastme.sh/) | Eastern US MeshCore initiative — visualize traffic between east coast states from a single site |
+| CoreComms | [corecomms.net](https://corecomms.net/) | Comprehensive real-time mesh network monitoring and telemetry platform — global scale |
+| MeshCore Ninja — Firmwares | [meshcore.ninja/firmwares/](https://meshcore.ninja/firmwares/) | Directory of MeshCore firmware variants and builds |
+| MeshCore Ninja — Software | [meshcore.ninja/software/](https://meshcore.ninja/software/) | Directory of MeshCore software tools and utilities |
 | Meshtastic↔MeshCore Relay | [meshnard.com/mesh/mt-mc_relay](https://meshnard.com/mesh/mt-mc_relay) | Protocol bridge enabling message passing between Meshtastic and MeshCore networks |
 | Canadian Mesh Links by MeshNard | [meshnard.com/meshlinks](https://meshnard.com/meshlinks) | Curated directory of Canadian mesh network resources and reference links |
 | Mesh Web Relay (Northern BC) | [relay.meshnard.com](https://relay.meshnard.com/) | Secure message relay bridging the internet, local Meshtastic/MeshCore networks, and Canadaverse |
@@ -122,16 +148,16 @@ All listed services are volunteer-run and community-maintained.
 | Meshing Around | [github.com/SpudGunMan/meshing-around](https://github.com/SpudGunMan/meshing-around) | Open source bot for Meshtastic network testing and BBS activities |
 | MeshCore Bot | [github.com/agessaman/meshcore-bot](https://github.com/agessaman/meshcore-bot) | Python bot connecting to MeshCore networks via serial, BLE, or TCP/IP |
 | MeshMonitor | [meshmonitor.org](https://meshmonitor.org/) | Self-hosted Meshtastic monitoring with real-time maps, alerts, and full network awareness |
-| MeshSense | [affirmatech.com/meshsense](https://affirmatech.com/meshsense) | Open-source desktop app that monitors, maps and graphically displays Meshtastic network stats — nodes, signal reports, trace routes and more |
-| Meshtastic Metrics Exporter | [github.com/tcivie/meshtastic-metrics-exporter](https://github.com/tcivie/meshtastic-metrics-exporter) | Collects data from Meshtastic MQTT servers into TimescaleDB with pre-configured Grafana dashboards for visualization and analysis |
-| TC2-BBS-mesh | [github.com/TheCommsChannel/TC2-BBS-mesh](https://github.com/TheCommsChannel/TC2-BBS-mesh) | TC²-BBS system integrated with Meshtastic devices — message handling, bulletin boards, mail systems, and channel directory |
-| MeshCore Analyzer — Add an Observer | [analyzer.letsmesh.net/observer/onboard](https://analyzer.letsmesh.net/observer/onboard) | Onboard an MQTT-connected MeshCore observer node to report packets to the MeshCore Analyzer for multi-location network reliability and coverage analysis |
-| MeshInfo Lite | [github.com/dadecoza/meshinfo-lite](https://github.com/dadecoza/meshinfo-lite) | Highly customized Python app connecting to MQTT to visualize and inspect Meshtastic traffic. Uses MariaDB for persistence; Docker Compose support included for easy self-hosted deployment |
-| MeshInfo | [github.com/MeshAddicts/meshinfo](https://github.com/MeshAddicts/meshinfo) | Real-time web app for visualizing and monitoring Meshtastic mesh networks. Connects to MQTT brokers, decodes protobuf and JSON in real time, stores data in PostgreSQL, served via FastAPI + React |
-| MeshMapper for MeshCore Wardriving | [wiki.meshmapper.net](https://wiki.meshmapper.net/) | Visualizes real-world MeshCore RF coverage using data collected by local mesh operators wardriving their area. Answers "Can I reach the mesh from here?", "Which repeater gives best coverage?", and "Where are the dead zones?" Built with contributions from the Greater Ottawa Mesh Radio Enthusiasts |
+| MeshSense | [affirmatech.com/meshsense](https://affirmatech.com/meshsense) | Open-source desktop app that monitors, maps and graphically displays Meshtastic network stats |
+| Meshtastic Metrics Exporter | [github.com/tcivie/meshtastic-metrics-exporter](https://github.com/tcivie/meshtastic-metrics-exporter) | Collects data from Meshtastic MQTT servers into TimescaleDB with pre-configured Grafana dashboards |
+| TC2-BBS-mesh | [github.com/TheCommsChannel/TC2-BBS-mesh](https://github.com/TheCommsChannel/TC2-BBS-mesh) | TC²-BBS system integrated with Meshtastic devices — message handling, bulletin boards, mail systems |
+| MeshCore Analyzer — Add an Observer | [analyzer.letsmesh.net/observer/onboard](https://analyzer.letsmesh.net/observer/onboard) | Onboard an MQTT-connected MeshCore observer node to the MeshCore Analyzer |
+| MeshInfo Lite | [github.com/dadecoza/meshinfo-lite](https://github.com/dadecoza/meshinfo-lite) | Python app connecting to MQTT to visualize and inspect Meshtastic traffic |
+| MeshInfo | [github.com/MeshAddicts/meshinfo](https://github.com/MeshAddicts/meshinfo) | Real-time web app for visualizing and monitoring Meshtastic mesh networks |
+| MeshMapper for MeshCore Wardriving | [wiki.meshmapper.net](https://wiki.meshmapper.net/) | Visualizes real-world MeshCore RF coverage using data collected by local mesh operators |
 | MeshMapper YYC | [yyc.meshmapper.net](https://yyc.meshmapper.net/) | Live MeshMapper instance visualizing real-world MeshCore RF coverage across Calgary (YYC) |
-| MeshMapper YOW | [yow.meshmapper.net](https://yow.meshmapper.net/) | Live MeshMapper instance visualizing real-world MeshCore RF coverage across Ottawa (YOW), maintained by the Greater Ottawa Mesh Radio Enthusiasts |
-| Interlink Radio | [interlinkradio.weebly.com](https://interlinkradio.weebly.com/) | Community resource hub — Telegram mesh chat groups, Discord mesh groups, and resources for Meshtastic and MeshCore enthusiasts |
+| MeshMapper YOW | [yow.meshmapper.net](https://yow.meshmapper.net/) | Live MeshMapper instance visualizing real-world MeshCore RF coverage across Ottawa (YOW) |
+| Interlink Radio | [interlinkradio.weebly.com](https://interlinkradio.weebly.com/) | Community resource hub — Telegram mesh chat groups, Discord mesh groups, and resources |
 
 ### USA — Dashboards
 
@@ -174,7 +200,22 @@ All listed services are volunteer-run and community-maintained.
 | Rhode Island Mesh | [discord.com](https://discord.com/invite/ktMAKGBnBs) | Rhode Island |
 | Vermont Mesh | [discord.com](https://discord.com/invite/ktMAKGBnBs) | Vermont |
 
-### USA — Adjacent Meshes (NY/NJ/CT/PA)
+### USA — Mid-Atlantic (PA / NJ / CT / DE)
+
+| Service | URL | Region |
+|---|---|---|
+| Philly Mesh | [phillymesh.net](https://phillymesh.net/) | Philadelphia / Delaware Valley, PA |
+| Philly Radio & Meshtastic Discord | [discord.gg/MWWbAkRR9v](https://discord.gg/MWWbAkRR9v) | Philadelphia / Delaware Valley, PA |
+| Meshtastic Discord — Philadelphia PA/Delaware Valley | [discord.com](https://discord.com/channels/867578229534359593/1280671409995255809) | Philadelphia, PA |
+| Delaware Meshtastic (deme.sh) | [deme.sh](https://deme.sh/) | Delaware |
+| WPAMesh | [wpamesh.net](https://wpamesh.net/) | Western Pennsylvania |
+| Western PA Mesh Map | [map.wpamesh.net](https://map.wpamesh.net) | Western Pennsylvania |
+| Central NJ Mesh | [cnjmesh.me](https://cnjmesh.me/) | New Jersey |
+| Forest Edge Mesh | [forest-edge.info](https://forest-edge.info/) | New Jersey |
+| CT Mesh (Statewide) | [ctmesh.org](https://ctmesh.org/) | Connecticut |
+| CT Mesh Discord | [discord.gg/m4F328as3K](https://discord.gg/m4F328as3K) | Connecticut |
+
+### USA — Adjacent Meshes (NY)
 
 | Service | URL | Region |
 |---|---|---|
@@ -185,17 +226,8 @@ All listed services are volunteer-run and community-maintained.
 | Meshtastic Discord — Long Island | [discord.com](https://discord.com/channels/867578229534359593/1292647069256913031) | Suffolk/Nassau/Queens, NY |
 | Meshtastic Discord — Rochester | [discord.com](https://discord.com/channels/867578229534359593/1292647069256913031) | Rochester, NY |
 | Kaatskills Mesh | [kmesh.us](https://kmesh.us/) | Sullivan County & Southern Catskills, NY |
-| Hudson Hams Discord | [discord.gg](https://discord.gg/2J6BuhR) | Sullivan County & Southern Catskills, NY |
+| Hudson Hams Discord | [discord.gg/2J6BuhR](https://discord.gg/2J6BuhR) | Sullivan County & Southern Catskills, NY |
 | Meshtastic Discord — Westchester | [discord.com](https://discord.com/channels/867578229534359593/1383046714763509910) | Westchester County, NY |
-| Central NJ Mesh | [cnjmesh.me](https://cnjmesh.me/) | New Jersey |
-| Forest Edge Mesh | [forest-edge.info](https://forest-edge.info/) | New Jersey |
-| CT Mesh (Statewide) | [ctmesh.org](https://ctmesh.org/) | Connecticut |
-| CT Mesh Discord | [discord.gg](https://discord.gg/m4F328as3K) | Connecticut |
-| Philly Mesh | [phillymesh.net](https://phillymesh.net/) | Philadelphia / Delaware Valley, PA |
-| Philly Radio & Meshtastic Discord | [discord.gg](https://discord.gg/MWWbAkRR9v) | Philadelphia / Delaware Valley, PA |
-| Meshtastic Discord — Philadelphia PA/Delaware Valley | [discord.com](https://discord.com/channels/867578229534359593/1280671409995255809) | Philadelphia, PA |
-| Delaware Meshtastic (deme.sh) | [deme.sh](https://deme.sh/) | Delaware |
-| WPAMesh | [wpamesh.net](https://wpamesh.net/) | Western Pennsylvania |
 
 ### USA — New York Networks
 
@@ -207,16 +239,50 @@ All listed services are volunteer-run and community-maintained.
 | NYC Mesh WiFi Network | [nycmesh.net](https://www.nycmesh.net/) | New York City |
 | Mesh NY — Chat | [malla.nyme.sh/chat](https://malla.nyme.sh/chat) | New York |
 
-### USA — Community Hubs
+### USA — Southeast (TN / NC / GA)
 
 | Service | URL | Region |
-|---|---|---------|
-| Tahoe Mesh | [tahoemesh.org](https://tahoemesh.org/) | Lake Tahoe Basin, CA/NV |
+|---|---|---|
+| TennMesh | [tennmesh.com](https://tennmesh.com/) | Tennessee |
+| TennMesh — CoreScope | [live.tennmesh.com/#/live](https://live.tennmesh.com/#/live) | Tennessee |
+| NC Mesh | [ncmesh.net](https://ncmesh.net/) | North Carolina |
+| Georgia Mesh Community | [gamesh.net](https://gamesh.net/) | Georgia |
+| Mountain Mesh (MtnMe.sh) | [mtnme.sh](https://mtnme.sh/) | North Georgia / East Tennessee |
+| Mountain Mesh — Chat | [view.mtnme.sh/chat](https://view.mtnme.sh/chat) | North Georgia / East Tennessee |
+
+### USA — Texas
+
+| Service | URL | Region |
+|---|---|---|
+| NTX Mesh / DFW | [ntxmesh.com](https://ntxmesh.com/) | North Texas / Dallas-Fort Worth |
+| Austin Mesh | [austinmesh.org](https://www.austinmesh.org/) | Austin, TX |
+| Central Texas Mesh — Discord | [discord.gg/centraltexasmesh](https://discord.gg/centraltexasmesh) | Central Texas |
+| Cypress TX Club | [cypress.tx.club](https://cypress.tx.club/) | Cypress, TX |
+
+### USA — Nevada / Las Vegas
+
+| Service | URL | Region |
+|---|---|---|
+| Las Vegas Meshtastic Network | [lasmesh.com](https://lasmesh.com/) | Las Vegas, NV |
+| LASmesh — Discord | [lasmesh.com/#discord](https://lasmesh.com/#discord) | Las Vegas, NV |
+| LASmesh MeshBot Dashboard | [lasmesh.com/#meshbot](https://lasmesh.com/#meshbot) | Las Vegas, NV |
+| LASmesh Nodes | [lasmesh.com/#nodes](https://lasmesh.com/#nodes) | Las Vegas, NV |
+
+### USA — Florida
+
+| Service | URL | Region |
+|---|---|---|
 | Are You Meshing With Us? | [areyoumeshingwith.us](https://areyoumeshingwith.us/) | Florida |
 | Florida Mesh — Discord | [discord.com/invite/floridamesh](https://discord.com/invite/floridamesh) | Florida |
 | Florida Mesh — Live Chat Stream | [malla.areyoumeshingwith.us/chat](https://malla.areyoumeshingwith.us/chat) | Florida |
 | Florida Mesh — Live Packet Feed | [malla.areyoumeshingwith.us/packets](https://malla.areyoumeshingwith.us/packets) | Florida |
 | Florida Mesh — Node Map | [map.areyoumeshingwith.us](https://map.areyoumeshingwith.us/) | Florida |
+
+### USA — Community Hubs
+
+| Service | URL | Region |
+|---|---|---|
+| Tahoe Mesh | [tahoemesh.org](https://tahoemesh.org/) | Lake Tahoe Basin, CA/NV |
 | OKMesh | [okmesh.org](https://okmesh.org/) | Oklahoma |
 | Tulsa Meshtastic | [tulsa-meshtastic.com](https://www.tulsa-meshtastic.com/) | Tulsa, Oklahoma |
 | Meshconsin | [meshconsin.org](https://meshconsin.org/) | Wisconsin |

@@ -3551,25 +3551,44 @@ export default function Home() {
           {activeSection === "usa" && (
             <>
               <span className="text-white/15 text-xs select-none">|</span>
-              {[
-                { label: "New York",      href: "#usa-new-york",      color: "text-violet-400/70 hover:text-violet-300 hover:bg-violet-500/10" },
-                { label: "Adjacent NY",   href: "#usa-adjacent-ny",   color: "text-indigo-400/70 hover:text-indigo-300 hover:bg-indigo-500/10" },
-                { label: "Mid-Atlantic",  href: "#usa-midatlantic",   color: "text-sky-400/70 hover:text-sky-300 hover:bg-sky-500/10" },
-                { label: "New England",   href: "#usa-new-england",   color: "text-amber-400/70 hover:text-amber-300 hover:bg-amber-500/10" },
-                { label: "PNW",           href: "#usa-pnw",           color: "text-teal-400/70 hover:text-teal-300 hover:bg-teal-500/10" },
-                { label: "Florida",       href: "#usa-florida",       color: "text-rose-400/70 hover:text-rose-300 hover:bg-rose-500/10" },
-                { label: "Southeast",     href: "#usa-southeast",     color: "text-amber-400/70 hover:text-amber-300 hover:bg-amber-500/10" },
-                { label: "Texas",         href: "#usa-texas",         color: "text-orange-400/70 hover:text-orange-300 hover:bg-orange-500/10" },
-                { label: "Nevada",        href: "#usa-nevada",        color: "text-amber-400/70 hover:text-amber-300 hover:bg-amber-500/10" },
-                { label: "Community",     href: "#usa-community",     color: "text-green-400/70 hover:text-green-300 hover:bg-green-500/10" },
-                { label: "MeshView",      href: "#usa-meshview",      color: "text-sky-400/70 hover:text-sky-300 hover:bg-sky-500/10" },
-                { label: "MeshMonitor",   href: "#usa-meshmonitor",   color: "text-rose-400/70 hover:text-rose-300 hover:bg-rose-500/10" },
-                { label: "MeshInfo",      href: "#usa-meshinfo",      color: "text-emerald-400/70 hover:text-emerald-300 hover:bg-emerald-500/10" },
-              ].map(({ label, href, color }) => (
-                <a key={href} href={href} className={`mono-label text-[10px] uppercase tracking-widest px-2.5 py-0.5 rounded-md transition-all duration-200 ${color}`}>
-                  {label}
-                </a>
-              ))}
+              {(() => {
+                const nyIds  = ["new-york-mesh", "nyme-sh", "cnymesh", "nyc-mesh-wifi", "mesh-ny-chat"];
+                const adjIds = ["buffalora-snydermesh", "discord-buffalo-ny", "upstatemesh", "discord-capital-region-ny", "discord-long-island-ny", "discord-rochester-ny", "kaatskills-mesh", "hudson-hams-discord", "discord-westchester-ny"];
+                const maIds  = ["cnjmesh", "forest-edge-nj", "ctmesh", "ctmesh-discord", "phillymesh", "philly-radio-discord", "discord-philly-pa", "delaware-mesh", "wpamesh", "western-pa-mesh"];
+                const neIds  = ["bostonmesh", "discord-ma-meshtastic", "rimesh", "vtmesh"];
+                const pnwIds2 = ["oregon-mesh", "central-oregon-mesh", "washington-mesh"];
+                const flIds  = ["south-florida-mesh", "tampa-bay-mesh", "are-you-meshing-with-us", "florida-mesh-discord", "florida-mesh-chat", "florida-mesh-firehose", "florida-mesh-map"];
+                const seIds  = ["tennmesh", "tennmesh-corescope", "ncmesh", "georgia-mesh-community", "north-georgia-mesh", "north-georgia-mesh-chat"];
+                const txIds  = ["ntxmesh", "austin-mesh", "central-texas-mesh-discord", "cypress-texas-mesh"];
+                const nvIds  = ["lasmesh-community", "lasmesh-discord", "lasmesh-meshbot-dashboard", "lasmesh-nodes"];
+                const allGrp = new Set([...nyIds, ...adjIds, ...maIds, ...neIds, ...pnwIds2, ...flIds, ...seIds, ...txIds, ...nvIds]);
+                const cnt = (ids: string[]) => usaServices.filter(c => ids.includes(c.id)).length;
+                const commCount = usaServices.filter(c => c.badge === "Community" && !allGrp.has(c.id)).length;
+                const mvCount   = usaServices.filter(c => c.badge !== "MeshMonitor" && c.badge !== "MeshInfo" && c.badge !== "Community" && !allGrp.has(c.id)).length;
+                const mmCount   = usaServices.filter(c => c.badge === "MeshMonitor").length;
+                const miCount   = usaServices.filter(c => c.badge === "MeshInfo").length;
+                const links = [
+                  { label: "New York",     href: "#usa-new-york",     count: cnt(nyIds),   bg: "bg-violet-500/25", border: "border-violet-500/40", text: "text-violet-200", color: "text-violet-400/70 hover:text-violet-300 hover:bg-violet-500/10" },
+                  { label: "Adjacent NY",  href: "#usa-adjacent-ny",  count: cnt(adjIds),  bg: "bg-indigo-500/25", border: "border-indigo-500/40", text: "text-indigo-200", color: "text-indigo-400/70 hover:text-indigo-300 hover:bg-indigo-500/10" },
+                  { label: "Mid-Atlantic", href: "#usa-midatlantic",  count: cnt(maIds),   bg: "bg-sky-500/25",    border: "border-sky-500/40",    text: "text-sky-200",    color: "text-sky-400/70 hover:text-sky-300 hover:bg-sky-500/10" },
+                  { label: "New England",  href: "#usa-new-england",  count: cnt(neIds),   bg: "bg-amber-500/25",  border: "border-amber-500/40",  text: "text-amber-200",  color: "text-amber-400/70 hover:text-amber-300 hover:bg-amber-500/10" },
+                  { label: "PNW",          href: "#usa-pnw",          count: cnt(pnwIds2), bg: "bg-teal-500/25",   border: "border-teal-500/40",   text: "text-teal-200",   color: "text-teal-400/70 hover:text-teal-300 hover:bg-teal-500/10" },
+                  { label: "Florida",      href: "#usa-florida",      count: cnt(flIds),   bg: "bg-rose-500/25",   border: "border-rose-500/40",   text: "text-rose-200",   color: "text-rose-400/70 hover:text-rose-300 hover:bg-rose-500/10" },
+                  { label: "Southeast",    href: "#usa-southeast",    count: cnt(seIds),   bg: "bg-amber-500/25",  border: "border-amber-500/40",  text: "text-amber-200",  color: "text-amber-400/70 hover:text-amber-300 hover:bg-amber-500/10" },
+                  { label: "Texas",        href: "#usa-texas",        count: cnt(txIds),   bg: "bg-orange-500/25", border: "border-orange-500/40", text: "text-orange-200", color: "text-orange-400/70 hover:text-orange-300 hover:bg-orange-500/10" },
+                  { label: "Nevada",       href: "#usa-nevada",       count: cnt(nvIds),   bg: "bg-amber-500/25",  border: "border-amber-500/40",  text: "text-amber-200",  color: "text-amber-400/70 hover:text-amber-300 hover:bg-amber-500/10" },
+                  { label: "Community",    href: "#usa-community",    count: commCount,    bg: "bg-green-500/25",  border: "border-green-500/40",  text: "text-green-200",  color: "text-green-400/70 hover:text-green-300 hover:bg-green-500/10" },
+                  { label: "MeshView",     href: "#usa-meshview",     count: mvCount,      bg: "bg-sky-500/25",    border: "border-sky-500/40",    text: "text-sky-200",    color: "text-sky-400/70 hover:text-sky-300 hover:bg-sky-500/10" },
+                  { label: "MeshMonitor",  href: "#usa-meshmonitor",  count: mmCount,      bg: "bg-rose-500/25",   border: "border-rose-500/40",   text: "text-rose-200",   color: "text-rose-400/70 hover:text-rose-300 hover:bg-rose-500/10" },
+                  { label: "MeshInfo",     href: "#usa-meshinfo",     count: miCount,      bg: "bg-emerald-500/25",border: "border-emerald-500/40",text: "text-emerald-200",color: "text-emerald-400/70 hover:text-emerald-300 hover:bg-emerald-500/10" },
+                ];
+                return links.map(({ label, href, count, bg, border, text, color }) => (
+                  <a key={href} href={href} className={`mono-label text-[10px] uppercase tracking-widest px-2.5 py-0.5 rounded-md transition-all duration-200 ${color} flex items-center gap-1`}>
+                    {label}
+                    {count > 0 && <span className={`inline-flex items-center justify-center h-3.5 min-w-3.5 px-1 rounded-full ${bg} border ${border} ${text} text-[8px] font-bold leading-none`}>{count}</span>}
+                  </a>
+                ));
+              })()}
             </>
           )}
         </div>
@@ -4067,6 +4086,18 @@ export default function Home() {
               style={{ fontFamily: "'Outfit', sans-serif", fontWeight: 500 }}
             >
               EastMeSH
+              <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M7 7h10v10" /><path d="M7 17 17 7" />
+              </svg>
+            </a>
+            <a
+              href="https://corecomms.net/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-xl border border-indigo-500/30 hover:border-indigo-400/60 bg-indigo-500/8 hover:bg-indigo-500/15 text-indigo-300 hover:text-indigo-200 font-500 text-sm transition-all duration-200 hover:shadow-[0_0_18px_rgba(99,102,241,0.2)]"
+              style={{ fontFamily: "'Outfit', sans-serif", fontWeight: 500 }}
+            >
+              CoreComms
               <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M7 7h10v10" /><path d="M7 17 17 7" />
               </svg>

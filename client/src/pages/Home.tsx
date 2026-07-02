@@ -1672,6 +1672,38 @@ const communityServices: ServiceCard[] = [
     addedAt: "2026-07-01",
     verifiedAt: "2026-07-01",
   },
+  {
+    id: "corescope-yyc-map",
+    title: "YYC MeshCore Network — CoreScope Map",
+    subtitle: "CoreScope Node Map — 🇨🇦 Calgary, Alberta",
+    description:
+      "Interactive node map for the YYC Calgary MeshCore network. See where active nodes and observers are located across the Calgary metro area, visualise coverage areas, and explore mesh topology at a glance.",
+    url: "https://corescopeyyc.meshmonitoring.com/#/map",
+    badge: "Map",
+    badgeColor: "emerald",
+    icon: <MapIcon className="w-6 h-6" />,
+    tag: "corescopeyyc.meshmonitoring.com",
+    note: "YYC Calgary",
+    noteUrl: "https://corescopeyyc.meshmonitoring.com/#/map",
+    addedAt: "2026-07-01",
+    verifiedAt: "2026-07-01",
+  },
+  {
+    id: "corescope-yyc-observers",
+    title: "YYC MeshCore Network — CoreScope Observers",
+    subtitle: "CoreScope Observer Network — 🇨🇦 Calgary, Alberta",
+    description:
+      "View all active CoreScope observer nodes contributing data to the YYC Calgary MeshCore network. Each observer is an MQTT-connected MeshCore node reporting packets it hears, enabling network-wide analysis and coverage mapping across the Calgary mesh.",
+    url: "https://corescopeyyc.meshmonitoring.com/#/observers",
+    badge: "Monitor",
+    badgeColor: "violet",
+    icon: <RadioIcon className="w-6 h-6" />,
+    tag: "corescopeyyc.meshmonitoring.com",
+    note: "YYC Calgary",
+    noteUrl: "https://corescopeyyc.meshmonitoring.com/#/observers",
+    addedAt: "2026-07-01",
+    verifiedAt: "2026-07-01",
+  },
   // Canadaverse Extended additions
   {
     id: "canadaverse-meshmon",
@@ -3581,9 +3613,13 @@ export default function Home() {
                 Beacon
                 <span className="inline-flex items-center justify-center h-3.5 min-w-3.5 px-1 rounded-full bg-indigo-500/25 border border-indigo-500/40 text-indigo-200 text-[8px] font-bold leading-none">{communityServices.filter(c => ["beacon-meshcore-ca", "beacon-canadaverse"].includes(c.id)).length}</span>
               </a>
+              <a href="#community-yyc-corescope" className="mono-label text-[10px] uppercase tracking-widest px-2.5 py-0.5 rounded-md transition-all duration-200 text-rose-400/70 hover:text-rose-300 hover:bg-rose-500/10 flex items-center gap-1">
+                YYC
+                <span className="inline-flex items-center justify-center h-3.5 min-w-3.5 px-1 rounded-full bg-rose-500/25 border border-rose-500/40 text-rose-200 text-[8px] font-bold leading-none">{communityServices.filter(c => ["corescope-yyc-live","corescope-yyc-map","corescope-yyc-observers"].includes(c.id)).length}</span>
+              </a>
               <a href="#community-meshcore-analyzers" className="mono-label text-[10px] uppercase tracking-widest px-2.5 py-0.5 rounded-md transition-all duration-200 text-rose-400/70 hover:text-rose-300 hover:bg-rose-500/10 flex items-center gap-1">
                 CoreScope
-                <span className="inline-flex items-center justify-center h-3.5 min-w-3.5 px-1 rounded-full bg-rose-500/25 border border-rose-500/40 text-rose-200 text-[8px] font-bold leading-none">{communityServices.filter(c => ["corescope-yyc-live","corescope-sfbay","corescope-tennmesh","corescope-boston","corescope-cascadia","corescope-swbc","corescope-wcmesh","corescope-letsmesh","corescope-letsmesh-forum","corescope-meshcore-ca-live","corescope-cartolive-canada"].includes(c.id)).length}</span>
+                <span className="inline-flex items-center justify-center h-3.5 min-w-3.5 px-1 rounded-full bg-rose-500/25 border border-rose-500/40 text-rose-200 text-[8px] font-bold leading-none">{communityServices.filter(c => ["corescope-sfbay","corescope-tennmesh","corescope-boston","corescope-cascadia","corescope-swbc","corescope-wcmesh","corescope-letsmesh","corescope-letsmesh-forum","corescope-meshcore-ca-live","corescope-cartolive-canada"].includes(c.id)).length}</span>
               </a>
               <a href="#community-social" className="mono-label text-[10px] uppercase tracking-widest px-2.5 py-0.5 rounded-md transition-all duration-200 text-sky-400/70 hover:text-sky-300 hover:bg-sky-500/10 flex items-center gap-1">
                 Social
@@ -4491,7 +4527,8 @@ export default function Home() {
             const beaconIds         = ["beacon-meshcore-ca", "beacon-canadaverse"];
             const krabsLagoonIds = ["krabs-lagoon", "krabs-lagoon-room"];
             const socialIds      = ["discord-yyc-meshcore", "telegram-meshmonitoring-channel", "telegram-meshmonitoring-group"];
-            const meshcoreAnalyzerIds = ["corescope-yyc-live", "corescope-sfbay", "corescope-tennmesh", "corescope-boston", "corescope-cascadia", "corescope-swbc", "corescope-wcmesh", "corescope-letsmesh", "corescope-letsmesh-forum", "corescope-meshcore-ca-live", "corescope-cartolive-canada"];
+            const yycCorescopeIds     = ["corescope-yyc-live", "corescope-yyc-map", "corescope-yyc-observers"];
+            const meshcoreAnalyzerIds = ["corescope-sfbay", "corescope-tennmesh", "corescope-boston", "corescope-cascadia", "corescope-swbc", "corescope-wcmesh", "corescope-letsmesh", "corescope-letsmesh-forum", "corescope-meshcore-ca-live", "corescope-cartolive-canada"];
 
             const SubGrp = ({ label, color, ids, startIdx, href, anchorId }: { label: string; color: string; ids: string[]; startIdx: number; href?: string; anchorId?: string }) => {
               const cards = ids.map(id => communityServices.find(c => c.id === id)).filter(Boolean) as typeof communityServices;
@@ -4557,8 +4594,9 @@ export default function Home() {
                 <SubGrp label="Canadaverse Extended"  color="violet"  anchorId="community-extended"    ids={canadaverseExtIds}      startIdx={canadaverseIds.length + regionalIds.length + cedarMeshIds.length + meshcoreCanadaIds.length}                                                                                             href="https://canadaverse.org" />
                 <SubGrp label="Krabs Lagoon"          color="teal"    anchorId="community-krabs-lagoon" ids={krabsLagoonIds}   startIdx={canadaverseIds.length + regionalIds.length + cedarMeshIds.length + meshcoreCanadaIds.length + canadaverseExtIds.length}                                                                      href="https://canadaverse.org/krab/lagoon/" />
                 <SubGrp label="MeshCore Beacon"        color="indigo"  anchorId="community-meshcore-beacon" ids={beaconIds}      startIdx={canadaverseIds.length + regionalIds.length + cedarMeshIds.length + meshcoreCanadaIds.length + canadaverseExtIds.length + krabsLagoonIds.length}                                           href="https://dev.meshcore.ca/?tab=Map" />
-                <SubGrp label="MeshCore Analyzers — CoreScope" color="rose" anchorId="community-meshcore-analyzers" ids={meshcoreAnalyzerIds} startIdx={canadaverseIds.length + regionalIds.length + cedarMeshIds.length + meshcoreCanadaIds.length + canadaverseExtIds.length + krabsLagoonIds.length + beaconIds.length}       href="https://live.meshcore.ca/#/live" />
-                <SubGrp label="Social &amp; Chat"     color="sky"     anchorId="community-social"      ids={socialIds}              startIdx={canadaverseIds.length + regionalIds.length + cedarMeshIds.length + meshcoreCanadaIds.length + canadaverseExtIds.length + krabsLagoonIds.length + beaconIds.length + meshcoreAnalyzerIds.length} />
+                <SubGrp label="YYC Calgary — CoreScope" color="rose" anchorId="community-yyc-corescope" ids={yycCorescopeIds} startIdx={canadaverseIds.length + regionalIds.length + cedarMeshIds.length + meshcoreCanadaIds.length + canadaverseExtIds.length + krabsLagoonIds.length + beaconIds.length} href="https://corescopeyyc.meshmonitoring.com/#/live" />
+                <SubGrp label="MeshCore Analyzers — CoreScope" color="rose" anchorId="community-meshcore-analyzers" ids={meshcoreAnalyzerIds} startIdx={canadaverseIds.length + regionalIds.length + cedarMeshIds.length + meshcoreCanadaIds.length + canadaverseExtIds.length + krabsLagoonIds.length + beaconIds.length + yycCorescopeIds.length} href="https://live.meshcore.ca/#/live" />
+                <SubGrp label="Social &amp; Chat"     color="sky"     anchorId="community-social"      ids={socialIds}              startIdx={canadaverseIds.length + regionalIds.length + cedarMeshIds.length + meshcoreCanadaIds.length + canadaverseExtIds.length + krabsLagoonIds.length + beaconIds.length + yycCorescopeIds.length + meshcoreAnalyzerIds.length} />
               </>
             );
           })()}

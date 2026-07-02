@@ -99,6 +99,7 @@ const canadaverseIds      = extractIds("canadaverseIds")      .length ? extractI
 const meshcoreCanadaIds   = ["meshcore-ca-hub","corescope-home","corescope-live","corescope-map","corescope-channels","corescope-observers","beacon-meshcore-ca"];
 const canadaverseExtIds   = ["waterloo-meshview","waterloo-meshsense","canadaverse-adsb","canadaverse-meshmon","canadaverse-release-radar","beacon-canadaverse"];
 const krabsLagoonIds      = ["krabs-lagoon","krabs-lagoon-room"];
+const yycCorescopeIds     = ["corescope-yyc-live","corescope-yyc-map","corescope-yyc-observers"];
 const meshcoreAnalyzerIds = ["corescope-sfbay","corescope-tennmesh","corescope-boston","corescope-cascadia","corescope-swbc","corescope-wcmesh","corescope-letsmesh","corescope-letsmesh-forum","corescope-meshcore-ca-live","corescope-cartolive-canada"];
 
 const newYorkIds      = ["new-york-mesh","nyme-sh","cnymesh","nyc-mesh-wifi","mesh-ny-chat"];
@@ -114,7 +115,7 @@ const nevadaIds       = ["lasmesh-community","lasmesh-discord","lasmesh-meshbot-
 const allGroupedUSA = new Set([...newYorkIds,...adjacentNYIds,...midAtlanticIds,...newEnglandIds,...pnwIds,...floridaIds,...southeastIds,...texasIds,...nevadaIds]);
 
 // Community sub-group IDs (to exclude from catch-all)
-const allGroupedCommunity = new Set([...canadaverseIds,...meshcoreCanadaIds,...canadaverseExtIds,...krabsLagoonIds,...meshcoreAnalyzerIds]);
+const allGroupedCommunity = new Set([...canadaverseIds,...meshcoreCanadaIds,...canadaverseExtIds,...krabsLagoonIds,...yycCorescopeIds,...meshcoreAnalyzerIds]);
 
 // ─── 4. Helpers ───────────────────────────────────────────────────────────────
 function idsToRows(ids, pool) {
@@ -151,6 +152,7 @@ parts.push(section("Regional Communities",             poolExcluding(communityPo
 parts.push(section("MeshCore Canada",                  idsToRows(meshcoreCanadaIds, communityPool)));
 parts.push(section("Canadaverse Extended",             idsToRows(canadaverseExtIds, communityPool)));
 parts.push(section("Krabs Lagoon",                     idsToRows(krabsLagoonIds, communityPool)));
+parts.push(section("YYC Calgary — CoreScope",          idsToRows(yycCorescopeIds, communityPool)));
 parts.push(section("MeshCore Analyzers — CoreScope",   idsToRows(meshcoreAnalyzerIds, communityPool)));
 
 // Social

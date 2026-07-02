@@ -3665,9 +3665,13 @@ export default function Home() {
                 YYC
                 <span className="inline-flex items-center justify-center h-3.5 min-w-3.5 px-1 rounded-full bg-rose-500/25 border border-rose-500/40 text-rose-200 text-[8px] font-bold leading-none">{communityServices.filter(c => ["corescope-yyc-live","corescope-yyc-map","corescope-yyc-observers","corescope-yyc-channels"].includes(c.id)).length}</span>
               </a>
-              <a href="#community-meshcore-analyzers" className="mono-label text-[10px] uppercase tracking-widest px-2.5 py-0.5 rounded-md transition-all duration-200 text-rose-400/70 hover:text-rose-300 hover:bg-rose-500/10 flex items-center gap-1">
-                CoreScope
-                <span className="inline-flex items-center justify-center h-3.5 min-w-3.5 px-1 rounded-full bg-rose-500/25 border border-rose-500/40 text-rose-200 text-[8px] font-bold leading-none">{communityServices.filter(c => ["corescope-sfbay","corescope-tennmesh","corescope-boston","corescope-cascadia","corescope-swbc","corescope-wcmesh","corescope-letsmesh","corescope-letsmesh-forum","corescope-meshcore-ca-live","corescope-cartolive-canada","corescope-nebraskamesh"].includes(c.id)).length}</span>
+              <a href="#community-corescope-canada" className="mono-label text-[10px] uppercase tracking-widest px-2.5 py-0.5 rounded-md transition-all duration-200 text-rose-400/70 hover:text-rose-300 hover:bg-rose-500/10 flex items-center gap-1">
+                CoreScope CA
+                <span className="inline-flex items-center justify-center h-3.5 min-w-3.5 px-1 rounded-full bg-rose-500/25 border border-rose-500/40 text-rose-200 text-[8px] font-bold leading-none">{communityServices.filter(c => ["corescope-swbc","corescope-meshcore-ca-live","corescope-cartolive-canada"].includes(c.id)).length}</span>
+              </a>
+              <a href="#community-corescope-usa" className="mono-label text-[10px] uppercase tracking-widest px-2.5 py-0.5 rounded-md transition-all duration-200 text-rose-400/70 hover:text-rose-300 hover:bg-rose-500/10 flex items-center gap-1">
+                CoreScope USA
+                <span className="inline-flex items-center justify-center h-3.5 min-w-3.5 px-1 rounded-full bg-rose-500/25 border border-rose-500/40 text-rose-200 text-[8px] font-bold leading-none">{communityServices.filter(c => ["corescope-sfbay","corescope-tennmesh","corescope-boston","corescope-cascadia","corescope-wcmesh","corescope-letsmesh","corescope-letsmesh-forum","corescope-nebraskamesh"].includes(c.id)).length}</span>
               </a>
               <a href="#community-social" className="mono-label text-[10px] uppercase tracking-widest px-2.5 py-0.5 rounded-md transition-all duration-200 text-sky-400/70 hover:text-sky-300 hover:bg-sky-500/10 flex items-center gap-1">
                 Social
@@ -3722,7 +3726,8 @@ export default function Home() {
                 const seIds  = ["tennmesh", "tennmesh-corescope", "ncmesh", "georgia-mesh-community", "north-georgia-mesh", "north-georgia-mesh-chat"];
                 const txIds  = ["ntxmesh", "austin-mesh", "central-texas-mesh-discord", "cypress-texas-mesh"];
                 const nvIds  = ["lasmesh-community", "lasmesh-discord", "lasmesh-meshbot-dashboard", "lasmesh-nodes"];
-                const allGrp = new Set([...nyIds, ...adjIds, ...maIds, ...neIds, ...pnwIds2, ...flIds, ...seIds, ...txIds, ...nvIds]);
+                const nbIds  = ["nebraskamesh-community", "corescope-nebraskamesh"];
+                const allGrp = new Set([...nyIds, ...adjIds, ...maIds, ...neIds, ...pnwIds2, ...flIds, ...seIds, ...txIds, ...nvIds, ...nbIds]);
                 const cnt = (ids: string[]) => usaServices.filter(c => ids.includes(c.id)).length;
                 const commCount = usaServices.filter(c => c.badge === "Community" && !allGrp.has(c.id)).length;
                 const mvCount   = usaServices.filter(c => c.badge !== "MeshMonitor" && c.badge !== "MeshInfo" && c.badge !== "Community" && !allGrp.has(c.id)).length;
@@ -3738,6 +3743,7 @@ export default function Home() {
                   { label: "Southeast",    href: "#usa-southeast",    count: cnt(seIds),   bg: "bg-amber-500/25",  border: "border-amber-500/40",  text: "text-amber-200",  color: "text-amber-400/70 hover:text-amber-300 hover:bg-amber-500/10" },
                   { label: "Texas",        href: "#usa-texas",        count: cnt(txIds),   bg: "bg-orange-500/25", border: "border-orange-500/40", text: "text-orange-200", color: "text-orange-400/70 hover:text-orange-300 hover:bg-orange-500/10" },
                   { label: "Nevada",       href: "#usa-nevada",       count: cnt(nvIds),   bg: "bg-amber-500/25",  border: "border-amber-500/40",  text: "text-amber-200",  color: "text-amber-400/70 hover:text-amber-300 hover:bg-amber-500/10" },
+                  { label: "Nebraska",     href: "#usa-nebraska",     count: cnt(nbIds),   bg: "bg-green-500/25",  border: "border-green-500/40",  text: "text-green-200",  color: "text-green-400/70 hover:text-green-300 hover:bg-green-500/10" },
                   { label: "Community",    href: "#usa-community",    count: commCount,    bg: "bg-green-500/25",  border: "border-green-500/40",  text: "text-green-200",  color: "text-green-400/70 hover:text-green-300 hover:bg-green-500/10" },
                   { label: "MeshView",     href: "#usa-meshview",     count: mvCount,      bg: "bg-sky-500/25",    border: "border-sky-500/40",    text: "text-sky-200",    color: "text-sky-400/70 hover:text-sky-300 hover:bg-sky-500/10" },
                   { label: "MeshMonitor",  href: "#usa-meshmonitor",  count: mmCount,      bg: "bg-rose-500/25",   border: "border-rose-500/40",   text: "text-rose-200",   color: "text-rose-400/70 hover:text-rose-300 hover:bg-rose-500/10" },
@@ -4576,7 +4582,9 @@ export default function Home() {
             const krabsLagoonIds = ["krabs-lagoon", "krabs-lagoon-room"];
             const socialIds      = ["discord-yyc-meshcore", "telegram-meshmonitoring-channel", "telegram-meshmonitoring-group"];
             const yycCorescopeIds     = ["corescope-yyc-live", "corescope-yyc-map", "corescope-yyc-observers", "corescope-yyc-channels"];
-            const meshcoreAnalyzerIds = ["corescope-sfbay", "corescope-tennmesh", "corescope-boston", "corescope-cascadia", "corescope-swbc", "corescope-wcmesh", "corescope-letsmesh", "corescope-letsmesh-forum", "corescope-meshcore-ca-live", "corescope-cartolive-canada", "corescope-nebraskamesh"];
+            const corescopeCanadaIds = ["corescope-swbc", "corescope-meshcore-ca-live", "corescope-cartolive-canada"];
+            const corescopeUSAIds    = ["corescope-sfbay", "corescope-tennmesh", "corescope-boston", "corescope-cascadia", "corescope-wcmesh", "corescope-letsmesh", "corescope-letsmesh-forum", "corescope-nebraskamesh"];
+            const meshcoreAnalyzerIds = [...corescopeCanadaIds, ...corescopeUSAIds];
 
             const SubGrp = ({ label, color, ids, startIdx, href, anchorId }: { label: string; color: string; ids: string[]; startIdx: number; href?: string; anchorId?: string }) => {
               const cards = ids.map(id => communityServices.find(c => c.id === id)).filter(Boolean) as typeof communityServices;
@@ -4643,7 +4651,8 @@ export default function Home() {
                 <SubGrp label="Krabs Lagoon"          color="teal"    anchorId="community-krabs-lagoon" ids={krabsLagoonIds}   startIdx={canadaverseIds.length + regionalIds.length + cedarMeshIds.length + meshcoreCanadaIds.length + canadaverseExtIds.length}                                                                      href="https://canadaverse.org/krab/lagoon/" />
                 <SubGrp label="MeshCore Beacon"        color="indigo"  anchorId="community-meshcore-beacon" ids={beaconIds}      startIdx={canadaverseIds.length + regionalIds.length + cedarMeshIds.length + meshcoreCanadaIds.length + canadaverseExtIds.length + krabsLagoonIds.length}                                           href="https://dev.meshcore.ca/?tab=Map" />
                 <SubGrp label="YYC Calgary — CoreScope" color="rose" anchorId="community-yyc-corescope" ids={yycCorescopeIds} startIdx={canadaverseIds.length + regionalIds.length + cedarMeshIds.length + meshcoreCanadaIds.length + canadaverseExtIds.length + krabsLagoonIds.length + beaconIds.length} href="https://corescopeyyc.meshmonitoring.com/#/live" />
-                <SubGrp label="MeshCore Analyzers — CoreScope" color="rose" anchorId="community-meshcore-analyzers" ids={meshcoreAnalyzerIds} startIdx={canadaverseIds.length + regionalIds.length + cedarMeshIds.length + meshcoreCanadaIds.length + canadaverseExtIds.length + krabsLagoonIds.length + beaconIds.length + yycCorescopeIds.length} href="https://live.meshcore.ca/#/live" />
+                <SubGrp label="CoreScope Analyzers — Canada" color="rose" anchorId="community-corescope-canada" ids={corescopeCanadaIds} startIdx={canadaverseIds.length + regionalIds.length + cedarMeshIds.length + meshcoreCanadaIds.length + canadaverseExtIds.length + krabsLagoonIds.length + beaconIds.length + yycCorescopeIds.length} href="https://live.meshcore.ca/#/live" />
+                <SubGrp label="CoreScope Analyzers — USA" color="rose" anchorId="community-corescope-usa" ids={corescopeUSAIds} startIdx={canadaverseIds.length + regionalIds.length + cedarMeshIds.length + meshcoreCanadaIds.length + canadaverseExtIds.length + krabsLagoonIds.length + beaconIds.length + yycCorescopeIds.length + corescopeCanadaIds.length} href="https://live.meshcore.ca/#/live" />
                 <SubGrp label="Social &amp; Chat"     color="sky"     anchorId="community-social"      ids={socialIds}              startIdx={canadaverseIds.length + regionalIds.length + cedarMeshIds.length + meshcoreCanadaIds.length + canadaverseExtIds.length + krabsLagoonIds.length + beaconIds.length + yycCorescopeIds.length + meshcoreAnalyzerIds.length} />
               </>
             );
@@ -4809,7 +4818,8 @@ export default function Home() {
             const southeastIds   = ["tennmesh", "tennmesh-corescope", "ncmesh", "georgia-mesh-community", "north-georgia-mesh", "north-georgia-mesh-chat"];
             const texasIds       = ["ntxmesh", "austin-mesh", "central-texas-mesh-discord", "cypress-texas-mesh"];
             const nevadaIds      = ["lasmesh-community", "lasmesh-discord", "lasmesh-meshbot-dashboard", "lasmesh-nodes"];
-            const allGroupedIds  = [...newYorkIds, ...adjacentNYIds, ...midAtlanticIds, ...newEnglandIds, ...pnwIds, ...floridaIds, ...southeastIds, ...texasIds, ...nevadaIds];
+            const nebraskaIds    = ["nebraskamesh-community", "corescope-nebraskamesh"];
+            const allGroupedIds  = [...newYorkIds, ...adjacentNYIds, ...midAtlanticIds, ...newEnglandIds, ...pnwIds, ...floridaIds, ...southeastIds, ...texasIds, ...nevadaIds, ...nebraskaIds];
             const newYorkCards        = filteredUSA.filter(c => newYorkIds.includes(c.id));
             const adjacentNYCards     = filteredUSA.filter(c => adjacentNYIds.includes(c.id));
             const newEnglandCards     = filteredUSA.filter(c => newEnglandIds.includes(c.id));
@@ -4819,6 +4829,7 @@ export default function Home() {
             const midAtlanticCards    = filteredUSA.filter(c => midAtlanticIds.includes(c.id));
             const texasCards          = filteredUSA.filter(c => texasIds.includes(c.id));
             const nevadaCards         = filteredUSA.filter(c => nevadaIds.includes(c.id));
+            const nebraskaCards       = filteredUSA.filter(c => nebraskaIds.includes(c.id));
             const meshCommunityCards  = filteredUSA.filter(c => c.badge === "Community" && !allGroupedIds.includes(c.id));
             const meshViewCards       = filteredUSA.filter(c => c.badge !== "MeshMonitor" && c.badge !== "MeshInfo" && c.badge !== "Community" && !allGroupedIds.includes(c.id));
             const meshMonitorCards    = filteredUSA.filter(c => c.badge === "MeshMonitor");
@@ -4906,6 +4917,7 @@ export default function Home() {
                       {grp("Southeast USA — TN / NC / GA", "amber", southeastCards, "usa-southeast")}
                       {grp("Texas",                      "orange",  texasCards,         "usa-texas")}
                       {grp("Nevada — Las Vegas",          "amber",   nevadaCards,        "usa-nevada",   "https://lasmesh.com/")}
+                      {grp("Nebraska",                    "green",   nebraskaCards,      "usa-nebraska",  "https://nebraskamesh.net/")}
                       {grp("Community Hubs",             "green",   meshCommunityCards, "usa-community")}
                       {grp("MeshView & Map Viewers",     "sky",     meshViewCards,      "usa-meshview")}
                       {grp("MeshMonitor Instances",      "rose",    meshMonitorCards,   "usa-meshmonitor", "https://meshmonitor.org/")}

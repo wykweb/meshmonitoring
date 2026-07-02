@@ -2880,6 +2880,22 @@ const usaServices: ServiceCard[] = [
     verifiedAt: "2026-06-11",
   },
   {
+    id: "nebraskamesh-community",
+    title: "NebraskaMesh",
+    subtitle: "Nebraska Meshtastic & MeshCore Community",
+    description:
+      "NebraskaMesh is the community hub for Meshtastic and MeshCore mesh networking across Nebraska. Explore the local mesh network, connect with operators, and track the growing off-grid communication infrastructure across the state. Home of the NebraskaMesh CoreScope Analyzer maintained by @DOS_.",
+    url: "https://nebraskamesh.net/",
+    badge: "Community",
+    badgeColor: "green",
+    icon: <GlobeIcon className="w-6 h-6" />,
+    tag: "nebraskamesh.net",
+    note: "By @DOS_",
+    noteUrl: "https://nebraskamesh.net/",
+    addedAt: "2026-07-02",
+    verifiedAt: "2026-07-02",
+  },
+  {
     id: "lasmesh-nodes",
     title: "LASmesh Nodes",
     subtitle: "Las Vegas Meshtastic Network — USA",

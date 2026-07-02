@@ -3516,6 +3516,8 @@ export default function Home() {
   const southeastUSA    = usaServices.filter(c => ["tennmesh", "tennmesh-corescope", "ncmesh", "georgia-mesh-community", "north-georgia-mesh", "north-georgia-mesh-chat"].includes(c.id)).length;
   const midAtlanticUSA  = usaServices.filter(c => ["cnjmesh", "forest-edge-nj", "ctmesh", "ctmesh-discord", "phillymesh", "philly-radio-discord", "discord-philly-pa", "delaware-mesh", "wpamesh", "western-pa-mesh"].includes(c.id)).length;
   const texasUSA        = usaServices.filter(c => ["ntxmesh", "austin-mesh", "central-texas-mesh-discord", "cypress-texas-mesh"].includes(c.id)).length;
+  const firehoseUSA    = usaServices.filter(c => c.badge === 'Firehose').length;
+  const chatUSA         = usaServices.filter(c => c.badge === 'Chat').length;
   const newArticles  = articleServices.filter(isNew).length;
   const chatCanada     = coreServices.filter(c => c.badge === 'Chat').length;
   const firehoseCanada = coreServices.filter(c => c.badge === 'Firehose').length;
@@ -3800,6 +3802,8 @@ export default function Home() {
             <a href="#usa" className="mono-label text-rose-400/70 hover:text-rose-300 text-xs uppercase tracking-widest px-3 py-1.5 rounded-lg hover:bg-rose-500/10 transition-all duration-200 flex items-center gap-1.5">
               <img src="https://flagcdn.com/16x12/us.png" srcSet="https://flagcdn.com/32x24/us.png 2x" width="16" height="12" alt="USA" className="inline-block rounded-sm" />USA
               <span className="inline-flex items-center justify-center h-4 min-w-4 px-1 rounded-full bg-white/10 border border-white/15 text-white/50 text-[9px] font-bold leading-none" title="Total USA services">{usaServices.length}</span>
+              {firehoseUSA > 0 && <span className="inline-flex items-center gap-0.5 h-4 px-1.5 rounded-full bg-blue-500/20 border border-blue-500/30 text-blue-300 text-[9px] font-bold leading-none" title="Firehose feed cards">Firehose {firehoseUSA}</span>}
+              {chatUSA > 0 && <span className="inline-flex items-center gap-0.5 h-4 px-1.5 rounded-full bg-cyan-500/20 border border-cyan-500/30 text-cyan-300 text-[9px] font-bold leading-none" title="Chat stream cards">Chat {chatUSA}</span>}
               {southeastUSA > 0 && <span className="inline-flex items-center gap-0.5 h-4 px-1.5 rounded-full bg-amber-500/20 border border-amber-500/30 text-amber-300 text-[9px] font-bold leading-none" title="Southeast USA cards (TN/NC/GA)">SE {southeastUSA}</span>}
               {texasUSA > 0 && <span className="inline-flex items-center gap-0.5 h-4 px-1.5 rounded-full bg-orange-500/20 border border-orange-500/30 text-orange-300 text-[9px] font-bold leading-none" title="Texas cards">TX {texasUSA}</span>}
               {communityUSA > 0 && <span className="inline-flex items-center gap-0.5 h-4 px-1.5 rounded-full bg-green-500/20 border border-green-500/30 text-green-300 text-[9px] font-bold leading-none" title="Community hub cards">Community {communityUSA}</span>}
@@ -3928,6 +3932,8 @@ export default function Home() {
             <a href="#usa" onClick={() => setMobileMenuOpen(false)} className="mono-label text-rose-400/80 hover:text-rose-300 text-xs uppercase tracking-widest px-3 py-2.5 rounded-lg hover:bg-rose-500/10 transition-all duration-200 flex items-center gap-1.5">
               <img src="https://flagcdn.com/16x12/us.png" srcSet="https://flagcdn.com/32x24/us.png 2x" width="16" height="12" alt="USA" className="inline-block rounded-sm" />USA
               <span className="inline-flex items-center justify-center h-4 min-w-4 px-1 rounded-full bg-white/10 border border-white/15 text-white/50 text-[9px] font-bold leading-none" title="Total USA services">{usaServices.length}</span>
+              {firehoseUSA > 0 && <span className="inline-flex items-center gap-0.5 h-4 px-1.5 rounded-full bg-blue-500/20 border border-blue-500/30 text-blue-300 text-[9px] font-bold leading-none" title="Firehose feed cards">Firehose {firehoseUSA}</span>}
+              {chatUSA > 0 && <span className="inline-flex items-center gap-0.5 h-4 px-1.5 rounded-full bg-cyan-500/20 border border-cyan-500/30 text-cyan-300 text-[9px] font-bold leading-none" title="Chat stream cards">Chat {chatUSA}</span>}
               {newYorkUSA > 0 && <span className="inline-flex items-center gap-0.5 h-4 px-1.5 rounded-full bg-violet-500/20 border border-violet-500/30 text-violet-300 text-[9px] font-bold leading-none" title="New York network cards">NY {newYorkUSA}</span>}
               {southeastUSA > 0 && <span className="inline-flex items-center gap-0.5 h-4 px-1.5 rounded-full bg-amber-500/20 border border-amber-500/30 text-amber-300 text-[9px] font-bold leading-none" title="Southeast USA cards (TN/NC/GA)">SE {southeastUSA}</span>}
               {texasUSA > 0 && <span className="inline-flex items-center gap-0.5 h-4 px-1.5 rounded-full bg-orange-500/20 border border-orange-500/30 text-orange-300 text-[9px] font-bold leading-none" title="Texas cards">TX {texasUSA}</span>}
@@ -4299,6 +4305,17 @@ export default function Home() {
                 <path d="M2 12h4l3-9 4 18 3-9h4" />
               </svg>
               CoreScope Analyzers
+            </a>
+            <a
+              href="#community-corescope-usa"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-xl border border-rose-500/30 hover:border-rose-400/60 bg-rose-500/8 hover:bg-rose-500/15 text-rose-300 hover:text-rose-200 font-500 text-sm transition-all duration-200 hover:shadow-[0_0_18px_rgba(244,63,94,0.2)]"
+              style={{ fontFamily: "'Outfit', sans-serif", fontWeight: 500 }}
+            >
+              <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M2 12h4l3-9 4 18 3-9h4" />
+                <circle cx="22" cy="12" r="1" fill="currentColor" stroke="none" />
+              </svg>
+              CoreScope USA
             </a>
           </div>
 

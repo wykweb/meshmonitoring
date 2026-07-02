@@ -641,6 +641,38 @@ const coreServices: ServiceCard[] = [
     verifiedAt: '2026-04-06',
   },
   {
+    id: "corescope-yyc-firehose",
+    title: "YYC MeshCore Network — CoreScope Firehose",
+    subtitle: "CoreScope Packets — Calgary, Alberta",
+    description:
+      "Live packet firehose from the YYC MeshCore Network via CoreScope. Real-time view of all packet activity, node telemetry, and mesh traffic flowing through the Calgary MeshCore network.",
+    url: "https://corescopeyyc.meshmonitoring.com/#/packets",
+    badge: "Firehose",
+    badgeColor: "rose",
+    icon: <FirehoseIcon className="w-6 h-6" />,
+    tag: "corescopeyyc.meshmonitoring.com",
+    note: "YYC CoreScope",
+    noteUrl: "https://corescopeyyc.meshmonitoring.com/#/live",
+    addedAt: "2026-07-01",
+    verifiedAt: "2026-07-01",
+  },
+  {
+    id: "corescope-yyc-chat",
+    title: "YYC MeshCore Network — CoreScope Chats",
+    subtitle: "CoreScope Chat Channels — Calgary, Alberta",
+    description:
+      "Live chat channel stream from the YYC MeshCore Network via CoreScope. Browse real-time messages, channel traffic, and community conversations flowing through the Calgary MeshCore mesh.",
+    url: "https://corescopeyyc.meshmonitoring.com/#/channels/%23chat",
+    badge: "Chat",
+    badgeColor: "rose",
+    icon: <NetworkIcon className="w-6 h-6" />,
+    tag: "corescopeyyc.meshmonitoring.com",
+    note: "YYC CoreScope",
+    noteUrl: "https://corescopeyyc.meshmonitoring.com/#/live",
+    addedAt: "2026-07-01",
+    verifiedAt: "2026-07-01",
+  },
+  {
     id: "cedarmesh-hub",
     title: "CedarMesh.ca — GTA+ Mesh Hub",
     subtitle: "Greater Toronto Area, CA",
@@ -1623,6 +1655,22 @@ const communityServices: ServiceCard[] = [
     noteUrl: "https://canadaverse.org/",
     addedAt: "2026-06-09",
     verifiedAt: "2026-06-09",
+  },
+  {
+    id: "corescope-yyc-live",
+    title: "YYC MeshCore Network — CoreScope",
+    subtitle: "CoreScope — 🇨🇦 Calgary, Alberta",
+    description:
+      "Real-time MeshCore LoRa mesh network analyzer for the YYC Calgary network. Live view of node activity, RF links, packet flow, and mesh topology across the Calgary MeshCore community.",
+    url: "https://corescopeyyc.meshmonitoring.com/#/live",
+    badge: "Dashboard",
+    badgeColor: "rose",
+    icon: <NetworkIcon className="w-6 h-6" />,
+    tag: "corescopeyyc.meshmonitoring.com",
+    note: "YYC Calgary",
+    noteUrl: "https://corescopeyyc.meshmonitoring.com/#/live",
+    addedAt: "2026-07-01",
+    verifiedAt: "2026-07-01",
   },
   // Canadaverse Extended additions
   {
@@ -3535,7 +3583,7 @@ export default function Home() {
               </a>
               <a href="#community-meshcore-analyzers" className="mono-label text-[10px] uppercase tracking-widest px-2.5 py-0.5 rounded-md transition-all duration-200 text-rose-400/70 hover:text-rose-300 hover:bg-rose-500/10 flex items-center gap-1">
                 CoreScope
-                <span className="inline-flex items-center justify-center h-3.5 min-w-3.5 px-1 rounded-full bg-rose-500/25 border border-rose-500/40 text-rose-200 text-[8px] font-bold leading-none">{communityServices.filter(c => ["corescope-sfbay","corescope-tennmesh","corescope-boston","corescope-cascadia","corescope-swbc","corescope-wcmesh","corescope-letsmesh","corescope-letsmesh-forum","corescope-meshcore-ca-live","corescope-cartolive-canada"].includes(c.id)).length}</span>
+                <span className="inline-flex items-center justify-center h-3.5 min-w-3.5 px-1 rounded-full bg-rose-500/25 border border-rose-500/40 text-rose-200 text-[8px] font-bold leading-none">{communityServices.filter(c => ["corescope-yyc-live","corescope-sfbay","corescope-tennmesh","corescope-boston","corescope-cascadia","corescope-swbc","corescope-wcmesh","corescope-letsmesh","corescope-letsmesh-forum","corescope-meshcore-ca-live","corescope-cartolive-canada"].includes(c.id)).length}</span>
               </a>
               <a href="#community-social" className="mono-label text-[10px] uppercase tracking-widest px-2.5 py-0.5 rounded-md transition-all duration-200 text-sky-400/70 hover:text-sky-300 hover:bg-sky-500/10 flex items-center gap-1">
                 Social
@@ -4142,6 +4190,16 @@ export default function Home() {
               </svg>
               MeshCore Beacon
             </a>
+            <a
+              href="#community-meshcore-analyzers"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-xl border border-rose-500/30 hover:border-rose-400/60 bg-rose-500/8 hover:bg-rose-500/15 text-rose-300 hover:text-rose-200 font-500 text-sm transition-all duration-200 hover:shadow-[0_0_18px_rgba(244,63,94,0.2)]"
+              style={{ fontFamily: "'Outfit', sans-serif", fontWeight: 500 }}
+            >
+              <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />
+              </svg>
+              YYC CoreScope
+            </a>
           </div>
 
           <StatsBar />
@@ -4433,7 +4491,7 @@ export default function Home() {
             const beaconIds         = ["beacon-meshcore-ca", "beacon-canadaverse"];
             const krabsLagoonIds = ["krabs-lagoon", "krabs-lagoon-room"];
             const socialIds      = ["discord-yyc-meshcore", "telegram-meshmonitoring-channel", "telegram-meshmonitoring-group"];
-            const meshcoreAnalyzerIds = ["corescope-sfbay", "corescope-tennmesh", "corescope-boston", "corescope-cascadia", "corescope-swbc", "corescope-wcmesh", "corescope-letsmesh", "corescope-letsmesh-forum", "corescope-meshcore-ca-live", "corescope-cartolive-canada"];
+            const meshcoreAnalyzerIds = ["corescope-yyc-live", "corescope-sfbay", "corescope-tennmesh", "corescope-boston", "corescope-cascadia", "corescope-swbc", "corescope-wcmesh", "corescope-letsmesh", "corescope-letsmesh-forum", "corescope-meshcore-ca-live", "corescope-cartolive-canada"];
 
             const SubGrp = ({ label, color, ids, startIdx, href, anchorId }: { label: string; color: string; ids: string[]; startIdx: number; href?: string; anchorId?: string }) => {
               const cards = ids.map(id => communityServices.find(c => c.id === id)).filter(Boolean) as typeof communityServices;

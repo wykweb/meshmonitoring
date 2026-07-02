@@ -82,7 +82,7 @@ All listed services are volunteer-run and community-maintained.
 | Battery & Solar Runtime Calculator | [cedarmesh.ca](https://cedarmesh.ca/battery_solar_runtime_calculator.html) | Estimate device runtime with battery packs and optional solar assist. A handy tool for planning off-grid Meshtastic deployments. |
 | RF Power & EIRP Estimator | [cedarmesh.ca](https://cedarmesh.ca/rf_power_eirp_estimator.html) | Calculate effective radiated power based on TX power, antenna gain, and cable/connector losses. Essential for planning compliant and optimized Meshtastic setups. |
 | CedarMesh Blog | [cedarmesh.ca](https://cedarmesh.ca/blog.html) | Updates, guides, and field notes from the GTA+ community. A growing resource for Meshtastic and MeshCore operators in the Greater Toronto Area. |
-| YYC MeshCore Network — CoreScope Channels | [corescopeyyc.meshmonitoring.com](https://corescopeyyc.meshmonitoring.com/#/channels) | Browse all active MeshCore channels heard by observer nodes across the YYC Calgary network. Lists channel names, activity levels, and the nodes using them — a live directory of community conversations flowing through the Calgary MeshCore mesh. |
+| NebraskaMesh — CoreScope Analyzer | [analyzer.nebraskamesh.net](https://analyzer.nebraskamesh.net/) | Nebraska MeshCore Analyzer powered by CoreScope. Real-time analysis of MeshCore LoRa mesh traffic across the Nebraska mesh network. Maintained by @DOS_. |
 
 ### MeshCore Canada
 
@@ -334,9 +334,9 @@ All listed services are volunteer-run and community-maintained.
 
 | Article | URL | Author | Description |
 |---|---|---|---|
+| NTX Mesh — DFW / North Texas | [ntxmesh.com](https://ntxmesh.com) |  | Community group building a mesh network of solar-powered Meshtastic and MeshCore radios across DFW and greater North Texas. Includes county-level modem preset maps, educational resources, and an active Discord community. |
 | Austin Mesh | [austinmesh.org](https://austinmesh.org) |  | Community-driven free text messaging mesh network built on Meshtastic in Austin, TX. Active community with regular meetups, educational resources, and a growing network of nodes across the Austin metro area. |
 | Central Texas Mesh — Discord | [discord.gg](https://discord.gg/StsH5BncsW) |  | Discord community for Central Texas Meshtastic mesh network operators. Connect with local mesh enthusiasts across the central Texas region. |
-| Cypress, Texas Meshtastic Club | [discord.gg](https://discord.gg/KzuwNRwE6q) |  | Local Meshtastic club for the Cypress, Texas area. Building community mesh coverage in the northwest Houston suburbs. |
 
 
 ---

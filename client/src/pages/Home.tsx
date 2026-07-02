@@ -4281,7 +4281,7 @@ export default function Home() {
               MeshCore Beacon
             </a>
             <a
-              href="#community-meshcore-analyzers"
+              href="#community-yyc-corescope"
               className="inline-flex items-center gap-2 px-6 py-3 rounded-xl border border-rose-500/30 hover:border-rose-400/60 bg-rose-500/8 hover:bg-rose-500/15 text-rose-300 hover:text-rose-200 font-500 text-sm transition-all duration-200 hover:shadow-[0_0_18px_rgba(244,63,94,0.2)]"
               style={{ fontFamily: "'Outfit', sans-serif", fontWeight: 500 }}
             >
@@ -4289,6 +4289,16 @@ export default function Home() {
                 <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />
               </svg>
               YYC CoreScope
+            </a>
+            <a
+              href="#community-corescope-canada"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-xl border border-rose-500/30 hover:border-rose-400/60 bg-rose-500/8 hover:bg-rose-500/15 text-rose-300 hover:text-rose-200 font-500 text-sm transition-all duration-200 hover:shadow-[0_0_18px_rgba(244,63,94,0.2)]"
+              style={{ fontFamily: "'Outfit', sans-serif", fontWeight: 500 }}
+            >
+              <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M2 12h4l3-9 4 18 3-9h4" />
+              </svg>
+              CoreScope Analyzers
             </a>
           </div>
 

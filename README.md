@@ -82,6 +82,7 @@ All listed services are volunteer-run and community-maintained.
 | Battery & Solar Runtime Calculator | [cedarmesh.ca](https://cedarmesh.ca/battery_solar_runtime_calculator.html) | Estimate device runtime with battery packs and optional solar assist. A handy tool for planning off-grid Meshtastic deployments. |
 | RF Power & EIRP Estimator | [cedarmesh.ca](https://cedarmesh.ca/rf_power_eirp_estimator.html) | Calculate effective radiated power based on TX power, antenna gain, and cable/connector losses. Essential for planning compliant and optimized Meshtastic setups. |
 | CedarMesh Blog | [cedarmesh.ca](https://cedarmesh.ca/blog.html) | Updates, guides, and field notes from the GTA+ community. A growing resource for Meshtastic and MeshCore operators in the Greater Toronto Area. |
+| YYC MeshCore Network — CoreScope Channels | [corescopeyyc.meshmonitoring.com](https://corescopeyyc.meshmonitoring.com/#/channels) | Browse all active MeshCore channels heard by observer nodes across the YYC Calgary network. Lists channel names, activity levels, and the nodes using them — a live directory of community conversations flowing through the Calgary MeshCore mesh. |
 
 ### MeshCore Canada
 
@@ -319,6 +320,7 @@ All listed services are volunteer-run and community-maintained.
 
 | Service | URL | Region | Network |
 |---|---|---|---|
+| Canadaverse Mesh Monitor | [meshmon.canadaverse.org](https://meshmon.canadaverse.org/) | MeshMonitor instance for the Canadaverse network. Real-time monitoring of MeshCore node health, packet activity, and network coverage across the Canadaverse mesh. |
 | South Florida Mesh | [areyoumeshingwith.us](https://meshmonitor.yeraze.com/) | Monitoring the South Florida Meshtastic network with real-time updates and comprehensive coverage. |
 | Tampa Bay Area Mesh | [areyoumeshingwith.us](https://mesh.axiom-labs.dev/) | Monitoring the Tampa Bay Area and surrounding Meshtastic Network with real-time updates and comprehensive coverage. |
 | Central Oregon Mesh | [Central Oregon, US](http://192.81.132.42:8080/) | Community-maintained MeshMonitor instance monitoring the Central Oregon Meshtastic network. |
@@ -332,8 +334,9 @@ All listed services are volunteer-run and community-maintained.
 
 | Article | URL | Author | Description |
 |---|---|---|---|
+| Austin Mesh | [austinmesh.org](https://austinmesh.org) |  | Community-driven free text messaging mesh network built on Meshtastic in Austin, TX. Active community with regular meetups, educational resources, and a growing network of nodes across the Austin metro area. |
+| Central Texas Mesh — Discord | [discord.gg](https://discord.gg/StsH5BncsW) |  | Discord community for Central Texas Meshtastic mesh network operators. Connect with local mesh enthusiasts across the central Texas region. |
 | Cypress, Texas Meshtastic Club | [discord.gg](https://discord.gg/KzuwNRwE6q) |  | Local Meshtastic club for the Cypress, Texas area. Building community mesh coverage in the northwest Houston suburbs. |
-| Las Vegas Meshtastic Network | [lasmesh.com](https://lasmesh.com/) |  | Join a decentralized, off-grid communication network powered by Meshtastic in Las Vegas. Whether you\u2019re hiking, off-roading, preparing for emergencies, or coordinating at a crowded event, LASmesh provides a resilient alternative when traditional networks become unreliable. Las Vegas\u2019 unique terrain and urban density make it a prime location for mesh experimentation. |
 
 
 ---

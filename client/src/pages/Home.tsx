@@ -1704,6 +1704,22 @@ const communityServices: ServiceCard[] = [
     addedAt: "2026-07-01",
     verifiedAt: "2026-07-01",
   },
+  {
+    id: "corescope-yyc-channels",
+    title: "YYC MeshCore Network — CoreScope Channels",
+    subtitle: "CoreScope Channel Directory — 🇨🇦 Calgary, Alberta",
+    description:
+      "Browse all active MeshCore channels heard by observer nodes across the YYC Calgary network. Lists channel names, activity levels, and the nodes using them — a live directory of community conversations flowing through the Calgary MeshCore mesh.",
+    url: "https://corescopeyyc.meshmonitoring.com/#/channels",
+    badge: "Info",
+    badgeColor: "teal",
+    icon: <NetworkIcon className="w-6 h-6" />,
+    tag: "corescopeyyc.meshmonitoring.com",
+    note: "YYC Calgary",
+    noteUrl: "https://corescopeyyc.meshmonitoring.com/#/channels",
+    addedAt: "2026-07-02",
+    verifiedAt: "2026-07-02",
+  },
   // Canadaverse Extended additions
   {
     id: "canadaverse-meshmon",
@@ -3615,7 +3631,7 @@ export default function Home() {
               </a>
               <a href="#community-yyc-corescope" className="mono-label text-[10px] uppercase tracking-widest px-2.5 py-0.5 rounded-md transition-all duration-200 text-rose-400/70 hover:text-rose-300 hover:bg-rose-500/10 flex items-center gap-1">
                 YYC
-                <span className="inline-flex items-center justify-center h-3.5 min-w-3.5 px-1 rounded-full bg-rose-500/25 border border-rose-500/40 text-rose-200 text-[8px] font-bold leading-none">{communityServices.filter(c => ["corescope-yyc-live","corescope-yyc-map","corescope-yyc-observers"].includes(c.id)).length}</span>
+                <span className="inline-flex items-center justify-center h-3.5 min-w-3.5 px-1 rounded-full bg-rose-500/25 border border-rose-500/40 text-rose-200 text-[8px] font-bold leading-none">{communityServices.filter(c => ["corescope-yyc-live","corescope-yyc-map","corescope-yyc-observers","corescope-yyc-channels"].includes(c.id)).length}</span>
               </a>
               <a href="#community-meshcore-analyzers" className="mono-label text-[10px] uppercase tracking-widest px-2.5 py-0.5 rounded-md transition-all duration-200 text-rose-400/70 hover:text-rose-300 hover:bg-rose-500/10 flex items-center gap-1">
                 CoreScope
@@ -4527,7 +4543,7 @@ export default function Home() {
             const beaconIds         = ["beacon-meshcore-ca", "beacon-canadaverse"];
             const krabsLagoonIds = ["krabs-lagoon", "krabs-lagoon-room"];
             const socialIds      = ["discord-yyc-meshcore", "telegram-meshmonitoring-channel", "telegram-meshmonitoring-group"];
-            const yycCorescopeIds     = ["corescope-yyc-live", "corescope-yyc-map", "corescope-yyc-observers"];
+            const yycCorescopeIds     = ["corescope-yyc-live", "corescope-yyc-map", "corescope-yyc-observers", "corescope-yyc-channels"];
             const meshcoreAnalyzerIds = ["corescope-sfbay", "corescope-tennmesh", "corescope-boston", "corescope-cascadia", "corescope-swbc", "corescope-wcmesh", "corescope-letsmesh", "corescope-letsmesh-forum", "corescope-meshcore-ca-live", "corescope-cartolive-canada"];
 
             const SubGrp = ({ label, color, ids, startIdx, href, anchorId }: { label: string; color: string; ids: string[]; startIdx: number; href?: string; anchorId?: string }) => {

@@ -249,6 +249,22 @@ const openTextStyles: Record<ServiceCard["badgeColor"], string> = {
 
 const coreServices: ServiceCard[] = [
   {
+    id: "potatomesh",
+    title: "PotatoMesh",
+    subtitle: "Federated Node Dashboard — Meshtastic & MeshCore",
+    description:
+      "A federated, Meshtastic & MeshCore node dashboard for your local community. No MQTT clutter, just local LoRa. Self-hostable community dashboard that federates with other PotatoMesh instances across Canada and the USA.",
+    url: "https://potato.meshradionetworks.com/",
+    badge: "Dashboard",
+    badgeColor: "amber",
+    icon: <DashboardIcon className="w-6 h-6" />,
+    tag: "potato.meshradionetworks.com",
+    note: "Open PotatoMesh",
+    noteUrl: "https://potato.meshradionetworks.com/",
+    addedAt: "2026-07-04",
+    verifiedAt: "2026-07-04",
+  },
+  {
     id: "zapp-mobile",
     title: "YYC Mesh — Firehose (Zapp)",
     subtitle: "Observer Zapp Mobile — Calgary, Alberta",
@@ -3374,7 +3390,7 @@ export default function Home() {
   }
   const searchRef = useRef<HTMLInputElement>(null);
 
-  const TYPE_PILLS = ["All", "New", "Verified", "Stale", "Social", "Firehose", "Chat", "Map", "MeshView", "MeshMonitor", "MeshInfo", "Community", "Dashboard", "Bot", "Tool", "Software", "Wardriving", "Relay", "Directory", "Telegram", "Discord", "Article", "GTA+", "CoreScope", "MeshCore Beacons", "MeshCore", "Meshtastic"];
+  const TYPE_PILLS = ["All", "New", "Verified", "Stale", "Social", "Firehose", "Chat", "Map", "MeshView", "MeshMonitor", "MeshInfo", "Community", "Dashboard", "Bot", "Tool", "Software", "Wardriving", "Relay", "Directory", "Telegram", "Discord", "Article", "GTA+", "CoreScope", "MeshCore Beacons", "PotatoMesh", "MeshCore", "Meshtastic"];
 
   function matchesType(card: ServiceCard): boolean {
     if (activeType === "All") return true;
@@ -3411,6 +3427,15 @@ export default function Home() {
         card.title.toLowerCase().includes("corescope") ||
         card.subtitle?.toLowerCase().includes("corescope") ||
         card.description?.toLowerCase().includes("corescope")
+      );
+    }
+    if (activeType === "PotatoMesh") {
+      return !!(
+        card.id === "potatomesh" ||
+        card.tag?.includes("meshradionetworks.com") ||
+        card.title?.toLowerCase().includes("potatomesh") ||
+        card.subtitle?.toLowerCase().includes("potatomesh") ||
+        card.description?.toLowerCase().includes("potatomesh")
       );
     }
     if (activeType === "MeshCore") {
@@ -3501,6 +3526,13 @@ export default function Home() {
       c.title?.toLowerCase().includes("corescope") ||
       c.subtitle?.toLowerCase().includes("corescope") ||
       c.description?.toLowerCase().includes("corescope")
+    ).length,
+    PotatoMesh:   allCards.filter(c =>
+      c.id === "potatomesh" ||
+      c.tag?.includes("meshradionetworks.com") ||
+      c.title?.toLowerCase().includes("potatomesh") ||
+      c.subtitle?.toLowerCase().includes("potatomesh") ||
+      c.description?.toLowerCase().includes("potatomesh")
     ).length,
   };
 
@@ -4060,6 +4092,21 @@ export default function Home() {
               </svg>
             </a>
             <a
+              href="https://potato.meshradionetworks.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-xl border border-amber-500/30 hover:border-amber-400/60 bg-amber-500/8 hover:bg-amber-500/15 text-amber-300 hover:text-amber-200 font-500 text-sm transition-all duration-200 hover:shadow-[0_0_18px_rgba(245,158,11,0.2)]"
+              style={{ fontFamily: "'Outfit', sans-serif", fontWeight: 500 }}
+            >
+              <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <rect x="3" y="3" width="7" height="7" rx="1" />
+                <rect x="14" y="3" width="7" height="7" rx="1" />
+                <rect x="3" y="14" width="7" height="7" rx="1" />
+                <path d="M14 17.5h7M17.5 14v7" />
+              </svg>
+              PotatoMesh
+            </a>
+            <a
               href="https://meshtastic.org"
               target="_blank"
               rel="noopener noreferrer"
@@ -4417,7 +4464,9 @@ export default function Home() {
                                     ? "border-violet-500/60 bg-violet-500/15 text-violet-300"
                                     : pill === "MeshInfo"
                                       ? "border-indigo-500/60 bg-indigo-500/15 text-indigo-300"
-                                      : "border-blue-500/60 bg-blue-500/15 text-blue-300"
+                                      : pill === "PotatoMesh"
+                                        ? "border-amber-400/60 bg-amber-400/15 text-amber-200"
+                                        : "border-blue-500/60 bg-blue-500/15 text-blue-300"
                     : "border-white/10 bg-white/4 text-white/35 hover:text-white/60 hover:bg-white/8 hover:border-white/20"
                 }`}
               >

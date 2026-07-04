@@ -4130,6 +4130,17 @@ export default function Home() {
               PotatoMesh
             </a>
             <a
+              href="#canada-potatomesh"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-xl border border-amber-400/30 hover:border-amber-300/60 bg-amber-400/8 hover:bg-amber-400/15 text-amber-200 hover:text-amber-100 font-500 text-sm transition-all duration-200 hover:shadow-[0_0_18px_rgba(245,158,11,0.15)]"
+              style={{ fontFamily: "'Outfit', sans-serif", fontWeight: 500 }}
+            >
+              <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                <circle cx="12" cy="10" r="3" />
+              </svg>
+              PotatoMesh Canada
+            </a>
+            <a
               href="https://meshtastic.org"
               target="_blank"
               rel="noopener noreferrer"

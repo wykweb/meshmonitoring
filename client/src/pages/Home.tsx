@@ -265,6 +265,22 @@ const coreServices: ServiceCard[] = [
     verifiedAt: "2026-07-04",
   },
   {
+    id: "potatomesh-yyc",
+    title: "PotatoMesh — YYC Calgary",
+    subtitle: "Calgary, Alberta, Canada — Local LoRa Node Map",
+    description:
+      "PotatoMesh regional instance for the YYC Calgary mesh community. Displays a live local LoRa node map for Calgary and surrounding Alberta area. Federated with the broader PotatoMesh network — no MQTT, just local LoRa data.",
+    url: "https://potato.meshradionetworks.com/map",
+    badge: "Firehose",
+    badgeColor: "amber",
+    icon: <MapPinIcon className="w-6 h-6" />,
+    tag: "potato.meshradionetworks.com",
+    note: "Open YYC Node Map",
+    noteUrl: "https://potato.meshradionetworks.com/map",
+    addedAt: "2026-07-04",
+    verifiedAt: "2026-07-04",
+  },
+  {
     id: "zapp-mobile",
     title: "YYC Mesh — Firehose (Zapp)",
     subtitle: "Observer Zapp Mobile — Calgary, Alberta",
@@ -3554,6 +3570,7 @@ export default function Home() {
   const chatCanada     = coreServices.filter(c => c.badge === 'Chat').length;
   const firehoseCanada = coreServices.filter(c => c.badge === 'Firehose').length;
   const mapCanada      = coreServices.filter(c => c.badge !== 'Chat' && c.badge !== 'Firehose').length;
+  const potatoMeshCanada = coreServices.filter(c => c.id === 'potatomesh' || c.id === 'potatomesh-yyc').length;
 
   // Copy-link anchor state
   const [copiedAnchor, setCopiedAnchor] = useState<string | null>(null);
@@ -3660,6 +3677,10 @@ export default function Home() {
               <a href="#canada-maps" className="mono-label text-[10px] uppercase tracking-widest px-2.5 py-0.5 rounded-md transition-all duration-200 text-violet-400/70 hover:text-violet-300 hover:bg-violet-500/10 flex items-center gap-1">
                 Maps
                 {mapCanada > 0 && <span className="inline-flex items-center justify-center h-3.5 min-w-3.5 px-1 rounded-full bg-violet-500/25 border border-violet-500/40 text-violet-200 text-[8px] font-bold leading-none">{mapCanada}</span>}
+              </a>
+              <a href="#canada-potatomesh" className="mono-label text-[10px] uppercase tracking-widest px-2.5 py-0.5 rounded-md transition-all duration-200 text-amber-400/70 hover:text-amber-300 hover:bg-amber-500/10 flex items-center gap-1">
+                PotatoMesh
+                {potatoMeshCanada > 0 && <span className="inline-flex items-center justify-center h-3.5 min-w-3.5 px-1 rounded-full bg-amber-500/25 border border-amber-500/40 text-amber-200 text-[8px] font-bold leading-none">{potatoMeshCanada}</span>}
               </a>
             </>
           )}
@@ -3818,6 +3839,7 @@ export default function Home() {
               <span className="inline-flex items-center justify-center h-4 min-w-4 px-1 rounded-full bg-white/10 border border-white/15 text-white/50 text-[9px] font-bold leading-none" title="Total Canada Core services">{coreServices.length}</span>
               {firehoseCanada > 0 && <span className="inline-flex items-center gap-0.5 h-4 px-1.5 rounded-full bg-blue-500/20 border border-blue-500/30 text-blue-300 text-[9px] font-bold leading-none" title="Firehose feed cards">Firehose {firehoseCanada}</span>}
               {chatCanada > 0 && <span className="inline-flex items-center gap-0.5 h-4 px-1.5 rounded-full bg-cyan-500/20 border border-cyan-500/30 text-cyan-300 text-[9px] font-bold leading-none" title="Chat stream cards">Chat {chatCanada}</span>}
+              {potatoMeshCanada > 0 && <span className="inline-flex items-center gap-0.5 h-4 px-1.5 rounded-full bg-amber-500/20 border border-amber-500/30 text-amber-300 text-[9px] font-bold leading-none" title="PotatoMesh cards">PotatoMesh {potatoMeshCanada}</span>}
               {newCanada > 0 && <span className="inline-flex items-center justify-center h-4 min-w-4 px-1 rounded-full bg-emerald-500/20 border border-emerald-500/30 text-emerald-400 text-[9px] font-bold leading-none">{newCanada}</span>}       </a>
             <a href="#community" className="mono-label text-white/40 hover:text-cyan-300 text-xs uppercase tracking-widest px-3 py-1.5 rounded-lg hover:bg-cyan-500/10 transition-all duration-200 flex items-center gap-1.5">
               Community
@@ -3947,6 +3969,7 @@ export default function Home() {
               <span className="inline-flex items-center justify-center h-4 min-w-4 px-1 rounded-full bg-white/10 border border-white/15 text-white/50 text-[9px] font-bold leading-none" title="Total Canada Core services">{coreServices.length}</span>
               {firehoseCanada > 0 && <span className="inline-flex items-center gap-0.5 h-4 px-1.5 rounded-full bg-blue-500/20 border border-blue-500/30 text-blue-300 text-[9px] font-bold leading-none" title="Firehose feed cards">Firehose {firehoseCanada}</span>}
               {chatCanada > 0 && <span className="inline-flex items-center gap-0.5 h-4 px-1.5 rounded-full bg-cyan-500/20 border border-cyan-500/30 text-cyan-300 text-[9px] font-bold leading-none" title="Chat stream cards">Chat {chatCanada}</span>}
+              {potatoMeshCanada > 0 && <span className="inline-flex items-center gap-0.5 h-4 px-1.5 rounded-full bg-amber-500/20 border border-amber-500/30 text-amber-300 text-[9px] font-bold leading-none" title="PotatoMesh cards">PotatoMesh {potatoMeshCanada}</span>}
               {newCanada > 0 && <span className="inline-flex items-center justify-center h-4 min-w-4 px-1 rounded-full bg-emerald-500/20 border border-emerald-500/30 text-emerald-400 text-[9px] font-bold leading-none">{newCanada}</span>}
             </a>
             <a href="#community" onClick={() => setMobileMenuOpen(false)} className="mono-label text-white/60 hover:text-cyan-300 text-xs uppercase tracking-widest px-3 py-2.5 rounded-lg hover:bg-cyan-500/10 transition-all duration-200 flex items-center gap-1.5">
@@ -4528,7 +4551,8 @@ export default function Home() {
           </div>
 
 {(() => {
-            const firehoseCards = filteredCore.filter(c => c.badge === 'Firehose');
+            const potatoCards   = filteredCore.filter(c => c.id === 'potatomesh' || c.id === 'potatomesh-yyc');
+            const firehoseCards = filteredCore.filter(c => c.badge === 'Firehose' && c.id !== 'potatomesh' && c.id !== 'potatomesh-yyc');
             const chatCards     = filteredCore.filter(c => c.badge === 'Chat');
             const mapCards      = filteredCore.filter(c => c.badge !== 'Firehose' && c.badge !== 'Chat');
 
@@ -4590,9 +4614,10 @@ export default function Home() {
 
             return (
               <>
-                <CaSubGroup label="Firehose Feeds"  color="blue"   cards={firehoseCards} startIdx={0}                                          anchorId="canada-firehose" />
-                <CaSubGroup label="Chat Streams"     color="cyan"   cards={chatCards}     startIdx={firehoseCards.length}                          anchorId="canada-chat" />
-                <CaSubGroup label="Maps & Analysis"  color="violet" cards={mapCards}      startIdx={firehoseCards.length + chatCards.length}       anchorId="canada-maps" />
+                <CaSubGroup label="PotatoMesh"        color="amber"  cards={potatoCards}   startIdx={0}                                                                              anchorId="canada-potatomesh" href="https://potato.meshradionetworks.com/" />
+                <CaSubGroup label="Firehose Feeds"    color="blue"   cards={firehoseCards} startIdx={potatoCards.length}                                                             anchorId="canada-firehose" />
+                <CaSubGroup label="Chat Streams"       color="cyan"   cards={chatCards}     startIdx={potatoCards.length + firehoseCards.length}                                      anchorId="canada-chat" />
+                <CaSubGroup label="Maps & Analysis"   color="violet" cards={mapCards}      startIdx={potatoCards.length + firehoseCards.length + chatCards.length}                   anchorId="canada-maps" />
               </>
             );
           })()}

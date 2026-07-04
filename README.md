@@ -21,6 +21,7 @@ All listed services are volunteer-run and community-maintained.
 | Service | URL | Description |
 |---|---|---|
 | PotatoMesh | [potato.meshradionetworks.com](https://potato.meshradionetworks.com/) | A federated, Meshtastic & MeshCore node dashboard for your local community. No MQTT clutter, just local LoRa. Self-hostable community dashboard that federates with other PotatoMesh instances across Canada and the USA. |
+| PotatoMesh — YYC Calgary | [potato.meshradionetworks.com](https://potato.meshradionetworks.com/map) | PotatoMesh regional instance for the YYC Calgary mesh community. Displays a live local LoRa node map for Calgary and surrounding Alberta area. Federated with the broader PotatoMesh network — no MQTT, just local LoRa data. |
 | YYC Mesh — Firehose (Zapp) | [yycmesh.meshmonitoring.com](https://yycmesh.meshmonitoring.com/firehose) | Live firehose data stream from the YYC Mesh network via the Zapp Mobile observer node. Monitor real-time packet activity, node telemetry, and message traffic across the Calgary mesh. |
 | YYC Mesh — Firehose (WYK0) | [yyc.meshmonitoring.com](https://yyc.meshmonitoring.com/firehose) | Real-time firehose feed from the YYC Mesh network via the WYK0 bot observer. Track packet flow, signal quality, and node interactions across the YYC Meshtastic network. |
 | Malla — YYCMesh | [malla-yyc.meshmonitoring.com](https://malla-yyc.meshmonitoring.com/) | Live data from the YYC Meshtastic Custom Network via the Zapp Mobile observer node and Malla. Real-time packet flow, signal quality, and node interactions across the YYC mesh. |
@@ -44,7 +45,6 @@ All listed services are volunteer-run and community-maintained.
 | MeshMapper YYC | [yyc.meshmapper.net](https://yyc.meshmapper.net/) | Live MeshMapper instance visualizing real-world MeshCore RF coverage across Calgary. See where the mesh reaches, which repeaters provide the best coverage, and where the dead zones are in the YYC area. |
 | Canada Mesh — MeshView | [ca.meshmonitoring.com](https://ca.meshmonitoring.com/meshview) | National-scale MeshView instance displaying Meshtastic nodes and mesh activity from across Canada. Explore node positions, signal paths, and network topology at a country-wide level. |
 | YYC Mesh — MeshView | [yycmesh.meshmonitoring.com](https://yycmesh.meshmonitoring.com/meshview) | YYC-specific MeshView instance displaying Meshtastic nodes and mesh activity across the Calgary region. Explore node positions, signal paths, and local network topology in real time. |
-| Canada Mesh — MeshInfo | [ca.meshmonitoring.com](https://ca.meshmonitoring.com/meshinfo) | National-scale MeshInfo dashboard aggregating node data, telemetry, and mesh statistics from across Canada. Browse node details, hardware types, firmware versions, and network health at a country-wide level. |
 
 ### Canadaverse Network
 
@@ -60,6 +60,7 @@ All listed services are volunteer-run and community-maintained.
 
 | Service | URL | Description |
 |---|---|---|
+| EastMeSH | [eastme.sh](https://eastme.sh/) | Eastern US MeshCore is an initiative to bring all east coast MeshCore communities together in order to visualize the traffic between states from a single site. Aggregates live mesh traffic across the eastern seaboard into one unified view. |
 | CoreComms | [corecomms.net](https://corecomms.net/) | CoreComms is a comprehensive, real-time mesh network monitoring and telemetry platform designed to visualize, track, and diagnose mesh network traffic on a global scale. Provides live dashboards for MeshCore network health, node activity, and inter-community traffic. |
 | MeshCore Ninja — Firmwares | [meshcore.ninja](https://meshcore.ninja/firmwares/) | A comprehensive directory of MeshCore firmware builds and variants. Find the right firmware for your hardware, compare versions, and stay up to date with the latest MeshCore firmware releases across supported devices. |
 | MeshCore Ninja — Software | [meshcore.ninja](https://meshcore.ninja/software/) | A curated directory of MeshCore software tools, clients, and utilities. Discover apps, dashboards, and integrations built for the MeshCore ecosystem, all in one place. |
@@ -151,6 +152,7 @@ All listed services are volunteer-run and community-maintained.
 
 | Service | URL | Description |
 |---|---|---|
+| YYC Mesh — MeshInfo | [yycmesh.meshmonitoring.com](https://yycmesh.meshmonitoring.com/meshinfo) | YYC-specific MeshInfo dashboard aggregating node data, telemetry, and mesh statistics from the Calgary Meshtastic network. Browse node details, hardware types, firmware versions, and local network health. |
 | YYC MeshCore Network — CoreScope Firehose | [corescopeyyc.meshmonitoring.com](https://corescopeyyc.meshmonitoring.com/#/packets) | Live packet firehose from the YYC MeshCore Network via CoreScope. Real-time view of all packet activity, node telemetry, and mesh traffic flowing through the Calgary MeshCore network. |
 | YYC MeshCore Network — CoreScope Chats | [corescopeyyc.meshmonitoring.com](https://corescopeyyc.meshmonitoring.com/#/channels/%23chat) | Live chat channel stream from the YYC MeshCore Network via CoreScope. Browse real-time messages, channel traffic, and community conversations flowing through the Calgary MeshCore mesh. |
 | CedarMesh.ca — GTA+ Mesh Hub | [cedarmesh.ca](https://cedarmesh.ca) | Community hub for the Greater Toronto Area Meshtastic and MeshCore mesh network. Features setup guides, local mesh tools, a battery & solar calculator, RF power estimator, and a welcoming space for GTA+ mesh operators. |
@@ -171,7 +173,6 @@ All listed services are volunteer-run and community-maintained.
 | MeshMapper YYC | [yyc.meshmapper.net](https://yyc.meshmapper.net/) | Live MeshMapper instance visualizing real-world MeshCore RF coverage across Calgary (YYC). See where the mesh reaches, which repeaters provide the best coverage, and where the dead zones are. |
 | MeshMapper YOW | [yow.meshmapper.net](https://yow.meshmapper.net/) | Live MeshMapper instance visualizing real-world MeshCore RF coverage across Ottawa (YOW). Built and maintained by the Greater Ottawa Mesh Radio Enthusiasts. |
 | Mesh Web Relay | [relay.meshnard.com](https://relay.meshnard.com/) | A web-based relay for Meshtastic networks by meshnard. Connect to your local mesh from any browser — no app install required. Bridges Meshtastic MQTT traffic to a clean web interface for sending and receiving messages across the mesh. |
-| Interlink Radio | [interlinkradio.weebly.com](https://interlinkradio.weebly.com/) | A community resource hub sharing Telegram mesh chat groups, Discord mesh groups, and much more for Meshtastic and MeshCore enthusiasts. Created to help the community discover and connect with mesh chat groups worldwide. |
 
 ### USA — Dashboards
 
@@ -181,7 +182,6 @@ All listed services are volunteer-run and community-maintained.
 | Beacon — Canadaverse | [beacon.canadaverse.org](https://beacon.canadaverse.org/?tab=Map) | Beacon for Canadaverse-linked resources. A MeshCore Network Analyzer providing a live map and hub aggregating links, tools, and services connected to the Canadaverse MeshCore ecosystem. |
 | Beacon — MeshCore Canada | [dev.meshcore.ca](https://dev.meshcore.ca/?tab=Map) | BEACON MeshCore Network Analyzer for MeshCore Canada. Dev environment for MeshCore Canada — a live map and network analyzer providing real-time visibility into the Canadian MeshCore network, supporting new features and integrations. |
 | msh/US Meshtastic Metrics Exporter | [usmme.meshmonitoring.com](https://usmme.meshmonitoring.com/login) | Grafana dashboard for the msh/US Meshtastic Metrics Exporter. Visualise live and historical node metrics, packet rates, signal strength, and network health across the US Meshtastic mesh network. Guest access available with credentials guest / guest. |
-| TennMesh — CoreScope Live | [live.tennmesh.com](https://live.tennmesh.com/#/live) | Live CoreScope MeshCore analyzer for the Tennessee mesh network. Stream real-time packet traffic, explore active channels, and monitor observer coverage across TennMesh. |
 
 ### USA — MeshView & Map Viewers
 
@@ -299,6 +299,7 @@ All listed services are volunteer-run and community-maintained.
 
 | Service | URL | Region |
 |---|---|---|
+| YYC MeshCore Network — CoreScope Observers | [corescopeyyc.meshmonitoring.com](https://corescopeyyc.meshmonitoring.com/#/observers) | View all active CoreScope observer nodes contributing data to the YYC Calgary MeshCore network. Each observer is an MQTT-connected MeshCore node reporting packets it hears, enabling network-wide analysis and coverage mapping across the Calgary mesh. |
 | YYC MeshCore Network — CoreScope Channels | [corescopeyyc.meshmonitoring.com](https://corescopeyyc.meshmonitoring.com/#/channels) | Browse all active MeshCore channels heard by observer nodes across the YYC Calgary network. Lists channel names, activity levels, and the nodes using them — a live directory of community conversations flowing through the Calgary MeshCore mesh. |
 | Krabs Lagoon | [canadaverse.org](https://canadaverse.org/krab/lagoon/) | Live MeshCore Canada view showing active citizens, RF links, and neighbourhoods around the lagoon. A real-time visualisation of the Canadaverse mesh topology centred on the Krabs Lagoon node cluster. |
 | Krabs Lagoon Room | [term.canadaverse.org](https://term.canadaverse.org/) | Read-only room chat, packet activity, heard nodes, and observer health for the Krabs Lagoon area. A terminal-style view of real-time mesh activity from the Canadaverse Krabs Lagoon node cluster. |
@@ -336,9 +337,9 @@ All listed services are volunteer-run and community-maintained.
 
 | Article | URL | Author | Description |
 |---|---|---|---|
+| NC Mesh | [ncmesh.net](https://ncmesh.net/) |  | Community hub for the North Carolina Meshtastic mesh network. Provides node maps, channel resources, and community links for mesh operators across NC including Charlotte, Raleigh, Asheville, and the Research Triangle. |
 | Georgia Mesh | [georgiamesh.org](https://georgiamesh.org/) |  | Community hub for the Georgia Meshtastic mesh network. Covers Atlanta, Savannah, Augusta, and surrounding areas with node maps, channel information, and resources for mesh operators across the Peach State. |
 | NTX Mesh — DFW / North Texas | [ntxmesh.com](https://ntxmesh.com) |  | Community group building a mesh network of solar-powered Meshtastic and MeshCore radios across DFW and greater North Texas. Includes county-level modem preset maps, educational resources, and an active Discord community. |
-| Austin Mesh | [austinmesh.org](https://austinmesh.org) |  | Community-driven free text messaging mesh network built on Meshtastic in Austin, TX. Active community with regular meetups, educational resources, and a growing network of nodes across the Austin metro area. |
 
 
 ---

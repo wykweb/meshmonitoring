@@ -281,6 +281,70 @@ const coreServices: ServiceCard[] = [
     verifiedAt: "2026-07-04",
   },
   {
+    id: "alberta-meshcore",
+    title: "Alberta MeshCore",
+    subtitle: "AlbertaMesh.ca — Calgary, Edmonton & Alberta",
+    description:
+      "Community-supported project helping people across Calgary, Edmonton and Alberta build resilient, long-range text communication networks using affordable LoRa radio hardware. The hub for all Alberta MeshCore regional communities.",
+    url: "https://albertamesh.ca/",
+    badge: "Community",
+    badgeColor: "green",
+    icon: <NetworkIcon className="w-6 h-6" />,
+    tag: "albertamesh.ca",
+    note: "Open AlbertaMesh.ca",
+    noteUrl: "https://albertamesh.ca/",
+    addedAt: "2026-07-19",
+    verifiedAt: "2026-07-19",
+  },
+  {
+    id: "calgary-meshcore",
+    title: "Calgary MeshCore",
+    subtitle: "Calgary, Alberta — Initial Launch Region",
+    description:
+      "Calgary is the initial launch region for Alberta MeshCore (AlbertaMesh.ca). Join the Calgary MeshCore community to connect with local nodes, rooms, and operators across the city.",
+    url: "https://albertamesh.ca/calgary/",
+    badge: "Community",
+    badgeColor: "green",
+    icon: <MapPinIcon className="w-6 h-6" />,
+    tag: "albertamesh.ca",
+    note: "Open Calgary MeshCore",
+    noteUrl: "https://albertamesh.ca/calgary/",
+    addedAt: "2026-07-19",
+    verifiedAt: "2026-07-19",
+  },
+  {
+    id: "edmonton-meshcore",
+    title: "Edmonton MeshCore",
+    subtitle: "Edmonton, Alberta — Second Regional Community",
+    description:
+      "Edmonton is the second regional MeshCore community within the Alberta MeshCore network. Connect with Edmonton-area nodes, rooms, and operators on the AlbertaMesh.ca network.",
+    url: "https://albertamesh.ca/edmonton/",
+    badge: "Community",
+    badgeColor: "green",
+    icon: <MapPinIcon className="w-6 h-6" />,
+    tag: "albertamesh.ca",
+    note: "Open Edmonton MeshCore",
+    noteUrl: "https://albertamesh.ca/edmonton/",
+    addedAt: "2026-07-19",
+    verifiedAt: "2026-07-19",
+  },
+  {
+    id: "yegmesh",
+    title: "YEG Mesh — Edmonton",
+    subtitle: "Edmonton Mesh Network Community — yegmesh.ca",
+    description:
+      "Edmonton Mesh Network Community. Edmonton runs MeshCore — if you're new and undecided, start with MeshCore, that's where the local nodes, rooms, and operators are. Getting started guide for new Edmonton mesh users.",
+    url: "https://yegmesh.ca/p/getting-started",
+    badge: "Community",
+    badgeColor: "green",
+    icon: <GlobeIcon className="w-6 h-6" />,
+    tag: "yegmesh.ca",
+    note: "Getting Started Guide",
+    noteUrl: "https://yegmesh.ca/p/getting-started",
+    addedAt: "2026-07-19",
+    verifiedAt: "2026-07-19",
+  },
+  {
     id: "zapp-mobile",
     title: "YYC Mesh — Firehose (Zapp)",
     subtitle: "Observer Zapp Mobile — Calgary, Alberta",
@@ -3571,6 +3635,7 @@ export default function Home() {
   const firehoseCanada = coreServices.filter(c => c.badge === 'Firehose').length;
   const mapCanada      = coreServices.filter(c => c.badge !== 'Chat' && c.badge !== 'Firehose').length;
   const potatoMeshCanada = coreServices.filter(c => c.id === 'potatomesh' || c.id === 'potatomesh-yyc').length;
+  const albertaMeshCanada = coreServices.filter(c => ['alberta-meshcore', 'calgary-meshcore', 'edmonton-meshcore', 'yegmesh'].includes(c.id)).length;
 
   // Copy-link anchor state
   const [copiedAnchor, setCopiedAnchor] = useState<string | null>(null);
@@ -3681,6 +3746,10 @@ export default function Home() {
               <a href="#canada-potatomesh" className="mono-label text-[10px] uppercase tracking-widest px-2.5 py-0.5 rounded-md transition-all duration-200 text-amber-400/70 hover:text-amber-300 hover:bg-amber-500/10 flex items-center gap-1">
                 PotatoMesh
                 {potatoMeshCanada > 0 && <span className="inline-flex items-center justify-center h-3.5 min-w-3.5 px-1 rounded-full bg-amber-500/25 border border-amber-500/40 text-amber-200 text-[8px] font-bold leading-none">{potatoMeshCanada}</span>}
+              </a>
+              <a href="#canada-alberta" className="mono-label text-[10px] uppercase tracking-widest px-2.5 py-0.5 rounded-md transition-all duration-200 text-green-400/70 hover:text-green-300 hover:bg-green-500/10 flex items-center gap-1">
+                Alberta
+                {albertaMeshCanada > 0 && <span className="inline-flex items-center justify-center h-3.5 min-w-3.5 px-1 rounded-full bg-green-500/25 border border-green-500/40 text-green-200 text-[8px] font-bold leading-none">{albertaMeshCanada}</span>}
               </a>
             </>
           )}
@@ -3840,6 +3909,7 @@ export default function Home() {
               {firehoseCanada > 0 && <span className="inline-flex items-center gap-0.5 h-4 px-1.5 rounded-full bg-blue-500/20 border border-blue-500/30 text-blue-300 text-[9px] font-bold leading-none" title="Firehose feed cards">Firehose {firehoseCanada}</span>}
               {chatCanada > 0 && <span className="inline-flex items-center gap-0.5 h-4 px-1.5 rounded-full bg-cyan-500/20 border border-cyan-500/30 text-cyan-300 text-[9px] font-bold leading-none" title="Chat stream cards">Chat {chatCanada}</span>}
               {potatoMeshCanada > 0 && <span className="inline-flex items-center gap-0.5 h-4 px-1.5 rounded-full bg-amber-500/20 border border-amber-500/30 text-amber-300 text-[9px] font-bold leading-none" title="PotatoMesh cards">PotatoMesh {potatoMeshCanada}</span>}
+              {albertaMeshCanada > 0 && <span className="inline-flex items-center gap-0.5 h-4 px-1.5 rounded-full bg-green-500/20 border border-green-500/30 text-green-300 text-[9px] font-bold leading-none" title="Alberta MeshCore cards">Alberta {albertaMeshCanada}</span>}
               {newCanada > 0 && <span className="inline-flex items-center justify-center h-4 min-w-4 px-1 rounded-full bg-emerald-500/20 border border-emerald-500/30 text-emerald-400 text-[9px] font-bold leading-none">{newCanada}</span>}       </a>
             <a href="#community" className="mono-label text-white/40 hover:text-cyan-300 text-xs uppercase tracking-widest px-3 py-1.5 rounded-lg hover:bg-cyan-500/10 transition-all duration-200 flex items-center gap-1.5">
               Community
@@ -3970,6 +4040,7 @@ export default function Home() {
               {firehoseCanada > 0 && <span className="inline-flex items-center gap-0.5 h-4 px-1.5 rounded-full bg-blue-500/20 border border-blue-500/30 text-blue-300 text-[9px] font-bold leading-none" title="Firehose feed cards">Firehose {firehoseCanada}</span>}
               {chatCanada > 0 && <span className="inline-flex items-center gap-0.5 h-4 px-1.5 rounded-full bg-cyan-500/20 border border-cyan-500/30 text-cyan-300 text-[9px] font-bold leading-none" title="Chat stream cards">Chat {chatCanada}</span>}
               {potatoMeshCanada > 0 && <span className="inline-flex items-center gap-0.5 h-4 px-1.5 rounded-full bg-amber-500/20 border border-amber-500/30 text-amber-300 text-[9px] font-bold leading-none" title="PotatoMesh cards">PotatoMesh {potatoMeshCanada}</span>}
+              {albertaMeshCanada > 0 && <span className="inline-flex items-center gap-0.5 h-4 px-1.5 rounded-full bg-green-500/20 border border-green-500/30 text-green-300 text-[9px] font-bold leading-none" title="Alberta MeshCore cards">Alberta {albertaMeshCanada}</span>}
               {newCanada > 0 && <span className="inline-flex items-center justify-center h-4 min-w-4 px-1 rounded-full bg-emerald-500/20 border border-emerald-500/30 text-emerald-400 text-[9px] font-bold leading-none">{newCanada}</span>}
             </a>
             <a href="#community" onClick={() => setMobileMenuOpen(false)} className="mono-label text-white/60 hover:text-cyan-300 text-xs uppercase tracking-widest px-3 py-2.5 rounded-lg hover:bg-cyan-500/10 transition-all duration-200 flex items-center gap-1.5">
@@ -4139,6 +4210,20 @@ export default function Home() {
                 <circle cx="12" cy="10" r="3" />
               </svg>
               PotatoMesh Canada
+            </a>
+            <a
+              href="https://albertamesh.ca/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-xl border border-green-500/30 hover:border-green-400/60 bg-green-500/8 hover:bg-green-500/15 text-green-300 hover:text-green-200 font-500 text-sm transition-all duration-200 hover:shadow-[0_0_18px_rgba(34,197,94,0.2)]"
+              style={{ fontFamily: "'Outfit', sans-serif", fontWeight: 500 }}
+            >
+              <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M12 2L2 7l10 5 10-5-10-5z" />
+                <path d="M2 17l10 5 10-5" />
+                <path d="M2 12l10 5 10-5" />
+              </svg>
+              MeshCore Alberta
             </a>
             <a
               href="https://meshtastic.org"
@@ -4563,6 +4648,7 @@ export default function Home() {
 
 {(() => {
             const potatoCards   = filteredCore.filter(c => c.id === 'potatomesh' || c.id === 'potatomesh-yyc');
+            const albertaCards  = filteredCore.filter(c => ['alberta-meshcore', 'calgary-meshcore', 'edmonton-meshcore', 'yegmesh'].includes(c.id));
             const firehoseCards = filteredCore.filter(c => c.badge === 'Firehose' && c.id !== 'potatomesh' && c.id !== 'potatomesh-yyc');
             const chatCards     = filteredCore.filter(c => c.badge === 'Chat');
             const mapCards      = filteredCore.filter(c => c.badge !== 'Firehose' && c.badge !== 'Chat');
@@ -4574,6 +4660,7 @@ export default function Home() {
                 cyan:   { border: 'border-cyan-500/20',   bg: 'bg-cyan-500/8',   dot: 'bg-cyan-400',   text: 'text-cyan-400/80' },
                 violet: { border: 'border-violet-500/20', bg: 'bg-violet-500/8', dot: 'bg-violet-400', text: 'text-violet-400/80' },
                 amber:  { border: 'border-amber-500/20',  bg: 'bg-amber-500/8',  dot: 'bg-amber-400',  text: 'text-amber-400/80' },
+                green:  { border: 'border-green-500/20',  bg: 'bg-green-500/8',  dot: 'bg-green-400',  text: 'text-green-400/80' },
               };
               const c = colorMap[color] ?? colorMap.blue;
               const anchorHash = anchorId ? `#${anchorId}` : undefined;
@@ -4625,10 +4712,11 @@ export default function Home() {
 
             return (
               <>
-                <CaSubGroup label="PotatoMesh"        color="amber"  cards={potatoCards}   startIdx={0}                                                                              anchorId="canada-potatomesh" href="https://potato.meshradionetworks.com/" />
-                <CaSubGroup label="Firehose Feeds"    color="blue"   cards={firehoseCards} startIdx={potatoCards.length}                                                             anchorId="canada-firehose" />
-                <CaSubGroup label="Chat Streams"       color="cyan"   cards={chatCards}     startIdx={potatoCards.length + firehoseCards.length}                                      anchorId="canada-chat" />
-                <CaSubGroup label="Maps & Analysis"   color="violet" cards={mapCards}      startIdx={potatoCards.length + firehoseCards.length + chatCards.length}                   anchorId="canada-maps" />
+                <CaSubGroup label="PotatoMesh"          color="amber"  cards={potatoCards}   startIdx={0}                                                                                                        anchorId="canada-potatomesh" href="https://potato.meshradionetworks.com/" />
+                <CaSubGroup label="Alberta MeshCore"    color="green"  cards={albertaCards}  startIdx={potatoCards.length}                                                                                        anchorId="canada-alberta" href="https://albertamesh.ca/" />
+                <CaSubGroup label="Firehose Feeds"      color="blue"   cards={firehoseCards} startIdx={potatoCards.length + albertaCards.length}                                                                   anchorId="canada-firehose" />
+                <CaSubGroup label="Chat Streams"         color="cyan"   cards={chatCards}     startIdx={potatoCards.length + albertaCards.length + firehoseCards.length}                                           anchorId="canada-chat" />
+                <CaSubGroup label="Maps & Analysis"     color="violet" cards={mapCards}      startIdx={potatoCards.length + albertaCards.length + firehoseCards.length + chatCards.length}                        anchorId="canada-maps" />
               </>
             );
           })()}

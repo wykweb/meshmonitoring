@@ -393,6 +393,22 @@ const coreServices: ServiceCard[] = [
     verifiedAt: "2026-07-19",
   },
   {
+    id: "meshcore-canada-forums",
+    title: "MeshCore Canada Forums",
+    subtitle: "MeshCore Canada Community Forums — forum.meshcore.ca",
+    description:
+      "Official MeshCore Canada community forums. Discuss MeshCore nodes, network setup, regional communities, and technical topics with operators across Canada including Alberta, Calgary, Edmonton and beyond.",
+    url: "https://forum.meshcore.ca/",
+    badge: "Community",
+    badgeColor: "green",
+    icon: <MessageSquareIcon className="w-6 h-6" />,
+    tag: "forum.meshcore.ca",
+    note: "Open Forums",
+    noteUrl: "https://forum.meshcore.ca/",
+    addedAt: "2026-07-19",
+    verifiedAt: "2026-07-19",
+  },
+  {
     id: "zapp-mobile",
     title: "YYC Mesh — Firehose (Zapp)",
     subtitle: "Observer Zapp Mobile — Calgary, Alberta",
@@ -3683,7 +3699,7 @@ export default function Home() {
   const firehoseCanada = coreServices.filter(c => c.badge === 'Firehose').length;
   const mapCanada      = coreServices.filter(c => c.badge !== 'Chat' && c.badge !== 'Firehose').length;
   const potatoMeshCanada = coreServices.filter(c => c.id === 'potatomesh' || c.id === 'potatomesh-yyc').length;
-  const albertaMeshCanada = coreServices.filter(c => ['alberta-meshcore', 'calgary-meshcore', 'edmonton-meshcore', 'yegmesh', 'waev-app', 'meshrank-net', 'corecomms-net'].includes(c.id)).length;
+  const albertaMeshCanada = coreServices.filter(c => ['alberta-meshcore', 'calgary-meshcore', 'edmonton-meshcore', 'yegmesh', 'waev-app', 'meshrank-net', 'corecomms-net', 'meshcore-canada-forums'].includes(c.id)).length;
 
   // Copy-link anchor state
   const [copiedAnchor, setCopiedAnchor] = useState<string | null>(null);
@@ -4300,6 +4316,18 @@ export default function Home() {
               MeshRank.net
             </a>
             <a
+              href="https://forum.meshcore.ca/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-xl border border-green-400/30 hover:border-green-300/60 bg-green-400/8 hover:bg-green-400/15 text-green-200 hover:text-green-100 font-500 text-sm transition-all duration-200 hover:shadow-[0_0_18px_rgba(74,222,128,0.15)]"
+              style={{ fontFamily: "'Outfit', sans-serif", fontWeight: 500 }}
+            >
+              <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+              </svg>
+              MeshCore Forums
+            </a>
+            <a
               href="https://meshtastic.org"
               target="_blank"
               rel="noopener noreferrer"
@@ -4722,7 +4750,7 @@ export default function Home() {
 
 {(() => {
             const potatoCards   = filteredCore.filter(c => c.id === 'potatomesh' || c.id === 'potatomesh-yyc');
-            const albertaCards  = filteredCore.filter(c => ['alberta-meshcore', 'calgary-meshcore', 'edmonton-meshcore', 'yegmesh', 'waev-app', 'meshrank-net', 'corecomms-net'].includes(c.id));
+            const albertaCards  = filteredCore.filter(c => ['alberta-meshcore', 'calgary-meshcore', 'edmonton-meshcore', 'yegmesh', 'waev-app', 'meshrank-net', 'corecomms-net', 'meshcore-canada-forums'].includes(c.id));
             const firehoseCards = filteredCore.filter(c => c.badge === 'Firehose' && c.id !== 'potatomesh' && c.id !== 'potatomesh-yyc');
             const chatCards     = filteredCore.filter(c => c.badge === 'Chat');
             const mapCards      = filteredCore.filter(c => c.badge !== 'Firehose' && c.badge !== 'Chat');

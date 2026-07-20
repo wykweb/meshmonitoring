@@ -29,6 +29,7 @@ All listed services are volunteer-run and community-maintained.
 | WAEV — Calgary MeshCore Live Map | [waev.app](https://waev.app/#/live-map/@51.08967,-114.04690,9.23z) | WAEV is a real-time telemetry platform for MeshCore radio networks. Helps operators understand mesh traffic, monitor network health, and optimize coverage — all without compromising operator privacy. Live map centred on Calgary. |
 | MeshRank.net — Calgary Chat | [meshrank.net](https://www.meshrank.net/?channel=chat) | MeshRank.net provides network rankings and analytics for MeshCore communities. View Calgary chat channel activity, node rankings, and network statistics. Track operator performance and mesh health across the Alberta network. |
 | CoreComms.net — Calgary Packets | [corecomms.net](https://corecomms.net/packets) | CoreComms.net live packet monitor for the Calgary MeshCore network. View real-time packet activity, message traffic, and node telemetry across the Calgary mesh. A community tool for monitoring MeshCore network health. |
+| MeshCore Canada Forums | [forum.meshcore.ca](https://forum.meshcore.ca/) | Official MeshCore Canada community forums. Discuss MeshCore nodes, network setup, regional communities, and technical topics with operators across Canada including Alberta, Calgary, Edmonton and beyond. |
 | YYC Mesh — Firehose (Zapp) | [yycmesh.meshmonitoring.com](https://yycmesh.meshmonitoring.com/firehose) | Live firehose data stream from the YYC Mesh network via the Zapp Mobile observer node. Monitor real-time packet activity, node telemetry, and message traffic across the Calgary mesh. |
 | YYC Mesh — Firehose (WYK0) | [yyc.meshmonitoring.com](https://yyc.meshmonitoring.com/firehose) | Real-time firehose feed from the YYC Mesh network via the WYK0 bot observer. Track packet flow, signal quality, and node interactions across the YYC Meshtastic network. |
 | Malla — YYCMesh | [malla-yyc.meshmonitoring.com](https://malla-yyc.meshmonitoring.com/) | Live data from the YYC Meshtastic Custom Network via the Zapp Mobile observer node and Malla. Real-time packet flow, signal quality, and node interactions across the YYC mesh. |
@@ -44,7 +45,6 @@ All listed services are volunteer-run and community-maintained.
 | Canada Mesh — Chats | [ca.meshmonitoring.com](https://ca.meshmonitoring.com/chat) | Live chat stream aggregating messages from across the Canadian Meshtastic mesh network. Monitor real-time channel traffic, community conversations, and cross-regional message activity from coast to coast. |
 | YYC Mesh — Malla Chats | [malla-yyc.meshmonitoring.com](https://malla-yyc.meshmonitoring.com/chat) | Live chat stream from the YYC Mesh network on Malla dashboard. Browse real-time messages sent over the Calgary Meshtastic mesh, including channel traffic, direct messages, and community conversations as they happen on Malla. |
 | Malla US — Meshtastic Network Chats | [mshus.meshmonitoring.com](https://mshus.meshmonitoring.com/chat) | Live chat stream from the US Meshtastic network on Malla dashboard. Browse real-time messages sent across the USA Meshtastic mesh, including channel traffic, direct messages, and community conversations as they happen. |
-| Malla CA — Live Chat Stream | [mshca.meshmonitoring.com](https://mshca.meshmonitoring.com/chat) | Live chat stream from the Canadian Meshtastic network on Malla dashboard. Browse real-time messages sent across the Canadian and worldwide Meshtastic mesh, including channel traffic, direct messages, and community conversations. |
 
 ### Canadaverse Network
 
@@ -60,6 +60,7 @@ All listed services are volunteer-run and community-maintained.
 
 | Service | URL | Description |
 |---|---|---|
+| TC2-BBS-mesh | [github.com/TheCommsChannel](https://github.com/TheCommsChannel/TC2-BBS-mesh) | The TC\u00b2-BBS system integrated with Meshtastic devices. Supports message handling, bulletin boards, mail systems, and a channel directory for mesh network operators. |
 | MeshCore Analyzer — Add an Observer | [analyzer.letsmesh.net](https://analyzer.letsmesh.net/observer/onboard) | Observers are MQTT-connected MeshCore nodes that report the packets they hear to the MeshCore Analyzer service. By collecting data from multiple Observers across different locations, the service analyzes network reliability, packet routing, and coverage from many perspectives. Observers can be MeshCore repeaters, room servers, or companion devices. |
 | MeshInfo Lite | [github.com/dadecoza](https://github.com/dadecoza/meshinfo-lite) | A highly customized Python application that connects to an MQTT server receiving Meshtastic messages for visualizing and inspecting traffic. Uses MariaDB to persist content. Docker Compose support included for easy self-hosted deployment. |
 | MeshInfo | [github.com/MeshAddicts](https://github.com/MeshAddicts/meshinfo) | A real-time web application for visualizing and monitoring Meshtastic mesh networks. Connects to one or more MQTT brokers, decodes protobuf and JSON messages in real time, stores everything in PostgreSQL, and serves it through a FastAPI backend and React frontend. |
@@ -159,6 +160,7 @@ All listed services are volunteer-run and community-maintained.
 
 | Service | URL | Description |
 |---|---|---|
+| Canadaverse Mesh — Malla Network Chats | [canadaverse.meshmonitoring.com](https://canadaverse.meshmonitoring.com/chat) | Live chat stream from the Canadaverse national mesh network on Malla dashboard. Browse real-time messages from across the Canadaverse Meshtastic mesh, including channel traffic, direct messages, and community conversations. |
 | Grafana Dashboard — YYC Mesh Network | [yycmme.meshmonitoring.com](https://yycmme.meshmonitoring.com/login) | Grafana dashboard for the YYC Meshtastic Metrics Exporter (Zapp Mobile Observer). Visualise live and historical node metrics, packet rates, signal strength, and network health for the Calgary mesh. Log in with username \ |
 | YYC MeshMapper | [yyc.meshmapper.net](https://yyc.meshmapper.net/) | Interactive geographic map of the YYC MeshCore network. Visualize node locations, signal paths, and network topology across the Calgary region in real time. |
 | MeshCore Analyzer | [analyzer.letsmesh.net](https://analyzer.letsmesh.net/map) | Advanced mesh network analysis and visualization tool. Explore node relationships, routing paths, signal metrics, and network performance data for MeshCore deployments. |
@@ -178,7 +180,6 @@ All listed services are volunteer-run and community-maintained.
 | MeshCore Bot | [github.com/agessaman](https://github.com/agessaman/meshcore-bot) | A Python bot connecting to MeshCore networks via serial, BLE, or TCP/IP. Responds to keywords, executes plugin-based commands, and provides weather, solar conditions, and satellite pass data. Includes Discord bridge, MQTT packet capture, map uploader, rate limiting, user management, and scheduled messages. |
 | MeshMonitor | [meshmonitor.org](https://meshmonitor.org/) | Self-hosted Meshtastic monitoring with real-time maps, alerts, and full network awareness. |
 | MeshSense | [affirmatech.com](https://affirmatech.com/meshsense) | A simple, open-source application that monitors, maps and graphically displays all the vital stats of your area |
-| Meshtastic Metrics Exporter | [github.com/tcivie](https://github.com/tcivie/meshtastic-metrics-exporter) | Collects and stores comprehensive data from Meshtastic MQTT servers into TimescaleDB, with pre-configured Grafana dashboards for visualization and analysis of node telemetry and network activity. |
 
 ### USA — Dashboards
 
@@ -195,6 +196,7 @@ All listed services are volunteer-run and community-maintained.
 
 | Service | URL | Description |
 |---|---|---|
+| West Coast Mesh — CoreScope | [analyzer.wcmesh.com](https://analyzer.wcmesh.com/#/live) | Live MeshCore CoreScope analyzer for West Coast Mesh (WCMesh). Monitor real-time node activity, channel traffic, and network topology across the WCMesh community on the US West Coast. |
 | MeshCore Analyzer — LetsMesh.net | [analyzer.letsmesh.net](https://analyzer.letsmesh.net/nodes/repeaters) | Live MeshCore CoreScope analyzer for the LetsMesh.net network. Browse repeater nodes, track channel activity, and monitor network health across the LetsMesh community. |
 | MeshCore.ca — CoreScope Live | [live.meshcore.ca](https://live.meshcore.ca/#/live) | Live MeshCore CoreScope analyzer for the MeshCore Canada community. Monitor real-time node activity, channel traffic, and mesh connectivity across the Canadian MeshCore network. |
 | SF Bay Area Mesh | [meshview.bayme.sh](https://meshview.bayme.sh) | Meshtastic mesh network viewer for the San Francisco Bay Area. Explore active nodes, signal reports, and network activity across the Bay Area mesh community. |
@@ -344,9 +346,9 @@ All listed services are volunteer-run and community-maintained.
 
 | Article | URL | Author | Description |
 |---|---|---|---|
+| Florida Mesh — Node Map | [map.areyoumeshingwith.us](https://map.areyoumeshingwith.us/) | Network: Are You Meshing With Us? — areyoumeshingwith.us | Interactive live node map for the Florida Meshtastic mesh network. Explore active nodes, signal coverage, and network topology across the Sunshine State. |
 | OKMesh | [okmesh.org](https://okmesh.org/) |  | Community hub for the Oklahoma Meshtastic mesh network. Connects mesh operators across the state and provides resources for building and expanding the Oklahoma mesh. |
 | Tulsa Meshtastic | [tulsa-meshtastic.com](https://www.tulsa-meshtastic.com/) |  | Community hub for the Tulsa and Broken Arrow Meshtastic mesh network in Oklahoma. Supports local mesh operators and provides information on the Tulsa/OKMesh deployment. |
-| Meshconsin | [meshconsin.org](https://meshconsin.org/) |  | Community hub for the Wisconsin Meshtastic mesh network. Connects mesh operators across the state, with a focus on the Milwaukee area and broader Wisconsin mesh community. |
 
 
 ---

@@ -345,6 +345,54 @@ const coreServices: ServiceCard[] = [
     verifiedAt: "2026-07-19",
   },
   {
+    id: "waev-app",
+    title: "WAEV — Calgary MeshCore Live Map",
+    subtitle: "Real-Time Telemetry Platform — MeshCore Radio Networks",
+    description:
+      "WAEV is a real-time telemetry platform for MeshCore radio networks. Helps operators understand mesh traffic, monitor network health, and optimize coverage — all without compromising operator privacy. Live map centred on Calgary.",
+    url: "https://waev.app/#/live-map/@51.08967,-114.04690,9.23z",
+    badge: "Map",
+    badgeColor: "violet",
+    icon: <MapIcon className="w-6 h-6" />,
+    tag: "waev.app",
+    note: "Open WAEV Live Map",
+    noteUrl: "https://waev.app/#/live-map/@51.08967,-114.04690,9.23z",
+    addedAt: "2026-07-19",
+    verifiedAt: "2026-07-19",
+  },
+  {
+    id: "meshrank-net",
+    title: "MeshRank.net — Calgary Chat",
+    subtitle: "MeshCore Network Rankings — Chat Channel",
+    description:
+      "MeshRank.net provides network rankings and analytics for MeshCore communities. View Calgary chat channel activity, node rankings, and network statistics. Track operator performance and mesh health across the Alberta network.",
+    url: "https://www.meshrank.net/?channel=chat",
+    badge: "Map",
+    badgeColor: "violet",
+    icon: <AnalyzerIcon className="w-6 h-6" />,
+    tag: "meshrank.net",
+    note: "Open MeshRank Chat",
+    noteUrl: "https://www.meshrank.net/?channel=chat",
+    addedAt: "2026-07-19",
+    verifiedAt: "2026-07-19",
+  },
+  {
+    id: "corecomms-net",
+    title: "CoreComms.net — Calgary Packets",
+    subtitle: "Calgary MeshCore Packet Monitor — corecomms.net",
+    description:
+      "CoreComms.net live packet monitor for the Calgary MeshCore network. View real-time packet activity, message traffic, and node telemetry across the Calgary mesh. A community tool for monitoring MeshCore network health.",
+    url: "https://corecomms.net/packets",
+    badge: "Firehose",
+    badgeColor: "blue",
+    icon: <FirehoseIcon className="w-6 h-6" />,
+    tag: "corecomms.net",
+    note: "Open Packet Monitor",
+    noteUrl: "https://corecomms.net/packets",
+    addedAt: "2026-07-19",
+    verifiedAt: "2026-07-19",
+  },
+  {
     id: "zapp-mobile",
     title: "YYC Mesh — Firehose (Zapp)",
     subtitle: "Observer Zapp Mobile — Calgary, Alberta",
@@ -3635,7 +3683,7 @@ export default function Home() {
   const firehoseCanada = coreServices.filter(c => c.badge === 'Firehose').length;
   const mapCanada      = coreServices.filter(c => c.badge !== 'Chat' && c.badge !== 'Firehose').length;
   const potatoMeshCanada = coreServices.filter(c => c.id === 'potatomesh' || c.id === 'potatomesh-yyc').length;
-  const albertaMeshCanada = coreServices.filter(c => ['alberta-meshcore', 'calgary-meshcore', 'edmonton-meshcore', 'yegmesh'].includes(c.id)).length;
+  const albertaMeshCanada = coreServices.filter(c => ['alberta-meshcore', 'calgary-meshcore', 'edmonton-meshcore', 'yegmesh', 'waev-app', 'meshrank-net', 'corecomms-net'].includes(c.id)).length;
 
   // Copy-link anchor state
   const [copiedAnchor, setCopiedAnchor] = useState<string | null>(null);
@@ -4226,6 +4274,32 @@ export default function Home() {
               MeshCore Alberta
             </a>
             <a
+              href="https://waev.app/#/live-map/@51.08967,-114.04690,9.23z"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-xl border border-violet-500/30 hover:border-violet-400/60 bg-violet-500/8 hover:bg-violet-500/15 text-violet-300 hover:text-violet-200 font-500 text-sm transition-all duration-200 hover:shadow-[0_0_18px_rgba(139,92,246,0.2)]"
+              style={{ fontFamily: "'Outfit', sans-serif", fontWeight: 500 }}
+            >
+              <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <polygon points="3 11 22 2 13 21 11 13 3 11" />
+              </svg>
+              WAEV.app
+            </a>
+            <a
+              href="https://www.meshrank.net/?channel=chat"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-xl border border-violet-400/30 hover:border-violet-300/60 bg-violet-400/8 hover:bg-violet-400/15 text-violet-200 hover:text-violet-100 font-500 text-sm transition-all duration-200 hover:shadow-[0_0_18px_rgba(167,139,250,0.15)]"
+              style={{ fontFamily: "'Outfit', sans-serif", fontWeight: 500 }}
+            >
+              <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <line x1="18" y1="20" x2="18" y2="10" />
+                <line x1="12" y1="20" x2="12" y2="4" />
+                <line x1="6" y1="20" x2="6" y2="14" />
+              </svg>
+              MeshRank.net
+            </a>
+            <a
               href="https://meshtastic.org"
               target="_blank"
               rel="noopener noreferrer"
@@ -4648,7 +4722,7 @@ export default function Home() {
 
 {(() => {
             const potatoCards   = filteredCore.filter(c => c.id === 'potatomesh' || c.id === 'potatomesh-yyc');
-            const albertaCards  = filteredCore.filter(c => ['alberta-meshcore', 'calgary-meshcore', 'edmonton-meshcore', 'yegmesh'].includes(c.id));
+            const albertaCards  = filteredCore.filter(c => ['alberta-meshcore', 'calgary-meshcore', 'edmonton-meshcore', 'yegmesh', 'waev-app', 'meshrank-net', 'corecomms-net'].includes(c.id));
             const firehoseCards = filteredCore.filter(c => c.badge === 'Firehose' && c.id !== 'potatomesh' && c.id !== 'potatomesh-yyc');
             const chatCards     = filteredCore.filter(c => c.badge === 'Chat');
             const mapCards      = filteredCore.filter(c => c.badge !== 'Firehose' && c.badge !== 'Chat');
